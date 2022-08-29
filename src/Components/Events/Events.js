@@ -1,7 +1,7 @@
 import React from 'react'
 import EventCard from "../EventCard/EventCard"
 
-const Events = ({events}) => {
+const Events = ({events, type}) => {
 
   const eventCards = () => {
     return events.map(event => {
@@ -9,6 +9,7 @@ const Events = ({events}) => {
         <EventCard
         id={event.id}
         key={event.id}
+        type={type}
         title={event.title}
         description={event.description}
         date={event.date}

@@ -23,13 +23,13 @@ const Dashboard = () => {
       <div className="main-container">
 
         <div className="rsvp-eventcards">
-          <Events events={data.rsvpEvents} />
+          <Events events={data.rsvpEvents} type={"card"} />
         </div>
 
         <div className="event-list">
-          event list goes here
+          <Events events={data.eventsNearUser} type={"list"} />
         </div>
-        
+
       </div>
     </div>
   )

@@ -60,4 +60,11 @@ query queryUser($id: ID!) {
     time
     totalRsvpd
   }
+  eventsNearUser {
+    id
+    title
+    description
+    date
+    time
+  }
 }`
