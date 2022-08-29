@@ -15,9 +15,11 @@
 .rsvp-eventcards {
   flex-direction: column;
   width: 30%;
+  overflow: scroll;
 }
 
 .event-list {
   flex-direction: column;
   width: 70%;
+  overflow: scroll;
 }

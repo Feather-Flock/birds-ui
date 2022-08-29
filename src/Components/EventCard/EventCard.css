@@ -1,17 +1,55 @@
 .event-card {
+  display: flex;
+  flex-direction: column;
   margin: 10px;
   width: 90%;
   height: 10em;
-  border: 3px solid black;
+  border: 1px solid black;
+  /* border-radius: 25px */
 }
 
 .event-list-item {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
   width: 90%;
   margin: 10px;
+  margin-bottom: 25px;
   height: 8em;
-  border: 3px solid blue;
+  border: 1px solid;
+  border-radius: 25px
 }
+
+.date-container {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.time-container {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.title-container {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.event-list-item:hover,
+.event-card:hover{
+  padding: 5px;
+  box-shadow: 0 0 5px 10px rgb(141,106,159, .4);
+  border: none;
+}
+
+.event-date {
+  align-items: self-end;
+  border: 3px solid black;
+  padding: 10px;
+  height: 4em;
+  width: 4em;
+}
+
