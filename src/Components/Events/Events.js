@@ -5,9 +5,10 @@ const Events = ({events}) => {
 
   const eventCards = () => {
     return events.map(event => {
-      return(
+      return ( 
         <EventCard
         id={event.id}
+        key={event.id}
         title={event.title}
         description={event.description}
         date={event.date}
@@ -18,7 +19,7 @@ const Events = ({events}) => {
   }
 
   return (
-    <div>{eventCards}</div>
+    <div>{eventCards()}</div>
   )
 }
 
