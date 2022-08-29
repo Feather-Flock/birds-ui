@@ -6,27 +6,37 @@ html {
 }
 
 form {
+  padding: 5%;
   background-color: #EAEAEA;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 80%;
 }
 
 .event-input {
   background-color: #FAFBFF;
-  height: 5%;
+  height: 7%;
   width: 40%;
   margin: 1%;
   border: none;
-  border-radius: 5px;
-  box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.25);
 }
+.submit-event:hover {
+    background-image: linear-gradient(to right, #F1E9B0 , #EE9B6C);
+}
+
 .submit-event {
   width: 15%;
   height: 12%;
   border: none;
   border-radius: 5px;
-  box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.25);
+  margin-left: 10%;
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.25);
   background-image: linear-gradient(to right, #F2D069 , #E55353);
+}
+.description {
+  width:60%;
+  height:35%;
 }
 .form-wrapper {
   width: 95vw;
