@@ -1,17 +1,71 @@
-.user-profile-page {
+* {
   margin: 0;
+  text-align: center;
+}
+
+.user-profile-page {
   padding: 0;
   display: flex;
   justify-content: space-around;
+}
+
+.left-container,
+.right-container {
+  width: 565px;
+  height: 749px;
+  /* left: 122px;
+  top: 114px; */
+  border: 2px solid pink;
+}
+
+.profile-picture-wrapper {
+  width: 565px;
+  height: 288px;
+  /* left: 136px;
+  top: 114px; */
   border: 2px solid magenta;
 }
 
-.left-container {
-  height: 2em;
-  border: 2px solid green
+.profile-picture {
+  /* width: 565px;
+  height: 288px; */
+  object-fit: contain;
 }
 
-.right-container {
-  height: 2em;
-  border: 2px solid blue
-}
+.name-wrapper,
+.location-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 565px;
+  height: 48px;
+  /* left: 122px;
+  top: 419px; */
+  border: 2px solid black;
+ }
+
+ .description-text-box {
+  width: 565px;
+  height: 191px;
+  /* left: 122px;
+  top: 543px; */
+  border: 2px solid black;
+ }
+
+ .tag-container {
+  width: 565px;
+  height: 112px;
+  /* left: 122px;
+  top: 751px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid black;
+ }
+
+ .tag-title {
+  padding: 5px;
+  border-radius: 12px;
+  border: 2px solid green;
+ }
