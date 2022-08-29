@@ -12,23 +12,12 @@ const client = new ApolloClient({
 
 const App = () =>  {
 
-  const { loading, error, data } = useQuery(GET_USER_BY_ID)
   return (
     <ApolloProvider client={client}>     
-      <div className="dashboard-container">
-        <nav>
-          <h1 className="welcome-user">{Welcome Amber!}</h1>
-          <NavLink className="nav-create-event">Create Event</NavLink>
-        </nav>
-        <div className="main-container">
-          <div className="rsvp-eventcards">
-            
-          </div>
-          <div className="event-list">
+      <Route>
+        <Dashboard />
+      </Route>
 
-          </div>
-        </div>
-      </div>
     </ApolloProvider>
   );
 }
