@@ -73,7 +73,7 @@
   justify-content: space-between;
   width: 600px;
   height: 749px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .event-container {
