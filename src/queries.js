@@ -1,4 +1,4 @@
-// import { gql } from "@apollo/client";
+import { gql } from "@apollo/client";
 
 // "user": {
 //   "id": "int",
@@ -42,20 +42,29 @@
 // }
 
 
-// export const GET_USER_BY_ID = gql`
-// query getUserById($id: ID!) {
-//   getUserById(id: $id) {
-//     id
-//     userName
-//   	email
-//     image
-//     descriptionOfFamily
-//     userEvents {
-//       title
-//     }
-//     rsvpEvents {
-//       title
-//       date
-//     }
-//   }
-// }`
+export const GET_USER_BY_ID = gql`
+query queryUser($id: ID!) {
+  id
+  userName
+  email
+  image
+  zipCode
+  rsvpEvents {
+    id
+    title
+    description
+    zipCode
+    lat
+    lng
+    date
+    time
+    totalRsvpd
+  }
+  eventsNearUser {
+    id
+    title
+    description
+    date
+    time
+  }
+}`
