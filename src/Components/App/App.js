@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import UserProfile from "../UserProfile/UserProfile";
 import { GET_USER_BY_ID } from "../../queries";
 import Dashboard from "../Dashboard/Dashboard";
 
@@ -25,7 +26,7 @@ const App = () =>  {
           <EventForm />
         </Route>
       </div>
-
+      <UserProfile />
     </ApolloProvider>
   );
 }
