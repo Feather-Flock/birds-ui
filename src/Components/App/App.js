@@ -12,9 +12,9 @@ const client = new ApolloClient({
 const App = () =>  {
   return (
     <ApolloProvider client={client}>
-      <div className="App">
+      {/* <div className="App">
         <h1 className="App-header"> Hello world!</h1>
-      </div>
+      </div> */}
       <UserProfile />
     </ApolloProvider>
   );

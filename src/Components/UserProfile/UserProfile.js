@@ -39,11 +39,8 @@ const UserProfile = () => {
 
 
       <section className="right-container">
-
         <div className="event-container">
-          <div className="attending-wrapper">
-            <h2 className="attending-header">Attending</h2>
-          </div>
+          <h2 className="attending-header">Attending</h2>
 
           <div className="event-picture-wrapper">
             <img className="event-picture" alt="event festivities"></img>
@@ -66,6 +63,21 @@ const UserProfile = () => {
 
           <div className="title-and-rsvp-container">
             <h3 className="title">City Park for Games</h3>
+            <button className="rsvp-button">RSVP!</button>
+          </div>
+        </div>
+
+        <div className="event-container">
+          <div className="attending-wrapper">
+            <h2 className="attending-header">Attending</h2>
+          </div>
+
+          <div className="event-picture-wrapper">
+            <img className="event-picture" alt="event festivities"></img>
+          </div>
+
+          <div className="title-and-rsvp-container">
+            <h3 className="title">Another event here!</h3>
             <button className="rsvp-button">RSVP!</button>
           </div>
         </div>
