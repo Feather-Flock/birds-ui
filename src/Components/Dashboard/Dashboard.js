@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./Dashboard.css"
+import Events from "../Events/Events"
 
 
 const Dashboard = () => {
@@ -20,12 +21,15 @@ const Dashboard = () => {
         <NavLink to="/createEvent" className="nav-create-event">Create Event</NavLink>
       </nav>
       <div className="main-container">
+
         <div className="rsvp-eventcards">
-          event Card goes here
+          <Events events={data.rsvpEvents} />
         </div>
+
         <div className="event-list">
           event list goes here
         </div>
+        
       </div>
     </div>
   )
