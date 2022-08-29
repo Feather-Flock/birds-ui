@@ -18,13 +18,12 @@
   justify-content: space-between;
   width: 565px;
   height: 749px;
-  border: 2px solid pink;
 }
 
 .profile-picture-wrapper {
   width: 565px;
   height: 288px;
-  border: 2px solid magenta;
+  border: 2px solid black;
 }
 
 .profile-picture {
@@ -62,7 +61,7 @@
 .tag-title {
   padding: 5px;
   border-radius: 12px;
-  border: 2px solid green;
+  border: 2px solid black;
 }
 
 /* Right Container */
@@ -74,7 +73,6 @@
   justify-content: space-between;
   width: 600px;
   height: 749px;
-  border: 2px solid pink;
   overflow: scroll;
 }
 
@@ -97,7 +95,7 @@
 .event-picture-wrapper {
   width: 576px;
   height: 166px;
-  border: 2px solid magenta;
+  border: 2px solid black;
 }
 
 .event-picture {
@@ -112,11 +110,5 @@
   align-items: center;
   width: 576px;
   height: 65px;
+  border: 2px solid black;
 }
-
-
-
-
-
-
-
