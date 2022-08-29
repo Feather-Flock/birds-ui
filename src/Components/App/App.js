@@ -5,6 +5,7 @@ import { GET_USER_BY_ID } from "../../queries";
 import Dashboard from "../Dashboard/Dashboard";
 
 import './App.css';
+import EventForm from '../EventForm/EventForm'
 
 
 const client = new ApolloClient({
@@ -15,10 +16,15 @@ const client = new ApolloClient({
 const App = () =>  {
 
   return (
-    <ApolloProvider client={client}>     
-      <Route exact path="/">
-        <Dashboard />
-      </Route>
+    <ApolloProvider client={client}>
+      <div className="App">
+        <Route exact path="/">
+          <Dashboard />
+        </Route>
+        <Route exact path="/New-Event">
+          <EventForm />
+        </Route>
+      </div>
 
     </ApolloProvider>
   );
