@@ -1,3 +1,9 @@
+html {
+  background-color: #667B4F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 form {
   background-color: #EAEAEA;
@@ -7,12 +13,22 @@ form {
 
 .event-input {
   background-color: #FAFBFF;
+  height: 5%;
+  width: 40%;
+  margin: 1%;
   border: none;
-  border-radius: 5%;
+  border-radius: 5px;
   box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.25);
 }
-
+.submit-event {
+  width: 15%;
+  height: 12%;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.25);
+  background-image: linear-gradient(to right, #F2D069 , #E55353);
+}
 .form-wrapper {
-  width: 100vw;
-  height: 100vh;
+  width: 95vw;
+  height: 95vh;
 }
