@@ -42,20 +42,29 @@
 // }
 
 
-// export const GET_USER_BY_ID = gql`
-// query getUserById($id: ID!) {
-//   getUserById(id: $id) {
-//     id
-//     userName
-//   	email
-//     image
-//     descriptionOfFamily
-//     userEvents {
-//       title
-//     }
-//     rsvpEvents {
-//       title
-//       date
-//     }
-//   }
-// }`
+export const GET_USER_BY_ID = gql`
+query getUserById($id: ID!) {
+  getUserById(id: $id) {
+    id
+    userName
+  	email
+    image
+    rsvpEvents {
+      id
+      title
+      description
+      zipCode
+      lat
+      lng
+      date
+      time
+      creatorId
+      totalRsvpd
+    }
+    eventsNearMe {
+      id
+      title
+      date
+    }
+  }
+}`
