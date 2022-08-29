@@ -1,11 +1,12 @@
 import React from "react";
 import "./UserProfile.css";
 
-// will use id to grab the user
-// need to hold state with the user
-// User for one user
-// state
+// Does this component need state?
+// How does the data look? Will be grabbing a user via ID
 
+// Will need to map over user tags
+// Will need to map over the events
+// Will need a different view for current logged in user vs. other user
 
 const UserProfile = () => {
   return (
@@ -36,7 +37,6 @@ const UserProfile = () => {
           <p className="tag-title">Monogamous</p>
         </div>
       </section>
-
 
       <section className="right-container">
         <div className="event-container">
@@ -83,7 +83,6 @@ const UserProfile = () => {
         </div>
   
       </section>
-    
     </div>
   )
 };
