@@ -16,16 +16,18 @@ function EventModal({eventInfo}) {
     <div className='event-modal'>
       <h1>{event.title}</h1>
       <button className='close-button'>X</button>
-      <div>
-        <h3>{event.date}</h3>
-        <h3>{event.time}</h3>
-        <img className='event-img' src='https://www.illustrationsof.com/royalty-free-rf-art-museum-clipart-illustration-by-nl-shop-stock-sample-432030.jpg'></img>
-        <p>{event.description}</p>
-        <p>{event.location}</p>
-      </div>
-      <div>
-        <h1>{event.familyName}</h1>
-        <img className='event-img' src='https://upload.wikimedia.org/wikipedia/commons/c/c5/Males_Anas_platyrhynchos_2.jpg'/>
+      <div className='modal-grid'>
+        <div>
+          <h3>{event.date}</h3>
+          <h3>{event.time}</h3>
+          <img className='event-img' src='https://www.illustrationsof.com/royalty-free-rf-art-museum-clipart-illustration-by-nl-shop-stock-sample-432030.jpg'></img>
+          <p>{event.description}</p>
+          <p>{event.location}</p>
+        </div>
+        <div>
+          <h1>{event.familyName}</h1>
+          <img className='event-img' src='https://upload.wikimedia.org/wikipedia/commons/c/c5/Males_Anas_platyrhynchos_2.jpg'/>
+        </div>
       </div>
     </div>
   )
