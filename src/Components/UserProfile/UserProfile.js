@@ -11,25 +11,25 @@ import "./UserProfile.css";
 const UserProfile = () => {
   return (
     <div className="user-profile-page">
-    
+
       <section className="left-container">
         <div className="profile-picture-wrapper">
           <img className="profile-picture" alt="family profile"></img>
         </div>
-        
+
         <div className="name-wrapper">
           <h2 className="family-name">The XXXXXXXXX Family</h2>
         </div>
 
         <div className="location-wrapper">
-          <span class="material-symbols-outlined">pin_drop</span>
+          <span className="material-symbols-outlined">pin_drop</span>
           <h3 className="location">Denver, CO</h3>
         </div>
 
         <p className="description-text-box">
           Description of your family
         </p>
-      
+
         <div className="tag-container">
           <p className="tag-title">2 Kids</p>
           <p className="tag-title">MLM</p>
@@ -81,7 +81,7 @@ const UserProfile = () => {
             <button className="rsvp-button">RSVP!</button>
           </div>
         </div>
-  
+
       </section>
     </div>
   )

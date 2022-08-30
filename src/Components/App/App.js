@@ -7,6 +7,7 @@ import Dashboard from "../Dashboard/Dashboard";
 
 import './App.css';
 import EventForm from '../EventForm/EventForm'
+import EventModal from '../EventModal/EventModal'
 
 
 const client = new ApolloClient({
@@ -19,14 +20,17 @@ const App = () =>  {
   return (
     <ApolloProvider client={client}>
       <div className="App">
+        <EventModal/>
         <Route exact path="/">
           <Dashboard />
         </Route>
         <Route exact path="/New-Event">
           <EventForm />
         </Route>
+        <Route exact path ="/Profile">
+          <UserProfile />
+        </Route>
       </div>
-      <UserProfile />
     </ApolloProvider>
   );
 }
