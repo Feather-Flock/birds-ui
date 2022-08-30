@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink, Route, Switch } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import './App.css';
@@ -17,18 +17,17 @@ const App = () =>  {
 
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        {/* <Route exact path="/">
+      <Switch>
+        <Route exact path="/">
           <Dashboard />
-        </Route> */}
+        </Route>
         <Route exact path="/New-Event">
           <EventForm />
         </Route>
         <Route exact path="/User-Profile">
           <UserProfile />
         </Route>
-      </div>
-      <UserProfile />
+      </Switch>
     </ApolloProvider>
   );
 }

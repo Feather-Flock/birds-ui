@@ -18,7 +18,7 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <nav className="nav-bar">
         <h1 className="welcome-user">Welcome {data.userName}!</h1>
-        <NavLink to="/createEvent" className="nav-create-event">Create Event</NavLink>
+        <NavLink to="/New-Event" className="nav-create-event">Create Event</NavLink>
       </nav>
       <div className="main-container">
 
