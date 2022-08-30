@@ -1,7 +1,32 @@
-import React from 'react'
+import React, {useState } from 'react'
 import './EventModal.css'
+import Modal from 'react-modal';
+import ReactDOM from 'react-dom';
+
+Modal.setAppElement('#root');
 
 function EventModal({eventInfo}) {
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true)
+    console.log('clicked')
+  }
+
+  const closeModal = () => {
+    setIsOpen(false)
+    console.log('closed')
+  }
+
+  const customStyles = {
+  content: {
+    position: 'fixed',
+    right: 'auto',
+    marginLeft: '10%',
+    bottom: 'auto',
+  },
+};
 
   const event = {familyName: 'The Waterbills',
   familyID: 3,
@@ -13,8 +38,15 @@ function EventModal({eventInfo}) {
   familyTags: ['mlm', '1 kid', 'daughter', 'gay', 'tween']}
 
   return (
-    <div className='event-modal'>
-      <button className='close-button'>X</button>
+    <>
+    <button onClick={openModal}>Open Modal</button>
+    <Modal id='event'
+    className='event-modal'
+     isOpen={modalIsOpen}
+     onRequestClose={closeModal}
+     style={customStyles}>
+      <button onClick={closeModal}
+      className='close-button'>X</button>
       <div className='modal-grid'>
         <div>
           <h1>{event.title}</h1>
@@ -32,7 +64,8 @@ function EventModal({eventInfo}) {
           <button>View Family Profile</button>
         </div>
       </div>
-    </div>
+    </Modal>
+    </>
   )
 }
 
