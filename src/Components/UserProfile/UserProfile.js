@@ -4,6 +4,7 @@ import { GET_USER_BY_ID } from "../../queries";
 import "./UserProfile.css";
 
 // SETUP AS A FAMILY VIEW FROM THE EVENT DETAILS PAGE
+// Can use a query hook for data for DRY code
 
 const UserProfile = () => {
   const {loading, error, data} = useQuery(GET_USER_BY_ID, {
@@ -15,7 +16,8 @@ const UserProfile = () => {
 
   const rsvpdEvents = data.rsvpEvents.map(event => {
     // Change to an EventCard component when Blue finishes
-    // Need an event photo?
+    // Need event image from BE
+
     return (
       <div className="event-container">
         <h2 className="attending-header">Attending</h2>
@@ -31,6 +33,8 @@ const UserProfile = () => {
     )
   });
 
+  // Will need to iterate over tags to render them:
+  
   // const tags = data.tags.map(tag => {
   //   return (
   //     <p className="tag-title">tag.title</p>
