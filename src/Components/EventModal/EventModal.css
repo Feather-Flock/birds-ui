@@ -1,0 +1,19 @@
+
+
+.event-img {
+  width: 20%;
+  height: 20%;
+}
+
+.event-modal {
+  width: 80%;
+  height: 80%;
+  background-color: #C9DBDC;
+}
+
+.close-button {
+  float: right;
+  margin-left: 60%;
+  border:none;
+  background-color: none;
+}

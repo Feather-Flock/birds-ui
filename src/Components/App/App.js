@@ -21,7 +21,7 @@ const App = () =>  {
     <ApolloProvider client={client}>
       <div className="App">
         <EventModal/>
-        <Route exact path="/">
+        <Route exact path="/secret">
           <Dashboard />
         </Route>
         <Route exact path="/New-Event">

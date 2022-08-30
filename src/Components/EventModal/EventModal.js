@@ -13,13 +13,20 @@ function EventModal({eventInfo}) {
   familyTags: ['mlm', '1 kid', 'daughter', 'gay', 'tween']}
 
   return (
-    <div>
+    <div className='event-modal'>
       <h1>{event.title}</h1>
-      <h3>{event.date}</h3>
-      <h3>{event.time}</h3>
-      <img src='https://dribbble.com/tags/museum_illustration'></img>
-      <p>{event.description}</p>
-      <p>{event.location}</p>
+      <button className='close-button'>X</button>
+      <div>
+        <h3>{event.date}</h3>
+        <h3>{event.time}</h3>
+        <img className='event-img' src='https://www.illustrationsof.com/royalty-free-rf-art-museum-clipart-illustration-by-nl-shop-stock-sample-432030.jpg'></img>
+        <p>{event.description}</p>
+        <p>{event.location}</p>
+      </div>
+      <div>
+        <h1>{event.familyName}</h1>
+        <img className='event-img' src='https://upload.wikimedia.org/wikipedia/commons/c/c5/Males_Anas_platyrhynchos_2.jpg'/>
+      </div>
     </div>
   )
 }
