@@ -5,7 +5,7 @@ function EventModal({eventInfo}) {
 
   const event = {familyName: 'The Waterbills',
   familyID: 3,
-  date: '09/10/2022',
+  date: 'September 10,',
   time: '2:00pm-4:00pm',
   location: 'The Art Museum',
   title:'A Trip To the Art Museum',
@@ -14,12 +14,11 @@ function EventModal({eventInfo}) {
 
   return (
     <div className='event-modal'>
-      <h1>{event.title}</h1>
       <button className='close-button'>X</button>
+      <h1>{event.title}</h1>
       <div className='modal-grid'>
         <div>
-          <h3>{event.date}</h3>
-          <h3>{event.time}</h3>
+          <h3>{`${event.date}  ${event.time}`}</h3>
           <img className='event-img' src='https://www.illustrationsof.com/royalty-free-rf-art-museum-clipart-illustration-by-nl-shop-stock-sample-432030.jpg'></img>
           <p>{event.description}</p>
           <p>{event.location}</p>
