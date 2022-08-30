@@ -7,7 +7,7 @@ import Events from "../Events/Events"
 
 const Dashboard = () => {
   const {loading, error, data} = useQuery(GET_USER_BY_ID, {
-    variables: {"id": "1"}
+    variables: {"id": process.env.REACT_APP_USER_ID}
   })
 
   useEffect(() => { //the following useEffect is what adds the map to the modal
@@ -25,37 +25,16 @@ const Dashboard = () => {
       });
 
       // markers
-      // Center
-      window.L.marker([39.73352, -104.965847], { //to hover over marker it shows LV
-        icon: window.L.mapquest.icons.marker(),
-        draggable: true
-      }).bindPopup("Denver, CO").addTo(map);
-
-      // // Top Right
-      // window.L.marker([39.78352, -104.8665847], { //to hover over marker it shows LV
-      //   icon: window.L.mapquest.icons.marker(),
-      //   draggable: false
-      // }).bindPopup("Denver, CO").addTo(map);
-
-      // // Bottom Right
-      // window.L.marker([39.68352, -104.865847], { //to hover over marker it shows LV
-      //   icon: window.L.mapquest.icons.marker(),
-      //   draggable: false
-      // }).bindPopup("Denver, CO").addTo(map);
-
-      // // Top Left
-      // window.L.marker([39.78352, -105.065847], { //to hover over marker it shows LV
-      //   icon: window.L.mapquest.icons.marker(),
-      //   draggable: false
-      // }).bindPopup("Denver, CO").addTo(map);
-
-      // // Bottom left
-      // window.L.marker([39.68352, -105.065847], { //to hover over marker it shows LV
-      //   icon: window.L.mapquest.icons.marker(),
-      //   draggable: false
-      // }).bindPopup("Denver, CO").addTo(map);
-      // circle
-      window.L.circle([39.73352, -104.965847], { radius: 1000 }).addTo(map);
+      data.eventsNearUser.map((nearbyEvent) => {
+        let marker = window.L.marker([nearbyEvent.lat, nearbyEvent.lng], { //to hover over marker it shows LV
+          icon: window.L.mapquest.icons.marker(),
+          draggable: true
+        }).bindPopup(nearbyEvent.title).addTo(map);
+        marker.on("click", (e) => {
+          // Change this to toggle the Event Modal when built
+          e.target.bindPopup(nearbyEvent.description)
+        })
+      });
     }
   })
 

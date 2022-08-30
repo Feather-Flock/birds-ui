@@ -22,7 +22,7 @@ const UserProfile = () => {
         </div>
 
         <div className="location-wrapper">
-          <span class="material-symbols-outlined">pin_drop</span>
+          <span className="material-symbols-outlined">pin_drop</span>
           <h3 className="location">Denver, CO</h3>
         </div>
 
