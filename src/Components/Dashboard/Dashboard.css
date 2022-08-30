@@ -6,8 +6,9 @@
 }
 
 .map-container {
-  width: 60%;
+  width: 55%;
   height: 30em;
+  margin: 10px;
 }
 
 .list-view-btn {

@@ -17,17 +17,44 @@ const Dashboard = () => {
       if(container != null) {
         container._leaflet_id = null;
       }
+      // map
       var map = window.L.mapquest.map('map', { // 'map' is the id on line 57
         center: [39.73352, -104.965847],
         layers: window.L.mapquest.tileLayer('map'),
-        zoom: 12
+        zoom: 11
       });
 
+      // markers
+      // Center
       window.L.marker([39.73352, -104.965847], { //to hover over marker it shows LV
         icon: window.L.mapquest.icons.marker(),
-        draggable: false
+        draggable: true
       }).bindPopup("Denver, CO").addTo(map);
 
+      // // Top Right
+      // window.L.marker([39.78352, -104.8665847], { //to hover over marker it shows LV
+      //   icon: window.L.mapquest.icons.marker(),
+      //   draggable: false
+      // }).bindPopup("Denver, CO").addTo(map);
+
+      // // Bottom Right
+      // window.L.marker([39.68352, -104.865847], { //to hover over marker it shows LV
+      //   icon: window.L.mapquest.icons.marker(),
+      //   draggable: false
+      // }).bindPopup("Denver, CO").addTo(map);
+
+      // // Top Left
+      // window.L.marker([39.78352, -105.065847], { //to hover over marker it shows LV
+      //   icon: window.L.mapquest.icons.marker(),
+      //   draggable: false
+      // }).bindPopup("Denver, CO").addTo(map);
+
+      // // Bottom left
+      // window.L.marker([39.68352, -105.065847], { //to hover over marker it shows LV
+      //   icon: window.L.mapquest.icons.marker(),
+      //   draggable: false
+      // }).bindPopup("Denver, CO").addTo(map);
+      // circle
       window.L.circle([39.73352, -104.965847], { radius: 1000 }).addTo(map);
     }
   })
