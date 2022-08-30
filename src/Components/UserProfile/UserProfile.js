@@ -9,6 +9,15 @@ import "./UserProfile.css";
 // Will need a different view for current logged in user vs. other user
 
 const UserProfile = () => {
+
+  // const currentUser = (
+
+  // );
+
+  // const userProfile = (
+
+  // );
+
   return (
     <div className="user-profile-page">
     
@@ -22,7 +31,7 @@ const UserProfile = () => {
         </div>
 
         <div className="location-wrapper">
-          <span class="material-symbols-outlined">pin_drop</span>
+          <span className="material-symbols-outlined">pin_drop</span>
           <h3 className="location">Denver, CO</h3>
         </div>
 
