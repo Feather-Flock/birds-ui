@@ -65,15 +65,6 @@ const Dashboard = () => {
   
   return (
     <div className="dashboard-container">
-      <nav className="nav-bar">
-        <Link to="/profile">
-        <button class="view-profile-button" role="button">View Profile</button>
-        </Link>
-        <Link to="/new-event">
-          <button className="create-event-button" role="button">Create Event</button>
-        </Link>
-      
-      </nav>
       <h1 className="welcome-user">Welcome {data.userName}!</h1>
       <div className="dashboard-main-container">
 

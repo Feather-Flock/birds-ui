@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./DashboardList.css"
@@ -16,10 +16,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboardList-container">
-      <nav className="nav-bar">
-        <h1 className="welcome-user">Welcome {data.userName}!</h1>
-        <NavLink to="/createEvent" className="nav-create-event">Create Event</NavLink>
-      </nav>
+      <h1 className="welcome-user">Welcome {data.userName}!</h1>
       <div className="main-container">
 
         <div className="rsvp-eventcards">
@@ -31,6 +28,11 @@ const Dashboard = () => {
         </div>
 
       </div>
+      <div className="map-view-btn">
+          <Link to="/">
+            <button className="map-view-button" role="button">Map View</button>
+          </Link>
+        </div>
     </div>
   )
 }
