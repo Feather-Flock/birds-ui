@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./UserProfile.css";
 
-// Will need a different view for current logged in user vs. other user
+// SETUP AS A FAMILY VIEW FROM THE EVENT DETAILS PAGE
 
 const UserProfile = () => {
   const {loading, error, data} = useQuery(GET_USER_BY_ID, {

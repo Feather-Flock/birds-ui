@@ -102,13 +102,13 @@
 .event-picture-wrapper {
   width: 576px;
   height: 166px;
-  border: 1px solid black;
+  background-image: url(/src/hike.jpg);
+  background-size: cover;
 }
 
 .event-picture {
   width: 576px;
   height: 166px;
-  object-fit: contain;
 }
 
 .title-and-rsvp-container {
