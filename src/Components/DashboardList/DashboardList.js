@@ -29,7 +29,7 @@ const Dashboard = () => {
 
       </div>
       <div className="map-view-btn">
-          <Link to="/">
+          <Link className="view-link" to="/">
             <button className="map-view-button" role="button">Map View</button>
           </Link>
         </div>

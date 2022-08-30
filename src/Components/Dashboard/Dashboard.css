@@ -11,6 +11,10 @@
   margin: 10px;
 }
 
+.view-link {
+  text-decoration: none;
+}
+
 .list-view-btn {
   align-self:flex-end;
 }

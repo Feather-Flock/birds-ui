@@ -27,7 +27,12 @@ const Dashboard = () => {
       // markers
       data.eventsNearUser.map((nearbyEvent) => {
         let marker = window.L.marker([nearbyEvent.lat, nearbyEvent.lng], { //to hover over marker it shows LV
-          icon: window.L.mapquest.icons.marker(),
+          icon: window.L.mapquest.icons.flag({
+            primaryColor: '#000000',
+            secondaryColor: '#000000',
+            size: 'sm',
+            symbol: 'hello'
+          }),
           draggable: true
         }).bindPopup(nearbyEvent.title).addTo(map);
         marker.on("click", (e) => {
@@ -56,8 +61,8 @@ const Dashboard = () => {
         </div>
 
         <div className="list-view-btn">
-          <Link to="/Dashboard-List">
-            <button className="list-view-button" role="button">List View</button>
+          <Link className="view-link" to="/Dashboard-List">
+             <button className="list-view-button" role="button">List View</button>
           </Link>
         </div>
       </div>
