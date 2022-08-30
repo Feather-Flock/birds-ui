@@ -66,12 +66,15 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <nav className="nav-bar">
-        <h1 className="welcome-user">Welcome {data.userName}!</h1>
+        <Link to="/profile">
+        <button class="view-profile-button" role="button">View Profile</button>
+        </Link>
         <Link to="/new-event">
-          <button className="button-85" role="button">Create Event</button>
+          <button className="create-event-button" role="button">Create Event</button>
         </Link>
       
       </nav>
+      <h1 className="welcome-user">Welcome {data.userName}!</h1>
       <div className="dashboard-main-container">
 
         <div className="rsvp-eventcards">
@@ -84,7 +87,7 @@ const Dashboard = () => {
 
         <div className="list-view-btn">
           <Link to="/Dashboard-List">
-            <button className="button-86" role="button">List View</button>
+            <button className="list-view-button" role="button">List View</button>
           </Link>
         </div>
       </div>
