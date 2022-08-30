@@ -14,7 +14,7 @@ const UserProfile = () => {
   if(error) return `Error! ${error.message}`
 
   const rsvpdEvents = data.rsvpEvents.map(event => {
-    // will need to update this to an event card component once Blue finishes
+    // Change to an EventCard component when Blue finishes
     // Need an event photo?
     return (
       <div className="event-container">
@@ -41,9 +41,7 @@ const UserProfile = () => {
     <div className="user-profile-page">
     
       <section className="left-container">
-        <div className="profile-picture-wrapper">
-          <img className="profile-picture" src={data.image} alt="family profile"></img>
-        </div>
+        <img className="profile-picture" src={data.image} alt="family profile"></img>
         
         <div className="name-wrapper">
           <h2 className="family-name">{data.userName}</h2>
