@@ -18,9 +18,9 @@ const App = () =>  {
   return (
     <ApolloProvider client={client}>
       <div className="App">
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <Dashboard />
-        </Route>
+        </Route> */}
         <Route exact path="/New-Event">
           <EventForm />
         </Route>
