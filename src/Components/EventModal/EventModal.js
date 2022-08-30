@@ -15,17 +15,21 @@ function EventModal({eventInfo}) {
   return (
     <div className='event-modal'>
       <button className='close-button'>X</button>
-      <h1>{event.title}</h1>
       <div className='modal-grid'>
         <div>
+          <h1>{event.title}</h1>
           <h3>{`${event.date}  ${event.time}`}</h3>
           <img className='event-img' src='https://www.illustrationsof.com/royalty-free-rf-art-museum-clipart-illustration-by-nl-shop-stock-sample-432030.jpg'></img>
-          <p>{event.description}</p>
-          <p>{event.location}</p>
+          <p>Location: {event.location}</p>
+          <p className='event-description'>{event.description}</p>
         </div>
         <div>
           <h1>{event.familyName}</h1>
           <img className='event-img' src='https://upload.wikimedia.org/wikipedia/commons/c/c5/Males_Anas_platyrhynchos_2.jpg'/>
+          <br/>
+          <button> RSVP!</button>
+          <br/>
+          <button>View Family Profile</button>
         </div>
       </div>
     </div>
