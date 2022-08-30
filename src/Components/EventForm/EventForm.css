@@ -5,7 +5,7 @@ html {
   align-items: center;
 }
 
-h1 {
+.event-title {
   text-align: right;
   margin-right: 20%;
 }

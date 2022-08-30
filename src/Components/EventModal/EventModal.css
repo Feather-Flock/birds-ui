@@ -1,4 +1,6 @@
-
+* {
+  border: solid 1px red;
+}
 
 .event-img {
   width: 50%;
@@ -8,7 +10,7 @@
 .event-modal {
   width: 80vw;
   height: 80vh;
-  background-color: #C9DBDC;
+  background-color: rgba(255, 255, 255, 0.8);
   display: flex;
   flex-direction: column;
 }
@@ -17,11 +19,15 @@
   float: right;
   margin-left: 60%;
   border:none;
-  background-color: none;
+  background-color: rgba(255, 255, 255, 0.0);
+  color: red;
+  width: 15px;
+  height: 15px;
 }
 
 .modal-grid {
   display: grid;
   grid-template-columns: 50% 50%;
-  margin-top: 20%;
+  margin-top: 5%;
+  text-align: center;
 }
