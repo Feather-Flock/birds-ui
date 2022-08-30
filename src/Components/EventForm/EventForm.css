@@ -1,20 +1,13 @@
-html {
-  background-color: #667B4F;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-h1 {
+.form-header {
   text-align: right;
-  margin-right: 20%;
+  margin-right: 10%;
 }
 
 form {
   padding: 5%;
   background-color: #C9DBDC;
-  width: 90%;
-  height: 80%;
+  width: 80%;
+  height: 70%;
 }
 
 .event-input {
@@ -48,8 +41,12 @@ form {
 }
 
 .form-wrapper {
-  width: 95vw;
-  height: 95vh;
+  background-color: #667B4F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 @media screen and (max-width: 992px) {

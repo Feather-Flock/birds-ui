@@ -25,8 +25,10 @@ const App = () =>  {
         <Route exact path="/New-Event">
           <EventForm />
         </Route>
+        <Route exact path="/profile">
+          <UserProfile />
+        </Route>
       </div>
-      <UserProfile />
     </ApolloProvider>
   );
 }
