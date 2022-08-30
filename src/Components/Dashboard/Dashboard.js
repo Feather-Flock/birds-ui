@@ -12,22 +12,25 @@ const Dashboard = () => {
 
   useEffect(() => { //the following useEffect is what adds the map to the modal
     if(!loading && !error) {
+      //this is the api key to access mapquest
       window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
+
+      //this is resetting the container so a new map is rendered on change
       const container = window.L.DomUtil.get("map")
       if(container != null) {
         container._leaflet_id = null;
       }
-      // map
-      var map = window.L.mapquest.map('map', { // 'map' is the id on line 57
-        center: [39.73352, -104.965847],
+      // map being added to the div with id="map"
+      var map = window.L.mapquest.map('map', { // 'map' is the id on line 59
+        center: [39.73352, -104.965847], // hard coded now but will be dynamic with user lat/lng
         layers: window.L.mapquest.tileLayer('map'),
         zoom: 11
       });
 
       // markers
       data.eventsNearUser.map((nearbyEvent) => {
-        let marker = window.L.marker([nearbyEvent.lat, nearbyEvent.lng], { //to hover over marker it shows LV
-          icon: window.L.mapquest.icons.flag({
+        let marker = window.L.marker([nearbyEvent.lat, nearbyEvent.lng], { //to hover over marker it shows event title
+          icon: window.L.mapquest.icons.flag({//custom marker
             primaryColor: '#000000',
             secondaryColor: '#000000',
             size: 'sm',
@@ -35,6 +38,7 @@ const Dashboard = () => {
           }),
           draggable: true
         }).bindPopup(nearbyEvent.title).addTo(map);
+        //event listener for marker will change to modal
         marker.on("click", (e) => {
           // Change this to toggle the Event Modal when built
           e.target.bindPopup(nearbyEvent.description)
