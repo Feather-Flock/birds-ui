@@ -3,6 +3,7 @@ import { NavLink, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import UserProfile from "../UserProfile/UserProfile";
 import { GET_USER_BY_ID } from "../../queries";
+import DashboardList from "../DashboardList/DashboardList";
 import Dashboard from "../Dashboard/Dashboard";
 
 import './App.css';
@@ -21,6 +22,9 @@ const App = () =>  {
       <div className="App">
         <Route exact path="/">
           <Dashboard />
+        </Route>
+        <Route exact path="/dashboard-list">
+          <DashboardList />
         </Route>
         <Route exact path="/New-Event">
           <EventForm />
