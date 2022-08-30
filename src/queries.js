@@ -65,6 +65,8 @@ query queryUser($id: ID!) {
     title
     description
     date
+    lat
+    lng
     time
   }
 }`
