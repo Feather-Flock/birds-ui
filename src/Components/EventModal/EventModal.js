@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 
 Modal.setAppElement('#root');
 
-function EventModal({eventInfo}) {
+function EventModal({eventInfo, visible, handleClose}) {
 
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(visible);
 
   const openModal = () => {
     setIsOpen(true)
@@ -16,6 +16,7 @@ function EventModal({eventInfo}) {
 
   const closeModal = () => {
     setIsOpen(false)
+    handleClose()
   }
 
   const getDirections = () => {

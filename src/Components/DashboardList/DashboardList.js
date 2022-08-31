@@ -24,6 +24,10 @@ const Dashboard = () => {
     setModalVisible(true)
   }
 
+  const closeModal = () => {
+    setModalVisible(false)
+  }
+
   return (
     <div className="dashboardList-container">
       <h1 className="welcome-user">Welcome {data.userName}!</h1>
@@ -43,7 +47,7 @@ const Dashboard = () => {
             <button className="map-view-button" role="button">Map View</button>
           </Link>
         </div>
-        {modalVisible && <EventModal eventInfo={handleClick} />}
+        {modalVisible && <EventModal visible={modalVisible} handleClose={closeModal} />}
     </div>
   )
 }
