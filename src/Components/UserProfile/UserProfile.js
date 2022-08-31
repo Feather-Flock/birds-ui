@@ -38,9 +38,9 @@ const UserProfile = () => {
 
         <div className="event-info-container" >
           <div className="event-details">
-            <h3 className="title">{event.title}</h3>
-            <p className="date">DATE GOES HERE</p>
-            <p className="time">TIME GOES HERE</p>
+            <p className="title">What: {event.title}</p>
+            <p className="date">When: {event.date}</p>
+            <p className="time">Time: {event.time}</p>
           </div>
           <p className="description">{event.description}</p>
         </div>

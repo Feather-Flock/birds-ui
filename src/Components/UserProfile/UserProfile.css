@@ -117,17 +117,15 @@
 .event-info-container {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: left;
   width: 576px;
   height: 80px;
 }
 
 .event-details {
   display: flex;
-  align-content: center;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  align-items: flex-start;
   width: 22em;
   height: 5em;
   padding: 0;
