@@ -7,16 +7,16 @@ import "./UserProfile.css";
 // Can use a query hook for data for DRY code
 
 const UserProfile = () => {
-  const {loading, error, data} = useQuery(GET_USER_BY_ID, {
+  const { loading, error, data } = useQuery(GET_USER_BY_ID, {
     variables: {"id": "1"}
-  })
+  });
 
-  if(loading) return "Loading..."
-  if(error) return `Error! ${error.message}`
+  if(loading) return "Loading...";
+  if(error) return `Error! ${error.message}`;
 
   const rsvpdEvents = data.rsvpEvents.map(event => {
     // Change to an EventCard component when Blue finishes
-    // Need event image from BE
+    // Will need to add images somehow
 
     return (
       <div className="event-container">
@@ -27,8 +27,8 @@ const UserProfile = () => {
         <div className="title-and-rsvp-container">
           <h3 className="title">{event.title}</h3>
           <p className="description">{event.description}</p>
-          <button className="rsvp-button">RSVP!</button>
         </div>
+          <button className="view-details-button">View Details</button>
       </div>
     )
   });
