@@ -2,7 +2,7 @@ import React, {useState } from 'react'
 import './EventModal.css'
 import Modal from 'react-modal';
 import ReactDOM from 'react-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 Modal.setAppElement('#root');
 
@@ -20,7 +20,7 @@ function EventModal({eventInfo}) {
 
   const getDirections = () => {
     console.log('Insert url link here')
-    //insert navigationlink to directions 
+    //insert navigationlink to directions
   }
 
   const customStyles = {
@@ -65,8 +65,9 @@ function EventModal({eventInfo}) {
           <br/>
           <button> RSVP!</button>
           <br/>
-          <button onClick={useNavigate('/familyProfile/3')}>View Family Profile</button>
-          //Add a dynamic link to family here
+          <Link path='/family/3'>
+            <button>View Family Profile</button>
+          </Link>
           <button onClick={getDirections}>Get Directions</button>
         </div>
       </div>

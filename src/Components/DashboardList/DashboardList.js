@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./DashboardList.css"
 import Events from "../Events/Events"
+import EventModal from '../EventModal/EventModal'
 
 
 const Dashboard = () => {
@@ -11,8 +12,14 @@ const Dashboard = () => {
     variables: {"id": "1"}
   })
 
+  const [modalVisible, setModalVisible] = useState(false)
+
   if(loading) return "Loading..."
   if(error) return `Error! ${error.message}`
+
+  const handleClick = (e) => {
+    const {id, value} = e.target
+  }
 
   return (
     <div className="dashboardList-container">
@@ -33,6 +40,7 @@ const Dashboard = () => {
             <button className="map-view-button" role="button">Map View</button>
           </Link>
         </div>
+        {modalVisible && <EventModal eventInfo={handleClick} />}
     </div>
   )
 }
