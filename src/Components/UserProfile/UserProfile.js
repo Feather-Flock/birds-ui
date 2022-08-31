@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./UserProfile.css";
@@ -29,7 +30,9 @@ const UserProfile = () => {
           <p className="description">{event.description}</p>
         </div>
         {/* OnClick of view details button, we should be taken to the EventModal where further action can be taken */}
+        <Link to="/event-modal">
           <button className="view-details-button" onClick={() => console.log("clicked")}>View Details</button>
+        </Link>
       </div>
     )
   });
