@@ -9,13 +9,6 @@ import EventModal from '../EventModal/EventModal'
 // Can use a query hook for data for DRY code or just pass as props
 
 const UserProfile = () => {
-  const { loading, error, data } = useQuery(GET_USER_BY_ID, {
-    variables: {"id": "1"}
-  });
-
-  if(loading) return "Loading...";
-  if(error) return `Error! ${error.message}`;
-
   const [modalVisible, setModalVisible] = useState(false)
   const handleClick = (e) => {
     const {id, value} = e.target
@@ -26,11 +19,17 @@ const UserProfile = () => {
   const closeModal = () => {
     setModalVisible(false)
   }
+  
+  const { loading, error, data } = useQuery(GET_USER_BY_ID, {
+    variables: {"id": "1"}
+  });
+
+  if(loading) return "Loading...";
+  if(error) return `Error! ${error.message}`;
 
   const rsvpdEvents = data.rsvpEvents.map(event => {
     // Change to an EventCard component when Blue finishes stying of EventCard
     // Will need to add images somehow
-
     return (
       <div className="event-container">
         <h2 className="attending-header">Attending</h2>
@@ -71,7 +70,6 @@ const UserProfile = () => {
           <span className="material-symbols-outlined">pin_drop</span>
           <h3 className="location">{data.zipCode}</h3>
         </div>
-
 
         <p className="description-text-box">{data.description}</p>
         
