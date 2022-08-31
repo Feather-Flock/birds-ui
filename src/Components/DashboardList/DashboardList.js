@@ -11,6 +11,7 @@ const Dashboard = () => {
   const {loading, error, data} = useQuery(GET_USER_BY_ID, {
     variables: {"id": "1"}
   })
+  console.log(data, 'this is data')
 
   const [modalVisible, setModalVisible] = useState(false)
 
@@ -19,6 +20,8 @@ const Dashboard = () => {
 
   const handleClick = (e) => {
     const {id, value} = e.target
+    let eventData =
+    setModalVisible(true)
   }
 
   return (
@@ -27,11 +30,11 @@ const Dashboard = () => {
       <div className="main-container">
 
         <div className="rsvp-eventcards">
-          <Events events={data.rsvpEvents} type={"card"} />
+          <Events events={data.rsvpEvents} type={"card"} handleClick={handleClick}/>
         </div>
 
         <div className="event-list">
-          <Events events={data.eventsNearUser} type={"list"} />
+          <Events events={data.eventsNearUser} type={"list"} handleClick={handleClick} />
         </div>
 
       </div>
