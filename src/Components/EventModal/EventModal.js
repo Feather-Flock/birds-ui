@@ -65,7 +65,7 @@ function EventModal({eventInfo}) {
           <br/>
           <button> RSVP!</button>
           <br/>
-          <Link path='/family/3'>
+          <Link to='/family/3'>
             <button>View Family Profile</button>
           </Link>
           <button onClick={getDirections}>Get Directions</button>

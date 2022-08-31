@@ -50,7 +50,7 @@ const Dashboard = () => {
   if(loading) return "Loading..."
   if(error) return `Error! ${error.message}`
 
-  
+
   return (
     <div className="dashboard-container">
       <h1 className="welcome-user">Welcome {data.userName}!</h1>
