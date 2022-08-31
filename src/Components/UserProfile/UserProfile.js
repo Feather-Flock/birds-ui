@@ -4,7 +4,7 @@ import { GET_USER_BY_ID } from "../../queries";
 import "./UserProfile.css";
 
 // SETUP AS A FAMILY VIEW FROM THE EVENT DETAILS PAGE
-// Can use a query hook for data for DRY code
+// Can use a query hook for data for DRY code or just pass as props
 
 const UserProfile = () => {
   const { loading, error, data } = useQuery(GET_USER_BY_ID, {
@@ -15,7 +15,7 @@ const UserProfile = () => {
   if(error) return `Error! ${error.message}`;
 
   const rsvpdEvents = data.rsvpEvents.map(event => {
-    // Change to an EventCard component when Blue finishes
+    // Change to an EventCard component when Blue finishes stying of EventCard
     // Will need to add images somehow
 
     return (
@@ -28,12 +28,13 @@ const UserProfile = () => {
           <h3 className="title">{event.title}</h3>
           <p className="description">{event.description}</p>
         </div>
-          <button className="view-details-button">View Details</button>
+        {/* OnClick of view details button, we should be taken to the EventModal where further action can be taken */}
+          <button className="view-details-button" onClick={() => console.log("clicked")}>View Details</button>
       </div>
     )
   });
 
-  // Will need to iterate over tags to render them:
+  // Will need to iterate over tags to render them. Code for that:
   
   // const tags = data.tags.map(tag => {
   //   return (
