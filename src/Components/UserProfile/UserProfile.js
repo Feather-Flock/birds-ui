@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./UserProfile.css";
+import EventModal from '../EventModal/EventModal'
 
 // SETUP AS A FAMILY VIEW FROM THE EVENT DETAILS PAGE
 // Can use a query hook for data for DRY code or just pass as props
@@ -15,6 +16,17 @@ const UserProfile = () => {
   if(loading) return "Loading...";
   if(error) return `Error! ${error.message}`;
 
+  const [modalVisible, setModalVisible] = useState(false)
+  const handleClick = (e) => {
+    const {id, value} = e.target
+    let eventData =
+    setModalVisible(true)
+  }
+
+  const closeModal = () => {
+    setModalVisible(false)
+  }
+
   const rsvpdEvents = data.rsvpEvents.map(event => {
     // Change to an EventCard component when Blue finishes stying of EventCard
     // Will need to add images somehow
@@ -25,7 +37,7 @@ const UserProfile = () => {
         <div className="event-picture-wrapper">
           <img className="event-picture" alt="event festivities"></img>
         </div>
-        <div className="title-and-rsvp-container">
+        <div className="title-and-rsvp-container" onClick={handleClick}>
           <h3 className="title">{event.title}</h3>
           <p className="description">{event.description}</p>
         </div>
@@ -47,7 +59,7 @@ const UserProfile = () => {
 
   return (
     <div className="user-profile-page">
-    
+    {modalVisible && <EventModal visible={modalVisible} handleClose={closeModal} />}
       <section className="left-container">
         <img className="profile-picture" src={data.image} alt="family profile"></img>
         
@@ -60,8 +72,9 @@ const UserProfile = () => {
           <h3 className="location">{data.zipCode}</h3>
         </div>
 
+
         <p className="description-text-box">{data.description}</p>
-      
+        
         <div className="tag-container">
           <p className="tag-title">2 Kids</p>
           <p className="tag-title">MLM</p>
@@ -71,7 +84,7 @@ const UserProfile = () => {
       </section>
 
       <section className="right-container">
-        {rsvpdEvents}
+        {rsvpdEvents}  
       </section>
     </div>
   )

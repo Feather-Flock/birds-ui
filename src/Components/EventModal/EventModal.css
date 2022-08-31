@@ -1,0 +1,36 @@
+
+.event-img {
+  width: 50%;
+  height: 50%;
+}
+
+.event-modal {
+  border: solid 2px black;
+  width: 80vw;
+  height: 80vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+}
+
+.event-description {
+
+}
+
+.close-button {
+  float: right;
+  margin-top: 1%;
+  margin-left: 95%;
+  font-size: 2rem;
+  border:none;
+  background-color: rgba(255, 255, 255, 0.0);
+  color: red;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-top: 5%;
+  text-align: center;
+  background-color: #eeeeee;
+}
