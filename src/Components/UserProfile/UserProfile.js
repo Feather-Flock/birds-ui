@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./UserProfile.css";
@@ -36,14 +35,11 @@ const UserProfile = () => {
         <div className="event-picture-wrapper">
           <img className="event-picture" alt="event festivities"></img>
         </div>
-        <div className="title-and-rsvp-container" onClick={handleClick}>
+        <div className="title-and-rsvp-container" >
           <h3 className="title">{event.title}</h3>
           <p className="description">{event.description}</p>
         </div>
-        {/* OnClick of view details button, we should be taken to the EventModal where further action can be taken */}
-        <Link to="/event-modal">
-          <button className="view-details-button" onClick={() => console.log("clicked")}>View Details</button>
-        </Link>
+          <button className="view-details-button" onClick={handleClick}>View Details</button>
       </div>
     )
   });
