@@ -1,17 +1,14 @@
-* {
-  margin: 0;
-  /* text-align: center; */
-}
-
 .user-profile-page {
-  padding: 0;
+  /* padding: 0; */
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 /* Left Container */
 .left-container {
-  margin-top: 5px;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -20,32 +17,33 @@
   height: 749px;
 }
 
-.profile-picture-wrapper {
+.profile-picture {
   width: 565px;
   height: 288px;
-  border: 2px solid black;
-}
-
-.profile-picture {
-  /* width: 565px;
-  height: 288px; */
-  object-fit: contain;
+  border-radius: 12px;
+  background-image: url(/src/user-profile-pic.png);
+  background-size: cover;
 }
 
 .name-wrapper,
 .location-wrapper {
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 565px;
   height: 48px;
-  border: 2px solid black;
+  background: #EFF1FB;
+  box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
 }
 
 .description-text-box {
   width: 565px;
   height: 191px;
-  border: 2px solid black;
+  background: #EFF1FB;
+  box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
 }
 
 .tag-container {
@@ -55,18 +53,21 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
-  border: 2px solid black;
+  background: #EFF1FB;
+  box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
 }
 
 .tag-title {
-  padding: 5px;
+  padding: 10px;
+  color: white;
+  background-color: #283618;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
-  border: 2px solid black;
 }
 
 /* Right Container */
 .right-container {
-  margin-top: 5px;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -77,31 +78,40 @@
 }
 
 .event-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 576px;
   height: 360px;
-  border: 2px solid black;
+  background-color: #EFF1FB;
+  box-shadow: 6px 6px 13px rgb(0 0 0 / 25%);
+  border-radius: 12px;
 }
 
 .attending-header {
+  margin: 0;
+  color: white;
+  font-weight: lighter;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 576px;
   height: 65px;
-  border: 2px solid black;
+  background-color: #283618;
+  border-radius: 12px 12px 0px 0px;
 }
 
 .event-picture-wrapper {
   width: 576px;
   height: 166px;
-  border: 2px solid black;
+  background-image: url(/src/hike.jpg);
+  background-size: cover;
 }
 
 .event-picture {
   width: 576px;
   height: 166px;
-  object-fit: contain;
 }
 
 .title-and-rsvp-container {
@@ -109,6 +119,17 @@
   justify-content: space-around;
   align-items: center;
   width: 576px;
-  height: 65px;
-  border: 2px solid black;
+  height: 80px;
+}
+
+.title,
+.description {
+  margin: 0;
+  text-align: center;
+}
+.view-details-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 1em;
 }
