@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import "./UserProfile.css";
+import EventModal from '../EventModal/EventModal'
 
 // Does this component need state?
 // How does the data look? Will be grabbing a user via ID
@@ -8,10 +9,21 @@ import "./UserProfile.css";
 // Will need to map over the events
 // Will need a different view for current logged in user vs. other user
 
-const UserProfile = () => {
+function UserProfile() {
+  const [modalVisible, setModalVisible] = useState(false)
+  const handleClick = (e) => {
+    const {id, value} = e.target
+    let eventData =
+    setModalVisible(true)
+  }
+
+  const closeModal = () => {
+    setModalVisible(false)
+  }
+
   return (
     <div className="user-profile-page">
-
+  {modalVisible && <EventModal visible={modalVisible} handleClose={closeModal} />}
       <section className="left-container">
         <div className="profile-picture-wrapper">
           <img className="profile-picture" alt="family profile"></img>
@@ -46,7 +58,7 @@ const UserProfile = () => {
             <img className="event-picture" alt="event festivities"></img>
           </div>
 
-          <div className="title-and-rsvp-container">
+          <div onClick={handleClick} className="title-and-rsvp-container">
             <h3 className="title">Morning Hike & Picnic</h3>
             <button className="rsvp-button">RSVP!</button>
           </div>
@@ -61,7 +73,7 @@ const UserProfile = () => {
             <img className="event-picture" alt="event festivities"></img>
           </div>
 
-          <div className="title-and-rsvp-container">
+          <div onClick={handleClick} className="title-and-rsvp-container">
             <h3 className="title">City Park for Games</h3>
             <button className="rsvp-button">RSVP!</button>
           </div>
