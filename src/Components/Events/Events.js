@@ -1,11 +1,11 @@
 import React from 'react'
 import EventCard from "../EventCard/EventCard"
 
-const Events = ({events, type}) => {
+const Events = ({events, type, handleClick}) => {
 
   const eventCards = () => {
     return events.map(event => {
-      return ( 
+      return (
         <EventCard
         id={event.id}
         key={event.id}
@@ -14,6 +14,7 @@ const Events = ({events, type}) => {
         description={event.description}
         date={event.date}
         time={event.time}
+        handleClick={handleClick}
         />
       )
     })
