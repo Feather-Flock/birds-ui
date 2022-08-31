@@ -9,9 +9,8 @@ import Nav from "../Nav/Nav"
 import './App.css';
 import EventForm from '../EventForm/EventForm'
 
-
 const client = new ApolloClient({
-  uri: `${process.env.REACT_APP_BASE_URL}/graphql?test=1`,
+  uri: process.env.REACT_APP_BASE_URL,
   cache: new InMemoryCache()
 });
 
