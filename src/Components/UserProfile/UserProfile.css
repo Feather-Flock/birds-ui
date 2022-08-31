@@ -114,7 +114,7 @@
   height: 166px;
 }
 
-.title-and-rsvp-container {
+.event-info-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -122,11 +122,25 @@
   height: 80px;
 }
 
+.event-details {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 22em;
+  height: 5em;
+  padding: 0;
+}
+
 .title,
+.date,
+.time,
 .description {
   margin: 0;
   text-align: center;
 }
+
 .view-details-button {
   display: flex;
   align-items: center;

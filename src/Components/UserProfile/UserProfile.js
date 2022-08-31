@@ -27,18 +27,24 @@ const UserProfile = () => {
   if(error) return `Error! ${error.message}`;
 
   const rsvpdEvents = data.rsvpEvents.map(event => {
-    // Change to an EventCard component when Blue finishes stying of EventCard
-    // Will need to add images somehow
     return (
+      // <EventCard />
       <div className="event-container">
         <h2 className="attending-header">Attending</h2>
+
         <div className="event-picture-wrapper">
           <img className="event-picture" alt="event festivities"></img>
         </div>
-        <div className="title-and-rsvp-container" >
-          <h3 className="title">{event.title}</h3>
+
+        <div className="event-info-container" >
+          <div className="event-details">
+            <h3 className="title">{event.title}</h3>
+            <p className="date">DATE GOES HERE</p>
+            <p className="time">TIME GOES HERE</p>
+          </div>
           <p className="description">{event.description}</p>
         </div>
+
           <button className="view-details-button" onClick={handleClick}>View Details</button>
       </div>
     )
