@@ -26,6 +26,7 @@ function EventModal({eventInfo, visible, handleClose}) {
 
   const customStyles = {
   content: {
+    zindex: 1,
     position: 'fixed',
     right: 'auto',
     marginLeft: '10%',
@@ -55,6 +56,7 @@ function EventModal({eventInfo, visible, handleClose}) {
       <h1 className='modal-header'>{event.title}</h1>
       <div className='modal-grid'>
         <div>
+          <br/>
           <h3>{`${event.date}  ${event.time}`}</h3>
           <img className='event-img' src='https://www.illustrationsof.com/royalty-free-rf-art-museum-clipart-illustration-by-nl-shop-stock-sample-432030.jpg'></img>
           <p>Location: {event.address}</p>
@@ -69,6 +71,9 @@ function EventModal({eventInfo, visible, handleClose}) {
           <Link to='/family/3'>
             <button>View Family Profile</button>
           </Link>
+          <div className='event-modal-map'>
+            <h1>Map</h1>
+          </div>
           <button onClick={getDirections}>Get Directions</button>
         </div>
       </div>

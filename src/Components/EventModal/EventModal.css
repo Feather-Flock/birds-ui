@@ -1,7 +1,13 @@
 
 .event-img {
-  width: 50%;
-  height: 50%;
+  width: 25%;
+  height: 25%;
+  border-radius: 12px;
+}
+
+button {
+  background-color:#283618;
+  color: #EFF1FB;
 }
 
 .modal-header {
@@ -14,16 +20,20 @@
   color: #EFF1FB;
 }
 
+.event-modal-map {
+  height: 60%;
+  width: 70%;
+  background-color: #9bc2a5;
+  margin-left: 15%;
+}
+
 .event-modal {
   width: 80vw;
   height: 80vh;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: white;
   display: flex;
   flex-direction: column;
-}
-
-.event-description {
-
+  border: none;
 }
 
 .close-button {
@@ -39,6 +49,6 @@
 .modal-grid {
   display: grid;
   grid-template-columns: 50% 50%;
-  margin-top: 5%;
+  justify-content: center;
   text-align: center;
 }
