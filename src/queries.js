@@ -47,6 +47,7 @@ query user($id: ID!) {
   id
   userName
   email
+  description
   image
   zipCode
   rsvpEvents {
