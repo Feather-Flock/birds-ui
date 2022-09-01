@@ -1,21 +1,24 @@
 
 html {
-  background-color: #white;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .form-header {
-  text-align: right;
-  margin-right: 10%;
+  text-align: center;
+  margin-top: -2%;
+  background-color:#283618;
+  width: 100%;
+  height: 10%;
+  border-radius: 12px 12px 0px 0px;
+  color: white;
 }
 
 form {
-  padding: 5%;
   background-color: #C9DBDC;
-  width: 80%;
-  height: 70%;
+  width: 90%;
+  height: 80%;
 }
 
 .event-input {
@@ -23,6 +26,7 @@ form {
   height: 10%;
   width: 40%;
   margin: 1%;
+  margin-left: 5%;
   border: none;
   border-radius: 3px;
   box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.25);
@@ -49,8 +53,8 @@ form {
 }
 
 .form-wrapper {
-  background-color: #667B4F;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
