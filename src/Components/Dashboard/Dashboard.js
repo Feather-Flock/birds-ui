@@ -1,14 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./Dashboard.css"
 import Events from "../Events/Events"
+import EventModal from '../EventModal/EventModal'
+
 
 const Dashboard = () => {
   const {loading, error, data} = useQuery(GET_USER_BY_ID, {
     variables: {"id": process.env.REACT_APP_USER_ID}
   })
+  const [modalVisible, setModalVisible] = useState(false)
+  const handleClick = (e) => {
+    const {id, value} = e.target
+    let eventData =
+    setModalVisible(true)
+  }
+
+  const closeModal = () => {
+    setModalVisible(false)
+  }
 
   useEffect(() => { //the following useEffect is what adds the map to the modal
     if(!loading && !error) {
@@ -41,6 +53,7 @@ const Dashboard = () => {
         //event listener for marker will change to modal
         marker.on("click", (e) => {
           // Change this to toggle the Event Modal when built
+          handleClick(e)
           e.target.bindPopup(nearbyEvent.description)
         })
       });
@@ -53,10 +66,12 @@ const Dashboard = () => {
   
   return (
     <div className="dashboard-container">
+      {modalVisible && <EventModal visible={modalVisible} handleClose={closeModal}/>}
+
       <div className="dashboard-main-container">
 
         <div className="rsvp-eventcards">
-          <Events events={data.rsvpEvents} type={"card"} />
+          <Events events={data.rsvpEvents} type={"card"} handleClick={handleClick} />
         </div>
 
         <div id="map" className="map-container"></div>
