@@ -5,20 +5,29 @@ html {
   align-items: center;
 }
 
+span {
+  position: absolute;
+  margin-top: 2%;
+  margin-left: 1%;
+
+}
+
 .form-header {
   text-align: center;
+  font-weight: 300;
   margin-top: -2%;
   background-color:#283618;
   width: 100%;
-  height: 10%;
+  height: 12%;
   border-radius: 12px 12px 0px 0px;
-  color: white;
+  color: #EFF1FB;;
 }
 
 form {
-  background-color: #C9DBDC;
+  background-color: #EFF1FB;
   width: 90%;
   height: 80%;
+  box-shadow: 6px 6px 13px rgb(0 0 0 / 25%);
 }
 
 .event-input {
@@ -29,22 +38,23 @@ form {
   margin-left: 5%;
   border: none;
   border-radius: 3px;
-  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 6px 6px 13px rgb(0 0 0 / 25%);
 }
 
 .submit-event:hover {
-    background-image: linear-gradient(to right, #F1E9B0 , #EE9B6C);
+    background-color: #72b594;
 }
 
 .submit-event {
+  color: #EFF1FB;
   width: 18%;
   height: 15%;
   font-size: 1.5rem;
   border: none;
   border-radius: 5px;
   margin-left: 10%;
-  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.25);
-  background-image: linear-gradient(to right, #F2D069 , #E55353);
+  box-shadow: 6px 6px 13px rgb(0 0 0 / 25%);
+  background-color:#283618;
 }
 
 .description {

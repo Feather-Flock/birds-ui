@@ -19,9 +19,13 @@ export default function EventForm() {
       <form className="event-form">
         <h1 className="form-header">Create A New Event</h1>
         <input className='event-input' onChange={handleChange} type='text' placeholder='Add Title' name='title' value={eventDetails.title}/>
+
         <br/>
         <input className='event-input' onChange={handleChange} type='datetime-local' name='date' value={eventDetails.date}/>
         <br/>
+        <label>
+          <span className="material-symbols-outlined">pin_drop</span>
+        </label>
         <input className='event-input'
         onChange={handleChange}
         type='text'
