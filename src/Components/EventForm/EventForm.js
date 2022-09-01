@@ -21,11 +21,10 @@ export default function EventForm() {
         <input className='event-input' onChange={handleChange} type='text' placeholder='Add Title' name='title' value={eventDetails.title}/>
 
         <br/>
+        <span class="material-symbols-outlined">schedule</span>
         <input className='event-input' onChange={handleChange} type='datetime-local' name='date' value={eventDetails.date}/>
         <br/>
-        <label>
           <span className="material-symbols-outlined">pin_drop</span>
-        </label>
         <input className='event-input'
         onChange={handleChange}
         type='text'
