@@ -1,26 +1,13 @@
-.nav-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content:flex-end;
-  align-items: center;
-  padding: 10px;
-}
-
 .main-container {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   height: 80vh;
-}
-
-.rsvp-eventcards {
-  flex-direction: column;
-  width: 30%;
-  overflow: scroll;
 }
 
 .event-list {
   flex-direction: column;
-  width: 70%;
+  width: 45%;
   overflow: scroll;
 }
 
@@ -30,8 +17,6 @@
   align-items:flex-end;
   margin-right: 20px;
 }
-
-
 
 .map-view-button {
   all: unset;

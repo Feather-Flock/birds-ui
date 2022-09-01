@@ -1,4 +1,12 @@
-.create-event-button {
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.radiant-button {
   padding: 0.6em 2em;
   border: none;
   outline: none;
@@ -13,7 +21,7 @@
   touch-action: manipulation;
 }
 
-.create-event-button:before {
+.radiant-button:before {
   content: "";
   background: linear-gradient(
     45deg,
@@ -53,7 +61,7 @@
   }
 }
 
-.create-event-button:after {
+.radiant-button:after {
   z-index: -1;
   content: "";
   position: absolute;
@@ -62,49 +70,6 @@
   background: #222;
   left: 0;
   top: 0;
-  border-radius: 10px;
-}
-
-.view-profile-button {
-  padding: 0.6em 2em;
-  border: none;
-  outline: none;
-  color: rgb(255, 255, 255);
-  background: #111;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.view-profile-button:before {
-  content: "";
-  background: linear-gradient(
-    45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
-  );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing-button-85 20s linear infinite;
-  transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
 }
 
@@ -120,20 +85,7 @@
   }
 }
 
-.view-profile-button:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #222;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
-}
-
-.view-profile-button,
-.create-event-button {
+.radiant-button {
   margin-left: 10px;
   margin-right: 10px;
 }

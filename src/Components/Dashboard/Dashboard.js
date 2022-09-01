@@ -22,7 +22,6 @@ const Dashboard = () => {
     setModalVisible(false)
   }
 
-
   useEffect(() => { //the following useEffect is what adds the map to the modal
     if(!loading && !error) {
       //this is the api key to access mapquest
@@ -64,26 +63,18 @@ const Dashboard = () => {
   if(loading) return "Loading..."
   if(error) return `Error! ${error.message}`
 
-
+  
   return (
     <div className="dashboard-container">
-    {modalVisible && <EventModal visible={modalVisible} handleClose={closeModal}/>}
-      <h1 className="welcome-user">Welcome {data.userName}!</h1>
+      {modalVisible && <EventModal visible={modalVisible} handleClose={closeModal}/>}
+
       <div className="dashboard-main-container">
 
         <div className="rsvp-eventcards">
-          <Events events={data.rsvpEvents} type={"card"} handleClick={handleClick}/>
+          <Events events={data.rsvpEvents} type={"card"} handleClick={handleClick} />
         </div>
 
-        <div id="map" className="map-container">
-
-        </div>
-
-        <div className="list-view-btn">
-          <Link className="view-link" to="/Dashboard-List">
-             <button className="list-view-button" role="button">List View</button>
-          </Link>
-        </div>
+        <div id="map" className="map-container"></div>
       </div>
     </div>
   )

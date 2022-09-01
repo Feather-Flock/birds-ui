@@ -1,7 +1,7 @@
 .user-profile-page {
   /* padding: 0; */
   width: 100vw;
-  height: 100vh;
+  margin-top: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -72,64 +72,7 @@
   flex-direction: column;
   align-content: center;
   justify-content: space-between;
-  width: 600px;
+  width: 45%;
   height: 749px;
   overflow-y: scroll;
-}
-
-.event-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 576px;
-  height: 360px;
-  background-color: #EFF1FB;
-  box-shadow: 6px 6px 13px rgb(0 0 0 / 25%);
-  border-radius: 12px;
-}
-
-.attending-header {
-  margin: 0;
-  color: white;
-  font-weight: lighter;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 576px;
-  height: 65px;
-  background-color: #283618;
-  border-radius: 12px 12px 0px 0px;
-}
-
-.event-picture-wrapper {
-  width: 576px;
-  height: 166px;
-  background-image: url(/src/hike.jpg);
-  background-size: cover;
-}
-
-.event-picture {
-  width: 576px;
-  height: 166px;
-}
-
-.title-and-rsvp-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 576px;
-  height: 80px;
-}
-
-.title,
-.description {
-  margin: 0;
-  text-align: center;
-}
-.view-details-button {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  margin-top: 1em;
 }

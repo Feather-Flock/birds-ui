@@ -33,8 +33,8 @@ const Dashboard = () => {
       <h1 className="welcome-user">Welcome {data.userName}!</h1>
       <div className="main-container">
 
-        <div className="rsvp-eventcards">
-          <Events events={data.rsvpEvents} type={"card"} handleClick={handleClick}/>
+        <div className="event-list">
+          <Events events={data.rsvpEvents} type={"list"} handleClick={handleClick}/>
         </div>
 
         <div className="event-list">
@@ -42,11 +42,6 @@ const Dashboard = () => {
         </div>
 
       </div>
-      <div className="map-view-btn">
-          <Link className="view-link" to="/">
-            <button className="map-view-button" role="button">Map View</button>
-          </Link>
-        </div>
         {modalVisible && <EventModal visible={modalVisible} handleClose={closeModal} />}
     </div>
   )

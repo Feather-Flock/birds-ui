@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./UserProfile.css";
 import EventModal from '../EventModal/EventModal'
+import EventCard from "../EventCard/EventCard";
 
 // SETUP AS A FAMILY VIEW FROM THE EVENT DETAILS PAGE
 // Can use a query hook for data for DRY code or just pass as props
@@ -28,23 +28,17 @@ const UserProfile = () => {
   if(error) return `Error! ${error.message}`;
 
   const rsvpdEvents = data.rsvpEvents.map(event => {
-    // Change to an EventCard component when Blue finishes stying of EventCard
-    // Will need to add images somehow
     return (
-      <div className="event-container">
-        <h2 className="attending-header">Attending</h2>
-        <div className="event-picture-wrapper">
-          <img className="event-picture" alt="event festivities"></img>
-        </div>
-        <div className="title-and-rsvp-container" onClick={handleClick}>
-          <h3 className="title">{event.title}</h3>
-          <p className="description">{event.description}</p>
-        </div>
-        {/* OnClick of view details button, we should be taken to the EventModal where further action can be taken */}
-        <Link to="/event-modal">
-          <button className="view-details-button" onClick={() => console.log("clicked")}>View Details</button>
-        </Link>
-      </div>
+      <EventCard
+        id={event.id}
+        key={event.id}
+        type={"card"}
+        title={event.title}
+        description={event.description}
+        date={event.date}
+        time={event.time}
+        handleClick={handleClick}
+      />
     )
   });
 
