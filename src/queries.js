@@ -44,29 +44,31 @@ import { gql } from "@apollo/client";
 
 export const GET_USER_BY_ID = gql`
 query user($id: ID!) {
-  id
-  userName
-  email
-  image
-  zipCode
-  rsvpEvents {
+  user(id: $id) {
     id
-    title
-    description
+    userName
+    email
+    image
     zipCode
-    lat
-    lng
-    date
-    time
-    totalRsvpd
-  }
-  eventsNearUser {
-    id
-    title
-    description
-    date
-    lat
-    lng
-    time
+    rsvpdEvents(id: $id) {
+      id
+      title
+      description
+      zip
+      lat
+      lng
+      date
+      time
+      host
+    }
+    nearEvents(id: $id) {
+      id
+      title
+      description
+      date
+      lat
+      lng
+      time
+    }
   }
 }`

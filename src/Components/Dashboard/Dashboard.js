@@ -40,7 +40,7 @@ const Dashboard = () => {
       });
 
       // markers
-      data.eventsNearUser.map((nearbyEvent) => {
+      data.user.nearEvents.map((nearbyEvent) => {
         let marker = window.L.marker([nearbyEvent.lat, nearbyEvent.lng], { //to hover over marker it shows event title
           icon: window.L.mapquest.icons.flag({//custom marker
             primaryColor: '#000000',
@@ -71,7 +71,7 @@ const Dashboard = () => {
       <div className="dashboard-main-container">
 
         <div className="rsvp-eventcards">
-          <Events events={data.rsvpEvents} type={"card"} handleClick={handleClick} />
+          <Events events={data.user.rsvpdEvents} type={"card"} handleClick={handleClick} />
         </div>
 
         <div id="map" className="map-container"></div>

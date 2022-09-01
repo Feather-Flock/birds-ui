@@ -21,13 +21,13 @@ const UserProfile = () => {
   }
   
   const { loading, error, data } = useQuery(GET_USER_BY_ID, {
-    variables: {"id": "1"}
+    variables: {"id": process.env.REACT_APP_USER_ID}
   });
 
   if(loading) return "Loading...";
   if(error) return `Error! ${error.message}`;
 
-  const rsvpdEvents = data.rsvpEvents.map(event => {
+  const rsvpdEvents = data.user.rsvpdEvents.map(event => {
     return (
       <EventCard
         id={event.id}
@@ -54,18 +54,18 @@ const UserProfile = () => {
     <div className="user-profile-page">
     {modalVisible && <EventModal visible={modalVisible} handleClose={closeModal} />}
       <section className="left-container">
-        <img className="profile-picture" src={data.image} alt="family profile"></img>
+        <img className="profile-picture" src={data.user.image} alt="family profile"></img>
         
         <div className="name-wrapper">
-          <h2 className="family-name">{data.userName}</h2>
+          <h2 className="family-name">{data.user.userName}</h2>
         </div>
 
         <div className="location-wrapper">
           <span className="material-symbols-outlined">pin_drop</span>
-          <h3 className="location">{data.zipCode}</h3>
+          <h3 className="location">{data.user.zipCode}</h3>
         </div>
 
-        <p className="description-text-box">{data.description}</p>
+        <p className="description-text-box">{data.user.description}</p>
         
         <div className="tag-container">
           <p className="tag-title">2 Kids</p>
