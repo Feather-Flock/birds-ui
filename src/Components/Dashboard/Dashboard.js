@@ -62,13 +62,6 @@ const Dashboard = () => {
         <div className="rsvp-eventcards">
           <Events events={data.rsvpEvents} type={"card"} />
         </div>
-
-
-        <div className="list-view-btn">
-          <Link className="view-link" to="/Dashboard-List">
-             <button className="list-view-button" role="button">List View</button>
-          </Link>
-        </div>
       </div>
     </div>
   )

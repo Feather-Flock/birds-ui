@@ -6,10 +6,13 @@ const Nav = () => {
   return (
     <nav className="nav-bar">
       <Link to="/profile">
-      <button className="view-profile-button" role="button">View Profile</button>
+      <button className="radiant-button" role="button">View Profile</button>
       </Link>
       <Link to="/new-event">
-        <button className="create-event-button" role="button">Create Event</button>
+        <button className="radiant-button" role="button">Create Event</button>
+      </Link>
+      <Link to="/Dashboard-List">
+          <button className="radiant-button" role="button">List View</button>
       </Link>
     </nav>
   )
