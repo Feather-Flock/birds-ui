@@ -67,7 +67,6 @@ function EventModal({eventInfo, visible, handleClose}) {
           <img className='event-img' src='https://upload.wikimedia.org/wikipedia/commons/c/c5/Males_Anas_platyrhynchos_2.jpg'/>
           <br/>
           <button> RSVP!</button>
-          <br/>
           <Link to='/family/3'>
             <button>View Family Profile</button>
           </Link>
