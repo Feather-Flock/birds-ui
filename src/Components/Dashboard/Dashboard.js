@@ -56,12 +56,11 @@ const Dashboard = () => {
       <h1 className="welcome-user">Welcome {data.userName}!</h1>
       <div className="dashboard-main-container">
 
-        <div id="map" className="map-container">
-        </div>
-        
         <div className="rsvp-eventcards">
           <Events events={data.rsvpEvents} type={"card"} />
         </div>
+
+        <div id="map" className="map-container"></div>
       </div>
     </div>
   )

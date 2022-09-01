@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import "./Nav.css"
 
 const Nav = () => {
@@ -11,9 +11,16 @@ const Nav = () => {
       <Link to="/new-event">
         <button className="radiant-button" role="button">Create Event</button>
       </Link>
-      <Link to="/Dashboard-List">
-          <button className="radiant-button" role="button">List View</button>
-      </Link>
+      <Route exact path="/Dashboard-List">
+        <Link className="view-link" to="/">
+          <button className="radiant-button" role="button">Map View</button>
+        </Link>
+      </Route>
+      <Route exact path="/">
+        <Link to="/Dashboard-List">
+            <button className="radiant-button" role="button">List View</button>
+        </Link>
+      </Route>
     </nav>
   )
 }

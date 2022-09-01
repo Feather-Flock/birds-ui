@@ -42,11 +42,6 @@ const Dashboard = () => {
         </div>
 
       </div>
-      <div className="map-view-btn">
-          <Link className="view-link" to="/">
-            <button className="map-view-button" role="button">Map View</button>
-          </Link>
-        </div>
         {modalVisible && <EventModal visible={modalVisible} handleClose={closeModal} />}
     </div>
   )
