@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { v4 as uuidv4 } from 'uuid';
 
 SwiperCore.use([Pagination])
 
@@ -22,15 +23,16 @@ const Events = ({events, type, handleClick}) => {
         time={event.time}
         handleClick={handleClick}
       />
+      
       if(type === "list") {
         return (
-          <React.Fragment>
+          <React.Fragment key={uuidv4()}>
             {eventCard}
           </React.Fragment>
         )
       } else {
         return (
-          <SwiperSlide style={{ margin: '0 0 0 50' }}>
+          <SwiperSlide style={{ margin: '0 0 0 50' }} key={uuidv4()}>
             {eventCard}
           </SwiperSlide>
         )
@@ -54,6 +56,7 @@ const Events = ({events, type, handleClick}) => {
           pagination={true}
           centeredSlides={true}
           spaceBetween={50}
+          key={uuidv4()}
         >
           {eventCards()}
         </Swiper>
