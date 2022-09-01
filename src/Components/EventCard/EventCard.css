@@ -1,8 +1,8 @@
-.event-card {
+.event-container {
   display: flex;
   flex-direction: column;
   margin: 10px;
-  width: 90%;
+  width: 80%;
   height: 10em;
   border: 1px solid black;
   /* border-radius: 25px */
@@ -39,7 +39,7 @@
 }
 
 .event-list-item:hover,
-.event-card:hover{
+.event-container:hover{
   padding: 5px;
   box-shadow: 0 0 5px 10px rgb(141,106,159, .4);
   border: none;

@@ -9,37 +9,55 @@ const Events = ({events, type, handleClick}) => {
 
   const eventCards = () => {
     return events.map(event => {
-      return (
-        <SwiperSlide>
-          <EventCard
-          id={event.id}
-          key={event.id}
-          type={type}
-          title={event.title}
-          description={event.description}
-          date={event.date}
-          time={event.time}
-          handleClick={handleClick}
-          />
-        </SwiperSlide>
-      )
+      let eventCard = <EventCard
+        id={event.id}
+        key={event.id}
+        type={type}
+        title={event.title}
+        description={event.description}
+        date={event.date}
+        time={event.time}
+        handleClick={handleClick}
+      />
+      if(type === "list") {
+        return (
+          <React.Fragment>
+            {eventCard}
+          </React.Fragment>
+        )
+      } else {
+        return (
+          <SwiperSlide>
+            {eventCard}
+          </SwiperSlide>
+        )
+      }
     })
   }
 
-  return (
-    <React.Fragment>
-    <Swiper
-      className="mySwiper"
-      modules={[Navigation]}
-      navigation={true}
-      // install Swiper modules
-      spaceBetween={50}
-      slidesPerView={1}
-    >
-      {eventCards()}
-    </Swiper>
-    </React.Fragment>
-  )
+  if(type === "list") {
+    return (
+      <React.Fragment>
+        {eventCards()}
+      </React.Fragment>
+    )
+  } else {
+    return (
+      <React.Fragment>
+        <Swiper
+          className="mySwiper"
+          modules={[Navigation]}
+          navigation={true}
+          centeredSlides={true}
+          // install Swiper modules
+          spaceBetween={50}
+          slidesPerView={1}
+        >
+          {eventCards()}
+        </Swiper>
+      </React.Fragment>
+    )
+  }
 }
 
 export default Events

@@ -34,7 +34,7 @@ const Dashboard = () => {
       <div className="main-container">
 
         <div className="rsvp-eventcards">
-          <Events events={data.rsvpEvents} type={"card"} handleClick={handleClick}/>
+          <Events events={data.rsvpEvents} type={"list"} handleClick={handleClick}/>
         </div>
 
         <div className="event-list">
