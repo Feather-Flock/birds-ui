@@ -1,12 +1,13 @@
 .main-container {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   height: 80vh;
 }
 
 .event-list {
   flex-direction: column;
-  width: 70%;
+  width: 45%;
   overflow: scroll;
 }
 

@@ -21,7 +21,6 @@ const EventCard = ({ id, title, description, date, time, type, handleClick }) =>
         </div>
 
         <button className="view-details-button" onClick={handleClick}>View Details</button>
-        <div className="swiper-nav-box"></div>
       </div>
     )
   } else if (type === "list") {
