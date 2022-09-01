@@ -53,7 +53,6 @@ const Dashboard = () => {
   
   return (
     <div className="dashboard-container">
-      <h1 className="welcome-user">Welcome {data.userName}!</h1>
       <div className="dashboard-main-container">
 
         <div className="rsvp-eventcards">
