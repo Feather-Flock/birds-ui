@@ -33,7 +33,7 @@ const Dashboard = () => {
       <h1 className="welcome-user">Welcome {data.userName}!</h1>
       <div className="main-container">
 
-        <div className="rsvp-eventcards">
+        <div className="event-list">
           <Events events={data.rsvpEvents} type={"list"} handleClick={handleClick}/>
         </div>
 

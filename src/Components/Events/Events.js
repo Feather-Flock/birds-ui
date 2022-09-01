@@ -1,10 +1,13 @@
 import React from 'react'
 import EventCard from "../EventCard/EventCard"
-import { Keyboard, Pagination, Navigation } from "swiper";
+import SwiperCore, { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
+SwiperCore.use([Pagination])
+
 const Events = ({events, type, handleClick}) => {
 
   const eventCards = () => {
@@ -27,7 +30,7 @@ const Events = ({events, type, handleClick}) => {
         )
       } else {
         return (
-          <SwiperSlide>
+          <SwiperSlide style={{ margin: '0 0 0 50' }}>
             {eventCard}
           </SwiperSlide>
         )
@@ -43,19 +46,18 @@ const Events = ({events, type, handleClick}) => {
     )
   } else {
     return (
-      <React.Fragment>
+      <>
         <Swiper
+          loop={true}
+          cssMode={true}
           className="mySwiper"
-          modules={[Navigation]}
-          navigation={true}
+          pagination={true}
           centeredSlides={true}
-          // install Swiper modules
           spaceBetween={50}
-          slidesPerView={1}
         >
           {eventCards()}
         </Swiper>
-      </React.Fragment>
+      </>
     )
   }
 }

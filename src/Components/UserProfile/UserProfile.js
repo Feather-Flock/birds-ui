@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./UserProfile.css";
 import EventModal from '../EventModal/EventModal'
+import EventCard from "../EventCard/EventCard";
 
 // SETUP AS A FAMILY VIEW FROM THE EVENT DETAILS PAGE
 // Can use a query hook for data for DRY code or just pass as props
@@ -28,25 +29,16 @@ const UserProfile = () => {
 
   const rsvpdEvents = data.rsvpEvents.map(event => {
     return (
-      // <EventCard />
-      <div className="event-container">
-        <h2 className="attending-header">Attending</h2>
-
-        <div className="event-picture-wrapper">
-          <img className="event-picture" alt="event festivities"></img>
-        </div>
-
-        <div className="event-info-container" >
-          <div className="event-details">
-            <p className="title">What: {event.title}</p>
-            <p className="date">When: {event.date}</p>
-            <p className="time">Time: {event.time}</p>
-          </div>
-          <p className="description">{event.description}</p>
-        </div>
-
-          <button className="view-details-button" onClick={handleClick}>View Details</button>
-      </div>
+      <EventCard
+        id={event.id}
+        key={event.id}
+        type={"card"}
+        title={event.title}
+        description={event.description}
+        date={event.date}
+        time={event.time}
+        handleClick={handleClick}
+      />
     )
   });
 
