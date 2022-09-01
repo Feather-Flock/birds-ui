@@ -8,13 +8,13 @@
 
 .main-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 80vh;
 }
 
 .rsvp-eventcards {
   flex-direction: column;
-  width: 30%;
+  width: 50%;
   overflow: scroll;
 }
 
