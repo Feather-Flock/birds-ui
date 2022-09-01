@@ -11,6 +11,16 @@ const Nav = () => {
       <Link to="/new-event">
         <button className="radiant-button" role="button">Create Event</button>
       </Link>
+      <Route exact path="/new-event">
+        <Link className="view-link" to="/">
+          <button className="radiant-button" role="button">Dashboard</button>
+        </Link>
+      </Route>
+      <Route exact path="/profile">
+        <Link className="view-link" to="/">
+          <button className="radiant-button" role="button">Dashboard</button>
+        </Link>
+      </Route>
       <Route exact path="/Dashboard-List">
         <Link className="view-link" to="/">
           <button className="radiant-button" role="button">Map View</button>
