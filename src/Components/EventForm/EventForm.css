@@ -1,4 +1,4 @@
-/* 
+/*
 html {
   display: flex;
   justify-content: center;
@@ -9,6 +9,14 @@ span {
   position: absolute;
   margin-top: 2%;
   margin-left: 1%;
+}
+
+.drop-down-row {
+  background-color: #FAFBFF;
+  height: 10%;
+  width: 40%;
+  margin: 1%;
+  margin-left: 5%;
 }
 
 .form-header {

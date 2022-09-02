@@ -20,7 +20,7 @@ export default function EventForm() {
     const {name, value} = e.target
     console.log(value, eventDetails.location)
     if(value.length < 2){ return }
-    fetch(`http://www.mapquestapi.com/search/v3/prediction?key=${process.env.REACT_APP_MAPQUEST_KEY }&limit=10&collection=adminArea,poi,address,category,franchise,airport&q=${value}&location=-104.671828,
+    fetch(`http://www.mapquestapi.com/search/v3/prediction?key=${process.env.REACT_APP_MAPQUEST_KEY }&limit=3&collection=adminArea,poi,address,category,franchise,airport&q=${value}&location=-104.671828,
             39.840072`)
             .then(response => response.json())
             .then(data => {
