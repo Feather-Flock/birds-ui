@@ -8,6 +8,8 @@ export default function EventForm() {
   location:'',
   description:''})
   const [searchOptions, setSearchOptions] = useState([])
+  const [searchInfo, setSearchInfo] = useState([])
+  const [eventObject, setEventObject] = useState({})
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -24,6 +26,7 @@ export default function EventForm() {
             .then(response => response.json())
             .then(data => {
                 data.results.map((result) => {
+                  setSearchInfo([...searchInfo, result])
                   setSearchOptions([...searchOptions, result.displayString])
                 })
             })
