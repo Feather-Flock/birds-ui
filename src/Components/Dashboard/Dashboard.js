@@ -70,13 +70,14 @@ const Dashboard = () => {
     <div className="dashboard-container">
       {modalVisible && <EventModal eventId={eventId} visible={modalVisible} handleClose={closeModal}/>}
 
+      <div id="map" className="map-container"></div>
       <div className="dashboard-main-container">
+        
 
         <div className="rsvp-eventcards">
           <Events events={data.user.rsvpdEvents} type={"card"} handleClick={handleClick} />
         </div>
 
-        <div id="map" className="map-container"></div>
       </div>
     </div>
   )

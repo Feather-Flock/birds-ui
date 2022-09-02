@@ -43,15 +43,6 @@ function EventModal({eventId, visible, handleClose}) {
   },
 };
 
-  // const event = {familyName: 'The Waterbills',
-  // familyID: 3,
-  // date: 'September 10,',
-  // time: '2:00pm-4:00pm',
-  // address: 'The Art Museum',
-  // title:'A Trip To the Art Museum',
-  // description: 'We want to take our daughter to the new Frida Kahlo exhibit and would love if you would join us!',
-  // familyTags: ['mlm', '1 kid', 'daughter', 'gay', 'tween']}
-//remove above once bringing in data from destructured info
   return (
     <>
     <button onClick={openModal}>Open Modal</button>

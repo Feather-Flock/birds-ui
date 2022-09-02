@@ -35,13 +35,13 @@ query user($id: ID!) {
 export const GET_EVENT_BY_ID = gql`
   query event($id: Int!) {
     event(id: $id) {
-      title
       description
+      title
       time
-      date
       lat
-      lng
+      date
       address
+      lng
       city
       state
       zip
