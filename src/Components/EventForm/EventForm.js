@@ -5,7 +5,7 @@ import './EventForm.css'
 export default function EventForm() {
   const [eventDetails, setEventDetails] = useState({title: '',
   date:'',
-  location:{},
+  location:'',
   description:''})
 
   const handleChange = (e) => {
@@ -16,10 +16,11 @@ export default function EventForm() {
   const handleSearch = (e) => {
     handleChange(e)
     const {name, value} = e.target
-    if(value.length > 2){ return }
+    console.log(value, eventDetails.location)
+    if(value.length < 2){ return }
     fetch(`http://www.mapquestapi.com/search/v3/prediction?key=${process.env.REACT_APP_MAPQUEST_KEY }&limit=10&collection=adminArea,poi,address,category,franchise,airport&q=${value}&location=-104.671828,
             39.840072`)
-            .then(response => response.JSON())
+            .then(response => response.json())
             .then(data => console.log(data))
   }
 
