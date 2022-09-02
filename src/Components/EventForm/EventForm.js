@@ -18,7 +18,6 @@ export default function EventForm() {
     handleChange(e)
     setSearchOptions([])
     const {name, value} = e.target
-    console.log(value, eventDetails.location)
     if(value.length < 2){ return }
     fetch(`http://www.mapquestapi.com/search/v3/prediction?key=${process.env.REACT_APP_MAPQUEST_KEY }&limit=3&collection=adminArea,poi,address,category,franchise,airport&q=${value}&location=-104.671828,
             39.840072`)
@@ -28,6 +27,14 @@ export default function EventForm() {
                   setSearchOptions([...searchOptions, result.displayString])
                 })
             })
+  }
+
+  const handleSelection = (e) => {
+    const {value} = e.target;
+
+    console.log(e.target, value)
+      setEventDetails({...eventDetails, location:value})
+      setSearchOptions([]);
   }
 
 
@@ -50,7 +57,7 @@ export default function EventForm() {
         placeholder='location'/>
         <div className='drop-down'>
           {searchOptions.map((option)=> {
-            return <div className='drop-down-row'>{option}</div>
+            return <option value={option} onClick={handleSelection} className='drop-down-row'>{option}</option>
           })}
         </div>
         <br/>
