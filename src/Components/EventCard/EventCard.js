@@ -1,11 +1,11 @@
 import React from 'react'
 import "./EventCard.css"
 
-const EventCard = ({ id, title, description, date, time, type, handleClick }) => {
+const EventCard = ({ id, title, description, date, time, eventTitle, type, handleClick, cardTitle }) => {
   if(type === "card") {
     return (
       <div className="event-container">
-        <h2 className="attending-header">Attending</h2>
+        <h2 className="attending-header">{eventTitle}</h2>
 
         <div className="event-picture-wrapper">
           <img className="event-picture" alt="event festivities"></img>
@@ -26,7 +26,7 @@ const EventCard = ({ id, title, description, date, time, type, handleClick }) =>
   } else if (type === "list") {
     return (
       <div className="event-container">
-        <h2 className="upcoming-header">Upcoming in Your Area</h2>
+        <h2 className="upcoming-header">{eventTitle}</h2>
 
         <div className="event-picture-wrapper">
           <img className="event-picture" alt="event festivities"></img>

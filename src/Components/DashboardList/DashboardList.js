@@ -35,11 +35,11 @@ const DashboardList = () => {
       <div className="main-container">
 
         <div className="event-list">
-          <Events events={data.user.rsvpdEvents} type={"list"} handleClick={handleClick}/>
+          <Events events={data.user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"list"} handleClick={handleClick}/>
         </div>
 
         <div className="event-list">
-          <Events events={data.user.nearEvents} type={"list"} handleClick={handleClick} />
+          <Events events={data.user.nearEvents} eventTitle={"Event Near You"} type={"list"} handleClick={handleClick} />
         </div>
 
       </div>

@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 SwiperCore.use([Pagination])
 
-const Events = ({events, type, handleClick}) => {
+const Events = ({events, eventTitle, type, handleClick}) => {
 
   const eventCards = () => {
     return events.map(event => {
@@ -17,6 +17,7 @@ const Events = ({events, type, handleClick}) => {
         id={event.id}
         key={event.id}
         type={type}
+        eventTitle={eventTitle}
         title={event.title}
         description={event.description}
         date={event.date}
