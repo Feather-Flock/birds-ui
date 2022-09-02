@@ -15,7 +15,6 @@ const Events = ({events, eventTitle, type, handleClick}) => {
     return events.map(event => {
       let eventCard = <EventCard
         id={event.id}
-        key={uuidv4()}
         type={type}
         eventTitle={eventTitle}
         title={event.title}
@@ -24,7 +23,6 @@ const Events = ({events, eventTitle, type, handleClick}) => {
         time={event.time}
         handleClick={handleClick}
       />
-      
       if(type === "list") {
         return (
           <React.Fragment key={uuidv4()}>
