@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './EventForm.css'
 
 
@@ -10,6 +10,22 @@ export default function EventForm() {
   const [searchOptions, setSearchOptions] = useState([])
   const [searchInfo, setSearchInfo] = useState([])
   const [eventObject, setEventObject] = useState({})
+
+useEffect(() => {
+  window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
+
+  //this is resetting the container so a new map is rendered on change
+  const container = window.L.DomUtil.get("map")
+  if(container != null) {
+    container._leaflet_id = null;
+  }
+
+  var map = window.L.mapquest.map('map', {
+    center: [39.73352, -104.965847],
+    layers: window.L.mapquest.tileLayer('map'),
+    zoom: 11
+  });
+},[])
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -43,6 +59,7 @@ export default function EventForm() {
 
   return (
     <div className='form-wrapper'>
+    <div id="map" className="map-container"></div>
       <form className="event-form">
         <h1 className="form-header">Create A New Event</h1>
         <input className='event-input' onChange={handleChange} type='text' placeholder='Add Title' name='title' value={eventDetails.title}/>

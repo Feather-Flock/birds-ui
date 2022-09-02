@@ -50,9 +50,7 @@ const Dashboard = () => {
           }),
           draggable: true
         }).bindPopup(nearbyEvent.title).addTo(map);
-        //event listener for marker will change to modal
         marker.on("click", (e) => {
-          // Change this to toggle the Event Modal when built
           handleClick(e)
           e.target.bindPopup(nearbyEvent.description)
         })
@@ -63,7 +61,7 @@ const Dashboard = () => {
   if(loading) return "Loading..."
   if(error) return `Error! ${error.message}`
 
-  
+
   return (
     <div className="dashboard-container">
       {modalVisible && <EventModal visible={modalVisible} handleClose={closeModal}/>}
