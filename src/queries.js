@@ -1,46 +1,5 @@
 import { gql } from "@apollo/client";
 
-// "user": {
-//   "id": "int",
-//   "email": "string",
-//   "userName": "string",
-//  "image": "string",
-//  "descriptionOfFamily": "String",
-//   "userEvents": [ // Events User Created
-//     {
-//       "id": "int",
-//       "title": "string",
-//       "description": "string",
-//   "zipCode": "int",
-//       "lat": "float",
-//       "lng": "float"
-//     }
-//   ],
-//   "rsvpdEvents": [
-//     {
-//         "id": "int",
-//         "title": "string",
-//         "description": "string",
-//     "zipCode": "int",
-//         "lat": "float",
-//         "lng": "float",
-//         "creatorId": "int"
-//     }
-//   ]
-// },
-// "eventsInUserArea": [ // All events
-//   {
-//     "id": "int",
-//     "title": "string",
-//     "description": "string",
-//    "zipCode": "int",
-//     "lat": "float",
-//     "lng": "float",
-//    "creator
-//   }
-// ]
-// }
-
 
 export const GET_USER_BY_ID = gql`
 query user($id: ID!) {
@@ -72,3 +31,28 @@ query user($id: ID!) {
     }
   }
 }`
+
+export const GET_EVENT_BY_ID = gql`
+  query event($id: Int!) {
+    event(id: $id) {
+      title
+      description
+      time
+      date
+      lat
+      lng
+      address
+      city
+      state
+      zip
+      creator(id: $id) {
+        email
+        userName
+        image
+        zipCode
+        description
+      }
+    }
+}
+`
+

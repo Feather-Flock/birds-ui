@@ -12,13 +12,15 @@ const Dashboard = () => {
     variables: {"id": process.env.REACT_APP_USER_ID}
   })
   const [modalVisible, setModalVisible] = useState(false)
+  const [eventId, setEventId] = useState()
   const handleClick = (e) => {
-    const {id, value} = e.target
-    let eventData =
+    const {id} = e.target
+    setEventId(id)
     setModalVisible(true)
   }
 
   const closeModal = () => {
+    setEventId(null)
     setModalVisible(false)
   }
 
@@ -66,7 +68,7 @@ const Dashboard = () => {
   
   return (
     <div className="dashboard-container">
-      {modalVisible && <EventModal visible={modalVisible} handleClose={closeModal}/>}
+      {modalVisible && <EventModal eventId={eventId} visible={modalVisible} handleClose={closeModal}/>}
 
       <div className="dashboard-main-container">
 
@@ -81,3 +83,7 @@ const Dashboard = () => {
 }
 
 export default Dashboard
+
+
+
+
