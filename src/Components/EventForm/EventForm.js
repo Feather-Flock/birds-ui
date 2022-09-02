@@ -7,6 +7,7 @@ export default function EventForm() {
   date:'',
   location:'',
   description:''})
+  const [searchOptions, setSearchOptions] = useState([])
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -15,13 +16,18 @@ export default function EventForm() {
 
   const handleSearch = (e) => {
     handleChange(e)
+    setSearchOptions([])
     const {name, value} = e.target
     console.log(value, eventDetails.location)
     if(value.length < 2){ return }
     fetch(`http://www.mapquestapi.com/search/v3/prediction?key=${process.env.REACT_APP_MAPQUEST_KEY }&limit=10&collection=adminArea,poi,address,category,franchise,airport&q=${value}&location=-104.671828,
             39.840072`)
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => {
+                data.results.map((result) => {
+                  setSearchOptions([...searchOptions, result.displayString])
+                })
+            })
   }
 
 
@@ -42,6 +48,11 @@ export default function EventForm() {
         name='location'
         value={eventDetails.location}
         placeholder='location'/>
+        <div className='drop-down'>
+          {searchOptions.map((option)=> {
+            return <div className='drop-down-row'>{option}</div>
+          })}
+        </div>
         <br/>
         <input className='event-input description'
         onChange={handleChange} type='text'
