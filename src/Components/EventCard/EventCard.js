@@ -41,7 +41,7 @@ const EventCard = ({ id, title, description, date, time, eventTitle, type, handl
           <p className="description">{description}</p>
         </div>
 
-          <button className="view-details-button" onClick={handleClick}>View Details</button>
+          <button id={id} className="view-details-button" onClick={handleClick}>View Details</button>
       </div>
     )
   }

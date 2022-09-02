@@ -15,7 +15,7 @@ const Events = ({events, eventTitle, type, handleClick}) => {
     return events.map(event => {
       let eventCard = <EventCard
         id={event.id}
-        key={event.id}
+        key={uuidv4()}
         type={type}
         eventTitle={eventTitle}
         title={event.title}
