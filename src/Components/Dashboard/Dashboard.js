@@ -54,9 +54,11 @@ const Dashboard = () => {
         }).bindPopup(nearbyEvent.title).addTo(map);
         //event listener for marker will change to modal
         marker.on("click", (e) => {
-          // Change this to toggle the Event Modal when built
-          handleClick(e)
-          e.target.bindPopup(nearbyEvent.description)
+          //mappedEvent is modeling what the event looks like when you
+          //click on a button.  handleclick function is looking for
+          // an id on e.target. >> e.target.id === mappedEvent.target.id
+          const mappedEvent = {target: {id: nearbyEvent.id}}
+          handleClick(mappedEvent)
         })
       });
     }
