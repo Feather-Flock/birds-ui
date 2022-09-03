@@ -3,44 +3,31 @@ import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./UserProfile.css";
 import EventModal from '../EventModal/EventModal'
-import EventCard from "../EventCard/EventCard";
+import Events from "../Events/Events"
 
 // SETUP AS A FAMILY VIEW FROM THE EVENT DETAILS PAGE
 // Can use a query hook for data for DRY code or just pass as props
 
 const UserProfile = () => {
+  const { loading, error, data } = useQuery(GET_USER_BY_ID, {
+    variables: {"id": process.env.REACT_APP_USER_ID}
+  });
   const [modalVisible, setModalVisible] = useState(false)
+  const [eventId, setEventId] = useState()
   const handleClick = (e) => {
-    const {id, value} = e.target
-    let eventData =
+    const {id} = e.target
+    setEventId(id)
     setModalVisible(true)
   }
 
   const closeModal = () => {
+    setEventId(null)
     setModalVisible(false)
   }
-  
-  const { loading, error, data } = useQuery(GET_USER_BY_ID, {
-    variables: {"id": "1"}
-  });
 
   if(loading) return "Loading...";
   if(error) return `Error! ${error.message}`;
 
-  const rsvpdEvents = data.rsvpEvents.map(event => {
-    return (
-      <EventCard
-        id={event.id}
-        key={event.id}
-        type={"card"}
-        title={event.title}
-        description={event.description}
-        date={event.date}
-        time={event.time}
-        handleClick={handleClick}
-      />
-    )
-  });
 
   // Will need to iterate over tags to render them. Code for that:
   
@@ -52,20 +39,20 @@ const UserProfile = () => {
 
   return (
     <div className="user-profile-page">
-    {modalVisible && <EventModal visible={modalVisible} handleClose={closeModal} />}
+      {modalVisible && <EventModal eventId={eventId} visible={modalVisible} handleClose={closeModal} />}
       <section className="left-container">
-        <img className="profile-picture" src={data.image} alt="family profile"></img>
+        <img className="profile-picture" src={data.user.image} alt="family profile"></img>
         
         <div className="name-wrapper">
-          <h2 className="family-name">{data.userName}</h2>
+          <h2 className="family-name">{data.user.userName}</h2>
         </div>
 
         <div className="location-wrapper">
           <span className="material-symbols-outlined">pin_drop</span>
-          <h3 className="location">{data.zipCode}</h3>
+          <h3 className="location">{data.user.zipCode}</h3>
         </div>
 
-        <p className="description-text-box">{data.description}</p>
+        <p className="description-text-box">{data.user.description}</p>
         
         <div className="tag-container">
           <p className="tag-title">2 Kids</p>
@@ -76,7 +63,7 @@ const UserProfile = () => {
       </section>
 
       <section className="right-container">
-        {rsvpdEvents}  
+        <Events events={data.user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />
       </section>
     </div>
   )

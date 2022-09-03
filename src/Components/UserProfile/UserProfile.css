@@ -68,10 +68,6 @@
 
 /* Right Container */
 .right-container {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: space-between;
   width: 45%;
   height: 749px;
   overflow-y: scroll;

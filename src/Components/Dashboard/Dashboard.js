@@ -12,13 +12,15 @@ const Dashboard = () => {
     variables: {"id": process.env.REACT_APP_USER_ID}
   })
   const [modalVisible, setModalVisible] = useState(false)
+  const [eventId, setEventId] = useState()
   const handleClick = (e) => {
-    const {id, value} = e.target
-    let eventData =
+    const {id} = e.target
+    setEventId(id)
     setModalVisible(true)
   }
 
   const closeModal = () => {
+    setEventId(null)
     setModalVisible(false)
   }
 
@@ -40,7 +42,7 @@ const Dashboard = () => {
       });
 
       // markers
-      data.eventsNearUser.map((nearbyEvent) => {
+      data.user.nearEvents.map((nearbyEvent) => {
         let marker = window.L.marker([nearbyEvent.lat, nearbyEvent.lng], { //to hover over marker it shows event title
           icon: window.L.mapquest.icons.flag({//custom marker
             primaryColor: '#000000',
@@ -52,9 +54,11 @@ const Dashboard = () => {
         }).bindPopup(nearbyEvent.title).addTo(map);
         //event listener for marker will change to modal
         marker.on("click", (e) => {
-          // Change this to toggle the Event Modal when built
-          handleClick(e)
-          e.target.bindPopup(nearbyEvent.description)
+          //mappedEvent is modeling what the event looks like when you
+          //click on a button.  handleclick function is looking for
+          // an id on e.target. >> e.target.id === mappedEvent.target.id
+          const mappedEvent = {target: {id: nearbyEvent.id}}
+          handleClick(mappedEvent)
         })
       });
     }
@@ -66,18 +70,21 @@ const Dashboard = () => {
   
   return (
     <div className="dashboard-container">
-      {modalVisible && <EventModal visible={modalVisible} handleClose={closeModal}/>}
+      {modalVisible && <EventModal eventId={eventId} visible={modalVisible} handleClose={closeModal}/>}
 
       <div className="dashboard-main-container">
-
         <div className="rsvp-eventcards">
-          <Events events={data.rsvpEvents} type={"card"} handleClick={handleClick} />
+          <Events events={data.user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />
         </div>
-
         <div id="map" className="map-container"></div>
+
       </div>
     </div>
   )
 }
 
 export default Dashboard
+
+
+
+
