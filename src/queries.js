@@ -59,13 +59,25 @@ export const GET_EVENT_BY_ID = gql`
 `
 
 export const USER_RSVP_TO_EVENT = gql`
-  mutate createUserEvent(input: CreateUserEventInput!) {
-    userEvent {
-      userId
-      eventId
-      createdAt
+  mutation createUserEvent($input: CreateUserEventInput!) {
+    createUserEvent(input: $input) {
+      userEvent {
+        userId
+        eventId
+        createdAt
+      }
     }
   }
-}
+`
 
+export const USER_DELETE_RSVP = gql`
+  mutation deleteUserEvent($input: DeleteUserEventInput!) {
+    deleteUserEvent(input: $input) {
+      userEvent {
+        userId
+        eventId
+        createdAt
+      }
+    }
+  }
 `

@@ -67,10 +67,14 @@ const Dashboard = () => {
   if(loading) return "Loading..."
   if(error) return `Error! ${error.message}`
 
+  const rsvpd = () => {
+    const eventFound = data.user.rsvpdEvents.find(ev => ev.id === eventId)
+    return eventFound ? true : false
+  }
   
   return (
     <div className="dashboard-container">
-      {modalVisible && <EventModal userId={data.user.id} eventId={eventId} visible={modalVisible} handleClose={closeModal}/>}
+      {modalVisible && <EventModal userId={data.user.id} eventId={eventId} isRsvpd={rsvpd()} visible={modalVisible} handleClose={closeModal}/>}
 
       <div className="dashboard-main-container">
         <div className="rsvp-eventcards">
