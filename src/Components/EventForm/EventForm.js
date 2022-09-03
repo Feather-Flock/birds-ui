@@ -11,23 +11,6 @@ export default function EventForm() {
   const [searchInfo, setSearchInfo] = useState([])
   const [eventObject, setEventObject] = useState({})
 
-// useEffect(() => {
-//   window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
-//
-//   //this is resetting the container so a new map is rendered on change
-//   const container = window.L.DomUtil.get("map")
-//   if(container != null) {
-//     container._leaflet_id = null;
-//   }
-//
-//   var map = window.L.mapquest.map('map', {
-//     center: [39.73352, -104.965847],
-//     layers: window.L.mapquest.tileLayer('map'),
-//     zoom: 11
-//   });
-//
-// },[])
-
 const makeMarkerMap = (location) => {
   console.log(location.place.geometry.coordinates)
     window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
@@ -62,6 +45,7 @@ const makeMarkerMap = (location) => {
   const handleSearch = (e) => {
     handleChange(e)
     setSearchOptions([])
+    setSearchInfo([])
     const {name, value} = e.target
     if(value.length < 2){ return }
     fetch(`http://www.mapquestapi.com/search/v3/prediction?key=${process.env.REACT_APP_MAPQUEST_KEY }&limit=3&collection=adminArea,poi,address,category,franchise,airport&q=${value}&location=-104.671828,
@@ -77,7 +61,6 @@ const makeMarkerMap = (location) => {
 
   const handleSelection = (e) => {
     const {value, id} = e.target;
-
       setEventDetails({...eventDetails, location:value})
       setSearchOptions([]);
       setSearchInfo(() => {
