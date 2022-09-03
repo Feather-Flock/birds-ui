@@ -73,10 +73,10 @@ mutation createEvent($input: CreateEventInput!) {
           lng
           host
           rsvps
-         }
       }
     }
-    `
+  }
+`
 
 
 export const USER_RSVP_TO_EVENT = gql`
