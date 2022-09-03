@@ -85,24 +85,24 @@ const makeMarkerMap = (location) => {
     mutateCreateEvent()
   }
 
-  //   const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT, {
-  //     variables: {input: { event: {
-  //       title: eventDetails.title,
-  //       description: eventDetails.description,
-  //       time: eventDetails.time,
-  //       date: eventDetails.date,
-  //       address: searchInfo.place.properties.street,
-  //       city: searchInfo.place.properties.city,
-  //       state:searchInfo.place.properties.stateCode,
-  //       zip: parseInt(searchInfo.place.properties.zipCode),
-  //       lat:searchInfo.place.geometry[1],
-  //       lng:searchInfo.place.geometry[0],
-  //       host: process.env.REACT_APP_USER_ID,
-  //       rsvps:[]
-  //     }
-  //   }
-  // }
-  // })
+    const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT, {
+      variables: {input: { event: {
+        title: eventDetails.title,
+        description: eventDetails.description,
+        time: eventDetails.time,
+        date: eventDetails.date,
+        address: searchInfo.place.properties.street,
+        city: searchInfo.place.properties.city,
+        state:searchInfo.place.properties.stateCode,
+        zip: parseInt(searchInfo.place.properties.zipCode),
+        lat:searchInfo.place.geometry[1],
+        lng:searchInfo.place.geometry[0],
+        host: process.env.REACT_APP_USER_ID,
+        rsvps:[]
+      }
+    }
+  }
+})
 
 
 
