@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./Dashboard.css"
@@ -8,7 +7,7 @@ import EventModal from '../EventModal/EventModal'
 
 
 const Dashboard = () => {
-  const {loading, error, data} = useQuery(GET_USER_BY_ID, {
+  const {loading, error, data, refetch} = useQuery(GET_USER_BY_ID, {
     variables: {"id": process.env.REACT_APP_USER_ID}
   })
   const [modalVisible, setModalVisible] = useState(false)
@@ -22,6 +21,7 @@ const Dashboard = () => {
   const closeModal = () => {
     setEventId(null)
     setModalVisible(false)
+    refetch()
   }
 
   useEffect(() => { //the following useEffect is what adds the map to the modal
