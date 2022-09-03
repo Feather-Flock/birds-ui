@@ -11,36 +11,38 @@ export default function EventForm() {
   const [searchInfo, setSearchInfo] = useState([])
   const [eventObject, setEventObject] = useState({})
 
-useEffect(() => {
-  window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
+// useEffect(() => {
+//   window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
+//
+//   //this is resetting the container so a new map is rendered on change
+//   const container = window.L.DomUtil.get("map")
+//   if(container != null) {
+//     container._leaflet_id = null;
+//   }
+//
+//   var map = window.L.mapquest.map('map', {
+//     center: [39.73352, -104.965847],
+//     layers: window.L.mapquest.tileLayer('map'),
+//     zoom: 11
+//   });
+//
+// },[])
 
-  //this is resetting the container so a new map is rendered on change
+const makeMarkerMap = (location) => {
+  console.log(location.place.geometry.coordinates)
+    window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
   const container = window.L.DomUtil.get("map")
   if(container != null) {
     container._leaflet_id = null;
   }
 
   var map = window.L.mapquest.map('map', {
-    center: [39.73352, -104.965847],
+    center: [location.place.geometry.coordinates[1],location.place.geometry.coordinates[0]],
     layers: window.L.mapquest.tileLayer('map'),
-    zoom: 11
+    zoom: 15
   });
 
-},[])
-
-const makeMarkerMap = () => {
-  const container = window.L.DomUtil.get("map")
-  if(container != null) {
-    container._leaflet_id = null;
-  }
-
-  var map = window.L.mapquest.map('map', {
-    center: [searchInfo.place.geometry.coordinates[0], searchInfo.place.geometry.coordinates[1]],
-    layers: window.L.mapquest.tileLayer('map'),
-    zoom: 11
-  });
-
-  let marker = window.L.marker([searchInfo.place.geometry.coordinates[0], searchInfo.place.geometry.coordinates[1]], { //to hover over marker it shows event title
+  let marker = window.L.marker( [location.place.geometry.coordinates[1],location.place.geometry.coordinates[0]], { //to hover over marker it shows event title
     icon: window.L.mapquest.icons.flag({//custom marker
       primaryColor: '#000000',
       secondaryColor: '#000000',
@@ -48,7 +50,7 @@ const makeMarkerMap = () => {
       symbol: 'hello'
     }),
     draggable: true
-  }).bindPopup(searchInfo.name).addTo(map);
+  }).bindPopup(location.name).addTo(map);
 }
 
 
@@ -67,19 +69,25 @@ const makeMarkerMap = () => {
             .then(response => response.json())
             .then(data => {
                 data.results.map((result) => {
-                  console.log(result)
                   setSearchInfo([...searchInfo, result])
-                  setSearchOptions([...searchOptions, result.displayString])
+                  setSearchOptions([...searchOptions, {name: result.displayString, id: result.id}])
                 })
             })
   }
 
   const handleSelection = (e) => {
-    const {value} = e.target;
+    const {value, id} = e.target;
 
       setEventDetails({...eventDetails, location:value})
       setSearchOptions([]);
-      makeMarkerMap()
+      setSearchInfo(() => {
+        return searchInfo.find((result) => {
+          if(result.id === id ) {
+            makeMarkerMap(result)
+            return result
+          }
+        })
+      })
   }
 
 
@@ -103,7 +111,7 @@ const makeMarkerMap = () => {
         placeholder='location'/>
         <div className='drop-down'>
           {searchOptions.map((option)=> {
-            return <option value={option} onClick={handleSelection} className='drop-down-row'>{option}</option>
+            return <option id={option.id} value={option.name} onClick={handleSelection} className='drop-down-row'>{option.name}</option>
           })}
         </div>
         <br/>
