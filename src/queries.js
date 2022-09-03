@@ -21,7 +21,7 @@ query user($id: ID!) {
       time
       host
     }
-    nearEvents(id: $id) {
+    userDefined(id: $id, range: 10) {
       id
       title
       description
@@ -47,6 +47,7 @@ export const GET_EVENT_BY_ID = gql`
       state
       zip
       creator(id: $id) {
+        id
         email
         userName
         image
@@ -57,3 +58,26 @@ export const GET_EVENT_BY_ID = gql`
 }
 `
 
+export const USER_RSVP_TO_EVENT = gql`
+  mutation createUserEvent($input: CreateUserEventInput!) {
+    createUserEvent(input: $input) {
+      userEvent {
+        userId
+        eventId
+        createdAt
+      }
+    }
+  }
+`
+
+export const USER_DELETE_RSVP = gql`
+  mutation deleteUserEvent($input: DeleteUserEventInput!) {
+    deleteUserEvent(input: $input) {
+      userEvent {
+        userId
+        eventId
+        createdAt
+      }
+    }
+  }
+`

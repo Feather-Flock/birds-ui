@@ -1,13 +1,13 @@
 import React from 'react'
 import EventCard from "../EventCard/EventCard"
-import SwiperCore, { Pagination } from "swiper";
+import SwiperCore, { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { v4 as uuidv4 } from 'uuid';
 
-SwiperCore.use([Pagination])
+SwiperCore.use([Pagination, Navigation])
 
 const Events = ({events, eventTitle, type, handleClick}) => {
 
@@ -38,7 +38,6 @@ const Events = ({events, eventTitle, type, handleClick}) => {
       }
     })
   }
-
   if(type === "list") {
     return (
       <React.Fragment>
@@ -49,12 +48,15 @@ const Events = ({events, eventTitle, type, handleClick}) => {
     return (
       <>
         <Swiper
-          loop={true}
+          loop={false}
           cssMode={true}
           className="mySwiper"
           pagination={true}
+          navigation={true}
+          modules={[Pagination, Navigation]}
           centeredSlides={true}
           spaceBetween={50}
+          keyboard={true}
           key={uuidv4()}
         >
           {eventCards()}

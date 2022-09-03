@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./Dashboard.css"
@@ -8,7 +7,7 @@ import EventModal from '../EventModal/EventModal'
 
 
 const Dashboard = () => {
-  const {loading, error, data} = useQuery(GET_USER_BY_ID, {
+  const {loading, error, data, refetch} = useQuery(GET_USER_BY_ID, {
     variables: {"id": process.env.REACT_APP_USER_ID}
   })
   const [modalVisible, setModalVisible] = useState(false)
@@ -22,6 +21,7 @@ const Dashboard = () => {
   const closeModal = () => {
     setEventId(null)
     setModalVisible(false)
+    refetch()
   }
 
   useEffect(() => { //the following useEffect is what adds the map to the modal
@@ -42,7 +42,7 @@ const Dashboard = () => {
       });
 
       // markers
-      data.user.nearEvents.map((nearbyEvent) => {
+      data.user.userDefined.map((nearbyEvent) => {
         let marker = window.L.marker([nearbyEvent.lat, nearbyEvent.lng], { //to hover over marker it shows event title
           icon: window.L.mapquest.icons.flag({//custom marker
             primaryColor: '#000000',
@@ -67,10 +67,14 @@ const Dashboard = () => {
   if(loading) return "Loading..."
   if(error) return `Error! ${error.message}`
 
+  const rsvpd = () => {
+    const eventFound = data.user.rsvpdEvents.find(ev => ev.id === eventId)
+    return eventFound ? true : false
+  }
   
   return (
     <div className="dashboard-container">
-      {modalVisible && <EventModal eventId={eventId} visible={modalVisible} handleClose={closeModal}/>}
+      {modalVisible && <EventModal userId={data.user.id} eventId={eventId} isRsvpd={rsvpd()} visible={modalVisible} handleClose={closeModal}/>}
 
       <div className="dashboard-main-container">
         <div className="rsvp-eventcards">

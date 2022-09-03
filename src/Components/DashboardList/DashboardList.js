@@ -39,7 +39,7 @@ const DashboardList = () => {
         </div>
 
         <div className="event-list">
-          <Events events={data.user.nearEvents} eventTitle={"Event Near You"} type={"list"} handleClick={handleClick} />
+          <Events events={data.user.userDefined} eventTitle={"Event Near You"} type={"list"} handleClick={handleClick} />
         </div>
 
       </div>
