@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import './EventForm.css'
 import { useQuery } from "@apollo/client";
+import { MAKE_NEW_EVENT } from '../queries'
 
 
 export default function EventForm() {
 
-  const {loading, error, data} = useQuery(GET_USER_BY_ID, {
-    variables: {"id": process.env.REACT_APP_USER_ID}
-  })
-  
   const [eventDetails, setEventDetails] = useState({title: '',
   date:'',
   location:'',
@@ -81,6 +78,22 @@ const makeMarkerMap = (location) => {
   }
 
   const handleSubmit = (e) =>  {
+    const {loading, error, data} = useQuery(MAKE_NEW_EVENT, {
+      variables: {event: {
+        title: eventDetails.title,
+        description: eventDetails.description,
+        time: eventDetails.date,
+        date: eventDetails.date,
+        address: '',
+        city: '',
+        state:'',
+        zip: '',
+        lat:'',
+        lng:'',
+        host:'',
+        rsvps:[]
+      }}
+    })
     //make a post to useQuery
     //reset all input fields
     //reset all states
