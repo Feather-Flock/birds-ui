@@ -25,7 +25,32 @@ useEffect(() => {
     layers: window.L.mapquest.tileLayer('map'),
     zoom: 11
   });
+
 },[])
+
+const makeMarkerMap = () => {
+  const container = window.L.DomUtil.get("map")
+  if(container != null) {
+    container._leaflet_id = null;
+  }
+
+  var map = window.L.mapquest.map('map', {
+    center: [searchInfo.place.geometry.coordinates[0], searchInfo.place.geometry.coordinates[1]],
+    layers: window.L.mapquest.tileLayer('map'),
+    zoom: 11
+  });
+
+  let marker = window.L.marker([searchInfo.place.geometry.coordinates[0], searchInfo.place.geometry.coordinates[1]], { //to hover over marker it shows event title
+    icon: window.L.mapquest.icons.flag({//custom marker
+      primaryColor: '#000000',
+      secondaryColor: '#000000',
+      size: 'sm',
+      symbol: 'hello'
+    }),
+    draggable: true
+  }).bindPopup(searchInfo.name).addTo(map);
+}
+
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -42,6 +67,7 @@ useEffect(() => {
             .then(response => response.json())
             .then(data => {
                 data.results.map((result) => {
+                  console.log(result)
                   setSearchInfo([...searchInfo, result])
                   setSearchOptions([...searchOptions, result.displayString])
                 })
@@ -51,15 +77,15 @@ useEffect(() => {
   const handleSelection = (e) => {
     const {value} = e.target;
 
-    console.log(e.target, value)
       setEventDetails({...eventDetails, location:value})
       setSearchOptions([]);
+      makeMarkerMap()
   }
 
 
   return (
     <div className='form-wrapper'>
-    <div id="map" className="map-container"></div>
+      <div id="map" className="map-container"></div>
       <form className="event-form">
         <h1 className="form-header">Create A New Event</h1>
         <input className='event-input' onChange={handleChange} type='text' placeholder='Add Title' name='title' value={eventDetails.title}/>
