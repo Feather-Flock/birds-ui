@@ -3,12 +3,12 @@ import './EventModal.css'
 import Modal from 'react-modal';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
-import { useQuery } from "@apollo/client";
-import { GET_EVENT_BY_ID } from "../../queries";
+import { useQuery, useMutation } from "@apollo/client";
+import { GET_EVENT_BY_ID, USER_RSVP_TO_EVENT } from "../../queries";
 
 Modal.setAppElement('#root');
 
-function EventModal({eventId, visible, handleClose}) {
+function EventModal({userId, eventId, visible, handleClose}) {
   const {loading, error, data} = useQuery(GET_EVENT_BY_ID, {
     variables: {"id": parseInt(eventId)}
   })
@@ -31,6 +31,12 @@ function EventModal({eventId, visible, handleClose}) {
   const getDirections = () => {
     console.log('Insert url link here')
     //insert navigationlink to directions
+  }
+
+  const handleRsvp = () => {
+    const [mutateFunction, response] = useMutation(USER_RSVP_TO_EVENT, {
+      variables: {userId: userId, eventId: eventId }
+    })
   }
 
   const customStyles = {
@@ -66,7 +72,7 @@ function EventModal({eventId, visible, handleClose}) {
           <h1>{data.event.creator.userName}</h1>
           <img className='event-img' src={data.event.creator.image}/>
           <br/>
-          <button> RSVP!</button>
+          <button onClick={(e) => handleRsvp(e)}> RSVP!</button>
           <Link to='/profile'>
             <button>View Family Profile</button>
           </Link>

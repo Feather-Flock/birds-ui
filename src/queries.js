@@ -47,6 +47,7 @@ export const GET_EVENT_BY_ID = gql`
       state
       zip
       creator(id: $id) {
+        id
         email
         userName
         image
@@ -57,3 +58,14 @@ export const GET_EVENT_BY_ID = gql`
 }
 `
 
+export const USER_RSVP_TO_EVENT = gql`
+  mutate createUserEvent(input: CreateUserEventInput!) {
+    userEvent {
+      userId
+      eventId
+      createdAt
+    }
+  }
+}
+
+`
