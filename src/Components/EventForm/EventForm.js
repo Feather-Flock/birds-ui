@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './EventForm.css'
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { MAKE_NEW_EVENT } from '../../queries'
 
 
@@ -80,7 +80,7 @@ const makeMarkerMap = (location) => {
   const handleSubmit = (e) =>  {
     e.preventDefault()
     console.log(eventDetails)
-    // const {loading, error, data} = useQuery(MAKE_NEW_EVENT, {
+    // const {loading, error, data} = useMutation(MAKE_NEW_EVENT, {
     //   variables: {event: {
     //     title: eventDetails.title,
     //     description: eventDetails.description,

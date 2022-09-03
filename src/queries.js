@@ -1,22 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 
 
-export const MAKE_NEW_EVENT = gql`
-mutation() createEvent($event: {
-          title
-          description
-          time
-          date
-          address
-          city
-          state
-          zip
-          lat
-          lng
-          host
-          rsvps
-         }!)`
-
 export const GET_USER_BY_ID = gql`
 query user($id: ID!) {
   user(id: $id) {
@@ -73,6 +57,27 @@ export const GET_EVENT_BY_ID = gql`
     }
 }
 `
+export const MAKE_NEW_EVENT = gql`
+mutation createEvent($input: CreateEventInput!) {
+  createEvent(input: $input) {
+    event {
+          title
+          description
+          time
+          date
+          address
+          city
+          state
+          zip
+          lat
+          lng
+          host
+          rsvps
+         }
+      }
+    }
+    `
+
 
 export const USER_RSVP_TO_EVENT = gql`
   mutation createUserEvent($input: CreateUserEventInput!) {
