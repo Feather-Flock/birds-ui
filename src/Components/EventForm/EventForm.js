@@ -8,6 +8,7 @@ export default function EventForm() {
 
   const [eventDetails, setEventDetails] = useState({title: '',
   date:'',
+  time:'',
   location:'',
   description:''})
   const [searchOptions, setSearchOptions] = useState([])
@@ -80,30 +81,29 @@ const makeMarkerMap = (location) => {
   const handleSubmit = (e) =>  {
     e.preventDefault()
     let timeArray = eventDetails.date.split('T');
-    console.log(eventDetails, searchInfo)
+    setEventDetails({...eventDetails, date: timeArray[0], time:timeArray[1]})
+    mutateCreateEvent()
+  }
+
   //   const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT, {
   //     variables: {input: { event: {
   //       title: eventDetails.title,
   //       description: eventDetails.description,
-  //       time: timeArray[1],
-  //       date: timeArray[0],
-  //       address: {searchInfo.place.properties.street},
-  //       city: {searchInfo.place.properties.city},
-  //       state:{searchInfo.place.properties.stateCode},
-  //       zip: {parseInt(searchInfo.place.properties.zipCode)},
-  //       lat:{searchInfo.place.geometry[1]},
-  //       lng:{searchInfo.place.geometry[0]},
-  //       host:'',
+  //       time: eventDetails.time,
+  //       date: eventDetails.date,
+  //       address: searchInfo.place.properties.street,
+  //       city: searchInfo.place.properties.city,
+  //       state:searchInfo.place.properties.stateCode,
+  //       zip: parseInt(searchInfo.place.properties.zipCode),
+  //       lat:searchInfo.place.geometry[1],
+  //       lng:searchInfo.place.geometry[0],
+  //       host: process.env.REACT_APP_USER_ID,
   //       rsvps:[]
   //     }
   //   }
   // }
   // })
-    //make a post to useQuery
-    //reset all input fields
-    //reset all states
-    //send an alert that confirms that the user made a post of an event form
-  }
+
 
 
   return (
