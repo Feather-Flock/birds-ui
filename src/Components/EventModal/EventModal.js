@@ -40,7 +40,6 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
   })
 
   const createRsvp = (e) => {
-    debugger
     mutateCreateRsvp()
     if(!createdResponse.error) {
       setRsvpd(true)
