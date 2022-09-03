@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import './EventForm.css'
+import { useQuery } from "@apollo/client";
 
 
 export default function EventForm() {
+
+  const {loading, error, data} = useQuery(GET_USER_BY_ID, {
+    variables: {"id": process.env.REACT_APP_USER_ID}
+  })
+  
   const [eventDetails, setEventDetails] = useState({title: '',
   date:'',
   location:'',
@@ -48,13 +54,14 @@ const makeMarkerMap = (location) => {
     setSearchInfo([])
     const {name, value} = e.target
     if(value.length < 2){ return }
+
     fetch(`http://www.mapquestapi.com/search/v3/prediction?key=${process.env.REACT_APP_MAPQUEST_KEY }&limit=3&collection=adminArea,poi,address,category,franchise,airport&q=${value}&location=-104.671828,
             39.840072`)
             .then(response => response.json())
             .then(data => {
                 data.results.map((result) => {
-                  setSearchInfo([...searchInfo, result])
-                  setSearchOptions([...searchOptions, {name: result.displayString, id: result.id}])
+                  setSearchInfo([...searchInfo, result]) //Makes array of search objects
+                  setSearchOptions([...searchOptions, {name: result.displayString, id: result.id}]) //array of the display name and id (might delete?)
                 })
             })
   }
@@ -66,11 +73,18 @@ const makeMarkerMap = (location) => {
       setSearchInfo(() => {
         return searchInfo.find((result) => {
           if(result.id === id ) {
-            makeMarkerMap(result)
+            makeMarkerMap(result) //Makes the map with the specific marker
             return result
           }
         })
       })
+  }
+
+  const handleSubmit = (e) =>  {
+    //make a post to useQuery
+    //reset all input fields
+    //reset all states
+    //send an alert that confirms that the user made a post of an event form
   }
 
 
@@ -103,7 +117,7 @@ const makeMarkerMap = (location) => {
         name='description'
         value={eventDetails.description}
         placeholder='Add a description for your event'/>
-        <button className='submit-event'>Save Event</button>
+        <button onClick={handleSubmit}className='submit-event'>Save Event</button>
       </form>
     </div>
   )

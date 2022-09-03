@@ -41,7 +41,36 @@ import { gql } from "@apollo/client";
 // ]
 // }
 
-
+export const MAKE_NEW_EVENT = gql`
+{
+createEvent(input: {
+    title:
+          description:
+          time:
+          date:
+          address:
+          city:
+          state:
+          zip:
+          host: 1
+       }) { event {
+          title
+          description
+          time
+          date
+          address
+          city
+          state
+          zip
+          lat
+          lng
+          host
+          rsvps
+         }
+     }
+  }
+}
+`
 export const GET_USER_BY_ID = gql`
 query user($id: ID!) {
   id
