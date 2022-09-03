@@ -79,19 +79,20 @@ const makeMarkerMap = (location) => {
 
   const handleSubmit = (e) =>  {
     e.preventDefault()
-    console.log(eventDetails)
+    let timeArray = eventDetails.date.split('T');
+    console.log(eventDetails, searchInfo)
   //   const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT, {
   //     variables: {input: { event: {
   //       title: eventDetails.title,
   //       description: eventDetails.description,
-  //       time: eventDetails.date,
-  //       date: eventDetails.date,
-  //       address: '',
-  //       city: '',
-  //       state:'',
-  //       zip: '',
-  //       lat:'',
-  //       lng:'',
+  //       time: timeArray[1],
+  //       date: timeArray[0],
+  //       address: {searchInfo.place.properties.street},
+  //       city: {searchInfo.place.properties.city},
+  //       state:{searchInfo.place.properties.stateCode},
+  //       zip: {parseInt(searchInfo.place.properties.zipCode)},
+  //       lat:{searchInfo.place.geometry[1]},
+  //       lng:{searchInfo.place.geometry[0]},
   //       host:'',
   //       rsvps:[]
   //     }
