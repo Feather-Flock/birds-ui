@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./Dashboard.css"
@@ -8,18 +7,21 @@ import EventModal from '../EventModal/EventModal'
 
 
 const Dashboard = () => {
-  const {loading, error, data} = useQuery(GET_USER_BY_ID, {
+  const {loading, error, data, refetch} = useQuery(GET_USER_BY_ID, {
     variables: {"id": process.env.REACT_APP_USER_ID}
   })
   const [modalVisible, setModalVisible] = useState(false)
+  const [eventId, setEventId] = useState()
   const handleClick = (e) => {
-    const {id, value} = e.target
-    let eventData =
+    const {id} = e.target
+    setEventId(id)
     setModalVisible(true)
   }
 
   const closeModal = () => {
+    setEventId(null)
     setModalVisible(false)
+    refetch()
   }
 
   useEffect(() => { //the following useEffect is what adds the map to the modal
@@ -40,7 +42,7 @@ const Dashboard = () => {
       });
 
       // markers
-      data.eventsNearUser.map((nearbyEvent) => {
+      data.user.userDefined.map((nearbyEvent) => {
         let marker = window.L.marker([nearbyEvent.lat, nearbyEvent.lng], { //to hover over marker it shows event title
           icon: window.L.mapquest.icons.flag({//custom marker
             primaryColor: '#000000',
@@ -51,8 +53,11 @@ const Dashboard = () => {
           draggable: true
         }).bindPopup(nearbyEvent.title).addTo(map);
         marker.on("click", (e) => {
-          handleClick(e)
-          e.target.bindPopup(nearbyEvent.description)
+          //mappedEvent is modeling what the event looks like when you
+          //click on a button.  handleclick function is looking for
+          // an id on e.target. >> e.target.id === mappedEvent.target.id
+          const mappedEvent = {target: {id: nearbyEvent.id}}
+          handleClick(mappedEvent)
         })
       });
     }
@@ -61,18 +66,21 @@ const Dashboard = () => {
   if(loading) return "Loading..."
   if(error) return `Error! ${error.message}`
 
+  const rsvpd = () => {
+    const eventFound = data.user.rsvpdEvents.find(ev => ev.id === eventId)
+    return eventFound ? true : false
+  }
 
   return (
     <div className="dashboard-container">
-      {modalVisible && <EventModal visible={modalVisible} handleClose={closeModal}/>}
+      {modalVisible && <EventModal userId={data.user.id} eventId={eventId} isRsvpd={rsvpd()} visible={modalVisible} handleClose={closeModal}/>}
 
       <div className="dashboard-main-container">
-
         <div className="rsvp-eventcards">
-          <Events events={data.rsvpEvents} type={"card"} handleClick={handleClick} />
+          <Events events={data.user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />
         </div>
-
         <div id="map" className="map-container"></div>
+
       </div>
     </div>
   )

@@ -1,13 +1,20 @@
-import React, {useState } from 'react'
+import React, { useState } from 'react'
 import './EventModal.css'
 import Modal from 'react-modal';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
+import { useQuery, useMutation } from "@apollo/client";
+import { GET_EVENT_BY_ID, USER_RSVP_TO_EVENT, USER_DELETE_RSVP } from "../../queries";
 
 Modal.setAppElement('#root');
 
-function EventModal({eventInfo, visible, handleClose}) {
+function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
 
+  const {loading, error, data} = useQuery(GET_EVENT_BY_ID, {
+    variables: {"id": parseInt(eventId)}
+  })
+  
+  const [rsvpd, setRsvpd] = useState(isRsvpd)
   const [modalIsOpen, setIsOpen] = useState(visible);
 
   const openModal = () => {
@@ -24,25 +31,40 @@ function EventModal({eventInfo, visible, handleClose}) {
     //insert navigationlink to directions
   }
 
-  const customStyles = {
-  content: {
-    zindex: 1,
-    position: 'fixed',
-    right: 'auto',
-    marginLeft: '10%',
-    bottom: 'auto',
-  },
-};
+  const [mutateCreateRsvp, createdResponse] = useMutation(USER_RSVP_TO_EVENT, {
+    variables: { input: { userId: parseInt(userId), eventId: parseInt(eventId) }}
+  })
 
-  const event = {familyName: 'The Waterbills',
-  familyID: 3,
-  date: 'September 10,',
-  time: '2:00pm-4:00pm',
-  address: 'The Art Museum',
-  title:'A Trip To the Art Museum',
-  description: 'We want to take our daughter to the new Frida Kahlo exhibit and would love if you would join us!',
-  familyTags: ['mlm', '1 kid', 'daughter', 'gay', 'tween']}
-//remove above once bringing in data from destructured info
+  const [mutateDeleteRsvp, deletedResponse] = useMutation(USER_DELETE_RSVP, {
+    variables: { input: {userId: userId, eventId: eventId }}
+  })
+
+  const createRsvp = (e) => {
+    mutateCreateRsvp()
+    if(!createdResponse.error) {
+      setRsvpd(true)
+    }
+  }
+
+  const deleteRsvp = (e) => {
+    mutateDeleteRsvp()
+    if(!deletedResponse.error) {
+      setRsvpd(false)
+    }
+  }
+  const customStyles = {
+    content: {
+      zindex: 1,
+      position: 'fixed',
+      right: 'auto',
+      marginLeft: '10%',
+      bottom: 'auto',
+    },
+  };
+
+  if(loading) return "Loading..."
+  if(error) return `Error! ${error.message}`
+
   return (
     <>
     <button onClick={openModal}>Open Modal</button>
@@ -53,20 +75,24 @@ function EventModal({eventInfo, visible, handleClose}) {
      style={customStyles}>
       <button onClick={closeModal}
       className='close-button'>X</button>
-      <h1 className='modal-header'>{event.title}</h1>
+      <h1 className='modal-header'>{data.event.title}</h1>
       <div className='modal-grid'>
         <div>
           <br/>
-          <h3>{`${event.date}  ${event.time}`}</h3>
+          <h3>{`${data.event.date}  ${data.event.time}`}</h3>
           <img className='event-img' src='https://www.illustrationsof.com/royalty-free-rf-art-museum-clipart-illustration-by-nl-shop-stock-sample-432030.jpg'></img>
-          <p>Location: {event.address}</p>
-          <p className='event-description'>{event.description}</p>
+          <p>Location: {data.event.address}</p>
+          <p className='event-description'>{data.event.description}</p>
         </div>
         <div>
-          <h1>{event.familyName}</h1>
-          <img className='event-img' src='https://upload.wikimedia.org/wikipedia/commons/c/c5/Males_Anas_platyrhynchos_2.jpg'/>
+          <h1>{data.event.creator.userName}</h1>
+          <img className='event-img' src={data.event.creator.image}/>
           <br/>
-          <button> RSVP!</button>
+          {rsvpd ?
+            <button onClick={(e) => deleteRsvp(e)}> Cancel RSVP</button>
+          :
+            <button onClick={(e) => createRsvp(e)}> RSVP!</button>
+        }
           <Link to='/profile'>
             <button>View Family Profile</button>
           </Link>

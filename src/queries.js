@@ -1,45 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
 
-// "user": {
-//   "id": "int",
-//   "email": "string",
-//   "userName": "string",
-//  "image": "string",
-//  "descriptionOfFamily": "String",
-//   "userEvents": [ // Events User Created
-//     {
-//       "id": "int",
-//       "title": "string",
-//       "description": "string",
-//   "zipCode": "int",
-//       "lat": "float",
-//       "lng": "float"
-//     }
-//   ],
-//   "rsvpdEvents": [
-//     {
-//         "id": "int",
-//         "title": "string",
-//         "description": "string",
-//     "zipCode": "int",
-//         "lat": "float",
-//         "lng": "float",
-//         "creatorId": "int"
-//     }
-//   ]
-// },
-// "eventsInUserArea": [ // All events
-//   {
-//     "id": "int",
-//     "title": "string",
-//     "description": "string",
-//    "zipCode": "int",
-//     "lat": "float",
-//     "lng": "float",
-//    "creator
-//   }
-// ]
-// }
 
 export const MAKE_NEW_EVENT = gql`
 mutation() createEvent($event: {
@@ -59,29 +19,81 @@ mutation() createEvent($event: {
 
 export const GET_USER_BY_ID = gql`
 query user($id: ID!) {
-  id
-  userName
-  email
-  image
-  zipCode
-  rsvpEvents {
+  user(id: $id) {
     id
-    title
+    userName
+    email
     description
+    image
     zipCode
-    lat
-    lng
-    date
-    time
-    totalRsvpd
-  }
-  eventsNearUser {
-    id
-    title
-    description
-    date
-    lat
-    lng
-    time
+    rsvpdEvents(id: $id) {
+      id
+      title
+      description
+      zip
+      lat
+      lng
+      date
+      time
+      host
+    }
+    userDefined(id: $id, range: 10) {
+      id
+      title
+      description
+      date
+      lat
+      lng
+      time
+    }
   }
 }`
+
+export const GET_EVENT_BY_ID = gql`
+  query event($id: Int!) {
+    event(id: $id) {
+      description
+      title
+      time
+      lat
+      date
+      address
+      lng
+      city
+      state
+      zip
+      creator(id: $id) {
+        id
+        email
+        userName
+        image
+        zipCode
+        description
+      }
+    }
+}
+`
+
+export const USER_RSVP_TO_EVENT = gql`
+  mutation createUserEvent($input: CreateUserEventInput!) {
+    createUserEvent(input: $input) {
+      userEvent {
+        userId
+        eventId
+        createdAt
+      }
+    }
+  }
+`
+
+export const USER_DELETE_RSVP = gql`
+  mutation deleteUserEvent($input: DeleteUserEventInput!) {
+    deleteUserEvent(input: $input) {
+      userEvent {
+        userId
+        eventId
+        createdAt
+      }
+    }
+  }
+`
