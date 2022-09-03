@@ -21,7 +21,7 @@ query user($id: ID!) {
       time
       host
     }
-    nearEvents(id: $id) {
+    userDefined(id: $id, range: 10) {
       id
       title
       description

@@ -42,7 +42,7 @@ const Dashboard = () => {
       });
 
       // markers
-      data.user.nearEvents.map((nearbyEvent) => {
+      data.user.userDefined.map((nearbyEvent) => {
         let marker = window.L.marker([nearbyEvent.lat, nearbyEvent.lng], { //to hover over marker it shows event title
           icon: window.L.mapquest.icons.flag({//custom marker
             primaryColor: '#000000',
