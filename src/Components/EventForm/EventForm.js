@@ -80,22 +80,24 @@ const makeMarkerMap = (location) => {
   const handleSubmit = (e) =>  {
     e.preventDefault()
     console.log(eventDetails)
-    // const {loading, error, data} = useMutation(MAKE_NEW_EVENT, {
-    //   variables: {event: {
-    //     title: eventDetails.title,
-    //     description: eventDetails.description,
-    //     time: eventDetails.date,
-    //     date: eventDetails.date,
-    //     address: '',
-    //     city: '',
-    //     state:'',
-    //     zip: '',
-    //     lat:'',
-    //     lng:'',
-    //     host:'',
-    //     rsvps:[]
-    //   }}
-    // })
+  //   const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT, {
+  //     variables: {input: { event: {
+  //       title: eventDetails.title,
+  //       description: eventDetails.description,
+  //       time: eventDetails.date,
+  //       date: eventDetails.date,
+  //       address: '',
+  //       city: '',
+  //       state:'',
+  //       zip: '',
+  //       lat:'',
+  //       lng:'',
+  //       host:'',
+  //       rsvps:[]
+  //     }
+  //   }
+  // }
+  // })
     //make a post to useQuery
     //reset all input fields
     //reset all states
