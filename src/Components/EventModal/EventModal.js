@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './EventModal.css'
 import Modal from 'react-modal';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_EVENT_BY_ID, USER_RSVP_TO_EVENT, USER_DELETE_RSVP } from "../../queries";
+import UserContext from "../../Context/UserContext"
 
 Modal.setAppElement('#root');
 
 function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
+
+  const user = useContext(UserContext)
 
   const {loading, error, data} = useQuery(GET_EVENT_BY_ID, {
     variables: {"id": parseInt(eventId)}
@@ -62,6 +65,21 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
     },
   };
 
+  const renderButtons = () => {
+    return (
+      <>
+        {rsvpd ?
+          <button onClick={(e) => deleteRsvp(e)}> Cancel RSVP</button>
+        :
+          <button onClick={(e) => createRsvp(e)}> RSVP!</button>
+        }
+        <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}} onClick={closeModal}>
+          <button>View Family Profile</button>
+        </Link> 
+      </>
+    )
+  }
+
   if(loading) return "Loading..."
   if(error) return `Error! ${error.message}`
 
@@ -88,14 +106,8 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
           <h1>{data.event.creator.userName}</h1>
           <img className='event-img' src={data.event.creator.image}/>
           <br/>
-          {rsvpd ?
-            <button onClick={(e) => deleteRsvp(e)}> Cancel RSVP</button>
-          :
-            <button onClick={(e) => createRsvp(e)}> RSVP!</button>
-        }
-          <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}} onClick={closeModal}>
-            <button>View Family Profile</button>
-          </Link>
+          {user.id !== data.event.creator.id && renderButtons()
+          }
           <div className='event-modal-map'>
             <h1>Map</h1>
           </div>
