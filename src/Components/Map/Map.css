@@ -4,3 +4,9 @@
   width: 35%;
   height: 30%;
 }
+
+.map-container {
+  width: 50%;
+  height: 30em;
+  margin: 10px;
+}

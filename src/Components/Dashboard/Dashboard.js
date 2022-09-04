@@ -37,7 +37,7 @@ const Dashboard = ({refetch}) => {
         <div className="rsvp-eventcards">
           <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />
         </div>
-        <Map center={[39.73352, -104.965847]} markers={user.userDefined} handleClick={handleClick}/>
+        <Map center={[39.73352, -104.965847]} markers={user.userDefined} handleClick={handleClick} view={'Dashboard'}/>
 
       </div>
     </div>

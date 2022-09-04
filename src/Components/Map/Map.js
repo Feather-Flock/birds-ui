@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react'
 import './Map.css'
 
-export default function Map({center, marker, markerLabel, markers, handleClick }){
-
+export default function Map({center, marker, markerLabel, markers, handleClick, view }){
   useEffect(()=> {
     window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
   const container = window.L.DomUtil.get("map")
@@ -13,7 +12,7 @@ export default function Map({center, marker, markerLabel, markers, handleClick }
   var map = window.L.mapquest.map('map', {
     center: center,
     layers: window.L.mapquest.tileLayer('map'),
-    zoom: 15
+    zoom: 11
   });
 
   if (marker && markerLabel ) {
@@ -51,7 +50,7 @@ markers.forEach((nearbyEvent) => {
 },[center])
 
 return (
-  <div id="map" className="event-form-map-container">
+  <div id="map" className={view === 'event-form' ? 'event-form-map-container' : 'map-container'}>
     </div>
 )
 }
