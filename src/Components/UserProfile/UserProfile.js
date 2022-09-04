@@ -57,32 +57,39 @@ const UserProfile = () => {
   return (
     <div className="user-profile-page">
       {modalVisible && <EventModal eventId={eventId} visible={modalVisible} handleClose={closeModal} />}
-      <section className="left-container">
-        <img className="profile-picture" src={user.image} alt="family profile"></img>
-        
-        <div className="name-wrapper">
-          <h2 className="family-name">{user.userName}</h2>
-        </div>
+      <section className="top-container">
+        <section className="left-container">
+          <div className="name-wrapper">
+            <h2 className="family-name">{user.userName}</h2>
+          </div>
+          <img className="profile-picture" src={user.image} alt="family profile"></img>
+          
 
-        <div className="location-wrapper">
-          <span className="material-symbols-outlined">pin_drop</span>
-          <h3 className="location">{user.zipCode}</h3>
-        </div>
+          <div className="location-wrapper">
+            <span className="material-symbols-outlined">pin_drop</span>
+            <h3 className="location">{user.zipCode}</h3>
+          </div>
+        </section>
 
-        <p className="description-text-box">{user.description}</p>
-        
-        <div className="tag-container">
-          <p className="tag-title">2 Kids</p>
-          <p className="tag-title">MLM</p>
-          <p className="tag-title">Married</p>
-          <p className="tag-title">Monogamous</p>
-        </div>
+        <section className="right-container">
+          
+          <div className="tag-container">
+            <p className="tag-title">2 Kids</p>
+            <p className="tag-title">MLM</p>
+            <p className="tag-title">Married</p>
+            <p className="tag-title">Monogamous</p>
+          </div>
+          <p className="description-text-box">{user.description}</p>
+        </section>
       </section>
 
-      <section className="right-container">
-        {!state && <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />}
-        <Events events={user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} handleClick={handleClick} />
-
+      <section className="bottom-container">
+        <section className="left-container card">
+          <Events events={user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} handleClick={handleClick} />
+        </section>
+        <section className="right-container card">
+          {!state && <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />}
+        </section>
       </section>
     </div>
   )
