@@ -21,32 +21,6 @@ const EventForm = () => {
   const [searchInfo, setSearchInfo] = useState([])
   const [eventObject, setEventObject] = useState({})
 
-// const makeMarkerMap = (location) => {
-//   console.log(location.place.geometry.coordinates)
-//     window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
-//   const container = window.L.DomUtil.get("map")
-//   if(container != null) {
-//     container._leaflet_id = null;
-//   }
-//
-//   var map = window.L.mapquest.map('map', {
-//     center: [location.place.geometry.coordinates[1],location.place.geometry.coordinates[0]],
-//     layers: window.L.mapquest.tileLayer('map'),
-//     zoom: 15
-//   });
-//
-//   let marker = window.L.marker( [location.place.geometry.coordinates[1],location.place.geometry.coordinates[0]], { //to hover over marker it shows event title
-//     icon: window.L.mapquest.icons.flag({//custom marker
-//       primaryColor: '#000000',
-//       secondaryColor: '#000000',
-//       size: 'sm',
-//       symbol: 'hello'
-//     }),
-//     draggable: true
-//   }).bindPopup(location.name).addTo(map);
-// }
-
-
   const handleChange = (e) => {
     const {name, value} = e.target;
     setEventDetails({...eventDetails, [name]: value})
