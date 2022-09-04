@@ -72,7 +72,6 @@ mutation createEvent($input: CreateEventInput!) {
           lat
           lng
           host
-          rsvps
       }
     }
   }

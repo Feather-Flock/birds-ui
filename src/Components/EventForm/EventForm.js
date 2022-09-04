@@ -57,6 +57,7 @@ const makeMarkerMap = (location) => {
             39.840072`)
             .then(response => response.json())
             .then(data => {
+              debugger
                 data.results.map((result) => {
                   setSearchInfo([...searchInfo, result]) //Makes array of search objects
                   setSearchOptions([...searchOptions, {name: result.displayString, id: result.id}]) //array of the display name and id (might delete?)
@@ -85,24 +86,24 @@ const makeMarkerMap = (location) => {
     mutateCreateEvent()
   }
 
-    const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT, {
-      variables: {input: { event: {
+  const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT,
+    {
+      variables: {input: 
+      {
         title: eventDetails.title,
         description: eventDetails.description,
         time: eventDetails.time,
         date: eventDetails.date,
-        address: searchInfo.place.properties.street,
-        city: searchInfo.place.properties.city,
-        state:searchInfo.place.properties.stateCode,
-        zip: parseInt(searchInfo.place.properties.zipCode),
-        lat:searchInfo.place.geometry[1],
-        lng:searchInfo.place.geometry[0],
-        host: process.env.REACT_APP_USER_ID,
-        rsvps:[]
+        address: searchInfo?.place?.properties?.street,
+        city: searchInfo?.place?.properties?.city,
+        state: searchInfo?.place?.properties?.stateCode,
+        zip: parseInt(searchInfo?.place?.properties?.postalCode),
+        lat: searchInfo?.place?.geometry[1],
+        lng: searchInfo?.place?.geometry[0],
+        host: parseInt(process.env.REACT_APP_USER_ID),
       }
     }
-  }
-})
+  })
 
 
 
