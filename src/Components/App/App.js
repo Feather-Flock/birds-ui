@@ -30,7 +30,7 @@ const App = () =>  {
           <Dashboard refetch={refetch}/>
         </Route>
         <Route exact path="/dashboard-list">
-          <DashboardList />
+          <DashboardList refetch={refetch} />
         </Route>
         <Route exact path="/New-Event">
           <EventForm />

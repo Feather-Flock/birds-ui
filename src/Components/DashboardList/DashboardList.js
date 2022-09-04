@@ -9,7 +9,7 @@ import UserContext from '../../Context/UserContext';
 
 
 
-const DashboardList = () => {
+const DashboardList = ({refetch}) => {
   
   const user = useContext(UserContext)
 
@@ -24,6 +24,7 @@ const DashboardList = () => {
   const closeModal = () => {
     setEventId(null)
     setModalVisible(false)
+    refetch()
   }
 
   return (
