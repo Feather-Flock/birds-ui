@@ -28,7 +28,6 @@ const UserProfile = () => {
   if(loading) return "Loading...";
   if(error) return `Error! ${error.message}`;
 
-
   // Will need to iterate over tags to render them. Code for that:
   
   // const tags = data.tags.map(tag => {
@@ -64,6 +63,8 @@ const UserProfile = () => {
 
       <section className="right-container">
         <Events events={data.user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />
+        <Events events={data.user.userEvents} eventTitle={"Event you've Created"} type={"card"} handleClick={handleClick} />
+
       </section>
     </div>
   )
