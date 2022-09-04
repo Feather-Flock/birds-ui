@@ -8,7 +8,9 @@ import Nav from "../Nav/Nav"
 import './App.css';
 import EventForm from '../EventForm/EventForm'
 import EventModal from '../EventModal/EventModal'
-import UserContext from "../Context/UserContext"
+import UserContext from "../../Context/UserContext"
+import { useQuery } from "@apollo/client";
+
 
 
 const App = () =>  {
@@ -25,7 +27,7 @@ const App = () =>  {
       <div className="App">
         <Nav />
         <Route exact path="/">
-          <Dashboard />
+          <Dashboard refetch={refetch}/>
         </Route>
         <Route exact path="/dashboard-list">
           <DashboardList />
