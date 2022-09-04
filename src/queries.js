@@ -21,6 +21,17 @@ query user($id: ID!) {
       time
       host
     }
+    userEvents(id: $id) {
+      id
+      title
+      description
+      zip
+      lat
+      lng
+      date
+      time
+      host
+    }
     userDefined(id: $id, range: 10) {
       id
       title
@@ -72,7 +83,6 @@ mutation createEvent($input: CreateEventInput!) {
           lat
           lng
           host
-          rsvps
       }
     }
   }
