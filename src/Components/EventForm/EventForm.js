@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './EventForm.css'
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery} from "@apollo/client";
 import { MAKE_NEW_EVENT } from '../../queries'
+import Map from '../Map/Map'
 
 
 export default function EventForm() {
@@ -15,30 +16,30 @@ export default function EventForm() {
   const [searchInfo, setSearchInfo] = useState([])
   const [eventObject, setEventObject] = useState({})
 
-const makeMarkerMap = (location) => {
-  console.log(location.place.geometry.coordinates)
-    window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
-  const container = window.L.DomUtil.get("map")
-  if(container != null) {
-    container._leaflet_id = null;
-  }
-
-  var map = window.L.mapquest.map('map', {
-    center: [location.place.geometry.coordinates[1],location.place.geometry.coordinates[0]],
-    layers: window.L.mapquest.tileLayer('map'),
-    zoom: 15
-  });
-
-  let marker = window.L.marker( [location.place.geometry.coordinates[1],location.place.geometry.coordinates[0]], { //to hover over marker it shows event title
-    icon: window.L.mapquest.icons.flag({//custom marker
-      primaryColor: '#000000',
-      secondaryColor: '#000000',
-      size: 'sm',
-      symbol: 'hello'
-    }),
-    draggable: true
-  }).bindPopup(location.name).addTo(map);
-}
+// const makeMarkerMap = (location) => {
+//   console.log(location.place.geometry.coordinates)
+//     window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
+//   const container = window.L.DomUtil.get("map")
+//   if(container != null) {
+//     container._leaflet_id = null;
+//   }
+//
+//   var map = window.L.mapquest.map('map', {
+//     center: [location.place.geometry.coordinates[1],location.place.geometry.coordinates[0]],
+//     layers: window.L.mapquest.tileLayer('map'),
+//     zoom: 15
+//   });
+//
+//   let marker = window.L.marker( [location.place.geometry.coordinates[1],location.place.geometry.coordinates[0]], { //to hover over marker it shows event title
+//     icon: window.L.mapquest.icons.flag({//custom marker
+//       primaryColor: '#000000',
+//       secondaryColor: '#000000',
+//       size: 'sm',
+//       symbol: 'hello'
+//     }),
+//     draggable: true
+//   }).bindPopup(location.name).addTo(map);
+// }
 
 
   const handleChange = (e) => {
@@ -85,24 +86,24 @@ const makeMarkerMap = (location) => {
     mutateCreateEvent()
   }
 
-    const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT, {
-      variables: {input: { event: {
-        title: eventDetails.title,
-        description: eventDetails.description,
-        time: eventDetails.time,
-        date: eventDetails.date,
-        address: searchInfo.place.properties.street,
-        city: searchInfo.place.properties.city,
-        state:searchInfo.place.properties.stateCode,
-        zip: parseInt(searchInfo.place.properties.zipCode),
-        lat:searchInfo.place.geometry[1],
-        lng:searchInfo.place.geometry[0],
-        host: process.env.REACT_APP_USER_ID,
-        rsvps:[]
-      }
-    }
-  }
-})
+//     const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT, {
+//       variables: {input: { event: {
+//         title: eventDetails.title,
+//         description: eventDetails.description,
+//         time: eventDetails.time,
+//         date: eventDetails.date,
+//         address: searchInfo.place.properties.street,
+//         city: searchInfo.place.properties.city,
+//         state:searchInfo.place.properties.stateCode,
+//         zip: parseInt(searchInfo.place.properties.zipCode),
+//         lat:searchInfo.place.geometry[1],
+//         lng:searchInfo.place.geometry[0],
+//         host: process.env.REACT_APP_USER_ID,
+//         rsvps:[]
+//       }
+//     }
+//   }
+// })
 
 
 
