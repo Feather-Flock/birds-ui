@@ -5,6 +5,7 @@ import "./Dashboard.css"
 import Events from "../Events/Events"
 import EventModal from '../EventModal/EventModal'
 import UserContext from '../../Context/UserContext';
+import Map from '../Map/Map'
 
 const Dashboard = ({refetch}) => {
 
@@ -49,7 +50,7 @@ const Dashboard = ({refetch}) => {
           size: 'sm',
           symbol: 'hello'
         }),
-        draggable: true
+        draggable: false
       }).bindPopup(nearbyEvent.title).addTo(map);
       marker.on("click", (e) => {
         //mappedEvent is modeling what the event looks like when you
@@ -74,6 +75,7 @@ const Dashboard = ({refetch}) => {
         <div className="rsvp-eventcards">
           <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />
         </div>
+        <Map center=[39.73352, -104.965847] markers={user.userDefined}/>
         <div id="map" className="map-container"></div>
 
       </div>
