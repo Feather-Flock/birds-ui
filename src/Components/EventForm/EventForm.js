@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import './EventForm.css'
-import { useQuery} from "@apollo/client";
+import { useQuery, useMutation} from "@apollo/client";
 import { MAKE_NEW_EVENT, GET_USER_BY_ID } from '../../queries'
 import Map from '../Map/Map'
 
 
-export default function EventForm() {
+const EventForm = () => {
   const {loading, error, data, refetch} = useQuery(GET_USER_BY_ID, {
     variables: {"id": process.env.REACT_APP_USER_ID}
   })
-  const [center, setCenter] = useState([data.lat, data.lng])
+  const [center, setCenter] = useState([39.7317, -104.9214])
   const [marker, setMarker] = useState([])
   const [markerLabel, setMarkerLabel] = useState('')
   const [eventDetails, setEventDetails] = useState({title: '',
@@ -78,7 +78,9 @@ export default function EventForm() {
       setSearchInfo(() => {
         return searchInfo.find((result) => {
           if(result.id === id ) {
-            makeMarkerMap(result) //Makes the map with the specific marker
+            setMarker([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
+            setCenter([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
+            setMarkerLabel([result.name]) //Makes the map with the specific marker
             return result
           }
         })
@@ -147,3 +149,4 @@ export default function EventForm() {
     </div>
   )
 }
+export default EventForm

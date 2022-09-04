@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import './Map.css'
 
-export default Map({center, marker, markerLabel }) {
+export default function Map({center, marker, markerLabel }){
 
   useEffect(()=> {
     window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
@@ -16,7 +16,9 @@ export default Map({center, marker, markerLabel }) {
     zoom: 15
   });
 
-  marker && markerLabel ? window.L.marker(marker, { //to hover over marker it shows event title
+  if (marker && markerLabel ) {
+    console.log("reran this")
+     window.L.marker(marker, { //to hover over marker it shows event title
     icon: window.L.mapquest.icons.flag({
       primaryColor: '#000000',
       secondaryColor: '#000000',
@@ -24,9 +26,12 @@ export default Map({center, marker, markerLabel }) {
       symbol: 'hello'
     }),
     draggable: true
-  }).bindPopup(markerLabel).addTo(map):return
+  }).bindPopup(markerLabel).addTo(map)
+} else {
+  return
+}
 
-},[])
+},[center])
 
 return (
   <div id="map" className="event-form-map-container">
