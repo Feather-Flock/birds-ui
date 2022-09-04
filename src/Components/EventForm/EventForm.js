@@ -109,7 +109,7 @@ export default function EventForm() {
 
   return (
     <div className='form-wrapper'>
-      <div id="map" className="event-form-map-container"></div>
+      <Map />
       <form className="event-form">
         <h1 className="form-header">Create A New Event</h1>
         <input className='event-input' onChange={handleChange} type='text' placeholder='Add Title' name='title' value={eventDetails.title}/>
