@@ -10,6 +10,7 @@ import Map from '../Map/Map'
 const Dashboard = ({refetch}) => {
 
   const user = useContext(UserContext)
+  
   const [modalVisible, setModalVisible] = useState(false)
   const [eventId, setEventId] = useState()
   const handleClick = (e) => {
