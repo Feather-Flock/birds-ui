@@ -89,3 +89,15 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+
+@media screen and (max-width: 500px ) {
+  .nav-bar {
+    flex-direction: column;
+  }
+  .radiant-button {
+    margin-left: 4px;
+    margin-right: 4px;
+    width: 100px;
+    height: 40px;
+  }
+}

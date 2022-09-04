@@ -6,7 +6,15 @@
 }
 
 .map-container {
-  width: 50%;
+  width: 50vw;
   height: 30em;
   margin: 10px;
+  touch-action: auto;
+}
+
+@media screen and (max-width: 500px){
+  .map-container{
+    width: 90vw;
+    height: 25em;
+  }
 }
