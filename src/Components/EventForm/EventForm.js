@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import './EventForm.css'
 import { useQuery} from "@apollo/client";
-import { MAKE_NEW_EVENT } from '../../queries'
+import { MAKE_NEW_EVENT, GET_USER_BY_ID } from '../../queries'
 import Map from '../Map/Map'
 
 
 export default function EventForm() {
-
+  const {loading, error, data, refetch} = useQuery(GET_USER_BY_ID, {
+    variables: {"id": process.env.REACT_APP_USER_ID}
+  })
+  const [center, setCenter] = useState([data.lat, data.lng])
+  const [marker, setMarker] = useState([])
+  const [markerLabel, setMarkerLabel] = useState('')
   const [eventDetails, setEventDetails] = useState({title: '',
   date:'',
   time:'',
@@ -110,7 +115,7 @@ export default function EventForm() {
 
   return (
     <div className='form-wrapper'>
-      <Map />
+      <Map center={center} marker={marker} markerLabel={markerLabel}/>
       <form className="event-form">
         <h1 className="form-header">Create A New Event</h1>
         <input className='event-input' onChange={handleChange} type='text' placeholder='Add Title' name='title' value={eventDetails.title}/>
