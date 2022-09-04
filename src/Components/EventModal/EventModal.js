@@ -93,7 +93,7 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
           :
             <button onClick={(e) => createRsvp(e)}> RSVP!</button>
         }
-          <Link to='/profile'>
+          <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}}>
             <button>View Family Profile</button>
           </Link>
           <div className='event-modal-map'>

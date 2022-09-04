@@ -1,4 +1,5 @@
 import React, {useState, useContext} from "react";
+import { useLocation } from "react-router";
 import { useQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./UserProfile.css";
@@ -6,11 +7,8 @@ import EventModal from '../EventModal/EventModal'
 import Events from "../Events/Events"
 import UserContext from '../../Context/UserContext';
 
-// SETUP AS A FAMILY VIEW FROM THE EVENT DETAILS PAGE
-// Can use a query hook for data for DRY code or just pass as props
-
 const UserProfile = () => {
-
+  const {state: { hostId }} = useLocation()
   const user = useContext(UserContext)
   
   const [modalVisible, setModalVisible] = useState(false)
