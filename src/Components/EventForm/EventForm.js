@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import './EventForm.css'
-import { useQuery, useMutation } from "@apollo/client";
-import { MAKE_NEW_EVENT } from '../../queries'
+import { useQuery, useMutation} from "@apollo/client";
+import { MAKE_NEW_EVENT, GET_USER_BY_ID } from '../../queries'
+import Map from '../Map/Map'
 
 
-export default function EventForm() {
-
+const EventForm = () => {
+  const {loading, error, data, refetch} = useQuery(GET_USER_BY_ID, {
+    variables: {"id": process.env.REACT_APP_USER_ID}
+  })
+  const [center, setCenter] = useState([39.7317, -104.9214])
+  const [marker, setMarker] = useState([])
+  const [markerLabel, setMarkerLabel] = useState('')
   const [eventDetails, setEventDetails] = useState({title: '',
   date:'',
   time:'',
@@ -14,32 +20,6 @@ export default function EventForm() {
   const [searchOptions, setSearchOptions] = useState([])
   const [searchInfo, setSearchInfo] = useState([])
   const [eventObject, setEventObject] = useState({})
-
-const makeMarkerMap = (location) => {
-  console.log(location.place.geometry.coordinates)
-    window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
-  const container = window.L.DomUtil.get("map")
-  if(container != null) {
-    container._leaflet_id = null;
-  }
-
-  var map = window.L.mapquest.map('map', {
-    center: [location.place.geometry.coordinates[1],location.place.geometry.coordinates[0]],
-    layers: window.L.mapquest.tileLayer('map'),
-    zoom: 15
-  });
-
-  let marker = window.L.marker( [location.place.geometry.coordinates[1],location.place.geometry.coordinates[0]], { //to hover over marker it shows event title
-    icon: window.L.mapquest.icons.flag({//custom marker
-      primaryColor: '#000000',
-      secondaryColor: '#000000',
-      size: 'sm',
-      symbol: 'hello'
-    }),
-    draggable: true
-  }).bindPopup(location.name).addTo(map);
-}
-
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -72,7 +52,9 @@ const makeMarkerMap = (location) => {
       setSearchInfo(() => {
         return searchInfo.find((result) => {
           if(result.id === id ) {
-            makeMarkerMap(result) //Makes the map with the specific marker
+            setMarker([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
+            setCenter([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
+            setMarkerLabel([result.name]) //Makes the map with the specific marker
             return result
           }
         })
@@ -88,7 +70,7 @@ const makeMarkerMap = (location) => {
 
   const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT,
     {
-      variables: {input: 
+      variables: {input:
       {
         title: eventDetails.title,
         description: eventDetails.description,
@@ -109,7 +91,7 @@ const makeMarkerMap = (location) => {
 
   return (
     <div className='form-wrapper'>
-      <div id="map" className="event-form-map-container"></div>
+      <Map center={center} marker={marker} markerLabel={markerLabel}/>
       <form className="event-form">
         <h1 className="form-header">Create A New Event</h1>
         <input className='event-input' onChange={handleChange} type='text' placeholder='Add Title' name='title' value={eventDetails.title}/>
@@ -141,3 +123,4 @@ const makeMarkerMap = (location) => {
     </div>
   )
 }
+export default EventForm
