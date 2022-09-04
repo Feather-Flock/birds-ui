@@ -1,21 +1,115 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './EventForm.css'
+import { useQuery, useMutation } from "@apollo/client";
+import { MAKE_NEW_EVENT } from '../../queries'
+
 
 export default function EventForm() {
+
   const [eventDetails, setEventDetails] = useState({title: '',
   date:'',
-  location:{},
+  time:'',
+  location:'',
   description:''})
+  const [searchOptions, setSearchOptions] = useState([])
+  const [searchInfo, setSearchInfo] = useState([])
+  const [eventObject, setEventObject] = useState({})
+
+const makeMarkerMap = (location) => {
+  console.log(location.place.geometry.coordinates)
+    window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
+  const container = window.L.DomUtil.get("map")
+  if(container != null) {
+    container._leaflet_id = null;
+  }
+
+  var map = window.L.mapquest.map('map', {
+    center: [location.place.geometry.coordinates[1],location.place.geometry.coordinates[0]],
+    layers: window.L.mapquest.tileLayer('map'),
+    zoom: 15
+  });
+
+  let marker = window.L.marker( [location.place.geometry.coordinates[1],location.place.geometry.coordinates[0]], { //to hover over marker it shows event title
+    icon: window.L.mapquest.icons.flag({//custom marker
+      primaryColor: '#000000',
+      secondaryColor: '#000000',
+      size: 'sm',
+      symbol: 'hello'
+    }),
+    draggable: true
+  }).bindPopup(location.name).addTo(map);
+}
+
 
   const handleChange = (e) => {
     const {name, value} = e.target;
     setEventDetails({...eventDetails, [name]: value})
   }
 
-  //Query info mutator for location to mapquest api (what do i need for this ask Trish)
+  const handleSearch = (e) => {
+    handleChange(e)
+    setSearchOptions([])
+    setSearchInfo([])
+    const {name, value} = e.target
+    if(value.length < 2){ return }
+
+    fetch(`http://www.mapquestapi.com/search/v3/prediction?key=${process.env.REACT_APP_MAPQUEST_KEY }&limit=3&collection=adminArea,poi,address,category,franchise,airport&q=${value}&location=-104.671828,
+            39.840072`)
+            .then(response => response.json())
+            .then(data => {
+              debugger
+                data.results.map((result) => {
+                  setSearchInfo([...searchInfo, result]) //Makes array of search objects
+                  setSearchOptions([...searchOptions, {name: result.displayString, id: result.id}]) //array of the display name and id (might delete?)
+                })
+            })
+  }
+
+  const handleSelection = (e) => {
+    const {value, id} = e.target;
+      setEventDetails({...eventDetails, location:value})
+      setSearchOptions([]);
+      setSearchInfo(() => {
+        return searchInfo.find((result) => {
+          if(result.id === id ) {
+            makeMarkerMap(result) //Makes the map with the specific marker
+            return result
+          }
+        })
+      })
+  }
+
+  const handleSubmit = (e) =>  {
+    e.preventDefault()
+    let timeArray = eventDetails.date.split('T');
+    setEventDetails({...eventDetails, date: timeArray[0], time:timeArray[1]})
+    mutateCreateEvent()
+  }
+
+  const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT,
+    {
+      variables: {input: 
+      {
+        title: eventDetails.title,
+        description: eventDetails.description,
+        time: eventDetails.time,
+        date: eventDetails.date,
+        address: searchInfo?.place?.properties?.street,
+        city: searchInfo?.place?.properties?.city,
+        state: searchInfo?.place?.properties?.stateCode,
+        zip: parseInt(searchInfo?.place?.properties?.postalCode),
+        lat: searchInfo?.place?.geometry[1],
+        lng: searchInfo?.place?.geometry[0],
+        host: parseInt(process.env.REACT_APP_USER_ID),
+      }
+    }
+  })
+
+
 
   return (
     <div className='form-wrapper'>
+      <div id="map" className="event-form-map-container"></div>
       <form className="event-form">
         <h1 className="form-header">Create A New Event</h1>
         <input className='event-input' onChange={handleChange} type='text' placeholder='Add Title' name='title' value={eventDetails.title}/>
@@ -26,18 +120,23 @@ export default function EventForm() {
         <br/>
           <span className="material-symbols-outlined">pin_drop</span>
         <input className='event-input'
-        onChange={handleChange}
+        onChange={handleSearch}
         type='text'
         name='location'
         value={eventDetails.location}
         placeholder='location'/>
+        <div className='drop-down'>
+          {searchOptions.map((option)=> {
+            return <option id={option.id} value={option.name} onClick={handleSelection} className='drop-down-row'>{option.name}</option>
+          })}
+        </div>
         <br/>
         <input className='event-input description'
         onChange={handleChange} type='text'
         name='description'
         value={eventDetails.description}
         placeholder='Add a description for your event'/>
-        <button className='submit-event'>Save Event</button>
+        <button onClick={handleSubmit}className='submit-event'>Save Event</button>
       </form>
     </div>
   )

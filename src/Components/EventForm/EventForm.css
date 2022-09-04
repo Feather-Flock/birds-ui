@@ -1,4 +1,4 @@
-/* 
+/*
 html {
   display: flex;
   justify-content: center;
@@ -9,6 +9,34 @@ span {
   position: absolute;
   margin-top: 2%;
   margin-left: 1%;
+}
+
+.event-form-map-container {
+  margin-bottom: -23%;
+  margin-left: 42%;
+  width: 35%;
+  height: 30%;
+}
+
+.drop-down-row {
+  background-color: #FAFBFF;
+  height: 20%;
+  width: 100%;
+}
+
+.drop-down-row:hover {
+  background-color: #dfe0e6;
+  cursor:pointer;
+}
+
+.drop-down {
+  position: absolute;
+  background-color: #FAFBFF;
+  width: 40%;
+  margin-left: 4.5%;
+  margin-top: -.5%;
+  box-shadow: 6px 6px 13px rgb(0 0 0 / 25%);
+  z-index: 1;
 }
 
 .form-header {

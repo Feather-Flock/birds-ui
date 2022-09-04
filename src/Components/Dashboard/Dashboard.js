@@ -52,7 +52,6 @@ const Dashboard = () => {
           }),
           draggable: true
         }).bindPopup(nearbyEvent.title).addTo(map);
-        //event listener for marker will change to modal
         marker.on("click", (e) => {
           //mappedEvent is modeling what the event looks like when you
           //click on a button.  handleclick function is looking for
@@ -71,7 +70,7 @@ const Dashboard = () => {
     const eventFound = data.user.rsvpdEvents.find(ev => ev.id === eventId)
     return eventFound ? true : false
   }
-  
+
   return (
     <div className="dashboard-container">
       {modalVisible && <EventModal userId={data.user.id} eventId={eventId} isRsvpd={rsvpd()} visible={modalVisible} handleClose={closeModal}/>}
@@ -88,7 +87,3 @@ const Dashboard = () => {
 }
 
 export default Dashboard
-
-
-
-

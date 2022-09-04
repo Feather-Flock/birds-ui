@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql} from "@apollo/client";
 
 
 export const GET_USER_BY_ID = gql`
@@ -57,6 +57,26 @@ export const GET_EVENT_BY_ID = gql`
     }
 }
 `
+export const MAKE_NEW_EVENT = gql`
+mutation createEvent($input: CreateEventInput!) {
+  createEvent(input: $input) {
+    event {
+          title
+          description
+          time
+          date
+          address
+          city
+          state
+          zip
+          lat
+          lng
+          host
+      }
+    }
+  }
+`
+
 
 export const USER_RSVP_TO_EVENT = gql`
   mutation createUserEvent($input: CreateUserEventInput!) {
