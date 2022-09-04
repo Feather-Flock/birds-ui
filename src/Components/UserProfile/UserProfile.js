@@ -1,20 +1,40 @@
 import React, {useState, useContext} from "react";
-import { useQuery } from "@apollo/client";
+import { useLocation } from "react-router";
+import { useLazyQuery } from "@apollo/client";
 import { GET_USER_BY_ID } from "../../queries";
 import "./UserProfile.css";
 import EventModal from '../EventModal/EventModal'
 import Events from "../Events/Events"
 import UserContext from '../../Context/UserContext';
 
-// SETUP AS A FAMILY VIEW FROM THE EVENT DETAILS PAGE
-// Can use a query hook for data for DRY code or just pass as props
-
 const UserProfile = () => {
-
-  const user = useContext(UserContext)
-  
   const [modalVisible, setModalVisible] = useState(false)
   const [eventId, setEventId] = useState()
+  // If you click on a link with state, it will be defined here using useLocation hook.
+  // This allows us to pass a hostId to the User Profile from the Event Modal.
+  const { state } = useLocation()
+
+  let user = useContext(UserContext)
+  let title = state ? "They" : "You've"
+  
+  //useLazyQuery allows us to create a function that can be invoked when we want it to.
+  // Here we are using queryHost function only if state from above exists.
+  // This means we want to query the host by id, instead of using our signed in user.
+  const [queryHost, {loading, error, data}] = useLazyQuery(GET_USER_BY_ID, {
+    variables: {"id": state?.hostId}
+  })
+
+  if(loading) return "Loading..."
+  if(error) return `Error! ${error.message}`
+
+  // If state exists and data is undefined, call queryHost function to get host.
+  // If state is undefined, then hostId isn't present, and we render the current user profile.
+  if(state && !data){
+    queryHost()
+  } else if (state && data) {
+    user = data.user
+  }
+
   const handleClick = (e) => {
     const {id} = e.target
     setEventId(id)
@@ -60,8 +80,8 @@ const UserProfile = () => {
       </section>
 
       <section className="right-container">
-        <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />
-        <Events events={user.userEvents} eventTitle={"Event you've Created"} type={"card"} handleClick={handleClick} />
+        {!state && <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />}
+        <Events events={user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} handleClick={handleClick} />
 
       </section>
     </div>
