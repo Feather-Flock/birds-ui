@@ -92,7 +92,8 @@
 
 @media screen and (max-width: 500px ) {
   .nav-bar {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
   }
   .radiant-button {
     margin-left: 4px;

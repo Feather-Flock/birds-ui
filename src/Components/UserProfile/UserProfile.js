@@ -66,7 +66,7 @@ const UserProfile = () => {
           
 
           <div className="location-wrapper">
-            <span className="material-symbols-outlined">pin_drop</span>
+            <div className="material-symbols-outlined">pin_drop</div>
             <h3 className="location">{user.zipCode}</h3>
           </div>
         </section>

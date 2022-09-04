@@ -80,7 +80,7 @@
 
 .tag-container {
   width: 40vw;
-  height: 15vh;
+  min-height: 15vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -99,8 +99,19 @@
   border-radius: 12px;
 }
 
-@media screen and (min-width: 500px) {
-  .left-container{
-   
+@media screen and (max-width: 500px) {
+  .top-container, .bottom-container{
+   flex-direction: column;
+   align-items: center;
+  }
+  .left-container,
+  .right-container,
+  .name-wrapper,
+  .location-wrapper,
+  .tag-container,
+  .description-text-box,
+  .profile-picture
+   {
+    width: 90vw;
   }
 }
