@@ -5,6 +5,7 @@ import "./Dashboard.css"
 import Events from "../Events/Events"
 import EventModal from '../EventModal/EventModal'
 import UserContext from '../../Context/UserContext';
+import Map from '../Map/Map'
 
 const Dashboard = ({refetch}) => {
 
@@ -23,44 +24,6 @@ const Dashboard = ({refetch}) => {
     refetch()
   }
 
-  useEffect(() => { //the following useEffect is what adds the map to the modal
-
-    //this is the api key to access mapquest
-    window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
-
-    //this is resetting the container so a new map is rendered on change
-    const container = window.L.DomUtil.get("map")
-    if(container != null) {
-      container._leaflet_id = null;
-    }
-    // map being added to the div with id="map"
-    var map = window.L.mapquest.map('map', { // 'map' is the id on line 59
-      center: [39.73352, -104.965847], // hard coded now but will be dynamic with user lat/lng
-      layers: window.L.mapquest.tileLayer('map'),
-      zoom: 11
-    });
-
-    // markers
-    user.userDefined.map((nearbyEvent) => {
-      let marker = window.L.marker([nearbyEvent.lat, nearbyEvent.lng], { //to hover over marker it shows event title
-        icon: window.L.mapquest.icons.flag({//custom marker
-          primaryColor: '#000000',
-          secondaryColor: '#000000',
-          size: 'sm',
-          symbol: 'hello'
-        }),
-        draggable: true
-      }).bindPopup(nearbyEvent.title).addTo(map);
-      marker.on("click", (e) => {
-        //mappedEvent is modeling what the event looks like when you
-        //click on a button.  handleclick function is looking for
-        // an id on e.target. >> e.target.id === mappedEvent.target.id
-        const mappedEvent = {target: {id: nearbyEvent.id}}
-        handleClick(mappedEvent)
-      })
-    });
-  })
-
   const rsvpd = () => {
     const eventFound = user.rsvpdEvents.find(ev => ev.id === eventId)
     return eventFound ? true : false
@@ -74,7 +37,7 @@ const Dashboard = ({refetch}) => {
         <div className="rsvp-eventcards">
           <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />
         </div>
-        <div id="map" className="map-container"></div>
+        <Map center={[39.73352, -104.965847]} markers={user.userDefined} handleClick={handleClick} view={'Dashboard'}/>
 
       </div>
     </div>

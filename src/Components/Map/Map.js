@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react'
 import './Map.css'
 
-export default function Map({center, marker, markerLabel }){
-
+export default function Map({center, marker, markerLabel, markers, handleClick, view }){
   useEffect(()=> {
     window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
   const container = window.L.DomUtil.get("map")
@@ -13,11 +12,10 @@ export default function Map({center, marker, markerLabel }){
   var map = window.L.mapquest.map('map', {
     center: center,
     layers: window.L.mapquest.tileLayer('map'),
-    zoom: 15
+    zoom: 11
   });
 
   if (marker && markerLabel ) {
-    console.log("reran this")
      window.L.marker(marker, { //to hover over marker it shows event title
     icon: window.L.mapquest.icons.flag({
       primaryColor: '#000000',
@@ -27,14 +25,32 @@ export default function Map({center, marker, markerLabel }){
     }),
     draggable: true
   }).bindPopup(markerLabel).addTo(map)
+} else if(markers){
+markers.forEach((nearbyEvent) => {
+  let marker = window.L.marker([nearbyEvent.lat, nearbyEvent.lng], { //to hover over marker it shows event title
+    icon: window.L.mapquest.icons.flag({//custom marker
+      primaryColor: '#000000',
+      secondaryColor: '#000000',
+      size: 'sm',
+      symbol: 'hello'
+    }),
+    draggable: false
+  }).bindPopup(nearbyEvent.title).addTo(map);
+  marker.on("click", (e) => {
+    //mappedEvent is modeling what the event looks like when you
+    //click on a button.  handleclick function is looking for
+    // an id on e.target. >> e.target.id === mappedEvent.target.id
+    const mappedEvent = {target: {id: nearbyEvent.id}}
+    handleClick(mappedEvent)
+  })
+})
 } else {
   return
 }
-
 },[center])
 
 return (
-  <div id="map" className="event-form-map-container">
+  <div id="map" className={view === 'event-form' ? 'event-form-map-container' : 'map-container'}>
     </div>
 )
 }
