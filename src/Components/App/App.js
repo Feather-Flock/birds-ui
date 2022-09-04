@@ -1,6 +1,5 @@
 import React from "react";
-import { NavLink, Route } from "react-router-dom";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { Route } from "react-router-dom";
 import UserProfile from "../UserProfile/UserProfile";
 import { GET_USER_BY_ID } from "../../queries";
 import DashboardList from "../DashboardList/DashboardList";
@@ -9,23 +8,29 @@ import Nav from "../Nav/Nav"
 import './App.css';
 import EventForm from '../EventForm/EventForm'
 import EventModal from '../EventModal/EventModal'
+import UserContext from "../../Context/UserContext"
+import { useQuery } from "@apollo/client";
 
-const client = new ApolloClient({
-  uri: process.env.REACT_APP_BASE_URL,
-  cache: new InMemoryCache()
-});
+
 
 const App = () =>  {
 
+  const {loading, error, data, refetch} = useQuery(GET_USER_BY_ID, {
+    variables: {"id": process.env.REACT_APP_USER_ID}
+  })
+
+  if(loading) return "Loading..."
+  if(error) return `Error! ${error.message}`
+
   return (
-    <ApolloProvider client={client}>
+    <UserContext.Provider value={data.user}>
       <div className="App">
         <Nav />
         <Route exact path="/">
-          <Dashboard />
+          <Dashboard refetch={refetch}/>
         </Route>
         <Route exact path="/dashboard-list">
-          <DashboardList />
+          <DashboardList refetch={refetch} />
         </Route>
         <Route exact path="/New-Event">
           <EventForm />
@@ -34,7 +39,7 @@ const App = () =>  {
           <UserProfile />
         </Route>
       </div>
-    </ApolloProvider>
+    </UserContext.Provider>
   );
 }
 
