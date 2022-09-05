@@ -49,8 +49,8 @@ const Footer = () => {
         <tr>
           <div className="member-links">
             <td><p className="group-names">Clay Ash:</p></td>
-            <td><a className="creds" href="https://github.com/">GitHub </a> </td>
-            <td><a className="creds" href="https://www.linkedin.com/in/">LinkedIn </a></td>
+            <td><a className="creds" href="https://github.com/clayAsh">GitHub </a> </td>
+            <td><a className="creds" href="https://www.linkedin.com/in/clay-ash-b4422b188/">LinkedIn </a></td>
           </div> 
         </tr>
         <tr>
