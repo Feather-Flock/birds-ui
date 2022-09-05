@@ -1,13 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import "./EventCard.css"
 import { BsTrash } from 'react-icons/bs'
 import { IconContext } from "react-icons";
-import UserContext from '../../Context/UserContext';
-
-
 
 const EventCard = ({ id, title, description, date, time, eventTitle, type, handleClick, deleteClick, userEvent }) => {
-  const user = useContext(UserContext)
   if(type === "card") {
     return (
       <div className="event-container">
