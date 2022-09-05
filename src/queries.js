@@ -84,7 +84,6 @@ mutation createEvent($input: CreateEventInput!) {
           zip
           lat
           lng
-          slug
           host
       }
     }
