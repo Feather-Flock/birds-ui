@@ -91,8 +91,8 @@ const EventForm = () => {
 
   return (
     <div className='form-wrapper'>
-      <Map center={center} marker={marker} markerLabel={markerLabel} view='event-form'/>
       <form className="event-form">
+      <Map center={center} marker={marker} markerLabel={markerLabel} view='event-form'/>
         <h1 className="form-header">Create A New Event</h1>
         <input className='event-input' onChange={handleChange} type='text' placeholder='Add Title' name='title' value={eventDetails.title}/>
 

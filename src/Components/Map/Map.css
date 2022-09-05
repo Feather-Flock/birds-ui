@@ -1,6 +1,8 @@
 .event-form-map-container {
-  margin-bottom: -23%;
-  margin-left: 42%;
+  position: absolute;
+  margin-bottom: -25%;
+  margin-top: 5%;
+  margin-left: 50%;
   width: 35%;
   height: 30%;
 }
@@ -16,5 +18,9 @@
   .map-container{
     width: 90vw;
     height: 25em;
+  }
+
+  .event-form-map-container {
+    
   }
 }
