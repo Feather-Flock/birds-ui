@@ -58,3 +58,7 @@
   display: flex;
   width: 200px;
 }
+
+.member-links td {
+  display: flex;
+}
