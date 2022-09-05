@@ -25,7 +25,7 @@ export default function Map({center, markers, markerLabel, handleClick, view }){
           symbol: 'hello'
         }),
         draggable: false
-      }).bindPopup(nearbyEvent.title).addTo(map);
+      }).bindPopup(location.title).addTo(map);
       marker.on("click", (e) => {
     //mappedEvent is modeling what the event looks like when you
     //click on a button.  handleclick function is looking for

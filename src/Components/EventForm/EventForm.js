@@ -11,7 +11,6 @@ const EventForm = () => {
   })
   const [center, setCenter] = useState([39.7317, -104.9214])
   const [marker, setMarker] = useState([])
-  const [markerLabel, setMarkerLabel] = useState('')
   const [eventDetails, setEventDetails] = useState({title: '',
   date:'',
   time:'',
@@ -52,9 +51,8 @@ const EventForm = () => {
       setSearchInfo(() => {
         return searchInfo.find((result) => {
           if(result.id === id ) {
-            setMarker([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
-            setCenter([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
-            setMarkerLabel([result.name]) //Makes the map with the specific marker
+            setMarker([{lat: result.place.geometry.coordinates[1], lng: result.place.geometry.coordinates[0], title: result.name}])
+            setCenter([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])//Makes the map with the specific marker
             return result
           }
         })
@@ -91,7 +89,7 @@ const EventForm = () => {
 
   return (
     <div className='form-wrapper'>
-      <Map center={center} markers={[marker]} markerLabel={markerLabel} view='event-form'/>
+      <Map center={center} markers={[marker]} view='event-form'/>
       <form className="event-form">
         <h1 className="form-header">Create A New Event</h1>
         <input className='event-input' onChange={handleChange} type='text' placeholder='Add Title' name='title' value={eventDetails.title}/>
