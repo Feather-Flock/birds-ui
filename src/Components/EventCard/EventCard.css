@@ -113,3 +113,16 @@
 .swiper-nav-box {
   height: 55px;
 }
+
+.event-buttons{
+  display: flex;
+  flex-direction:row-reverse;
+  justify-content: center;
+}
+
+.delete-event {
+  display: flex;
+  position: relative;
+  right: -100%;
+}
+

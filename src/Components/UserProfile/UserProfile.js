@@ -56,7 +56,7 @@ const UserProfile = ({refetch}) => {
   //   );
   // });
 
-  const deleteClick = async (id) => {
+  const deleteClick = (id) => {
     deleteEvent({ variables: { input: {id: parseInt(id)}}})
     refetch()
   }
