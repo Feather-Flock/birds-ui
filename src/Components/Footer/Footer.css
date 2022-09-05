@@ -1,0 +1,60 @@
+.footer-container {
+	border-top: .5px solid black;
+	display: flex;
+  letter-spacing: .1rem;
+  height: 100%;
+  font-weight: lighter;
+	flex-direction: row;
+	align-items: flex-start;
+  justify-content: space-evenly;
+	margin: 0px;
+	padding: 0px;
+  background-color: #949294;
+	overflow: hidden;
+}
+
+.top-footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+  padding-bottom: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .footer-header {
+    font-size: 10px;
+  }
+  .team-footer {
+    flex-wrap: wrap;
+  }
+}
+
+.team-footer {
+  display: flex;
+  flex-direction: row;
+  font-weight: lighter;
+  margin: 0px;
+  padding: 0px;
+}
+
+.team-footer p {
+  display: flex;
+  justify-content: center;
+}
+
+.creds {
+	text-decoration: none;
+  text-align: center;
+  font-size: 10px;
+}
+
+.footer-header,
+.group-names {
+	margin: 0px;
+  font-size: 10px;
+}
+
+.member-links {
+  display: flex;
+  width: 200px;
+}
