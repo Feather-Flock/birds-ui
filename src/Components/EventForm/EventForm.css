@@ -79,7 +79,7 @@ form {
 
 .description {
   width:60%;
-  height:35%;
+  height:30%;
 }
 
 .form-wrapper {
@@ -106,19 +106,18 @@ form {
   }
 
 .submit-event {
-  float: right;
-  margin-right: 45%;
+  margin-right: 9%;
   width: 45%;
   height: 13%;
 }
-
-.description {
-  width:80%;
-  height:35%;
-}
-
 .event-input {
   width: 60%;
+  height: 15%;
+  margin: 1%;
+}
+.description {
+  width:60%;
+  height:35%;
 }
 
 h1 {
