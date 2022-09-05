@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react'
 import './Map.css'
 
-export default function Map({center, markers, markerLabel, handleClick, view }){
+export default function Map({center, markers, handleClick, view }){
   useEffect(()=> {
+    console.log(markers)
     window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
   const container = window.L.DomUtil.get("map")
   if(container != null) {
@@ -15,7 +16,7 @@ export default function Map({center, markers, markerLabel, handleClick, view }){
     zoom: 11
   });
 
-  if (markers && markerLabel ) {
+  if (markers) {
     markers.forEach((location) => {
       let marker = window.L.marker([location.lat, location.lng], { //to hover over marker it shows event title
         icon: window.L.mapquest.icons.flag({//custom marker
@@ -25,7 +26,8 @@ export default function Map({center, markers, markerLabel, handleClick, view }){
           symbol: 'hello'
         }),
         draggable: false
-      }).bindPopup(location.title).addTo(map);
+      }).bindPopup(location.title).addTo(map)
+      if(handleClick) {
       marker.on("click", (e) => {
     //mappedEvent is modeling what the event looks like when you
     //click on a button.  handleclick function is looking for
@@ -33,6 +35,7 @@ export default function Map({center, markers, markerLabel, handleClick, view }){
     const mappedEvent = {target: {id: location.id}}
     handleClick(mappedEvent)
   })
+}
 })
 } else {
   return
