@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./EventCard.css"
+import { BsTrash } from 'react-icons/bs'
+import { IconContext } from "react-icons";
+import UserContext from '../../Context/UserContext';
 
-const EventCard = ({ id, title, description, date, time, eventTitle, type, handleClick }) => {
+
+
+const EventCard = ({ id, title, description, date, time, eventTitle, type, handleClick, deleteClick, userEvent }) => {
+  const user = useContext(UserContext)
   if(type === "card") {
     return (
       <div className="event-container">
@@ -9,7 +15,13 @@ const EventCard = ({ id, title, description, date, time, eventTitle, type, handl
         <div className="event-picture-wrapper">
           <img className="event-picture" alt="event festivities"></img>
         </div>
-
+        { userEvent &&
+          <div className="delete-event">
+            <IconContext.Provider value={{ color: 'white', size: '20px' }}>
+              <button id={id} className="delete-button" role="button" onClick={() => deleteClick(id)}><BsTrash/></button>
+            </IconContext.Provider>
+          </div>
+        }
         <div className="event-info-container" >
           <div className="event-details">
             <p className="title">What: {title}</p>

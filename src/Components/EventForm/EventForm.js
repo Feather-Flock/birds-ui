@@ -36,7 +36,6 @@ const EventForm = () => {
             39.840072`)
             .then(response => response.json())
             .then(data => {
-              debugger
                 data.results.map((result) => {
                   setSearchInfo([...searchInfo, result]) //Makes array of search objects
                   setSearchOptions([...searchOptions, {name: result.displayString, id: result.id}]) //array of the display name and id (might delete?)

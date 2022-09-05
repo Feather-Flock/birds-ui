@@ -1,7 +1,7 @@
 import React, {useState, useContext} from "react";
 import { useLocation } from "react-router";
-import { useLazyQuery } from "@apollo/client";
-import { GET_USER_BY_ID } from "../../queries";
+import { useLazyQuery, useMutation } from "@apollo/client";
+import { GET_USER_BY_ID, DELETE_EVENT } from "../../queries";
 import "./UserProfile.css";
 import EventModal from '../EventModal/EventModal'
 import Events from "../Events/Events"
@@ -22,6 +22,10 @@ const UserProfile = () => {
   // This means we want to query the host by id, instead of using our signed in user.
   const [queryHost, {loading, error, data}] = useLazyQuery(GET_USER_BY_ID, {
     variables: {"id": state?.hostId}
+  })
+
+  const [deleteEvent, deleteResponse] = useMutation(DELETE_EVENT, {
+    variables: { input: {id: parseInt(eventId) }}
   })
 
   if(loading) return "Loading..."
@@ -54,6 +58,11 @@ const UserProfile = () => {
   //   );
   // });
 
+  const deleteClick = async (id) => {
+    setEventId(id)
+    deleteEvent()
+  }
+
   return (
     <div className="user-profile-page">
       {modalVisible && <EventModal eventId={eventId} visible={modalVisible} handleClose={closeModal} />}
@@ -81,7 +90,7 @@ const UserProfile = () => {
 
       <section className="right-container">
         {!state && <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />}
-        <Events events={user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} handleClick={handleClick} />
+        <Events events={user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} handleClick={handleClick} deleteClick={deleteClick} userEvent={true} />
 
       </section>
     </div>
