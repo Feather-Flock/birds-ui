@@ -13,15 +13,15 @@ const Footer = () => {
         <tr>
           <div className="member-links">
             <td><p className="group-names">Blue Nealis:</p></td>
-            <td><a className="creds" href="https://github.com/">GitHub </a> </td>
-            <td><a className="creds" href="https://www.linkedin.com/in/">LinkedIn </a></td>
+            <td><a className="creds" href="https://github.com/BlueNealis">GitHub </a> </td>
+            <td><a className="creds" href="https://www.linkedin.com/in/blue-nealis/">LinkedIn </a></td>
           </div>
         </tr>
         <tr>
           <div className="member-links">
             <td><p className="group-names">Amber Bodnar:</p></td>
-            <td><a className="creds" href="https://github.com/">GitHub </a> </td>
-            <td><a className="creds" href="https://www.linkedin.com/in/">LinkedIn </a></td>
+            <td><a className="creds" href="https://github.com/abodnar1">GitHub </a> </td>
+            <td><a className="creds" href="https://www.linkedin.com/in/amberbodnar/">LinkedIn </a></td>
           </div> 
         </tr>
         <tr>
@@ -43,7 +43,7 @@ const Footer = () => {
           <div className="member-links">
             <td><p className="group-names">Deannah Burke:</p></td>
             <td><a className="creds" href=" https://github.com/deannahburke">GitHub </a> </td>
-            <td><a className="creds" href="https://www.linkedin.com/in/">LinkedIn </a></td>
+            <td><a className="creds" href=" linkedin.com/in/deannah-burke/">LinkedIn </a></td>
           </div> 
         </tr>
         <tr>
@@ -56,15 +56,15 @@ const Footer = () => {
         <tr>
           <div className="member-links">
             <td><p className="group-names">Ian Ross:</p></td>
-            <td><a className="creds" href="https://github.com/">GitHub </a> </td>
-            <td><a className="creds" href=" linkedin.com/in/deannah-burke/">LinkedIn </a></td>
+            <td><a className="creds" href="https://github.com/ross-ian28">GitHub </a> </td>
+            <td><a className="creds" href="https://www.linkedin.com/in/ross-ian28/">LinkedIn </a></td>
           </div>
         </tr> 
         <tr>
           <div className="member-links">
             <td><p className="group-names">Luke Pascale:</p></td>
-            <td><a className="creds" href="https://github.com/">GitHub </a> </td>
-            <td><a className="creds" href="https://www.linkedin.com/in/">LinkedIn </a></td>
+            <td><a className="creds" href="https://github.com/enalihai">GitHub </a> </td>
+            <td><a className="creds" href="https://www.linkedin.com/in/luke-pascale/">LinkedIn </a></td>
           </div> 
         </tr>
 			</table>
