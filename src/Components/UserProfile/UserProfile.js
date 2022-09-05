@@ -7,7 +7,7 @@ import EventModal from '../EventModal/EventModal'
 import Events from "../Events/Events"
 import UserContext from '../../Context/UserContext';
 
-const UserProfile = () => {
+const UserProfile = ({refetch}) => {
   const [modalVisible, setModalVisible] = useState(false)
   const [eventId, setEventId] = useState()
   // If you click on a link with state, it will be defined here using useLocation hook.
@@ -24,9 +24,7 @@ const UserProfile = () => {
     variables: {"id": state?.hostId}
   })
 
-  const [deleteEvent, deleteResponse] = useMutation(DELETE_EVENT, {
-    variables: { input: {id: parseInt(eventId) }}
-  })
+  const [deleteEvent, deleteResponse] = useMutation(DELETE_EVENT)
 
   if(loading) return "Loading..."
   if(error) return `Error! ${error.message}`
@@ -59,8 +57,8 @@ const UserProfile = () => {
   // });
 
   const deleteClick = async (id) => {
-    setEventId(id)
-    deleteEvent()
+    deleteEvent({ variables: { input: {id: parseInt(id)}}})
+    refetch()
   }
 
   return (
