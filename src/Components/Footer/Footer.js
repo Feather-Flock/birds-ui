@@ -42,7 +42,7 @@ const Footer = () => {
         <tr>
           <div className="member-links">
             <td><p className="group-names">Deannah Burke:</p></td>
-            <td><a className="creds" href="https://github.com/">GitHub </a> </td>
+            <td><a className="creds" href=" https://github.com/deannahburke">GitHub </a> </td>
             <td><a className="creds" href="https://www.linkedin.com/in/">LinkedIn </a></td>
           </div> 
         </tr>
@@ -57,7 +57,7 @@ const Footer = () => {
           <div className="member-links">
             <td><p className="group-names">Ian Ross:</p></td>
             <td><a className="creds" href="https://github.com/">GitHub </a> </td>
-            <td><a className="creds" href="https://www.linkedin.com/in/">LinkedIn </a></td>
+            <td><a className="creds" href=" linkedin.com/in/deannah-burke/">LinkedIn </a></td>
           </div>
         </tr> 
         <tr>
