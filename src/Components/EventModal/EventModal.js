@@ -16,7 +16,7 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
   const {loading, error, data} = useQuery(GET_EVENT_BY_ID, {
     variables: {"id": parseInt(eventId)}
   })
-  
+
   const [rsvpd, setRsvpd] = useState(isRsvpd)
   const [modalIsOpen, setIsOpen] = useState(visible);
 
@@ -30,7 +30,6 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
   }
 
   const getDirections = () => {
-    console.log('Insert url link here')
     //insert navigationlink to directions
   }
 
@@ -75,7 +74,7 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
         }
         <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}} onClick={closeModal}>
           <button>View Family Profile</button>
-        </Link> 
+        </Link>
       </>
     )
   }
@@ -109,10 +108,8 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
           <br/>
           {user.id !== data.event.creator.id && renderButtons()
           }
-          <div className='event-modal-map'>
-            <h1>Map</h1>
-          </div>
-          <button onClick={getDirections}>Get Directions</button>
+          <a href={`http://MapQuest.com${data.event.slug}`}>
+          <button>Get Directions</button></a>
         </div>
       </div>
     </Modal>
