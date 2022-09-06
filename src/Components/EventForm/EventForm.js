@@ -11,6 +11,7 @@ const EventForm = () => {
   })
   const [center, setCenter] = useState([39.7317, -104.9214])
   const [marker, setMarker] = useState([])
+  const [markerLabel, setMarkerLabel] = useState()
   const [eventDetails, setEventDetails] = useState({title: '',
   date:'',
   time:'',
@@ -45,24 +46,54 @@ const EventForm = () => {
 
   const handleSelection = (e) => {
     const {value, id} = e.target;
-      setEventDetails({...eventDetails, location:value})
-      setSearchOptions([]);
       setSearchInfo(() => {
         return searchInfo.find((result) => {
-          if(result.id === id ) {
-            setMarker([{lat: result.place.geometry.coordinates[1], lng: result.place.geometry.coordinates[0], title: result.name}])
-            setCenter([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])//Makes the map with the specific marker
+
+          if(result.id === id && result.place.geometry.coordinates) {
+            setMarker([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
+            setCenter([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
+            setMarkerLabel([result.name]) //Makes the map with the specific marker
+
             return result
+          } else {
+            alert("Location did not provide an address, please select a different location")
+            return
           }
         })
       })
+      setEventDetails({...eventDetails, location:value})
+      setSearchOptions([]);
   }
 
   const handleSubmit = (e) =>  {
     e.preventDefault()
-    let timeArray = eventDetails.date.split('T');
-    setEventDetails({...eventDetails, date: timeArray[0], time:timeArray[1]})
-    mutateCreateEvent()
+    if(checkFilled()) {
+      let timeArray = eventDetails.date.split('T');
+      setEventDetails({...eventDetails, date: timeArray[0], time:timeArray[1]})
+      mutateCreateEvent()
+      if(createdResponse) {
+        alert('New Event Made!')
+        setEventDetails({title: '',
+        date:'',
+        time:'',
+        location:'',
+        description:''})
+        setMarker([])
+        setCenter([39.7317, -104.9214])
+    }
+  }else{
+    alert('Please fill all fields')
+    return
+  }
+
+  }
+
+  const checkFilled = () => {
+    let {title, date, time, location, description} = eventDetails
+    if(title && date && time && location && description){
+      return true
+    }
+    return false;
   }
 
   const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT,
@@ -88,7 +119,6 @@ const EventForm = () => {
 
   return (
     <div className='form-wrapper'>
-      <Map center={center} markers={marker} view='event-form'/>
       <form className="event-form">
         <h1 className="form-header">Create A New Event</h1>
         <input className='event-input' onChange={handleChange} type='text' placeholder='Add Title' name='title' value={eventDetails.title}/>
@@ -97,6 +127,7 @@ const EventForm = () => {
         <span className="material-symbols-outlined">schedule</span>
         <input className='event-input' onChange={handleChange} type='datetime-local' name='date' value={eventDetails.date}/>
         <br/>
+          <Map center={center} marker={marker} markerLabel={markerLabel} view='event-form'/>
           <span className="material-symbols-outlined">pin_drop</span>
         <input className='event-input'
         onChange={handleSearch}
