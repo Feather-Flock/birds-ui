@@ -17,19 +17,19 @@ const EventCard = ({ id, hostImage, title, description, date, time, eventTitle, 
           {/* <p className="description">{description}</p> */}
         </div>
         <div className="event-buttons">
-          {userEvent &&
-            <div className="delete-event">
-              <IconContext.Provider value={{ color: 'white', size: '20px' }}>
-                <button id={id} className="delete-button" role="button" onClick={() => deleteClick(id)}><BsTrash/></button>
-              </IconContext.Provider>
-            </div>
-          }
           <button className="view-details-button" id={id} onClick={handleClick}>
             View Details
             <div class="view-details-button__horizontal"></div>
             <div class="view-details-button__vertical"></div>
           </button>
         </div>
+        {userEvent &&
+            <div className="delete-event">
+              <IconContext.Provider value={{ color: 'black', size: '20px' }}>
+                <button id={id} className="delete-button" role="button" onClick={() => deleteClick(id)}><BsTrash/></button>
+              </IconContext.Provider>
+            </div>
+          }
       </div>
     )
   } else if (type === "list") {
