@@ -1,6 +1,5 @@
 
 version: 2.1
-
 orbs:
   node: circleci/node@4.7
   cypress: cypress-io/cypress@2.1.0
@@ -8,11 +7,12 @@ workflows:
   build:
     jobs:
       - cypress/run:
+-       wait-on: 'http://www.birds-of-a-feather.net/'
 jobs:
   build_and_test:
     executor: node/default
     steps:
-      - checkout
+      - checkout:
       - node/install-packages:
           pkg-manager: npm
       - run:
