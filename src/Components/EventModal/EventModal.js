@@ -101,6 +101,7 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
           <img className='event-img' src='https://www.illustrationsof.com/royalty-free-rf-art-museum-clipart-illustration-by-nl-shop-stock-sample-432030.jpg'></img>
           <p>Location: {data.event.address}</p>
           <p className='event-description'>{data.event.description}</p>
+          <p className='total-rsvps'>Total RSVPs for this event: {data.event.rsvps}</p>
         </div>
         <div>
           <h1>{data.event.creator.userName}</h1>

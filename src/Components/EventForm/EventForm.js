@@ -11,7 +11,6 @@ const EventForm = () => {
   })
   const [center, setCenter] = useState([39.7317, -104.9214])
   const [marker, setMarker] = useState([])
-  const [markerLabel, setMarkerLabel] = useState('')
   const [eventDetails, setEventDetails] = useState({title: '',
   date:'',
   time:'',
@@ -37,7 +36,6 @@ const EventForm = () => {
             39.840072`)
             .then(response => response.json())
             .then(data => {
-              debugger
                 data.results.map((result) => {
                   setSearchInfo([...searchInfo, result]) //Makes array of search objects
                   setSearchOptions([...searchOptions, {name: result.displayString, id: result.id}]) //array of the display name and id (might delete?)
@@ -49,10 +47,12 @@ const EventForm = () => {
     const {value, id} = e.target;
       setSearchInfo(() => {
         return searchInfo.find((result) => {
+
           if(result.id === id && result.place.geometry.coordinates) {
             setMarker([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
             setCenter([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
             setMarkerLabel([result.name]) //Makes the map with the specific marker
+
             return result
           } else {
             alert("Location did not provide an address, please select a different location")
