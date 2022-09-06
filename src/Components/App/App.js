@@ -10,6 +10,7 @@ import EventForm from '../EventForm/EventForm'
 import EventModal from '../EventModal/EventModal'
 import UserContext from "../../Context/UserContext"
 import { useQuery } from "@apollo/client";
+import Footer from "../Footer/Footer"
 
 
 
@@ -38,6 +39,7 @@ const App = () =>  {
         <Route exact path="/profile">
           <UserProfile refetch={refetch} />
         </Route>
+        <Footer />
       </div>
     </UserContext.Provider>
   );
