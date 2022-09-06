@@ -106,11 +106,7 @@ export const USER_RSVP_TO_EVENT = gql`
 export const USER_DELETE_RSVP = gql`
   mutation deleteUserEvent($input: DeleteUserEventInput!) {
     deleteUserEvent(input: $input) {
-      userEvent {
-        userId
-        eventId
-        createdAt
-      }
+      id
     }
   }
 `

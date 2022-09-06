@@ -39,7 +39,7 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
   })
 
   const [mutateDeleteRsvp, deletedResponse] = useMutation(USER_DELETE_RSVP, {
-    variables: { input: {userId: userId, eventId: eventId }}
+    variables: { input: {userId: parseInt(userId), eventId: parseInt(eventId) }}
   })
 
   const createRsvp = (e) => {
