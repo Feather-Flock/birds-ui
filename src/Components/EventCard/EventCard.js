@@ -3,13 +3,13 @@ import "./EventCard.css"
 import { BsTrash } from 'react-icons/bs'
 import { IconContext } from "react-icons";
 
-const EventCard = ({ id, title, description, date, time, eventTitle, type, handleClick, deleteClick, userEvent }) => {
+const EventCard = ({ id, hostImage, title, description, date, time, eventTitle, type, handleClick, deleteClick, userEvent }) => {
   if(type === "card") {
     return (
       <div className="event-container">
         <h2 className="attending-header">{eventTitle}</h2>
         <div className="event-picture-wrapper">
-          <img className="event-picture" alt="event festivities"></img>
+          <img src={hostImage} className="host-image" alt="Image of host"></img>
         </div>
         <div className="event-info-container" >
           <div className="event-details">
