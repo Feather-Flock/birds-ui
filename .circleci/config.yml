@@ -7,7 +7,6 @@ workflows:
   build:
     jobs:
       - cypress/run:
--       wait-on: 'http://www.birds-of-a-feather.net/'
 jobs:
   build_and_test:
     executor: node/default
