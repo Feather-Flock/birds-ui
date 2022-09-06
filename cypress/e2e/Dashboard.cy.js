@@ -15,9 +15,10 @@ describe('Dashboard Tests', () => {
     .get('.time').contains('p', 'Time: 18:00:00')
   });
 
-  // it('User sees a map with nearby events on page load', () => {
-  //   cy.get('#map').should('be.visible')
-  // });
+  it('User sees a map with nearby events on page load', () => {
+    cy.get('#map').should('be.visible')
+    .get('.leaflet-marker-icon').should('be.visible')
+  });
   
   // it('User can click on an event their attending and have an event modal pop up with details', () => {
   //   cy.get('.event-container').contains('button', 'View Details').click()
