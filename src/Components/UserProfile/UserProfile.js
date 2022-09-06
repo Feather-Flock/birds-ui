@@ -91,10 +91,10 @@ const UserProfile = ({refetch}) => {
 
       <section className="bottom-container">
         <section className="left-container card">
-          <Events events={user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} handleClick={handleClick} />
+          <Events events={user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} userEvent={true} handleClick={handleClick} deleteClick={deleteClick}/>
         </section>
         <section className="right-container card">
-          {!state && <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} userEvent={true} type={"card"} handleClick={handleClick} deleteClick={deleteClick}  />}
+          {!state && <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />}
         </section>
 
       </section>
