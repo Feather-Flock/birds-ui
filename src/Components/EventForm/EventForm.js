@@ -11,6 +11,7 @@ const EventForm = () => {
   })
   const [center, setCenter] = useState([39.7317, -104.9214])
   const [marker, setMarker] = useState([])
+  const [markerLabel, setMarkerLabel] = useState()
   const [eventDetails, setEventDetails] = useState({title: '',
   date:'',
   time:'',
