@@ -1,5 +1,5 @@
 import React from 'react'
-import "./EventCard.css"
+import "./EventCard.scss"
 import { BsTrash } from 'react-icons/bs'
 import { IconContext } from "react-icons";
 
@@ -8,9 +8,6 @@ const EventCard = ({ id, hostImage, title, description, date, time, eventTitle, 
     return (
       <div className="event-container">
         <h2 className="attending-header">{eventTitle}</h2>
-        <div className="event-picture-wrapper">
-          <img src={hostImage} className="host-image" alt="Image of host"></img>
-        </div>
         <div className="event-info-container" >
           <div className="event-details">
             <p className="title">What: {title}</p>
@@ -27,7 +24,11 @@ const EventCard = ({ id, hostImage, title, description, date, time, eventTitle, 
               </IconContext.Provider>
             </div>
           }
-        <button id={id} className="view-details-button" onClick={handleClick}>View Details</button>
+          <button className="view-details-button" id={id} onClick={handleClick}>
+            View Details
+            <div class="view-details-button__horizontal"></div>
+            <div class="view-details-button__vertical"></div>
+          </button>
         </div>
       </div>
     )
