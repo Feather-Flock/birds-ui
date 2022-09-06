@@ -14,7 +14,7 @@ const EventCard = ({ id, hostImage, title, description, date, time, eventTitle, 
             <p className="date">When: {date}</p>
             <p className="time">Time: {time}</p>
           </div>
-          <p className="description">{description}</p>
+          {/* <p className="description">{description}</p> */}
         </div>
         <div className="event-buttons">
           {userEvent &&
@@ -47,10 +47,13 @@ const EventCard = ({ id, hostImage, title, description, date, time, eventTitle, 
             <p className="date">When: {date}</p>
             <p className="time">Time: {time}</p>
           </div>
-          <p className="description">{description}</p>
+          {/* <p className="description">{description}</p> */}
         </div>
-
-          <button id={id} className="view-details-button" onClick={handleClick}>View Details</button>
+        <button className="view-details-button" id={id} onClick={handleClick}>
+            View Details
+            <div class="view-details-button__horizontal"></div>
+            <div class="view-details-button__vertical"></div>
+          </button>
       </div>
     )
   }

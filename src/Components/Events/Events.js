@@ -59,6 +59,7 @@ const Events = ({events, eventTitle, type, handleClick, deleteClick, userEvent})
           centeredSlides={true}
           spaceBetween={50}
           keyboard={true}
+          style={{width: "22em"}}
           key={uuidv4()}
         >
           {eventCards()}
