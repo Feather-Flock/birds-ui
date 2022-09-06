@@ -1,0 +1,61 @@
+{
+  "data": {
+      "user": {
+          "id": "1",
+          "userName": "BLUESKIIII",
+          "email": "blue@universe.com",
+          "description": "We are a married lesbian couple with kids. We love to play sports and go on adventures!",
+          "image": "https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png",
+          "zipCode": 80220,
+          "rsvpdEvents": [
+              {
+                  "id": "3",
+                  "title": "Taking the rent check over",
+                  "description": "We will be celebrating Steven's 11th birthday!",
+                  "lat": 39.735,
+                  "lng": -104.908,
+                  "date": "2022-10-20",
+                  "time": "18:00:00",
+                  "host": 3,
+                  "rsvps": 2
+              }
+          ],
+          "userDefined": [
+              {
+                  "id": "2",
+                  "title": "Games at Verbena",
+                  "description": "Games at Verbena Park",
+                  "lat": 39.65,
+                  "lng": -104.893,
+                  "zip": 80220,
+                  "date": "2022-09-15",
+                  "time": "18:00:00",
+                  "host": 2
+              },
+              {
+                  "id": "3",
+                  "title": "Birthday Party at Montclair",
+                  "description": "We will be celebrating Steven's 11th birthday!",
+                  "lat": 39.735,
+                  "lng": -104.908,
+                  "zip": 80220,
+                  "date": "2022-10-20",
+                  "time": "18:00:00",
+                  "host": 3
+              }
+          ],
+          "userEvents": [
+              {
+                  "id": "5",
+                  "title": "Roller Skating",
+                  "description": "Headed to the park to skate with our 10yr. Come join us! ",
+                  "lat": 39.75118,
+                  "lng": -104.948906,
+                  "date": "2022-10-05",
+                  "time": "16:30:00",
+                  "host": 1
+              }
+          ]
+      }
+  }
+}
