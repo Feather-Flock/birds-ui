@@ -133,16 +133,6 @@
 }
 }
 
-body {
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #fcf3ec;
-  
-}
-
 .view-details-button {
   
   --offset: 10px;
@@ -150,11 +140,11 @@ body {
   
   display: block;
   position: relative;
-  padding: 1.5em 3em;
   appearance: none;
   border: 0;
+  margin-top: 3.5em;
   background: transparent;
-  color: #e55743;
+  color: black;
   text-transform: uppercase;
   letter-spacing: .25em;
   outline: none;
