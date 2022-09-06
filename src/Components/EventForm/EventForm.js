@@ -49,15 +49,12 @@ const EventForm = () => {
       setSearchInfo(() => {
         return searchInfo.find((result) => {
 
-          if(result.id === id && result.place.geometry.coordinates) {
-            setMarker([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
+          if(result.id === id) {
+            setMarker([{lat: result.place.geometry.coordinates[1], lng: result.place.geometry.coordinates[0]}])
             setCenter([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
             setMarkerLabel([result.name]) //Makes the map with the specific marker
 
             return result
-          } else {
-            alert("Location did not provide an address, please select a different location")
-            return
           }
         })
       })
@@ -108,6 +105,7 @@ const EventForm = () => {
         city: searchInfo?.place?.properties?.city,
         state: searchInfo?.place?.properties?.stateCode,
         zip: parseInt(searchInfo?.place?.properties?.postalCode),
+        slug: searchInfo?.slug,
         lat: searchInfo?.place?.geometry[1],
         lng: searchInfo?.place?.geometry[0],
         host: parseInt(process.env.REACT_APP_USER_ID),
@@ -127,7 +125,7 @@ const EventForm = () => {
         <span className="material-symbols-outlined">schedule</span>
         <input className='event-input' onChange={handleChange} type='datetime-local' name='date' value={eventDetails.date}/>
         <br/>
-          <Map center={center} marker={marker} markerLabel={markerLabel} view='event-form'/>
+          <Map center={center} markers={marker} markerLabel={markerLabel} view='event-form'/>
           <span className="material-symbols-outlined">pin_drop</span>
         <input className='event-input'
         onChange={handleSearch}
