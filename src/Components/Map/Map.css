@@ -1,12 +1,35 @@
 .event-form-map-container {
-  margin-bottom: -23%;
-  margin-left: 42%;
+  position: absolute;
+margin-top: -10%;
+  margin-left: 50%;
   width: 35%;
-  height: 30%;
+  height: 28%;
 }
 
 .map-container {
-  width: 50%;
+  width: 50vw;
   height: 30em;
   margin: 10px;
+  touch-action: auto;
+}
+
+@media screen and (max-width: 992px) {
+  .event-form-map-container {
+    position:sticky;
+    margin-left: 0;
+    margin-top: 1%;
+    width: 50%;
+    height: 70%;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .map-container{
+    width: 90vw;
+    height: 25em;
+  }
+
+  .event-form-map-container {
+
+  }
 }

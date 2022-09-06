@@ -32,12 +32,12 @@ const DashboardList = ({refetch}) => {
       <h1 className="welcome-user">Welcome {user.userName}!</h1>
       <div className="main-container">
 
-        <div className="event-list">
-          <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"list"} handleClick={handleClick}/>
+        <div className="event-list-rsvp">
+          <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick}/>
         </div>
 
-        <div className="event-list">
-          <Events events={user.userDefined} eventTitle={"Event Near You"} type={"list"} handleClick={handleClick} />
+        <div className="event-list-user">
+          <Events events={user.userDefined} eventTitle={"Event Near You"} type={"card"} handleClick={handleClick} />
         </div>
 
       </div>

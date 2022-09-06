@@ -1,25 +1,55 @@
 .user-profile-page {
-  /* padding: 0; */
   width: 100vw;
+  min-height: 85vh;
   margin-top: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 
+.top-container{
+  width: 100vw;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.bottom-container {
+  width: 100vw;
+  min-height: 40vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 /* Left Container */
 .left-container {
+  width: 40vw;
+  min-height: 40vh;
   display: flex;
   flex-direction: column;
-  align-content: center;
-  justify-content: space-between;
-  width: 565px;
-  height: 749px;
+  align-items: center;
+}
+
+/* Right Container */
+.right-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40vw;
+  min-height: 40vh;
+}
+
+.card {
+  flex-direction: row;
 }
 
 .profile-picture {
-  width: 565px;
-  height: 288px;
+  width: 35vw;
+  height: 35vh;
   border-radius: 12px;
   background-image: url(/src/user-profile-pic.png);
   background-size: cover;
@@ -27,28 +57,31 @@
 
 .name-wrapper,
 .location-wrapper {
-  margin-top: 15px;
+  /* margin-top: 15px; */
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 565px;
-  height: 48px;
+  width: 20vw;
+  height: 10vh;
   background: #EFF1FB;
   box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
+  margin: 20px 0px 20px 0px;
 }
 
 .description-text-box {
-  width: 565px;
-  height: 191px;
+  width: 40vw;
+  height: 30vh;
   background: #EFF1FB;
   box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
+  text-align: center;
+  padding-top: 20px;
 }
 
 .tag-container {
-  width: 565px;
-  height: 112px;
+  width: 40vw;
+  min-height: 15vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -56,6 +89,7 @@
   background: #EFF1FB;
   box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
+  margin-top: 20px;
 }
 
 .tag-title {
@@ -66,9 +100,19 @@
   border-radius: 12px;
 }
 
-/* Right Container */
-.right-container {
-  width: 45%;
-  height: 749px;
-  overflow-y: scroll;
+@media screen and (max-width: 700px) {
+  .top-container, .bottom-container{
+   flex-direction: column;
+   align-items: center;
+  }
+  .left-container,
+  .right-container,
+  .name-wrapper,
+  .location-wrapper,
+  .tag-container,
+  .description-text-box,
+  .profile-picture
+   {
+    width: 90vw;
+  }
 }
