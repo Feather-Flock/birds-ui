@@ -47,18 +47,21 @@ const EventForm = () => {
 
   const handleSelection = (e) => {
     const {value, id} = e.target;
-      setEventDetails({...eventDetails, location:value})
-      setSearchOptions([]);
       setSearchInfo(() => {
         return searchInfo.find((result) => {
-          if(result.id === id ) {
+          if(result.id === id && result.place.geometry.coordinates) {
             setMarker([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
             setCenter([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
             setMarkerLabel([result.name]) //Makes the map with the specific marker
             return result
+          } else {
+            alert("Location did not provide an address, please select a different location")
+            return
           }
         })
       })
+      setEventDetails({...eventDetails, location:value})
+      setSearchOptions([]);
   }
 
   const handleSubmit = (e) =>  {
