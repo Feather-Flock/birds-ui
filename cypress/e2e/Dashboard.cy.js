@@ -8,7 +8,7 @@ describe('Dashboard Tests', () => {
         req.continue()
       }
     })
-    // need another intercept for the mapquest request
+    // need another intercept for the MapQuest request
     cy.visit('http://localhost:3000/')
   })
 
@@ -20,27 +20,26 @@ describe('Dashboard Tests', () => {
     .get('.time').contains('p', 'Time: ')
   })
 
-  // it('User sees a map with nearby events on page load', () => {
-    // cy.get('#map').should('be.visible')
-  // })
-
-  // it('User is welcomed onto the page', () => {
-  //   cy.visit('https://example.cypress.io')
-  // })
-
+  it('User sees a map with nearby events on page load', () => {
+    cy.get('#map').should('be.visible')
+  })
+  
   // it('User can click on an event their attending and have an event modal pop up with details', () => {
-  //   cy.visit('https://example.cypress.io')
-  // })
-
-  // it('User can click the markers for events and have a similar modal pop up', () => {
-  //   cy.visit('https://example.cypress.io')
-  // })
-
-  // it('User can navigate to an event form from their Dashboard', () => {
-  //   cy.visit('https://example.cypress.io')
-  // })
-
-  // it('User can navigate to their profile page', () => {
-  //   cy.visit('https://example.cypress.io')
-  // })
+    
+  //   })
+    
+    // it('User can click the markers for events and have a similar modal pop up', () => {
+      //   cy.visit('https://example.cypress.io')
+      // })
+      
+      // it('User can navigate to an event form from their Dashboard', () => {
+        //   cy.visit('https://example.cypress.io')
+        // })
+        
+        // it('User can navigate to their profile page', () => {
+          //   cy.visit('https://example.cypress.io')
+          // })
+          // it('User is welcomed onto the page', () => {
+          //   cy.visit('https://example.cypress.io')
+          // })
 });
