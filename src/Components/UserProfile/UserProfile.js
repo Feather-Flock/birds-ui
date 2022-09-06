@@ -1,13 +1,13 @@
 import React, {useState, useContext} from "react";
 import { useLocation } from "react-router";
-import { useLazyQuery } from "@apollo/client";
-import { GET_USER_BY_ID } from "../../queries";
+import { useLazyQuery, useMutation } from "@apollo/client";
+import { GET_USER_BY_ID, DELETE_EVENT } from "../../queries";
 import "./UserProfile.css";
 import EventModal from '../EventModal/EventModal'
 import Events from "../Events/Events"
 import UserContext from '../../Context/UserContext';
 
-const UserProfile = () => {
+const UserProfile = ({refetch}) => {
   const [modalVisible, setModalVisible] = useState(false)
   const [eventId, setEventId] = useState()
   // If you click on a link with state, it will be defined here using useLocation hook.
@@ -20,19 +20,19 @@ const UserProfile = () => {
   //useLazyQuery allows us to create a function that can be invoked when we want it to.
   // Here we are using queryHost function only if state from above exists.
   // This means we want to query the host by id, instead of using our signed in user.
-  const [queryHost, {loading, error, data}] = useLazyQuery(GET_USER_BY_ID, {
-    variables: {"id": state?.hostId}
-  })
+  const [queryHost, hostResponse] = useLazyQuery(GET_USER_BY_ID)
 
-  if(loading) return "Loading..."
-  if(error) return `Error! ${error.message}`
+  const [deleteEvent, deleteResponse] = useMutation(DELETE_EVENT)
+
+  if(hostResponse.loading) return "Loading..."
+  if(hostResponse.error) return `Error! ${hostResponse.error.message}`
 
   // If state exists and data is undefined, call queryHost function to get host.
   // If state is undefined, then hostId isn't present, and we render the current user profile.
-  if(state && !data){
-    queryHost()
-  } else if (state && data) {
-    user = data.user
+  if(state && !hostResponse?.data){
+    queryHost({variables: {id: state?.hostId}})
+  } else if (state && hostResponse?.data) {
+    user = hostResponse?.data.user
   }
 
   const handleClick = (e) => {
@@ -53,6 +53,11 @@ const UserProfile = () => {
   //     <p className="tag-title">tag.title</p>
   //   );
   // });
+
+  const deleteClick = (id) => {
+    deleteEvent({ variables: { input: {id: parseInt(id)}}})
+    refetch()
+  }
 
   return (
     <div className="user-profile-page">
@@ -81,7 +86,7 @@ const UserProfile = () => {
 
       <section className="right-container">
         {!state && <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />}
-        <Events events={user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} handleClick={handleClick} />
+        <Events events={user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} handleClick={handleClick} deleteClick={deleteClick} userEvent={true} />
 
       </section>
     </div>

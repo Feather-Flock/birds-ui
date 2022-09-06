@@ -36,7 +36,7 @@ const App = () =>  {
           <EventForm />
         </Route>
         <Route exact path="/profile">
-          <UserProfile />
+          <UserProfile refetch={refetch} />
         </Route>
       </div>
     </UserContext.Provider>

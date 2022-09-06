@@ -114,3 +114,10 @@ export const USER_DELETE_RSVP = gql`
     }
   }
 `
+export const DELETE_EVENT = gql`
+  mutation destroyEvent($input: DestroyEventInput!) {
+    destroyEvent(input:$input) {
+      id
+    }
+  }
+`
