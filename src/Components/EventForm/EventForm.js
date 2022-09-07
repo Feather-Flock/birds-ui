@@ -128,6 +128,7 @@ const EventForm = ({ refetch }) => {
         onChange={handleSearch}
         type='text'
         name='location'
+        id={'event-prediction'}
         value={eventDetails.location}
         placeholder='location'/>
         <div className='drop-down'>

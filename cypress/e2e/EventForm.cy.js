@@ -17,7 +17,15 @@ describe('empty spec', () => {
         })
       }
     })
-    cy.visit('http://www.birds-of-a-feather.net/new-event')
+
+    cy.intercept('GET', '/search/v3/*', (req) => {
+      req.alias = 'prediction'
+      req.reply({
+        fixture: '../fixtures/prediction-query.json'
+      })
+    })
+
+    cy.visit('http://localhost:3000/new-event')
   });
 
   it('User sees a map on page load', () => {
@@ -28,14 +36,20 @@ describe('empty spec', () => {
     cy.get('input').eq(0).click().type('Trip to Zoo')
     cy.get('input').eq(1).click()
     cy.get('input').eq(2).click().type('The Zoo')
-    cy.get('input').eq(3).click().type('We want to go to the zoo with you!')
+    cy.get('input').eq(3).click({force: true}).type('We want to go to the zoo with you!')
     cy.get('input').eq(0).click().should('have.value', 'Trip to Zoo')
-    cy.get('input').eq(3).click().should('have.value','We want to go to the zoo with you!')
+    cy.get('input').eq(3).click({force: true}).should('have.value','We want to go to the zoo with you!')
   })
 
   it('When the user types into the location bar suggestions should populate', () => {
     cy.get('input').eq(2).click().type('The Zoo Crew')
-    cy.get('[value="The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ"]').click()
+    cy.get('[value="The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ"]').first().click()
+    cy.get('input').eq(2).should('have.value', 'The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ')
+  })
+
+  it('When a user selects a location from the suggestions the suggestion box should dissapear', () => {
+    cy.get('input').eq(2).click().type('The Zoo Crew')
+    cy.get('[value="The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ"]').first().click()
     cy.get('input').eq(2).should('have.value', 'The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ')
   })
 
@@ -59,16 +73,18 @@ describe('empty spec', () => {
     cy.on('window:alert',(t)=>{
          expect(t).to.contains('New Event Made!');
       })
-})
+  })
   it('User should be able to navigate back to dashboard from event form', () => {
     cy.wait(500)
     cy.get('button').eq(0).click()
-    cy.url().should('eq', 'http://www.birds-of-a-feather.net/')
+    cy.wait(500)
+    cy.url().should('contain', 'localhost:3000')
   })
 
   it('User should be able to navigate to user profile from event form', () => {
+    cy.wait(500)
     cy.get('button').eq(1).click()
-    cy.url().should('eq', 'http://www.birds-of-a-feather.net/profile')
+    cy.url().should('contain', 'profile')
   })
 
 })

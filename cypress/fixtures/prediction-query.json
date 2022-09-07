@@ -1,0 +1,111 @@
+{
+  "request": {
+      "q": "The zoo crew",
+      "limit": 15,
+      "location": {
+          "long": -104.671828,
+          "lat": 39.840072
+      },
+      "feedback": false,
+      "collection": [
+          "category",
+          "airport",
+          "address",
+          "franchise",
+          "poi",
+          "adminArea"
+      ]
+  },
+  "results": [
+      {
+          "id": "mqId:431849684",
+          "displayString": "The Zoo Crew, 5721 Main St, Odessa, ON",
+          "name": "The Zoo Crew",
+          "recordType": "poi",
+          "collection": [
+              "poi"
+          ],
+          "mqId": 431849684,
+          "slug": "/canada/on/the-zoo-crew-431849684",
+          "language": "en",
+          "place": {
+              "type": "Feature",
+              "geometry": {
+                  "coordinates": [
+                      -76.73544,
+                      44.275332
+                  ],
+                  "type": "Point"
+              },
+              "properties": {
+                  "city": "Odessa",
+                  "stateCode": "ON",
+                  "postalCode": "K0H 2H0",
+                  "countryCode": "CA",
+                  "street": "5721 Main St",
+                  "type": "address"
+              }
+          }
+      },
+      {
+          "id": "mqId:455231647",
+          "displayString": "The Zoo Crew, Osgoode Main St, Ottawa, ON",
+          "name": "The Zoo Crew",
+          "recordType": "poi",
+          "collection": [
+              "poi"
+          ],
+          "mqId": 455231647,
+          "slug": "/canada/on/the-zoo-crew-455231647",
+          "language": "en",
+          "place": {
+              "type": "Feature",
+              "geometry": {
+                  "coordinates": [
+                      -75.59857,
+                      45.15014
+                  ],
+                  "type": "Point"
+              },
+              "properties": {
+                  "city": "Ottawa",
+                  "stateCode": "ON",
+                  "postalCode": "K0A",
+                  "countryCode": "CA",
+                  "street": "Osgoode Main St",
+                  "type": "address"
+              }
+          }
+      },
+      {
+          "id": "mqId:484035630",
+          "displayString": "The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ",
+          "name": "The Zoo Crew Store",
+          "recordType": "poi",
+          "collection": [
+              "poi"
+          ],
+          "mqId": 484035630,
+          "slug": "/us/new-jersey/the-zoo-crew-store-484035630",
+          "language": "en",
+          "place": {
+              "type": "Feature",
+              "geometry": {
+                  "coordinates": [
+                      -74.2015,
+                      40.72129
+                  ],
+                  "type": "Point"
+              },
+              "properties": {
+                  "city": "Newark",
+                  "stateCode": "NJ",
+                  "postalCode": "07108",
+                  "countryCode": "US",
+                  "street": "141 Chadwick Ave",
+                  "type": "address"
+              }
+          }
+      }
+  ]
+}
