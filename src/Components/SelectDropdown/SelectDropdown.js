@@ -12,7 +12,7 @@ const ranges = [
 const SelectDropdown = ({ handleSelect, range }) => {
 
   return (
-    <div className="container">
+    <div className="select-dropdown">
         <div className="row">
           <div className="col-md-3"></div>
           <div className="col-md-6">

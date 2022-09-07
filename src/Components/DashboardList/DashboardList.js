@@ -1,15 +1,13 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import { GET_USER_BY_ID } from "../../queries";
+import React, { useState, useContext } from 'react'
 import "./DashboardList.css"
 import Events from "../Events/Events"
 import EventModal from '../EventModal/EventModal'
 import UserContext from '../../Context/UserContext';
+import SelectDropdown from '../SelectDropdown/SelectDropdown';
 
 
 
-const DashboardList = ({refetch}) => {
+const DashboardList = ({refetch, handleSelect, range}) => {
   
   const user = useContext(UserContext)
 
@@ -30,6 +28,13 @@ const DashboardList = ({refetch}) => {
   return (
     <div className="dashboardList-container">
       <h1 className="welcome-user">Welcome {user.userName}!</h1>
+      <div className="top-list-container">
+        <div className="select-list-dropdown"></div>
+        <div className="select-list-dropdown">
+          <SelectDropdown handleSelect={handleSelect} range={range} />
+        </div>
+        
+      </div>
       <div className="main-container">
 
         <div className="event-list-rsvp">
