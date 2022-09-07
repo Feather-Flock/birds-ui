@@ -6,7 +6,7 @@
 }
 
 .modal-button {
-  background-color:#283618;
+  background-color: rgb(38, 38, 38);
   color: #EFF1FB;
   border: none;
   padding: 1%;
@@ -16,7 +16,7 @@
 
 .modal-header {
   text-align: center;
-  background-color:#283618;
+  background-color: rgb(38, 38, 38);
   width: 100%;
   height: 15%;
   font-weight: 300;
