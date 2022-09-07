@@ -1,4 +1,5 @@
 # Birds of a Feather
+![Flamingo](src/Flamingo.png)
 *A [Turing School of Software and Design](https://turing.edu/) Module 4 Capstone Full-Stack Project*
 
 ## Table of Contents
@@ -14,6 +15,18 @@
 
 
 ## Project Overview
+<<<<<<< HEAD
+
+Welcome to Birds of a Feather! The goal of this app is connect LGBTQ+ families.
+
+### Features
+ - Users can search their area for events with other LGBTQ+ families using a visual map
+ - Users can click on event cards or location icons and see more details about the event
+ - Users can rsvp from the modal or view the host families information
+ - Users can make their own events from the new event page
+ - Users can ensure they have the right address with the visual of the interactive maps
+ - Users can delete their own events from their user profile
+
 Change Range of Events
 ![Change Range](src/BofAF-Change-Range-Click-event.gif)
 
@@ -22,6 +35,9 @@ Navigate to user Profile from event
 
 Fill out and submit a new event
 ![Event Form](src/Event-Form-Fill.gif)
+
+Go to user profile and delete new added event
+![Delete event](src/Delete-new-event.gif)
 
 The [Turing School of Software and Design](https://turing.edu/) provided a project overview for students to follow, which can be found [here](https://mod4.turing.edu/projects/capstone/).
 
@@ -60,14 +76,18 @@ You can access this project through the deployed page [here](http://www.birds-of
 
 ## Project Reflections
 #### Wins
+-Getting interactive maps on both the dashboard and the event form
+-Having users be able to look at the host family profile of different events
 #### Challenges
+-The event modal proved challenging for certain rendering capabilities (map)
+-Circle CI sometimes had confusing errors and there is definitely still fuzziness surrounding it.
 
 
 ## Roadmap
 Future features could include:
-* idea1
-* idea2
-* idea3
+* Allow users to message each other about events
+* Users get an email notification when they rsvp or when someone rsvps to their event
+* Users can see who has rsvpd to their event and navigate to their profile
 
 
 ## Setup
@@ -83,22 +103,20 @@ For Cypress Testing:
 
 
 ## Contributors
-**Trish Fox-Collis**
+**Trish Fox-Collis (She/Her)**
 * [LinkedIn](https://www.linkedin.com/in/trish-fox-collis/)
 * [GitHub](https://github.com/tfoxcollis)
 
-**Blue Nealis**
+**Blue Nealis (They/Them)**
 * [LinkedIn](https://www.linkedin.com/in/blue-nealis/)
 * [GitHub](https://github.com/BlueNealis)
 
-**Amber Bodnar**
+**Amber Bodnar (She/Her)**
 * [LinkedIn](https://www.linkedin.com/in/amberbodnar/)
 * [GitHub](https://github.com/abodnar1)
 
 
 ## Sources
-* []()
-* []()
-* []()
-* []()
-* []()
+* [Cypress](https://docs.cypress.io/guides/overview/why-cypress)
+* [Scrimba](https://scrimba.com/dashboard#overview)
+* [GraphQL Cypress Tutorial](https://www.jayfreestone.com/writing/stubbing-graphql-cypress/)
