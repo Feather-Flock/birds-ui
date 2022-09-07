@@ -48,11 +48,11 @@
 }
 
 .profile-picture {
-  width: 35vw;
-  height: 35vh;
-  border-radius: 12px;
-  background-image: url(/src/user-profile-pic.png);
+  height: 250px;
+  object-fit: contain;
+  border-radius: 20px;
   background-size: cover;
+  border: 2px solid black;
 }
 
 .name-wrapper,
@@ -67,6 +67,8 @@
   box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
   margin: 20px 0px 20px 0px;
+  border: 2px solid black;
+
 }
 
 .description-text-box {
@@ -77,6 +79,8 @@
   border-radius: 12px;
   text-align: center;
   padding-top: 20px;
+  border: 2px solid black;
+
 }
 
 .tag-container {
@@ -90,14 +94,18 @@
   box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
   margin-top: 20px;
+  border: 2px solid black;
+
 }
 
 .tag-title {
   padding: 10px;
   color: white;
-  background-color: #283618;
+  background-color: rgb(54, 53, 53);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
+  border: 2px solid black;
+
 }
 
 @media screen and (max-width: 700px) {

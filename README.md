@@ -15,10 +15,11 @@
 
 
 ## Project Overview
+<<<<<<< HEAD
 
 Welcome to Birds of a Feather! The goal of this app is connect LGBTQ+ families.
 
-###Features
+### Features
  - Users can search their area for events with other LGBTQ+ families using a visual map
  - Users can click on event cards or location icons and see more details about the event
  - Users can rsvp from the modal or view the host families information
@@ -26,8 +27,14 @@ Welcome to Birds of a Feather! The goal of this app is connect LGBTQ+ families.
  - Users can ensure they have the right address with the visual of the interactive maps
  - Users can delete their own events from their user profile
 
-[VISUALS GO HERE]
-![](name-of-giphy.gif)
+Change Range of Events
+![Change Range](src/BofAF-Change-Range-Click-event.gif)
+
+Navigate to user Profile from event
+![Nav](src/BofAF-Nav-from-event-modal.gif)
+
+Fill out and submit a new event
+![Event Form](src/Event-Form-Fill.gif)
 
 The [Turing School of Software and Design](https://turing.edu/) provided a project overview for students to follow, which can be found [here](https://mod4.turing.edu/projects/capstone/).
 

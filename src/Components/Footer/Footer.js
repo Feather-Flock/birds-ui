@@ -30,7 +30,6 @@ const Footer = () => {
           </tr>
         </tbody>
       </table>
-
       <table className="right-footer">
         <thead>
           <tr>

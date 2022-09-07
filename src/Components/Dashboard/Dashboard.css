@@ -6,6 +6,9 @@
   min-height: 85vh;
 }
 
+.welcome-message {
+  margin-left: 20px;
+}
 .rsvp-eventcards {
   width: 50%;
   height: 400px;

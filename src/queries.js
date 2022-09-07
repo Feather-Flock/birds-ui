@@ -23,6 +23,7 @@ query user($id: ID!, $range: Int!) {
       date
       time
       host
+      rsvps
     }
     userEvents(id: $id) {
       id
@@ -35,6 +36,7 @@ query user($id: ID!, $range: Int!) {
       date
       time
       host
+      rsvps
     }
     userDefined(id: $id, range: $range) {
       id
@@ -45,6 +47,7 @@ query user($id: ID!, $range: Int!) {
       lng
       slug
       time
+      rsvps
     }
   }
 }`
@@ -63,6 +66,7 @@ export const GET_EVENT_BY_ID = gql`
       city
       state
       zip
+      rsvps
       creator(id: $id) {
         id
         email
