@@ -34,20 +34,18 @@ describe('empty spec', () => {
   })
 
   it('When the user types into the location bar suggestions should populate', () => {
-    cy.get('input').eq(2).click().type('The Zoo, CO')
-    cy.get('option').eq(0).click()
-    cy.get('input').eq(2).should('have.value', 'The Zoo Crew, 5721 Main St, Odessa, ON')
+    cy.get('input').eq(2).click().type('The Zoo Crew')
+    cy.get('[value="The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ"]').click()
+    cy.get('input').eq(2).should('have.value', 'The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ')
   })
 
   it('When a user selects a location from the suggestions the suggestion box should dissapear', () => {
-    cy.get('input').eq(2).click().type('The Zoo, Boulder')
+    cy.get('input').eq(2).click().type('The Zoo, Boulder CO')
     cy.get('option').eq(0).click()
     cy.get('input').eq(2).should('have.value', 'The Zoo, 1531 Broadway St, Boulder, CO')
     cy.get('option').should('not.exist')
   })
-  it('When a user selects a location a map with a marker should populate', () => {
-    cy.visit('https://example.cypress.io')
-  })
+
   it('When a user submits the form a confirmation should pop up and the fields should reset', () => {
     cy.get('input').eq(0).click().type('Trip to Zoo')
     cy.get('input').eq(1).click()
