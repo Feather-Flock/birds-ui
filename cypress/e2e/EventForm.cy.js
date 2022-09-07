@@ -65,7 +65,9 @@ describe('empty spec', () => {
         })
       }
     })
-    cy.get('alert')
+    cy.on('window:alert',(t)=>{
+         expect(t).to.contains('New Event Made!');
+      })
 })
   it('User should be able to navigate back to dashboard from event form', () => {
     cy.visit('https://example.cypress.io')
