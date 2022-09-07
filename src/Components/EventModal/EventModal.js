@@ -101,8 +101,8 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
               <iframe
               title="map"
               border="0"
-              marginwidth="0"
-              marginheight="0"
+              marginWidth="0"
+              marginHeight="0"
               src={`https://www.mapquest.com/embed/${data.event.slug}?center=${data.event.lat},${data.event.lng}&zoom=12&maptype=map`}></iframe>
             </div>
             <p className='event-description'>{data.event.description}</p>

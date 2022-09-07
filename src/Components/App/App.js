@@ -42,7 +42,7 @@ const App = () =>  {
           <EventForm />
         </Route>
         <Route exact path="/profile">
-          <UserProfile refetch={refetch} />
+          <UserProfile refetch={refetch} range={range} />
         </Route>
         <Footer />
       </div>
