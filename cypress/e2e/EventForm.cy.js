@@ -10,13 +10,22 @@ describe('empty spec', () => {
   it('User sees a map on page load', () => {
     cy.get('#map')
   })
-  it.only('Can type into the form', () => {
+
+  it('Can type into the form', () => {
     cy.get('input').eq(0).click().type('Trip to Zoo')
-    cy.get('input').eq(0).click().should('eq', 'Trip to Zoo')
+    cy.get('input').eq(1).click()
+    cy.get('input').eq(2).click().type('The Zoo')
+    cy.get('input').eq(3).click().type('We want to go to the zoo with you!')
+    cy.get('input').eq(0).click().should('have.value', 'Trip to Zoo')
+    cy.get('input').eq(3).click().should('have.value','We want to go to the zoo with you!')
   })
-  it('When the user types into the location bar suggestions should populate', () => {
-    cy.visit('https://example.cypress.io')
+
+  it.only('When the user types into the location bar suggestions should populate', () => {
+    cy.get('input').eq(2).click().type('The Zoo, CO')
+    cy.get('option').eq(0).click()
+    cy.get('input').eq(2).should('have.value', 'The Zoo Crew, 5721 Main St, Odessa, ON')
   })
+  
   it('When a user selects a location from the suggestions the suggestion box should dissapear', () => {
     cy.visit('https://example.cypress.io')
   })
