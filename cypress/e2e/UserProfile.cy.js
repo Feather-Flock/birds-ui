@@ -1,8 +1,21 @@
-describe('User Profile Test', () => {
+import { hasOperationName } from "../utils/graphql-test-utils";
+
+describe('User Profile Tests', () => {
   beforeEach(() => {
-    cy.intercept('/graphql',{
-      method: 'POST',
-      fixture: '../fixtures/user.json'
+    cy.intercept('POST', '/graphql', (req) => {
+      if (hasOperationName(req, 'event')) {
+        req.alias = 'queryEvent'
+        req.reply({
+          fixture: '../fixtures/event.json'
+        })
+      }
+
+      if (hasOperationName(req, 'user')) {
+        req.alias = 'queryUser'
+        req.reply({
+          fixture: '../fixtures/user.json'
+        })
+      }
     })
     cy.visit('http://localhost:3000/profile')
   });
@@ -42,5 +55,4 @@ describe('User Profile Test', () => {
     .get('.right-container > .swiper > .swiper-wrapper > .swiper-slide > .event-container > .event-info-container > .event-details > .title').contains('Taking the rent check over')
     .get('.right-container > .swiper > .swiper-wrapper > .swiper-slide > .event-container').contains('button', 'View Details')
   });
-
 });
