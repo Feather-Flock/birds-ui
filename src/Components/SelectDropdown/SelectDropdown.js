@@ -15,7 +15,10 @@ const SelectDropdown = () => {
         <div className="row">
           <div className="col-md-3"></div>
           <div className="col-md-6">
-            <Select options={ranges} />
+            <Select options={ranges}
+              menuPortalTarget={document.body} 
+              styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+            />
           </div>
           <div className="col-md-4"></div>
         </div>
