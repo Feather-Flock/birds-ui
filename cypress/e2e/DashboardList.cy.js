@@ -42,4 +42,10 @@ describe('Dashboard List Tests', () => {
       .its('response.body.data.event')
       .should('have.property', "title")
   })
+
+  it('Should be able to select a range from the dropdown list', () => {
+    cy.get('.select-list-dropdown input').first().click()
+    .get('.css-yt9ioa-option').last().should('have.text', '20 miles').click()
+    .get('.select-list-dropdown input').first().parent().siblings().contains('20 miles')
+  })
 })
