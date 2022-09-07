@@ -42,12 +42,13 @@
 
 .close-button {
   float: right;
-  margin-top: 1%;
+  position: absolute;
+  margin-top: 3%;
   margin-left: 95%;
   font-size: 2rem;
   border:none;
   background-color: rgba(255, 255, 255, 0.0);
-  color: red;
+  color: white;
 }
 
 .modal-grid {
