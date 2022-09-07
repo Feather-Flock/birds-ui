@@ -63,18 +63,6 @@ const EventForm = () => {
     e.preventDefault()
       let timeArray = eventDetails.date.split('T');
       setEventDetails({...eventDetails, date: timeArray[0], time:timeArray[1]})
-      console.log(`title: ${eventDetails.title},
-        description: ${eventDetails.description},
-        time: ${eventDetails.time},
-        date: ${eventDetails.date},
-        address: ${searchInfo.place.properties.street},
-        city: ${searchInfo.place.properties.city},
-        state: ${searchInfo.place.properties.stateCode},
-        zip: ${parseInt(searchInfo.place.properties.postalCode)},
-        slug: ${searchInfo.slug},
-        lat: ${searchInfo.place.geometry.coordinates[1]},
-        lng: ${searchInfo.place.geometry.coordinates[0]},
-        host: ${parseInt(process.env.REACT_APP_USER_ID)}`)
       mutateCreateEvent()
       if(createdResponse) {
         alert('New Event Made!')
@@ -102,8 +90,6 @@ const EventForm = () => {
         state: searchInfo?.place?.properties?.stateCode,
         zip: parseInt(searchInfo?.place?.properties?.postalCode),
         slug: searchInfo?.slug,
-        lat: searchInfo?.place?.geometry.coordinates[1],
-        lng: searchInfo?.place?.geometry.coordinates[0],
         host: parseInt(process.env.REACT_APP_USER_ID),
       }
     }
