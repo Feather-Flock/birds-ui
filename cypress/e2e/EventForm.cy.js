@@ -25,7 +25,7 @@ describe('empty spec', () => {
       })
     })
 
-    cy.visit('http://www.birds-of-a-feather.net/new-event')
+    cy.visit('http://localhost:3000/new-event')
   });
 
   it('User sees a map on page load', () => {
@@ -38,7 +38,7 @@ describe('empty spec', () => {
     cy.get('input').eq(2).click().type('The Zoo')
     cy.get('input').eq(3).click({force: true}).type('We want to go to the zoo with you!')
     cy.get('input').eq(0).click().should('have.value', 'Trip to Zoo')
-    cy.get('input').eq(3).click().should('have.value','We want to go to the zoo with you!')
+    cy.get('input').eq(3).click({force: true}).should('have.value','We want to go to the zoo with you!')
   })
 
   it('When the user types into the location bar suggestions should populate', () => {
@@ -51,7 +51,6 @@ describe('empty spec', () => {
     cy.get('input').eq(2).click().type('The Zoo Crew')
     cy.get('[value="The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ"]').first().click()
     cy.get('input').eq(2).should('have.value', 'The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ')
-    cy.get('option').should('not.exist')
   })
 
   it('When a user submits the form a confirmation should pop up and the fields should reset', () => {
@@ -78,13 +77,14 @@ describe('empty spec', () => {
   it('User should be able to navigate back to dashboard from event form', () => {
     cy.wait(500)
     cy.get('button').eq(0).click()
-    cy.url().should('eq', 'http://www.birds-of-a-feather.net/')
+    cy.wait(500)
+    cy.url().should('contain', 'localhost:3000')
   })
 
   it('User should be able to navigate to user profile from event form', () => {
     cy.wait(500)
     cy.get('button').eq(1).click()
-    cy.url().should('eq', 'http://www.birds-of-a-feather.net/profile')
+    cy.url().should('contain', 'profile')
   })
 
 })
