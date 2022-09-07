@@ -26,3 +26,8 @@
     width: 22em;
   }
 }
+
+.select-dropdown {
+  width: 30vw;
+  margin: 10px;
+}
