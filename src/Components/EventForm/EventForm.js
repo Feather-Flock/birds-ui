@@ -62,7 +62,6 @@ const EventForm = () => {
 
   const handleSubmit = (e) =>  {
     e.preventDefault()
-    if(checkFilled()) {
       let timeArray = eventDetails.date.split('T');
       setEventDetails({...eventDetails, date: timeArray[0], time:timeArray[1]})
       mutateCreateEvent()
@@ -76,21 +75,9 @@ const EventForm = () => {
         setMarker([])
         setCenter([39.7317, -104.9214])
     }
-  }else{
-    alert('Please fill all fields')
-    return
-  }
 
   }
-
-  const checkFilled = () => {
-    let {title, date, time, location, description} = eventDetails
-    if(title && date && time && location && description){
-      return true
-    }
-    return false;
-  }
-
+  
   const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT,
     {
       variables: {input:
