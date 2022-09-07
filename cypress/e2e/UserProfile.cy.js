@@ -20,6 +20,13 @@ describe('User Profile Test', () => {
     cy.get('.description-text-box').contains('I love my cats and animation drawing.')
   });
 
+  it('User should see their identifying tags', () => {
+    cy.get('.tag-container').contains('p', '2 Kids')
+    .get('.tag-container').contains('p', 'MLM')
+    .get('.tag-container').contains('p', 'Married')
+    .get('.tag-container').contains('p', 'Monogamous')
+  });
+
 
 });
 
