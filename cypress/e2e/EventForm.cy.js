@@ -1,9 +1,18 @@
 describe('empty spec', () => {
+  beforeEach(() => {
+    cy.intercept('/graphql',{
+      method: 'POST',
+      fixture: '../fixtures/user.json'
+    })
+    cy.visit('http://www.birds-of-a-feather.net/new-event')
+  });
+
   it('User sees a map on page load', () => {
-    cy.visit('https://example.cypress.io')
+    cy.get('#map')
   })
-  it('Can type into the form', () => {
-    cy.visit('https://example.cypress.io')
+  it.only('Can type into the form', () => {
+    cy.get('input').eq(0).click().type('Trip to Zoo')
+    cy.get('input').eq(0).click().should('eq', 'Trip to Zoo')
   })
   it('When the user types into the location bar suggestions should populate', () => {
     cy.visit('https://example.cypress.io')
