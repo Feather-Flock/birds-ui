@@ -40,11 +40,10 @@ describe('empty spec', () => {
   })
 
   it('When a user selects a location from the suggestions the suggestion box should dissapear', () => {
-    cy.get('input').eq(2).click().type('The Zoo Crew')
-    cy.get('[value="The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ"]').click()
-    cy.get('input').eq(2).should('have.value', 'The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ')
+    cy.get('input').eq(2).click().type('Porter Adventist Hospital')
+    cy.get('option').eq(0).click()
+    cy.get('input').eq(2).should('have.value', 'Porter Adventist Hospital, 2525 S Downing St, Denver, CO')
     cy.get('input').eq(3).click()
-    cy.wait(500)
     cy.get('option').should('not.exist')
   })
 
