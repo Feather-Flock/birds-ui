@@ -22,8 +22,13 @@ describe('Event Modal Tests', () => {
     cy.wait(`@queryEvent`)
   });
 
-  it('User should see an event header', () => {
+  it('User should see an event header and date', () => {
     cy.get('.modal-header').contains('h1', 'Games at Fremont')
+    cy.get('.modal-grid > :nth-child(1) > :nth-child(2)').contains('h3', '2022-10-31')
   });
+
+  // it('User can click on the View Family button to see the Family\'s profile page',() => {
+  //   cy.get('.modal-header').contains('h1', 'Games at Fremont')
+  // });
 
 });
