@@ -1,10 +1,10 @@
 describe('Dashboard Tests', () => {
   beforeEach(() => {
-    cy.intercept('https://birds-api.herokuapp.com/graphql',{
+    cy.intercept('/graphql',{
       method: 'POST',
       fixture: '../fixtures/user.json'
     })
-    cy.visit('http://www.birds-of-a-feather.net/')
+    cy.visit('http://localhost:3000/')
   });
 
   // it('User is welcomed onto the page', () => {
@@ -36,13 +36,13 @@ describe('Dashboard Tests', () => {
 
   it('User can navigate to an event form from their Dashboard', () => {
     cy.get('.site-nav').contains('button', 'Create Event').click()
-    .url().should('eq', 'http://localhost:3000/new-event')
+    .url().should('contain', '/new-event')
     .get('.event-form').should('be.visible')
   });
 
   it('User can navigate to their profile page', () => {
     cy.get('.site-nav').contains('button', 'View Profile').click()
-    .url().should('eq', 'http://localhost:3000/profile')
+    .url().should('contain', '/profile')
     .get('.name-wrapper').contains('h2', 'BLUESKIIII')
   });
 
