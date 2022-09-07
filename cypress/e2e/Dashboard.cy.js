@@ -1,8 +1,30 @@
+// describe('Dashboard Tests', () => {
+//   beforeEach(() => {
+//     cy.intercept('/graphql',{
+//       method: 'POST',
+//       fixture: '../fixtures/user.json'
+//     })
+//     cy.visit('http://localhost:3000/')
+//   });
+
+import { hasOperationName } from "../utils/graphql-test-utils";
+
 describe('Dashboard Tests', () => {
   beforeEach(() => {
-    cy.intercept('/graphql',{
-      method: 'POST',
-      fixture: '../fixtures/user.json'
+    cy.intercept('POST', '/graphql', (req) => {
+      if (hasOperationName(req, 'event')) {
+        req.alias = 'queryEvent'
+        req.reply({
+          fixture: '../fixtures/event.json'
+        })
+      }
+
+      if (hasOperationName(req, 'user')) {
+        req.alias = 'queryUser'
+        req.reply({
+          fixture: '../fixtures/user.json'
+        })
+      }
     })
     cy.visit('http://localhost:3000/')
   });
