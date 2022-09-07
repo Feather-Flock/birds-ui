@@ -10,7 +10,6 @@ import { v4 as uuidv4 } from 'uuid';
 SwiperCore.use([Pagination, Navigation])
 
 const Events = ({events, eventTitle, type, handleClick, deleteClick, userEvent}) => {
-
   const eventCards = () => {
     return events.map(event => {
       let eventCard = <EventCard
@@ -18,6 +17,7 @@ const Events = ({events, eventTitle, type, handleClick, deleteClick, userEvent})
         type={type}
         eventTitle={eventTitle}
         title={event.title}
+        hostImage={event?.creator?.image}
         description={event.description}
         date={event.date}
         time={event.time}
@@ -59,6 +59,7 @@ const Events = ({events, eventTitle, type, handleClick, deleteClick, userEvent})
           centeredSlides={true}
           spaceBetween={50}
           keyboard={true}
+          style={{width: "22em"}}
           key={uuidv4()}
         >
           {eventCards()}
