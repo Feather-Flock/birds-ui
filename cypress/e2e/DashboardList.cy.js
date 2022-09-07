@@ -1,8 +1,21 @@
+import { hasOperationName } from "../utils/graphql-test-utils";
+
 describe('Dashboard List Tests', () => {
   beforeEach(() => {
-    cy.intercept('/graphql',{
-      method: 'POST',
-      fixture: '../fixtures/user.json'
+    cy.intercept('POST', '/graphql', (req) => {
+      if (hasOperationName(req, 'event')) {
+        req.alias = 'queryEvent'
+        req.reply({
+          fixture: '../fixtures/event.json'
+        })
+      }
+
+      if (hasOperationName(req, 'user')) {
+        req.alias = 'queryUser'
+        req.reply({
+          fixture: '../fixtures/user.json'
+        })
+      }
     })
     cy.visit('http://localhost:3000/Dashboard-List')
   });
@@ -22,4 +35,11 @@ describe('Dashboard List Tests', () => {
     .get('.date').last().contains('p', 'When: 2022-09-15')
     .get('.time').last().contains('p', 'Time: 18:00:00')
   });
+
+  it('User should be able to click view details and a modal populates', () => {
+    cy.get('.view-details-button').first().contains('View Details').click()
+    cy.wait(`@queryEvent`)
+      .its('response.body.data.event')
+      .should('have.property', "title")
+  })
 })

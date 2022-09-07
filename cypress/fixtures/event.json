@@ -1,0 +1,23 @@
+{
+  "data": {
+      "event": {
+          "title": "Games at Fremont",
+          "description": "Games at Fremont Street",
+          "time": "23:00:00",
+          "date": "2022-10-31",
+          "lat": 39.65,
+          "lng": -104.893,
+          "address": "1151 Verbena St",
+          "city": "Denver",
+          "state": "CO",
+          "zip": 80220,
+          "creator": {
+              "email": "pearl@universe.com",
+              "userName": "Pearl",
+              "image": "https://user-images.githubusercontent.com/99059063/187045202-04577eee-4d6b-4a6e-8d71-5b96aef2f6fc.png",
+              "zipCode": 80220,
+              "description": "I am a non-binary single parent looking for other enby parents."
+          }
+      }
+  }
+}
