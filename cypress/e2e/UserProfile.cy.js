@@ -35,9 +35,12 @@ describe('User Profile Test', () => {
     .get('.left-container > .swiper > .swiper-wrapper > .swiper-slide > .event-container').contains('button', 'View Details')
   });
 
+  it('User should see events that they are attending hosted by other families', () => {
+    cy.get('.bottom-container').should('be.visible')
+    .get('.mySwiper').should('be.visible')
+    .get('.right-container > .swiper > .swiper-wrapper > .swiper-slide > .event-container > .attending-header').contains('Event you\'re Attending')
+    .get('.right-container > .swiper > .swiper-wrapper > .swiper-slide > .event-container > .event-info-container > .event-details > .title').contains('Taking the rent check over')
+    .get('.right-container > .swiper > .swiper-wrapper > .swiper-slide > .event-container').contains('button', 'View Details')
+  });
 
 });
-
-
-// should see events they're attending
-
