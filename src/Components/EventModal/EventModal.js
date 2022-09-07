@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react'
 import './EventModal.css'
 import Modal from 'react-modal';
-import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_EVENT_BY_ID, USER_RSVP_TO_EVENT, USER_DELETE_RSVP } from "../../queries";
@@ -80,40 +79,42 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
 
   return (
     <>
-    <button onClick={openModal}>Open Modal</button>
-    <Modal id='event'
-     className='event-modal'
-     isOpen={modalIsOpen}
-     onRequestClose={closeModal}
-     style={customStyles}>
-      <button onClick={closeModal}
-      className='close-button'>X</button>
-      <h1 className='modal-header'>{data.event.title}</h1>
-      <div className='modal-grid'>
-        <div>
-          <br/>
-          <h3>{`${data.event.date}  ${data.event.time}`}</h3>
-
-          <p>Location: {data.event.address}</p>
-          <div className='.event-modal-map'>
-            <iframe
-            title="map"
-            src={`https://www.mapquest.com/embed/${data.event.slug}?center=${data.event.lat},${data.event.lng}&zoom=12&maptype=map`}></iframe>
+      <button onClick={openModal}>Open Modal</button>
+      <Modal id='event'
+      className='event-modal'
+      isOpen={modalIsOpen}
+      onRequestClose={closeModal}
+      style={customStyles}>
+        <button onClick={closeModal}
+        className='close-button'>X</button>
+        <h1 className='modal-header'>{data.event.title}</h1>
+        <div className='modal-grid'>
+          <div>
+            <br/>
+            <h3>{`${data.event.date}  ${data.event.time}`}</h3>
+            <p>Location: {data.event.address}</p>
+            <div className='.event-modal-map'>
+              <iframe
+              title="map"
+              border="0"
+              marginWidth="0"
+              marginHeight="0"
+              src={`https://www.mapquest.com/embed/${data.event.slug}?center=${data.event.lat},${data.event.lng}&zoom=12&maptype=map`}></iframe>
+            </div>
+            <p className='event-description'>{data.event.description}</p>
+            <p className='total-rsvps'>Total RSVPs for this event: {data.event.rsvps}</p>
           </div>
-          <p className='event-description'>{data.event.description}</p>
-          <p className='total-rsvps'>Total RSVPs for this event: {data.event.rsvps}</p>
+          <div>
+            <h1>{data.event.creator.userName}</h1>
+            <img className='event-img' src={data.event.creator.image} alt="event"/>
+            <br/>
+            {user.id !== data.event.creator.id && renderButtons()
+            }
+            <a href={`http://MapQuest.com${data.event.slug}`}>
+            <button>Get Directions</button></a>
+          </div>
         </div>
-        <div>
-          <h1>{data.event.creator.userName}</h1>
-          <img className='event-img' src={data.event.creator.image}/>
-          <br/>
-          {user.id !== data.event.creator.id && renderButtons()
-          }
-          <a href={`http://MapQuest.com${data.event.slug}`}>
-          <button>Get Directions</button></a>
-        </div>
-      </div>
-    </Modal>
+      </Modal>
     </>
   )
 }

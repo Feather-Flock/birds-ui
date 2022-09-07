@@ -1,6 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { useQuery } from "@apollo/client";
-import { GET_USER_BY_ID } from "../../queries";
+import React, { useState, useContext } from 'react'
 import "./Dashboard.css"
 import Events from "../Events/Events"
 import EventModal from '../EventModal/EventModal'
@@ -46,7 +44,7 @@ const Dashboard = ({refetch, handleSelect, range, setRange}) => {
           <div className="select-dropdown">
             <SelectDropdown handleSelect={handleSelect} range={range} />
           </div>
-          <Map center={[39.73352, -104.965847]} markers={user.userDefined} handleClick={handleClick} view={'Dashboard'}/>
+          <Map center={[user.lat, user.lng]} markers={user.userDefined} handleClick={handleClick} view={'Dashboard'}/>
         </div>
       </div>
     </div>

@@ -1,0 +1,50 @@
+{
+  "data": {
+      "user": {
+          "id": "1",
+          "userName": "BLUESKIIII",
+          "email": "blue@universe.com",
+          "description": "I love my cats and animation drawing.",
+          "image": "https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png",
+          "zipCode": 80220,
+          "rsvpdEvents": [
+              {
+                  "id": "3",
+                  "title": "Taking the rent check over",
+                  "description": "I'll be taking my rent check to the office!",
+                  "lat": 39.735,
+                  "lng": -104.908,
+                  "date": "2022-10-20",
+                  "time": "18:00:00",
+                  "host": 3,
+                  "rsvps": 2
+              }
+          ],
+          "userDefined": [
+              {
+                  "id": "2",
+                  "title": "Kitten Play Time",
+                  "description": "I'll be setting aside at least an hour to strictly play with kittens.",
+                  "lat": 39.65,
+                  "lng": -104.893,
+                  "zip": 80220,
+                  "date": "2022-09-15",
+                  "time": "18:00:00",
+                  "host": 2
+              }
+          ],
+          "userEvents": [
+              {
+                  "id": "5",
+                  "title": "Hanging at a coffee shop",
+                  "description": "I'll be cafe coding at Perc! Come join me! ",
+                  "lat": 39.75118,
+                  "lng": -104.948906,
+                  "date": "2022-10-05",
+                  "time": "16:30:00",
+                  "host": 1
+              }
+          ]
+      }
+  }
+}

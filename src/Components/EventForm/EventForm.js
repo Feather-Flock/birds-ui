@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './EventForm.css'
-import { useQuery, useMutation} from "@apollo/client";
-import { MAKE_NEW_EVENT, GET_USER_BY_ID } from '../../queries'
+import { useMutation } from "@apollo/client";
+import { MAKE_NEW_EVENT } from '../../queries'
 import Map from '../Map/Map'
 
 
 const EventForm = () => {
-  const {loading, error, data, refetch} = useQuery(GET_USER_BY_ID, {
-    variables: {"id": process.env.REACT_APP_USER_ID}
-  })
   const [center, setCenter] = useState([39.7317, -104.9214])
   const [marker, setMarker] = useState([])
   const [markerLabel, setMarkerLabel] = useState()
@@ -19,7 +16,6 @@ const EventForm = () => {
   description:''})
   const [searchOptions, setSearchOptions] = useState([])
   const [searchInfo, setSearchInfo] = useState([])
-  const [eventObject, setEventObject] = useState({})
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -30,7 +26,7 @@ const EventForm = () => {
     handleChange(e)
     setSearchOptions([])
     setSearchInfo([])
-    const {name, value} = e.target
+    const { value } = e.target
     if(value.length < 2){ return }
 
     fetch(`http://www.mapquestapi.com/search/v3/prediction?key=${process.env.REACT_APP_MAPQUEST_KEY }&limit=3&collection=adminArea,poi,address,category,franchise,airport&q=${value}&location=-104.671828,
@@ -40,6 +36,7 @@ const EventForm = () => {
                 data.results.map((result) => {
                   setSearchInfo([...searchInfo, result]) //Makes array of search objects
                   setSearchOptions([...searchOptions, {name: result.displayString, id: result.id}]) //array of the display name and id (might delete?)
+                  return result
                 })
             })
   }
@@ -56,6 +53,7 @@ const EventForm = () => {
 
             return result
           }
+          return result.id === id
         })
       })
       setEventDetails({...eventDetails, location:value})

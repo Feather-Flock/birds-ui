@@ -7,7 +7,7 @@ import EventModal from '../EventModal/EventModal'
 import Events from "../Events/Events"
 import UserContext from '../../Context/UserContext';
 
-const UserProfile = ({refetch}) => {
+const UserProfile = ({refetch, range}) => {
   const [modalVisible, setModalVisible] = useState(false)
   const [eventId, setEventId] = useState()
   // If you click on a link with state, it will be defined here using useLocation hook.
@@ -30,7 +30,7 @@ const UserProfile = ({refetch}) => {
   // If state exists and data is undefined, call queryHost function to get host.
   // If state is undefined, then hostId isn't present, and we render the current user profile.
   if(state && !hostResponse?.data){
-    queryHost({variables: {id: state?.hostId}})
+    queryHost({variables: {id: state?.hostId, range: parseInt(range.value)}})
   } else if (state && hostResponse?.data) {
     user = hostResponse?.data.user
   }
@@ -56,7 +56,7 @@ const UserProfile = ({refetch}) => {
 
   const deleteClick = (id) => {
     deleteEvent({ variables: { input: {id: parseInt(id)}}})
-    refetch()
+    refetch({variables: {"id": process.env.REACT_APP_USER_ID, "range": parseInt(range.value)}})
   }
 
   return (
