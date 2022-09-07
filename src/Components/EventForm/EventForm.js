@@ -5,7 +5,7 @@ import { MAKE_NEW_EVENT } from '../../queries'
 import Map from '../Map/Map'
 
 
-const EventForm = () => {
+const EventForm = ({ refetch }) => {
   const [center, setCenter] = useState([39.7317, -104.9214])
   const [marker, setMarker] = useState([])
   const [markerLabel, setMarkerLabel] = useState()
@@ -61,10 +61,25 @@ const EventForm = () => {
 
   const handleSubmit = (e) =>  {
     e.preventDefault()
-      let timeArray = eventDetails.date.split('T');
-      setEventDetails({...eventDetails, date: timeArray[0], time:timeArray[1]})
-      mutateCreateEvent()
+    let timeArray = eventDetails.date.split('T');
+    mutateCreateEvent({
+      variables: {input:
+        {
+          title: eventDetails.title,
+          description: eventDetails.description,
+          time: timeArray[1],
+          date: timeArray[0],
+          address: searchInfo?.place?.properties?.street,
+          city: searchInfo?.place?.properties?.city,
+          state: searchInfo?.place?.properties?.stateCode,
+          zip: parseInt(searchInfo?.place?.properties?.postalCode),
+          slug: searchInfo?.slug,
+          host: parseInt(process.env.REACT_APP_USER_ID),
+        }
+      }
+    })
       if(createdResponse) {
+        refetch()
         alert('New Event Made!')
         setEventDetails({title: '',
         date:'',

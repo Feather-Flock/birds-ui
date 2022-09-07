@@ -23,8 +23,6 @@ const App = () =>  {
     variables: {"id": process.env.REACT_APP_USER_ID, "range": parseInt(range.value)}
   })
 
-  console.log(data)
-
   if(loading) return "Loading..."
   if(error) return `Error! ${error.message}`
 
@@ -39,7 +37,7 @@ const App = () =>  {
           <DashboardList refetch={refetch} handleSelect={handleSelect} range={range}/>
         </Route>
         <Route exact path="/New-Event">
-          <EventForm />
+          <EventForm refetch={refetch} />
         </Route>
         <Route exact path="/profile">
           <UserProfile refetch={refetch} range={range} />
