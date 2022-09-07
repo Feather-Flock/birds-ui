@@ -30,15 +30,19 @@ Welcome to Birds of a Feather! The goal of this app is connect LGBTQ+ families.
  - Users can delete their own events from their user profile
 
 Change Range of Events
+
 ![Change Range](src/BofAF-Change-Range-Click-event.gif)
 
 Navigate to user Profile from event
+
 ![Nav](src/BofAF-Nav-from-event-modal.gif)
 
 Fill out and submit a new event
+
 ![Event Form](src/Event-Form-Fill.gif)
 
 Go to user profile and delete new added event
+
 ![Delete event](src/Delete-new-event.gif)
 
 The [Turing School of Software and Design](https://turing.edu/) provided a project overview for students to follow, which can be found [here](https://mod4.turing.edu/projects/capstone/).
