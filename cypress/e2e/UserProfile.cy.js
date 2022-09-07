@@ -16,11 +16,13 @@ describe('User Profile Test', () => {
     .get('.location-wrapper').contains('h3', '80220')
   });
 
+  it('User should see their family description', () => {
+    cy.get('.description-text-box').contains('I love my cats and animation drawing.')
+  });
 
 
 });
 
 
-// should have a location
 // should have a description
 // should have a section for events
