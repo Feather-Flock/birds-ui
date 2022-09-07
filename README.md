@@ -61,9 +61,9 @@ You can access this project through the deployed page [here](http://www.birds-of
 
 ## Roadmap
 Future features could include:
-* idea1
-* idea2
-* idea3
+* Allow users to message each other about events
+* Users get an email notification when they rsvp or when someone rsvps to their event
+* Users can see who has rsvpd to their event and navigate to their profile
 
 
 ## Setup
@@ -79,15 +79,15 @@ For Cypress Testing:
 
 
 ## Contributors
-**Trish Fox-Collis**
+**Trish Fox-Collis (She/Her)**
 * [LinkedIn](https://www.linkedin.com/in/trish-fox-collis/)
 * [GitHub](https://github.com/tfoxcollis)
 
-**Blue Nealis**
+**Blue Nealis (They/Them)**
 * [LinkedIn](https://www.linkedin.com/in/blue-nealis/)
 * [GitHub](https://github.com/BlueNealis)
 
-**Amber Bodnar**
+**Amber Bodnar (She/Her)**
 * [LinkedIn](https://www.linkedin.com/in/amberbodnar/)
 * [GitHub](https://github.com/abodnar1)
 
