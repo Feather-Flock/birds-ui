@@ -74,7 +74,7 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
           <button className="modal-button" onClick={(e) => createRsvp(e)}> RSVP!</button>
         }
         <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}} className="modal-button" onClick={closeModal}>
-          <button>View Family Profile</button>
+          <button className="modal-button">View Family Profile</button>
         </Link> 
       </>
     )
