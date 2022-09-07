@@ -19,6 +19,7 @@ query user($id: ID!, $range: Int!) {
       zip
       lat
       lng
+      slug
       date
       time
       host
@@ -30,6 +31,7 @@ query user($id: ID!, $range: Int!) {
       zip
       lat
       lng
+      slug
       date
       time
       host
@@ -41,6 +43,7 @@ query user($id: ID!, $range: Int!) {
       date
       lat
       lng
+      slug
       time
     }
   }
@@ -56,6 +59,7 @@ export const GET_EVENT_BY_ID = gql`
       date
       address
       lng
+      slug
       city
       state
       zip
@@ -84,6 +88,7 @@ mutation createEvent($input: CreateEventInput!) {
           zip
           lat
           lng
+          slug
           host
       }
     }

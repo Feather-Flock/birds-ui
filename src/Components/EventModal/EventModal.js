@@ -1,10 +1,13 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import './EventModal.css'
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_EVENT_BY_ID, USER_RSVP_TO_EVENT, USER_DELETE_RSVP } from "../../queries";
 import UserContext from "../../Context/UserContext"
+import Map from "../Map/Map"
+
+const dayjs = require('dayjs')
 
 Modal.setAppElement('#root');
 
@@ -26,10 +29,6 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
   const closeModal = () => {
     setIsOpen(false)
     handleClose()
-  }
-
-  const getDirections = () => {
-    //insert navigationlink to directions
   }
 
   const [mutateCreateRsvp, createdResponse] = useMutation(USER_RSVP_TO_EVENT, {
@@ -71,7 +70,7 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
         :
           <button className="modal-button" onClick={(e) => createRsvp(e)}> RSVP!</button>
         }
-        <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}} className="modal-button" onClick={closeModal}> 
+        <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}} className="modal-button" onClick={closeModal}>
           <button className="modal-button">View Family Profile</button>
         </Link>
       </>
@@ -95,16 +94,9 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
         <div className='modal-grid'>
           <div>
             <br/>
-            <h3>{`${data.event.date}  ${data.event.time}`}</h3>
+            <h3>{`Date: ${data.event.date}`}</h3>
+            <h3>{`Time: ${dayjs(`${data.event.date} ${data.event.time}`).format('h:mm:a')}`}</h3>
             <p>Location: {data.event.address}</p>
-            <div className='.event-modal-map'>
-              <iframe
-              title="map"
-              border="0"
-              marginWidth="0"
-              marginHeight="0"
-              src={`https://www.mapquest.com/embed/${data.event.slug}?center=${data.event.lat},${data.event.lng}&zoom=12&maptype=map`}></iframe>
-            </div>
             <p className='event-description'>{data.event.description}</p>
             <p className='total-rsvps'>Total RSVPs for this event: {data.event.rsvps}</p>
           </div>
@@ -114,8 +106,9 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
             <br/>
             {user.id !== data.event.creator.id && renderButtons()
             }
+            <br/>
             <a href={`http://MapQuest.com${data.event.slug}`}>
-            <button>Get Directions</button></a>
+            <button className='modal-button'>Get Directions</button></a>
           </div>
         </div>
       </Modal>
