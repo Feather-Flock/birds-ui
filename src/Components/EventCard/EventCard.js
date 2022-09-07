@@ -16,11 +16,11 @@ const EventCard = ({ id, hostImage, title, description, date, time, eventTitle, 
           </div>
           {/* <p className="description">{description}</p> */}
         </div>
-        <div className="event-buttons">
+        <div id={id} className="event-buttons">
           <button className="view-details-button" id={id} onClick={handleClick}>
             View Details
-            <div className="view-details-button__horizontal"></div>
-            <div className="view-details-button__vertical"></div>
+            <div id={id} className="view-details-button__horizontal"></div>
+            <div id={id} className="view-details-button__vertical"></div>
           </button>
         </div>
         {userEvent &&

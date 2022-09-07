@@ -18,7 +18,7 @@
   text-align: center;
   background-color:#283618;
   width: 100%;
-  height: 12%;
+  height: 15%;
   font-weight: 300;
   border-radius: 12px 12px 0px 0px;
   color: #EFF1FB;
@@ -27,27 +27,28 @@
 .event-modal-map {
   height: 40%;
   width: 40%;
-  background-color: #9bc2a5;
   margin-left: 30%;
+  z-index:9999;
 }
 
 .event-modal {
   width: 80vw;
   height: 90vh;
-  background-color: white;
   display: flex;
   flex-direction: column;
+  background-color: white;
   outline: none;
 }
 
 .close-button {
   float: right;
-  margin-top: 1%;
+  position: absolute;
+  margin-top: 3%;
   margin-left: 95%;
   font-size: 2rem;
   border:none;
   background-color: rgba(255, 255, 255, 0.0);
-  color: red;
+  color: white;
 }
 
 .modal-grid {
@@ -57,7 +58,11 @@
   grid-template-columns: 50% 50%;
   justify-content: center;
   text-align: center;
-  border: solid #283618 2px;
+}
+
+.event-description {
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .ReactModal__Overlay {
