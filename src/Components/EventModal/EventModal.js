@@ -69,11 +69,11 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
     return (
       <>
         {rsvpd ?
-          <button onClick={(e) => deleteRsvp(e)}> Cancel RSVP</button>
+          <button className="modal-button" onClick={(e) => deleteRsvp(e)}> Cancel RSVP</button>
         :
-          <button onClick={(e) => createRsvp(e)}> RSVP!</button>
+          <button className="modal-button" onClick={(e) => createRsvp(e)}> RSVP!</button>
         }
-        <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}} onClick={closeModal}>
+        <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}} className="modal-button" onClick={closeModal}>
           <button>View Family Profile</button>
         </Link> 
       </>
