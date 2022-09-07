@@ -5,7 +5,7 @@ import { MAKE_NEW_EVENT } from '../../queries'
 import Map from '../Map/Map'
 
 
-const EventForm = () => {
+const EventForm = ({ refetch }) => {
   const [center, setCenter] = useState([39.7317, -104.9214])
   const [marker, setMarker] = useState([])
   const [markerLabel, setMarkerLabel] = useState()
@@ -45,7 +45,6 @@ const EventForm = () => {
     const {value, id} = e.target;
       setSearchInfo(() => {
         return searchInfo.find((result) => {
-
           if(result.id === id) {
             setMarker([{lat: result.place.geometry.coordinates[1], lng: result.place.geometry.coordinates[0]}])
             setCenter([result.place.geometry.coordinates[1], result.place.geometry.coordinates[0]])
@@ -62,11 +61,25 @@ const EventForm = () => {
 
   const handleSubmit = (e) =>  {
     e.preventDefault()
-    if(checkFilled()) {
-      let timeArray = eventDetails.date.split('T');
-      setEventDetails({...eventDetails, date: timeArray[0], time:timeArray[1]})
-      mutateCreateEvent()
+    let timeArray = eventDetails.date.split('T');
+    mutateCreateEvent({
+      variables: {input:
+        {
+          title: eventDetails.title,
+          description: eventDetails.description,
+          time: timeArray[1],
+          date: timeArray[0],
+          address: searchInfo?.place?.properties?.street,
+          city: searchInfo?.place?.properties?.city,
+          state: searchInfo?.place?.properties?.stateCode,
+          zip: parseInt(searchInfo?.place?.properties?.postalCode),
+          slug: searchInfo?.slug,
+          host: parseInt(process.env.REACT_APP_USER_ID),
+        }
+      }
+    })
       if(createdResponse) {
+        refetch()
         alert('New Event Made!')
         setEventDetails({title: '',
         date:'',
@@ -76,19 +89,7 @@ const EventForm = () => {
         setMarker([])
         setCenter([39.7317, -104.9214])
     }
-  }else{
-    alert('Please fill all fields')
-    return
-  }
 
-  }
-
-  const checkFilled = () => {
-    let {title, date, time, location, description} = eventDetails
-    if(title && date && time && location && description){
-      return true
-    }
-    return false;
   }
 
   const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT,
@@ -104,8 +105,6 @@ const EventForm = () => {
         state: searchInfo?.place?.properties?.stateCode,
         zip: parseInt(searchInfo?.place?.properties?.postalCode),
         slug: searchInfo?.slug,
-        lat: searchInfo?.place?.geometry[1],
-        lng: searchInfo?.place?.geometry[0],
         host: parseInt(process.env.REACT_APP_USER_ID),
       }
     }

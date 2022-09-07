@@ -9,7 +9,7 @@ import SelectDropdown from '../SelectDropdown/SelectDropdown';
 const Dashboard = ({refetch, handleSelect, range, setRange}) => {
 
   const user = useContext(UserContext)
-  
+
   const [modalVisible, setModalVisible] = useState(false)
   const [eventId, setEventId] = useState()
   const handleClick = (e) => {
