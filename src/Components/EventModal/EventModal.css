@@ -27,16 +27,16 @@
 .event-modal-map {
   height: 40%;
   width: 40%;
-  background-color: #9bc2a5;
   margin-left: 30%;
+  z-index:9999;
 }
 
 .event-modal {
   width: 80vw;
   height: 90vh;
-  background-color: white;
   display: flex;
   flex-direction: column;
+  background-color: white;
   outline: none;
 }
 

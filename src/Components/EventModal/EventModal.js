@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import './EventModal.css'
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
@@ -61,7 +61,6 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
   };
 
   const renderButtons = () => {
-    console.log(data)
     return (
       <>
         {rsvpd ?
@@ -93,11 +92,8 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
         <div className='modal-grid'>
           <div>
             <br/>
-            <h3>{`${data.event.date}  ${data.event.time}`}</h3>
+            <h3>{`Date: ${data.event.date}  Time: ${data.event.time}`}</h3>
             <p>Location: {data.event.address}</p>
-            <div className='.event-modal-map'>
-              <Map center={[data.event.lat, data.event.lng]} markers={[{lat: data.event.lat, lng: data.event.lng}]} />
-            </div>
             <p className='event-description'>{data.event.description}</p>
             <p className='total-rsvps'>Total RSVPs for this event: {data.event.rsvps}</p>
           </div>

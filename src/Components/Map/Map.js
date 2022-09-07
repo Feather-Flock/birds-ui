@@ -14,7 +14,6 @@ export default function Map({center, markers, handleClick, view }){
     layers: window.L.mapquest.tileLayer('map'),
     zoom: 11
   });
-
   if (markers) {
     markers.forEach((location) => {
       let marker = window.L.marker([location.lat, location.lng], { //to hover over marker it shows event title
