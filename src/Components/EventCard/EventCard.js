@@ -19,8 +19,8 @@ const EventCard = ({ id, hostImage, title, description, date, time, eventTitle, 
         <div className="event-buttons">
           <button className="view-details-button" id={id} onClick={handleClick}>
             View Details
-            <div class="view-details-button__horizontal"></div>
-            <div class="view-details-button__vertical"></div>
+            <div className="view-details-button__horizontal"></div>
+            <div className="view-details-button__vertical"></div>
           </button>
         </div>
         {userEvent &&
@@ -51,8 +51,8 @@ const EventCard = ({ id, hostImage, title, description, date, time, eventTitle, 
         </div>
         <button className="view-details-button" id={id} onClick={handleClick}>
             View Details
-            <div class="view-details-button__horizontal"></div>
-            <div class="view-details-button__vertical"></div>
+            <div className="view-details-button__horizontal"></div>
+            <div className="view-details-button__vertical"></div>
           </button>
       </div>
     )
