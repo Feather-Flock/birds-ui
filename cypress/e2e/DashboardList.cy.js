@@ -41,11 +41,11 @@ describe('Dashboard List Tests', () => {
     cy.wait(`@queryEvent`)
       .its('response.body.data.event')
       .should('have.property', "title")
-  })
+  });
 
   it('Should be able to select a range from the dropdown list', () => {
     cy.get('.select-list-dropdown input').first().click({force: true})
     .get('#react-select-2-option-4').should('have.text', '20 miles').click({force: true})
     .get('.select-list-dropdown input').first().parent().siblings().contains('20 miles')
-  })
-})
+  });
+});
