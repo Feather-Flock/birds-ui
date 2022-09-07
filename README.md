@@ -1,4 +1,5 @@
 # Birds of a Feather
+![Flamingo](src/Flamingo.png)
 *A [Turing School of Software and Design](https://turing.edu/) Module 4 Capstone Full-Stack Project*
 
 ## Table of Contents
@@ -14,7 +15,16 @@
 
 
 ## Project Overview
-[TYPE HERE]
+
+Welcome to Birds of a Feather! The goal of this app is connect LGBTQ+ families.
+
+###Features
+ - Users can search their area for events with other LGBTQ+ families using a visual map
+ - Users can click on event cards or location icons and see more details about the event
+ - Users can rsvp from the modal or view the host families information
+ - Users can make their own events from the new event page
+ - Users can ensure they have the right address with the visual of the interactive maps
+ - Users can delete their own events from their user profile
 
 [VISUALS GO HERE]
 ![](name-of-giphy.gif)
@@ -56,7 +66,11 @@ You can access this project through the deployed page [here](http://www.birds-of
 
 ## Project Reflections
 #### Wins
+-Getting interactive maps on both the dashboard and the event form
+-Having users be able to look at the host family profile of different events
 #### Challenges
+-The event modal proved challenging for certain rendering capabilities (map)
+-Circle CI sometimes had confusing errors and there is definitely still fuzziness surrounding it.
 
 
 ## Roadmap
@@ -93,8 +107,6 @@ For Cypress Testing:
 
 
 ## Sources
-* []()
-* []()
-* []()
-* []()
-* []()
+* [Cypress](https://docs.cypress.io/guides/overview/why-cypress)
+* [Scrimba](https://scrimba.com/dashboard#overview)
+* [GraphQL Cypress Tutorial](https://www.jayfreestone.com/writing/stubbing-graphql-cypress/)
