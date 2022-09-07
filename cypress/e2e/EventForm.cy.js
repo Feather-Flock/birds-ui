@@ -48,7 +48,7 @@ describe('empty spec', () => {
   it('When a user selects a location a map with a marker should populate', () => {
     cy.visit('https://example.cypress.io')
   })
-  it.only('When a user submits the form a confirmation should pop up and the fields should reset', () => {
+  it('When a user submits the form a confirmation should pop up and the fields should reset', () => {
     cy.get('input').eq(0).click().type('Trip to Zoo')
     cy.get('input').eq(1).click()
     cy.get('input').eq(2).click().type('The Zoo, Boulder CO')
@@ -61,7 +61,7 @@ describe('empty spec', () => {
       if (hasOperationName(req, 'event')) {
         req.alias = 'mutationEvent'
         req.reply({
-          fixture: '../fixtures/event.json'
+          fixture: '../fixtures/new-event.json'
         })
       }
     })
@@ -69,8 +69,9 @@ describe('empty spec', () => {
          expect(t).to.contains('New Event Made!');
       })
 })
-  it('User should be able to navigate back to dashboard from event form', () => {
-    cy.visit('https://example.cypress.io')
+  it.only('User should be able to navigate back to dashboard from event form', () => {
+    cy.get('button').eq(0).click()
+    cy.url().should('eq', 'http://www.birds-of-a-feather.net/')
   })
   it('User should be able to navigate to user profile from event form', () => {
     cy.visit('https://example.cypress.io')
