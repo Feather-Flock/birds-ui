@@ -1,11 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import './EventModal.css'
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_EVENT_BY_ID, USER_RSVP_TO_EVENT, USER_DELETE_RSVP } from "../../queries";
 import UserContext from "../../Context/UserContext"
-import Map from "../Map/Map"
 import LoadingPage from '../LoadingPage/LoadingPage';
 
 const dayjs = require('dayjs')
@@ -71,9 +70,11 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
         :
           <button className="modal-button" onClick={(e) => createRsvp(e)}> RSVP!</button>
         }
-        <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}} className="modal-button" onClick={closeModal}>
-          <button className="modal-button">View Family Profile</button>
-        </Link>
+        <button className="modal-button">
+          <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}} className="modal-button link" role="button" onClick={closeModal}>
+            View Family Profile
+          </Link>
+        </button>
       </>
     )
   }
@@ -99,7 +100,6 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
             <h3>{`Time: ${dayjs(`${data.event.date} ${data.event.time}`).format('h:mm:a')}`}</h3>
             <p>Location: {data.event.address}</p>
             <p className='event-description'>{data.event.description}</p>
-            <p className='total-rsvps'>Total RSVPs for this event: {data.event.rsvps}</p>
           </div>
           <div>
             <h1>{data.event.creator.userName}</h1>

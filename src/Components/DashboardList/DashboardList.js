@@ -25,6 +25,11 @@ const DashboardList = ({refetch, handleSelect, range}) => {
     refetch()
   }
 
+  const rsvpd = () => {
+    const eventFound = user.rsvpdEvents.find(ev => ev.id === eventId)
+    return eventFound ? true : false
+  }
+
   return (
     <div className="dashboardList-container">
       <h1 className="welcome-user">Welcome {user.userName}!</h1>
@@ -46,7 +51,7 @@ const DashboardList = ({refetch, handleSelect, range}) => {
         </div>
 
       </div>
-        {modalVisible && <EventModal eventId={eventId} visible={modalVisible} handleClose={closeModal} />}
+        {modalVisible && <EventModal userId={user.id} eventId={eventId} visible={modalVisible} handleClose={closeModal} isRsvpd={rsvpd()} />}
     </div>
   )
 }

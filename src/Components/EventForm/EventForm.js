@@ -89,7 +89,6 @@ const EventForm = ({ refetch }) => {
         setMarker([])
         setCenter([39.7317, -104.9214])
     }
-
   }
 
   const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT,
@@ -109,8 +108,6 @@ const EventForm = ({ refetch }) => {
       }
     }
   })
-
-
 
   return (
     <div className='form-wrapper'>

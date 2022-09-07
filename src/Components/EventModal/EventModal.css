@@ -3,10 +3,11 @@
   width: 25%;
   height: 25%;
   border-radius: 12px;
+  border: 2px solid black;
 }
 
 .modal-button {
-  background-color:#283618;
+  background-color: rgb(38, 38, 38);
   color: #EFF1FB;
   border: none;
   padding: 1%;
@@ -16,7 +17,7 @@
 
 .modal-header {
   text-align: center;
-  background-color:#283618;
+  background-color: rgb(38, 38, 38);
   width: 100%;
   height: 15%;
   font-weight: 300;
@@ -67,4 +68,10 @@
 
 .ReactModal__Overlay {
   z-index: 9999;
+}
+
+.link {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
