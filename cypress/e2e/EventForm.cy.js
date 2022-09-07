@@ -20,14 +20,17 @@ describe('empty spec', () => {
     cy.get('input').eq(3).click().should('have.value','We want to go to the zoo with you!')
   })
 
-  it.only('When the user types into the location bar suggestions should populate', () => {
+  it('When the user types into the location bar suggestions should populate', () => {
     cy.get('input').eq(2).click().type('The Zoo, CO')
     cy.get('option').eq(0).click()
     cy.get('input').eq(2).should('have.value', 'The Zoo Crew, 5721 Main St, Odessa, ON')
   })
-  
-  it('When a user selects a location from the suggestions the suggestion box should dissapear', () => {
-    cy.visit('https://example.cypress.io')
+
+  it.only('When a user selects a location from the suggestions the suggestion box should dissapear', () => {
+    cy.get('input').eq(2).click().type('The Zoo, Boulder')
+    cy.get('option').eq(0).click()
+    cy.get('input').eq(2).should('have.value', 'The Zoo, 1531 Broadway St, Boulder, CO')
+    cy.get('option').should('not.exist')
   })
   it('When a user selects a location a map with a marker should populate', () => {
     cy.visit('https://example.cypress.io')
