@@ -6,6 +6,7 @@ import Events from "../Events/Events"
 import EventModal from '../EventModal/EventModal'
 import UserContext from '../../Context/UserContext';
 import Map from '../Map/Map'
+import SelectDropdown from '../SelectDropdown/SelectDropdown';
 
 const Dashboard = ({refetch}) => {
 
@@ -41,8 +42,10 @@ const Dashboard = ({refetch}) => {
         <div className="rsvp-eventcards">
           <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />
         </div>
+        <div className="select-dropdown">
+          <SelectDropdown />
+        </div>
         <Map center={[39.73352, -104.965847]} markers={user.userDefined} handleClick={handleClick} view={'Dashboard'}/>
-
       </div>
     </div>
   )
