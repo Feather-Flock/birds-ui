@@ -108,7 +108,7 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
             }
             <br/>
             <a href={`http://MapQuest.com${data.event.slug}`}>
-            <button>Get Directions</button></a>
+            <button className='modal-button'>Get Directions</button></a>
           </div>
         </div>
       </Modal>

@@ -59,6 +59,11 @@
   text-align: center;
 }
 
+.event-description {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
 .ReactModal__Overlay {
   z-index: 9999;
 }
