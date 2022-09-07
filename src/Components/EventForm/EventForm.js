@@ -24,7 +24,7 @@ const EventForm = ({ refetch }) => {
 
   const handleSearch = (e) => {
     handleChange(e)
-    setSearchOptions([])
+    setSearchOptions([''])
     setSearchInfo([])
     const { value } = e.target
     if(value.length < 2){ return }
@@ -43,6 +43,7 @@ const EventForm = ({ refetch }) => {
 
   const handleSelection = (e) => {
     const {value, id} = e.target;
+      setSearchOptions([''])
       setSearchInfo(() => {
         return searchInfo.find((result) => {
           if(result.id === id) {
@@ -56,7 +57,6 @@ const EventForm = ({ refetch }) => {
         })
       })
       setEventDetails({...eventDetails, location:value})
-      setSearchOptions([]);
   }
 
   const handleSubmit = (e) =>  {

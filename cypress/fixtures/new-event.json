@@ -1,0 +1,16 @@
+{
+  "data": {
+      "event": {
+          "title": "Trip To Zoo",
+          "description": "Come to the Zoo with us!",
+          "time": "23:00:00",
+          "date": "2022-10-31",
+          "lat": 39.65,
+          "lng": -104.893,
+          "address": "1531 Broadway St",
+          "city": "Boulder",
+          "state": "CO",
+          "zip": 80302,
+      }
+  }
+}
