@@ -44,6 +44,7 @@ const UserProfile = ({refetch, range}) => {
   const closeModal = () => {
     setEventId(null)
     setModalVisible(false)
+    refetch()
   }
 
   // Will need to iterate over tags to render them. Code for that:
@@ -59,9 +60,14 @@ const UserProfile = ({refetch, range}) => {
     refetch({variables: {"id": process.env.REACT_APP_USER_ID, "range": parseInt(range.value)}})
   }
 
+  const rsvpd = () => {
+    const eventFound = user.rsvpdEvents.find(ev => ev.id === eventId)
+    return eventFound ? true : false
+  }
+
   return (
     <div className="user-profile-page">
-      {modalVisible && <EventModal eventId={eventId} visible={modalVisible} handleClose={closeModal} />}
+      {modalVisible && <EventModal userId={user.id} eventId={eventId} visible={modalVisible} handleClose={closeModal} isRsvpd={rsvpd()} />}
       <section className="top-container">
         <section className="left-container">
           <div className="name-wrapper">

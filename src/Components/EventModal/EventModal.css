@@ -3,6 +3,7 @@
   width: 25%;
   height: 25%;
   border-radius: 12px;
+  border: 2px solid black;
 }
 
 .modal-button {
@@ -67,4 +68,10 @@
 
 .ReactModal__Overlay {
   z-index: 9999;
+}
+
+.link {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }

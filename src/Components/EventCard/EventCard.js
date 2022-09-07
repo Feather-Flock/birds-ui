@@ -25,7 +25,7 @@ const EventCard = ({ id, hostImage, title, description, date, time, eventTitle, 
         </div>
         {userEvent &&
             <div className="delete-event">
-              <IconContext.Provider value={{ color: 'white', size: '20px' }}>
+              <IconContext.Provider value={{ color: 'black', size: '20px' }}>
                 <button id={id} className="delete-button" onClick={() => deleteClick(id)}><BsTrash/></button>
               </IconContext.Provider>
             </div>
@@ -47,7 +47,6 @@ const EventCard = ({ id, hostImage, title, description, date, time, eventTitle, 
             <p className="date">When: {date}</p>
             <p className="time">Time: {time}</p>
           </div>
-          {/* <p className="description">{description}</p> */}
         </div>
         <button className="view-details-button" id={id} onClick={handleClick}>
             View Details
