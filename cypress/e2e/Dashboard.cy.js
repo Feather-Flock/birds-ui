@@ -7,9 +7,9 @@ describe('Dashboard Tests', () => {
     cy.visit('http://localhost:3000/')
   });
 
-  // it('User is welcomed onto the page', () => {
-  //   // need to add the welcome header for the user on the Dashboard
-  // });
+  it('User is welcomed onto the page', () => {
+    cy.get('.dashboard-container').contains('h1', 'BLUESKIIII')
+  });
 
   it('User sees upcoming events they are attending', () => {
     cy.get('.rsvp-eventcards').should('be.visible')
@@ -25,9 +25,8 @@ describe('Dashboard Tests', () => {
   });
 
   // it('User can click on an event their attending and have an event modal pop up with details', () => {
-  //   cy.get('.event-container').contains('button', 'View Details').click()
-  //   .wait(500)
-  //   .get('.event-modal').should('be.visible')
+    // cy.get('.event-container').contains('button', 'View Details').click()
+    // .get('.event-modal').should('be.visible')
   // });
 
   // it('User can click the markers for events and have a similar modal pop up', () => {
