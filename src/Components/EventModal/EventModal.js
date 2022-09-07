@@ -29,10 +29,6 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
     handleClose()
   }
 
-  const getDirections = () => {
-    //insert navigationlink to directions
-  }
-
   const [mutateCreateRsvp, createdResponse] = useMutation(USER_RSVP_TO_EVENT, {
     variables: { input: { userId: parseInt(userId), eventId: parseInt(eventId) }}
   })
@@ -72,7 +68,7 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
         :
           <button className="modal-button" onClick={(e) => createRsvp(e)}> RSVP!</button>
         }
-        <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}} className="modal-button" onClick={closeModal}> 
+        <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}} className="modal-button" onClick={closeModal}>
           <button className="modal-button">View Family Profile</button>
         </Link>
       </>
@@ -102,9 +98,6 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
           <div className='.event-modal-map'>
             <iframe
             title="map"
-            border="0"
-            marginwidth="0"
-            marginheight="0"
             src={`https://www.mapquest.com/embed/${data.event.slug}?center=${data.event.lat},${data.event.lng}&zoom=12&maptype=map`}></iframe>
           </div>
           <p className='event-description'>{data.event.description}</p>
