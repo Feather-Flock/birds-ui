@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Birds of a Feather
+*A [Turing School of Software and Design](https://turing.edu/) Module 4 Capstone Full-Stack Project*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Learning Goals](#learning-goals)
+- [Technologies and Tools](#technologies-and-tools)
+- [Deployed Page](#deployed-page)
+- [Project Reflections](#project-reflections)
+- [Roadmap](#roadmap)
+- [Setup](#setup)
+- [Contributors](#contributors)
+- [Sources](#sources)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Project Overview
+[TYPE HERE]
 
-### `npm start`
+[VISUALS GO HERE]
+![](name-of-giphy.gif)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The [Turing School of Software and Design](https://turing.edu/) provided a project overview for students to follow, which can be found [here](https://mod4.turing.edu/projects/capstone/).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Learning Goals
+* Demonstrate knowledge you’ve gained throughout Turing
+* Use an agile process to turn well defined requirements into deployed and production ready software
+* Gain experience dividing applications into components and domains of responsibilities to facilitate multi-developer teams. Service oriented architecture concepts and patterns are highly encouraged.
+* Explore and implement new concepts, patterns, or libraries that have not been explicitly taught while at Turing
+* Practice an advanced, professional git workflow including a Pull Request Review
+* Gain experience using continuous integration tools to build and automate the deployment of features
+* Build applications that execute in development, test, CI, and production environments
+* Focus on communication between front-end and back-end teams in order to complete and deploy features that have been outlined by the project spec
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Technologies and Tools
+* JavaScript
+* React
+* React Router
+* GraphQL
+* CircleCI
+* Cypress Testing
+* HTML
+* CSS
+* npm
+* Miro
+* Postman
+* Agile workflow
+* GitHub Issues
+* GitHub Projects
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deployed Page
+You can access this project through the deployed page [here](http://www.birds-of-a-feather.net/).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Project Reflections
+#### Wins
+#### Challenges
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Roadmap
+Future features could include:
+* idea1
+* idea2
+* idea3
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Setup
+1. Fork this Repo
+2. Clone it down to your machine
+3. `cd` into the root of the project directory
+4. Run `npm install`
+5. Run `npm start`
 
-## Learn More
+For Cypress Testing:
+1. Run `npm run cypress`
+2. Follow the prompts in the browser and select the spec file you want to run
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributors
+**Trish Fox-Collis**
+* [LinkedIn](https://www.linkedin.com/in/trish-fox-collis/)
+* [GitHub](https://github.com/tfoxcollis)
 
-### Code Splitting
+**Blue Nealis**
+* [LinkedIn](https://www.linkedin.com/in/blue-nealis/)
+* [GitHub](https://github.com/BlueNealis)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Amber Bodnar**
+* [LinkedIn](https://www.linkedin.com/in/amberbodnar/)
+* [GitHub](https://github.com/abodnar1)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Sources
+* []()
+* []()
+* []()
+* []()
+* []()
