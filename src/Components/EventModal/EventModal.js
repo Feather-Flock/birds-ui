@@ -7,6 +7,8 @@ import { GET_EVENT_BY_ID, USER_RSVP_TO_EVENT, USER_DELETE_RSVP } from "../../que
 import UserContext from "../../Context/UserContext"
 import Map from "../Map/Map"
 
+const dayjs = require('dayjs')
+
 Modal.setAppElement('#root');
 
 function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
@@ -92,7 +94,8 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
         <div className='modal-grid'>
           <div>
             <br/>
-            <h3>{`Date: ${data.event.date}  Time: ${data.event.time}`}</h3>
+            <h3>{`Date: ${data.event.date}`}</h3>
+            <h3>{`Time: ${dayjs(`${data.event.date} ${data.event.time}`).format('h:mm:a')}`}</h3>
             <p>Location: {data.event.address}</p>
             <p className='event-description'>{data.event.description}</p>
             <p className='total-rsvps'>Total RSVPs for this event: {data.event.rsvps}</p>
@@ -103,6 +106,7 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
             <br/>
             {user.id !== data.event.creator.id && renderButtons()
             }
+            <br/>
             <a href={`http://MapQuest.com${data.event.slug}`}>
             <button>Get Directions</button></a>
           </div>
