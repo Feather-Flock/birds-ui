@@ -61,16 +61,13 @@ const UserProfile = ({refetch, range}) => {
             <h2 className="family-name">{user.userName}</h2>
           </div>
           <img className="profile-picture" src={user.image} alt="family profile"></img>
-          
-
           <div className="location-wrapper">
             <div className="material-symbols-outlined">pin_drop</div>
             <h3 className="location">{user.zipCode}</h3>
           </div>
         </section>
 
-        <section className="right-container">
-          
+        <section className="right-container"> 
           <div className="tag-container">
             <p className="tag-title">2 Kids</p>
             <p className="tag-title">MLM</p>
@@ -79,9 +76,8 @@ const UserProfile = ({refetch, range}) => {
           </div>
           <p className="description-text-box">{user.description}</p>
         </section>
+
       </section>
-
-
       <section className="bottom-container">
         <section className="left-container card">
           <Events events={user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} userEvent={true} handleClick={handleClick} deleteClick={deleteClick}/>
