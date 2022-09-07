@@ -45,7 +45,7 @@ describe('Dashboard List Tests', () => {
 
   it('Should be able to select a range from the dropdown list', () => {
     cy.get('.select-list-dropdown input').first().click()
-    .get('.css-yt9ioa-option').last().should('have.text', '20 miles').click()
+    .get('.css-yt9ioa-option').last().should('have.text', '20 miles').click({force: true})
     .get('.select-list-dropdown input').first().parent().siblings().contains('20 miles')
   })
 })
