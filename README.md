@@ -1,5 +1,7 @@
 # Birds of a Feather
 ![Flamingo](src/Flamingo.png)
+
+
 *A [Turing School of Software and Design](https://turing.edu/) Module 4 Capstone Full-Stack Project*
 
 ## Table of Contents
