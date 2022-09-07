@@ -27,9 +27,17 @@ describe('User Profile Test', () => {
     .get('.tag-container').contains('p', 'Monogamous')
   });
 
+  it('User should see events that they created', () => {
+    cy.get('.bottom-container').should('be.visible')
+    .get('.mySwiper').should('be.visible')
+    .get('.left-container > .swiper > .swiper-wrapper > .swiper-slide > .event-container > .attending-header').contains('Event You\'ve Created')
+    .get('.left-container > .swiper > .swiper-wrapper > .swiper-slide > .event-container > .event-info-container > .event-details > .title').contains('Hanging at a coffee shop')
+    .get('.left-container > .swiper > .swiper-wrapper > .swiper-slide > .event-container').contains('button', 'View Details')
+  });
+
 
 });
 
 
-// should have a description
-// should have a section for events
+// should see events they're attending
+
