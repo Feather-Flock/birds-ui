@@ -8,7 +8,7 @@ import UserContext from '../../Context/UserContext';
 import Map from '../Map/Map'
 import SelectDropdown from '../SelectDropdown/SelectDropdown';
 
-const Dashboard = ({refetch}) => {
+const Dashboard = ({refetch, handleSelect, range, setRange}) => {
 
   const user = useContext(UserContext)
   
@@ -44,7 +44,7 @@ const Dashboard = ({refetch}) => {
         </div>
         <div className="dashboard-map-container">
           <div className="select-dropdown">
-            <SelectDropdown />
+            <SelectDropdown handleSelect={handleSelect} range={range} />
           </div>
           <Map center={[39.73352, -104.965847]} markers={user.userDefined} handleClick={handleClick} view={'Dashboard'}/>
         </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Select from 'react-select';
 
 const ranges = [
@@ -9,15 +9,19 @@ const ranges = [
   {label: "20 miles", value: 20}
 ]
 
-const SelectDropdown = () => {
+const SelectDropdown = ({ handleSelect, range }) => {
+
   return (
     <div className="container">
         <div className="row">
           <div className="col-md-3"></div>
           <div className="col-md-6">
-            <Select options={ranges}
+            <Select 
+              options={ranges}
+              value={range}
               menuPortalTarget={document.body} 
-              styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+              styles={{ menuPortal: base => ({ ...base, zIndex: 9999, width: "80%" }) }}
+              onChange={(rangeObj) => handleSelect(rangeObj)}
             />
           </div>
           <div className="col-md-4"></div>
