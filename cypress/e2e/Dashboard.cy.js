@@ -7,9 +7,9 @@ describe('Dashboard Tests', () => {
     cy.visit('http://localhost:3000/')
   });
 
-  // it('User is welcomed onto the page', () => {
-  //   // need to add the welcome header for the user on the Dashboard
-  // });
+  it('User is welcomed onto the page', () => {
+    cy.get('.dashboard-container').contains('h1', 'BLUESKIIII')
+  });
 
   it('User sees upcoming events they are attending', () => {
     cy.get('.rsvp-eventcards').should('be.visible')
