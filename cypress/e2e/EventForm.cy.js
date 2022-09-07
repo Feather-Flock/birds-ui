@@ -77,8 +77,11 @@ describe('empty spec', () => {
   })
   it('User should be able to navigate back to dashboard from event form', () => {
     cy.wait('@queryUser').get('button').eq(0).click()
+    cy.wait(500)
+    cy.get('button').eq(0).click()
     cy.url().should('eq', 'http://www.birds-of-a-feather.net/')
   })
+
   it('User should be able to navigate to user profile from event form', () => {
     cy.get('button').eq(1).click()
     cy.url().should('eq', 'http://www.birds-of-a-feather.net/profile')
