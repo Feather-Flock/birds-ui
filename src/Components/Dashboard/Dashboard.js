@@ -33,6 +33,9 @@ const Dashboard = ({refetch}) => {
   return (
     <div className="dashboard-container">
       {modalVisible && <EventModal userId={user.id} eventId={eventId} isRsvpd={rsvpd()} visible={modalVisible} handleClose={closeModal}/>}
+        <div>
+          <h1 className="welcome-message">Welcome {user.userName}!</h1>
+        </div>
 
       <div className="dashboard-main-container">
         <div className="rsvp-eventcards">
