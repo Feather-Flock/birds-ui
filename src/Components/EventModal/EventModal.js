@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react'
 import './EventModal.css'
 import Modal from 'react-modal';
-import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_EVENT_BY_ID, USER_RSVP_TO_EVENT, USER_DELETE_RSVP } from "../../queries";
@@ -98,14 +97,14 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
         <div>
           <br/>
           <h3>{`${data.event.date}  ${data.event.time}`}</h3>
-          <img className='event-img' src='https://www.illustrationsof.com/royalty-free-rf-art-museum-clipart-illustration-by-nl-shop-stock-sample-432030.jpg'></img>
+          <img className='event-img' src='https://www.illustrationsof.com/royalty-free-rf-art-museum-clipart-illustration-by-nl-shop-stock-sample-432030.jpg' alt="event"></img>
           <p>Location: {data.event.address}</p>
           <p className='event-description'>{data.event.description}</p>
           <p className='total-rsvps'>Total RSVPs for this event: {data.event.rsvps}</p>
         </div>
         <div>
           <h1>{data.event.creator.userName}</h1>
-          <img className='event-img' src={data.event.creator.image}/>
+          <img className='event-img' src={data.event.creator.image} alt="event"/>
           <br/>
           {user.id !== data.event.creator.id && renderButtons()
           }

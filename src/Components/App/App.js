@@ -7,7 +7,6 @@ import Dashboard from "../Dashboard/Dashboard";
 import Nav from "../Nav/Nav"
 import './App.css';
 import EventForm from '../EventForm/EventForm'
-import EventModal from '../EventModal/EventModal'
 import UserContext from "../../Context/UserContext"
 import { useQuery } from "@apollo/client";
 import Footer from "../Footer/Footer"

@@ -1,6 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { useQuery } from "@apollo/client";
-import { GET_USER_BY_ID } from "../../queries";
+import React, { useState, useContext } from 'react'
 import "./Dashboard.css"
 import Events from "../Events/Events"
 import EventModal from '../EventModal/EventModal'
