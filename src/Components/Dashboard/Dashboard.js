@@ -44,7 +44,7 @@ const Dashboard = ({refetch, handleSelect, range, setRange}) => {
           <div className="select-dropdown">
             <SelectDropdown handleSelect={handleSelect} range={range} />
           </div>
-          <Map center={[39.73352, -104.965847]} markers={user.userDefined} handleClick={handleClick} view={'Dashboard'}/>
+          <Map center={[user.lat, user.lng]} markers={user.userDefined} handleClick={handleClick} view={'Dashboard'}/>
         </div>
       </div>
     </div>
