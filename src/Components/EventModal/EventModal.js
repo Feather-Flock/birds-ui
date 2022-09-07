@@ -6,6 +6,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { GET_EVENT_BY_ID, USER_RSVP_TO_EVENT, USER_DELETE_RSVP } from "../../queries";
 import UserContext from "../../Context/UserContext"
 import Map from "../Map/Map"
+import LoadingPage from '../LoadingPage/LoadingPage';
 
 const dayjs = require('dayjs')
 
@@ -77,7 +78,7 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
     )
   }
 
-  if(loading) return "Loading..."
+  if(loading) return <LoadingPage />
   if(error) return `Error! ${error.message}`
 
   return (
