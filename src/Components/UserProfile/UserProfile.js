@@ -6,29 +6,24 @@ import "./UserProfile.css";
 import EventModal from '../EventModal/EventModal'
 import Events from "../Events/Events"
 import UserContext from '../../Context/UserContext';
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 const UserProfile = ({refetch, range}) => {
   const [modalVisible, setModalVisible] = useState(false)
   const [eventId, setEventId] = useState()
-  // If you click on a link with state, it will be defined here using useLocation hook.
-  // This allows us to pass a hostId to the User Profile from the Event Modal.
+  
   const { state } = useLocation()
 
   let user = useContext(UserContext)
   let title = state ? "They" : "You've"
   
-  //useLazyQuery allows us to create a function that can be invoked when we want it to.
-  // Here we are using queryHost function only if state from above exists.
-  // This means we want to query the host by id, instead of using our signed in user.
   const [queryHost, hostResponse] = useLazyQuery(GET_USER_BY_ID)
 
   const [deleteEvent, deleteResponse] = useMutation(DELETE_EVENT)
 
-  if(hostResponse.loading) return "Loading..."
+  if(hostResponse.loading) return <LoadingPage />
   if(hostResponse.error) return `Error! ${hostResponse.error.message}`
 
-  // If state exists and data is undefined, call queryHost function to get host.
-  // If state is undefined, then hostId isn't present, and we render the current user profile.
   if(state && !hostResponse?.data){
     queryHost({variables: {id: state?.hostId, range: parseInt(range.value)}})
   } else if (state && hostResponse?.data) {
@@ -46,14 +41,6 @@ const UserProfile = ({refetch, range}) => {
     setModalVisible(false)
     refetch()
   }
-
-  // Will need to iterate over tags to render them. Code for that:
-  
-  // const tags = data.tags.map(tag => {
-  //   return (
-  //     <p className="tag-title">tag.title</p>
-  //   );
-  // });
 
   const deleteClick = (id) => {
     deleteEvent({ variables: { input: {id: parseInt(id)}}})

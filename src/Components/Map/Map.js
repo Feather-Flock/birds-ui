@@ -16,8 +16,8 @@ export default function Map({center, markers, handleClick, view }){
   });
   if (markers) {
     markers.forEach((location) => {
-      let marker = window.L.marker([location.lat, location.lng], { //to hover over marker it shows event title
-        iconURL: window.L.mapquest.icons.flag({//custom marker
+      let marker = window.L.marker([location.lat, location.lng], {
+        iconURL: window.L.mapquest.icons.flag({
           primaryColor: '#000000',
           secondaryColor: '#000000',
           size: 'sm',
@@ -27,9 +27,6 @@ export default function Map({center, markers, handleClick, view }){
       }).bindPopup(location.title).addTo(map)
       if(handleClick) {
       marker.on("click", (e) => {
-    //mappedEvent is modeling what the event looks like when you
-    //click on a button.  handleclick function is looking for
-    // an id on e.target. >> e.target.id === mappedEvent.target.id
     const mappedEvent = {target: {id: location.id}}
     handleClick(mappedEvent)
   })

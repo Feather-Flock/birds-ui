@@ -14,7 +14,6 @@ const EventCard = ({ id, hostImage, title, description, date, time, eventTitle, 
             <p className="date">When: {date}</p>
             <p className="time">Time: {time}</p>
           </div>
-          {/* <p className="description">{description}</p> */}
         </div>
         <div id={id} className="event-buttons">
           <button className="view-details-button" id={id} onClick={handleClick}>
