@@ -39,14 +39,6 @@ describe('empty spec', () => {
     cy.get('input').eq(2).should('have.value', 'The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ')
   })
 
-  it('When a user selects a location from the suggestions the suggestion box should dissapear', () => {
-    cy.get('input').eq(2).click().type('Porter Adventist Hospital')
-    cy.get('option').eq(0).click()
-    cy.get('input').eq(2).should('have.value', 'Porter Adventist Hospital, 2525 S Downing St, Denver, CO')
-    cy.get('input').eq(3).click()
-    cy.get('option').should('not.exist')
-  })
-
   it('When a user submits the form a confirmation should pop up and the fields should reset', () => {
     cy.get('input').eq(0).click().type('Trip to Zoo')
     cy.get('input').eq(1).click()
