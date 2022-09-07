@@ -4,6 +4,8 @@
           "id": "1",
           "userName": "BLUESKIIII",
           "email": "blue@universe.com",
+          "lat": 39.73,
+          "lng": -104.91,
           "description": "I love my cats and animation drawing.",
           "image": "https://user-images.githubusercontent.com/99059063/187045147-667959c8-70f2-4fb3-b089-ca81f23a0310.png",
           "zipCode": 80220,
