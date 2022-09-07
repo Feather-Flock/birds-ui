@@ -44,6 +44,7 @@ describe('empty spec', () => {
     cy.get('[value="The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ"]').click()
     cy.get('input').eq(2).should('have.value', 'The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ')
     cy.get('input').eq(3).click()
+    cy.wait(500)
     cy.get('option').should('not.exist')
   })
 
