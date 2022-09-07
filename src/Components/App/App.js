@@ -10,6 +10,7 @@ import EventForm from '../EventForm/EventForm'
 import UserContext from "../../Context/UserContext"
 import { useQuery } from "@apollo/client";
 import Footer from "../Footer/Footer"
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 
 
@@ -23,7 +24,7 @@ const App = () =>  {
     variables: {"id": process.env.REACT_APP_USER_ID, "range": parseInt(range.value)}
   })
 
-  if(loading) return "Loading..."
+  if(loading) return <LoadingPage />
   if(error) return `Error! ${error.message}`
 
   return (
