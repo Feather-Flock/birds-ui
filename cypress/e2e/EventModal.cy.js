@@ -31,5 +31,4 @@ describe('Event Modal Tests', () => {
     cy.get('.modal-button').contains('View Family').click()
     .url().should('contain', '/profile')
   });
-
 });
