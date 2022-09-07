@@ -2,7 +2,7 @@ import { gql} from "@apollo/client";
 
 
 export const GET_USER_BY_ID = gql`
-query user($id: ID!) {
+query user($id: ID!, $range: Int!) {
   user(id: $id) {
     id
     userName
@@ -34,7 +34,7 @@ query user($id: ID!) {
       time
       host
     }
-    userDefined(id: $id, range: 10) {
+    userDefined(id: $id, range: $range) {
       id
       title
       description

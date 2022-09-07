@@ -6,8 +6,9 @@ import Events from "../Events/Events"
 import EventModal from '../EventModal/EventModal'
 import UserContext from '../../Context/UserContext';
 import Map from '../Map/Map'
+import SelectDropdown from '../SelectDropdown/SelectDropdown';
 
-const Dashboard = ({refetch}) => {
+const Dashboard = ({refetch, handleSelect, range, setRange}) => {
 
   const user = useContext(UserContext)
   
@@ -33,13 +34,20 @@ const Dashboard = ({refetch}) => {
   return (
     <div className="dashboard-container">
       {modalVisible && <EventModal userId={user.id} eventId={eventId} isRsvpd={rsvpd()} visible={modalVisible} handleClose={closeModal}/>}
+        <div>
+          <h1 className="welcome-message">Welcome {user.userName}!</h1>
+        </div>
 
       <div className="dashboard-main-container">
         <div className="rsvp-eventcards">
           <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />
         </div>
-        <Map center={[39.73352, -104.965847]} markers={user.userDefined} handleClick={handleClick} view={'Dashboard'}/>
-
+        <div className="dashboard-map-container">
+          <div className="select-dropdown">
+            <SelectDropdown handleSelect={handleSelect} range={range} />
+          </div>
+          <Map center={[39.73352, -104.965847]} markers={user.userDefined} handleClick={handleClick} view={'Dashboard'}/>
+        </div>
       </div>
     </div>
   )

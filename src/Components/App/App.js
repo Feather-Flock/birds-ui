@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route } from "react-router-dom";
 import UserProfile from "../UserProfile/UserProfile";
 import { GET_USER_BY_ID } from "../../queries";
@@ -15,10 +15,16 @@ import Footer from "../Footer/Footer"
 
 
 const App = () =>  {
-
+  const [range, setRange] = useState({label: "10 Miles", value: 10})
+  const handleSelect = (rangeObj) => {
+    setRange(rangeObj)
+    refetch({variables: {"id": process.env.REACT_APP_USER_ID, "range": parseInt(rangeObj.value)}})
+  }
   const {loading, error, data, refetch} = useQuery(GET_USER_BY_ID, {
-    variables: {"id": process.env.REACT_APP_USER_ID}
+    variables: {"id": process.env.REACT_APP_USER_ID, "range": parseInt(range.value)}
   })
+
+  console.log(data)
 
   if(loading) return "Loading..."
   if(error) return `Error! ${error.message}`
@@ -28,7 +34,7 @@ const App = () =>  {
       <div className="App">
         <Nav />
         <Route exact path="/">
-          <Dashboard refetch={refetch}/>
+          <Dashboard refetch={refetch} handleSelect={handleSelect} range={range} />
         </Route>
         <Route exact path="/dashboard-list">
           <DashboardList refetch={refetch} />
