@@ -14,10 +14,14 @@
 
 
 ## Project Overview
-[TYPE HERE]
+Change Range of Events
+![Change Range](src/BofAF-Change-Range-Click-event.gif)
 
-[VISUALS GO HERE]
-![](name-of-giphy.gif)
+Navigate to user Profile from event
+![Nav](src/BofAF-Nav-from-event-modal.gif)
+
+Fill out and submit a new event
+![Event Form](src/Event-Form-Fill.gif)
 
 The [Turing School of Software and Design](https://turing.edu/) provided a project overview for students to follow, which can be found [here](https://mod4.turing.edu/projects/capstone/).
 
