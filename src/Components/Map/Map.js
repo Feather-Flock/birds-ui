@@ -3,7 +3,6 @@ import './Map.css'
 
 export default function Map({center, markers, handleClick, view }){
   useEffect(()=> {
-    console.log(markers)
     window.L.mapquest.key = process.env.REACT_APP_MAPQUEST_KEY;
   const container = window.L.DomUtil.get("map")
   if(container != null) {

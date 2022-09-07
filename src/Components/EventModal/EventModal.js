@@ -15,7 +15,7 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
   const {loading, error, data} = useQuery(GET_EVENT_BY_ID, {
     variables: {"id": parseInt(eventId)}
   })
-  
+
   const [rsvpd, setRsvpd] = useState(isRsvpd)
   const [modalIsOpen, setIsOpen] = useState(visible);
 
@@ -29,7 +29,6 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
   }
 
   const getDirections = () => {
-    console.log('Insert url link here')
     //insert navigationlink to directions
   }
 
@@ -68,13 +67,13 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
     return (
       <>
         {rsvpd ?
-          <button onClick={(e) => deleteRsvp(e)}> Cancel RSVP</button>
+          <button className="modal-button" onClick={(e) => deleteRsvp(e)}> Cancel RSVP</button>
         :
-          <button onClick={(e) => createRsvp(e)}> RSVP!</button>
+          <button className="modal-button" onClick={(e) => createRsvp(e)}> RSVP!</button>
         }
-        <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}} onClick={closeModal}>
+        <Link to={{pathname:'/profile', state:{hostId: data.event.creator.id}}} className="modal-button" onClick={closeModal}>
           <button>View Family Profile</button>
-        </Link> 
+        </Link>
       </>
     )
   }
@@ -97,8 +96,15 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
         <div>
           <br/>
           <h3>{`${data.event.date}  ${data.event.time}`}</h3>
-          <img className='event-img' src='https://www.illustrationsof.com/royalty-free-rf-art-museum-clipart-illustration-by-nl-shop-stock-sample-432030.jpg' alt="event"></img>
           <p>Location: {data.event.address}</p>
+          <div className='.event-modal-map'>
+            <iframe
+            title="map"
+            border="0"
+            marginwidth="0"
+            marginheight="0"
+            src={`https://www.mapquest.com/embed/${data.event.slug}?center=${data.event.lat},${data.event.lng}&zoom=12&maptype=map`}></iframe>
+          </div>
           <p className='event-description'>{data.event.description}</p>
           <p className='total-rsvps'>Total RSVPs for this event: {data.event.rsvps}</p>
         </div>
@@ -108,10 +114,8 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
           <br/>
           {user.id !== data.event.creator.id && renderButtons()
           }
-          <div className='event-modal-map'>
-            <h1>Map</h1>
-          </div>
-          <button onClick={getDirections}>Get Directions</button>
+          <a href={`http://MapQuest.com${data.event.slug}`}>
+          <button>Get Directions</button></a>
         </div>
       </div>
     </Modal>
