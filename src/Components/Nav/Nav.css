@@ -106,6 +106,7 @@
 .logo {
   border-radius: 50px;
   height: 4em;
+  border: 2px solid black;
 }
 
 .logo-name {

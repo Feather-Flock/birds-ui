@@ -11,7 +11,7 @@ import UserContext from "../../Context/UserContext"
 import { useQuery } from "@apollo/client";
 import Footer from "../Footer/Footer"
 import LoadingPage from "../LoadingPage/LoadingPage";
-
+import logo from '../../rainbowheart.jpeg'
 
 
 const App = () =>  {
@@ -29,6 +29,10 @@ const App = () =>  {
 
   return (
     <UserContext.Provider value={data.user}>
+      <img 
+        src={logo}
+        class="background-img"
+      />
       <div className="App">
         <Nav />
         <Route exact path="/">
