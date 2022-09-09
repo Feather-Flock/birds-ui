@@ -102,3 +102,20 @@
     height: 40px;
   }
 }
+
+.logo {
+  border-radius: 50px;
+  height: 4em;
+  border: 2px solid black;
+}
+
+.logo-name {
+  display: flex;
+  align-items: center;
+}
+
+.boaf {
+  font-size: 3em;
+  margin: 0;
+  margin-left: 5px;
+}

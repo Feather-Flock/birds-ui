@@ -13,7 +13,6 @@ import Footer from "../Footer/Footer"
 import LoadingPage from "../LoadingPage/LoadingPage";
 
 
-
 const App = () =>  {
   const [range, setRange] = useState({label: "10 Miles", value: 10})
   const handleSelect = (rangeObj) => {

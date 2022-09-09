@@ -9,8 +9,10 @@
   justify-content: space-evenly;
 	margin: 0px;
 	padding: 0px;
-  background-color: #949294;
+  background-color:white;
+  opacity: .5;
 	overflow: hidden;
+  margin-top: 30px;
 }
 
 .top-footer {
@@ -52,6 +54,7 @@
 .group-names {
 	margin: 0px;
   font-size: 10px;
+  font-weight: bold;
 }
 
 .member-links {

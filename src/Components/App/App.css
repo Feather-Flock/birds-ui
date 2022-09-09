@@ -1,12 +1,19 @@
 body {
   font-family: 'Quicksand', sans-serif;
-
 }
 
 html {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(109, 107, 107);
+}
+
+#root {
+  background: url(../../rainbowheart.jpeg) no-repeat center center fixed; 
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 75vw;
 }
 
 .app {

@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./EventCard.scss"
 import { BsTrash } from 'react-icons/bs'
 import { IconContext } from "react-icons";
+import UserContext from '../../Context/UserContext';
 
-const EventCard = ({ id, hostImage, title, description, date, time, eventTitle, type, handleClick, deleteClick, userEvent }) => {
+const EventCard = ({ id, title, host, date, time, eventTitle, type, handleClick, deleteClick, userEvent }) => {
+ 
+  const user = useContext(UserContext)
+
+  const addDelete = () => {
+    if(userEvent && host == user.id) {
+      return (
+        <div className="delete-event">
+          <IconContext.Provider value={{ color: 'black', size: '20px' }}>
+            <button id={id} className="delete-button" onClick={() => deleteClick(id)}><BsTrash/></button>
+          </IconContext.Provider>            
+        </div>
+      )
+    }
+  }
   if(type === "card") {
     return (
       <div className="event-container">
@@ -22,13 +37,7 @@ const EventCard = ({ id, hostImage, title, description, date, time, eventTitle, 
             <div id={id} className="view-details-button__vertical"></div>
           </button>
         </div>
-        {userEvent &&
-            <div className="delete-event">
-              <IconContext.Provider value={{ color: 'black', size: '20px' }}>
-                <button id={id} className="delete-button" onClick={() => deleteClick(id)}><BsTrash/></button>
-              </IconContext.Provider>
-            </div>
-          }
+        {addDelete()}
       </div>
     )
   } else if (type === "list") {
