@@ -2,22 +2,18 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
-.background-img {
-
-  background-repeat: no-repeat;
-  /* filter: saturate(2.0); */
-  position: absolute;
-  width: 100vw;
-  object-fit: fill;
-  z-index: -1;
-  /* height: 100vh;
-   */
-  overflow: hidden;
-}
-
 html {
   width: 100vw;
   height: 100vh;
+}
+
+#root {
+  background: url(../../rainbowheart.jpeg) no-repeat center center fixed; 
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 75vw;
 }
 
 .app {
