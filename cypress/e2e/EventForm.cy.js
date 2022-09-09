@@ -42,12 +42,12 @@ describe('empty spec', () => {
   it('When a user submits the form a confirmation should pop up and the fields should reset', () => {
     cy.get('input').eq(0).click().type('Trip to Zoo')
     cy.get('input').eq(1).click()
-    cy.get('input').eq(2).click().type('The Zoo, Boulder CO')
-    cy.get('option').eq(0).click()
+    cy.get('input').eq(2).click().type('the zoo boulder')
+    cy.get('option').eq(1).click()
     cy.get('input').eq(3).click().type('We want to go to the zoo with you!')
     cy.get('input').eq(0).click().should('have.value', 'Trip to Zoo')
     cy.get('input').eq(3).click().should('have.value','We want to go to the zoo with you!')
-    cy.get('button').eq(3).click()
+    cy.get('button').contains('Save Event').click()
     cy.intercept('POST', '/graphql', (req) => {
       if (hasOperationName(req, 'event')) {
         req.alias = 'mutationEvent'
@@ -60,15 +60,15 @@ describe('empty spec', () => {
          expect(t).to.contains('New Event Made!');
       })
 })
-  // it('User should be able to navigate back to dashboard from event form', () => {
-  //   cy.wait(500)
-  //   cy.get('button').eq(0).click()
-  //   cy.url().should('eq', 'http://www.birds-of-a-feather.net/')
-  // })
 
-  it('User should be able to navigate to user profile from event form', () => {
-    cy.get('button').eq(1).click()
-    cy.url().should('eq', 'http://www.birds-of-a-feather.net/profile')
+  it('User should be able to navigate back to dashboard from event form', () => {
+    cy.wait(500)
+    cy.get('button').contains("Dashboard").click()
+    cy.url().should('eq', 'http://www.birds-of-a-feather.net/')
   })
 
+  it('User should be able to navigate to user profile from event form', () => {
+    cy.get('button').contains("View Profile").click()
+    cy.url().should('eq', 'http://www.birds-of-a-feather.net/profile')
+  })
 })
