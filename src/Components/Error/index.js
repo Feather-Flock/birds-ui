@@ -1,6 +1,5 @@
 import React from 'react'
 import "./error.css"
-import { Link } from 'react-router-dom'
 
 const Error = ({ message }) => {
   return (
@@ -28,10 +27,7 @@ const Error = ({ message }) => {
           <div className="error__content">
             <div className="error__message message">
               <h1 className="message__title">OOPS!</h1>
-              <p className="message__text">Something went wrong!</p>
-            </div>
-            <div className="error__nav e-nav">
-              <Link to="/profile" className="e-nav__link">Visit Profile</Link>
+              <p className="message__text">Something went wrong! Please try again later!</p>
             </div>
           </div>
         </section>

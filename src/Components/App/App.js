@@ -15,7 +15,7 @@ import Error from "../Error"
 
 
 const App = () =>  {
-  const [range, setRange] = useState({label: "10 Miles", value: 10})
+  const [range, setRange] = useState({label: "3 Miles", value: 3})
   const handleSelect = (rangeObj) => {
     setRange(rangeObj)
     refetch({variables: {"id": process.env.REACT_APP_USER_ID, "range": parseInt(rangeObj.value)}})
