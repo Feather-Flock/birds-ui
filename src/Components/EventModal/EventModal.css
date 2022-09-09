@@ -41,7 +41,7 @@
   outline: none;
   padding-bottom: 10px;
   width: 60vw;
-  height: 50vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -69,7 +69,7 @@
 
 .left-container {
   margin: 0;
-  padding: 2em;
+  padding: 10px;
 }
 
 .event-description {

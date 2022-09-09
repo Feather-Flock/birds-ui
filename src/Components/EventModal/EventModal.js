@@ -112,7 +112,7 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
             <p className='event-description'>{data.event.description}</p>
           </div>
           <div>
-            <h1>The {data.event.creator.userName} Family </h1>
+            <h1>{data.event.creator.userName}</h1>
             <img className='event-img' src={data.event.creator.image} alt="event"/>
             <br/>
             {user.id !== data.event.creator.id && renderButtons()
