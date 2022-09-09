@@ -1,8 +1,8 @@
-
 .event-img {
-  width: 25%;
-  height: 25%;
+  width: 60%;
+  height: 40%;
   border-radius: 12px;
+  margin-bottom: 20px;
   border: 2px solid black;
 }
 
@@ -16,10 +16,14 @@
 }
 
 .modal-header {
-  text-align: center;
+  margin: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(38, 38, 38);
   width: 100%;
-  height: 15%;
+  height: 25%;
   font-weight: 300;
   border-radius: 12px 12px 0px 0px;
   color: #EFF1FB;
@@ -33,19 +37,21 @@
 }
 
 .event-modal {
-  width: 80vw;
-  height: 90vh;
+  border-radius: 12px;
+  outline: none;
+  padding-bottom: 10px;
+  width: 60vw;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   background-color: white;
-  outline: none;
 }
 
 .close-button {
   float: right;
   position: absolute;
-  margin-top: 3%;
   margin-left: 95%;
+  margin-top: 10px;
   font-size: 2rem;
   border:none;
   background-color: rgba(255, 255, 255, 0.0);
@@ -61,17 +67,38 @@
   text-align: center;
 }
 
+.left-container {
+  margin: 0;
+  padding: 10px;
+}
+
 .event-description {
   font-size: 1.2rem;
   font-weight: 500;
-}
-
-.ReactModal__Overlay {
-  z-index: 9999;
+  margin-top: 2em;
 }
 
 .link {
   margin: 0;
   padding: 0;
   text-decoration: none;
+}
+
+.location {
+  margin: 0;
+}
+
+.date::before {
+  content: "Date: ";
+  font-weight: bold;
+}
+
+.time::before {
+  content: "Time: ";
+  font-weight: bold;
+}
+
+.location::before {
+  content: "Location: ";
+  font-weight: bold;
 }

@@ -5,7 +5,6 @@ import logo from '../../FlamingoFam.jpg'
 import { useLocation } from "react-router";
 import UserContext from '../../Context/UserContext';
 
-
 const Nav = () => {
   const user = useContext(UserContext)
   const location = useLocation()
@@ -45,7 +44,7 @@ const Nav = () => {
   return (
     <nav className="nav-bar">
       <div className="logo-name">
-        <img className="logo" src={logo}/>
+        <img className="logo" src={logo} alt='rainbow flamingo family'/>
         <h2 className="boaf">Birds of a Feather</h2>
       </div>
       <div className="site-nav">

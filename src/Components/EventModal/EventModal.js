@@ -54,12 +54,22 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
     }
   }
   const customStyles = {
-    content: {
-      zindex: 1,
+    overlay: {
       position: 'fixed',
-      right: 'auto',
-      marginLeft: '10%',
-      bottom: 'auto',
+      top: 0,
+      left: 0, 
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, .7)',
+      zIndex: 1000
+    },
+    content: {
+      position: 'fixed',
+      top: '50%', 
+      left: '50%', 
+      transform: 'translate(-50%, -50%)',
+      backgroundColor: '#fff',
+      zIndex: 1000
     },
   };
 
@@ -95,11 +105,11 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
         className='close-button'>X</button>
         <h1 className='modal-header'>{data.event.title}</h1>
         <div className='modal-grid'>
-          <div>
+          <div className="left-container">
             <br/>
-            <h3>{`Date: ${data.event.date}`}</h3>
-            <h3>{`Time: ${dayjs(`${data.event.date} ${data.event.time}`).format('h:mm:a')}`}</h3>
-            <p>Location: {data.event.address}</p>
+            <p className='date'>{data.event.date}</p>
+            <p className='time'>{dayjs(`${data.event.date} ${data.event.time}`).format('h:mm a')}</p>
+            <p className='location'>{data.event.address}</p>
             <p className='event-description'>{data.event.description}</p>
           </div>
           <div>
