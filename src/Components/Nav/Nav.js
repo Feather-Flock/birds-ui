@@ -3,10 +3,15 @@ import { Link, Route } from "react-router-dom";
 import "./Nav.css"
 import { BsArrowLeft } from 'react-icons/bs'
 import { IconContext } from "react-icons";
+import logo from '../../FlamingoFam.jpg'
 
 const Nav = () => {
   return (
     <nav className="nav-bar">
+      <div className="logo-name">
+        <img className="logo" src={logo}/>
+        <h2 className="boaf">Birds of a Feather</h2>
+      </div>
       <div className="back-nav">
         <Route exact path="/new-event">
           <Link className="view-link" to="/">
