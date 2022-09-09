@@ -104,11 +104,11 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
         className='close-button'>X</button>
         <h1 className='modal-header'>{data.event.title}</h1>
         <div className='modal-grid'>
-          <div>
+          <div className="left-container">
             <br/>
-            <h3>{`Date: ${data.event.date}`}</h3>
-            <h3>{`Time: ${dayjs(`${data.event.date} ${data.event.time}`).format('h:mm a')}`}</h3>
-            <h3>Location: {data.event.address}</h3>
+            <p className='date'>{data.event.date}</p>
+            <p className='time'>{dayjs(`${data.event.date} ${data.event.time}`).format('h:mm a')}</p>
+            <p className='location'>{data.event.address}</p>
             <p className='event-description'>{data.event.description}</p>
           </div>
           <div>
