@@ -107,8 +107,8 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
           <div>
             <br/>
             <h3>{`Date: ${data.event.date}`}</h3>
-            <h3>{`Time: ${dayjs(`${data.event.date} ${data.event.time}`).format('h:mm:a')}`}</h3>
-            <p>Location: {data.event.address}</p>
+            <h3>{`Time: ${dayjs(`${data.event.date} ${data.event.time}`).format('h:mm a')}`}</h3>
+            <h3>Location: {data.event.address}</h3>
             <p className='event-description'>{data.event.description}</p>
           </div>
           <div>

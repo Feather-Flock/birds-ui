@@ -32,7 +32,7 @@ const DashboardList = ({refetch, handleSelect, range}) => {
 
   return (
     <div className="dashboardList-container">
-      <h1 className="welcome-user">Welcome {user.userName}!</h1>
+      <h1 className="welcome-user">Welcome {user.userName} Family!</h1>
       <div className="top-list-container">
         <div className="select-list-dropdown"></div>
         <div className="select-list-dropdown">

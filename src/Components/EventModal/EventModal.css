@@ -38,12 +38,12 @@
 
 .event-modal {
   border-radius: 12px;
+  border: none;
   width: 60vw;
   height: 50vh;
   display: flex;
   flex-direction: column;
   background-color: white;
-  /* outline: none; */
 }
 
 .close-button {

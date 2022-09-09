@@ -33,7 +33,7 @@ const Dashboard = ({refetch, handleSelect, range, setRange}) => {
     <div className="dashboard-container">
       {modalVisible && <EventModal userId={user.id} eventId={eventId} isRsvpd={rsvpd()} visible={modalVisible} handleClose={closeModal}/>}
         <div>
-          <h1 className="welcome-message">Welcome {user.userName}!</h1>
+          <h1 className="welcome-message">Welcome {user.userName} Family!</h1>
         </div>
 
       <div className="dashboard-main-container">
