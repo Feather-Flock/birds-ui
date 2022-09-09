@@ -53,12 +53,22 @@ function EventModal({userId, eventId, isRsvpd, visible, handleClose}) {
     }
   }
   const customStyles = {
-    content: {
-      zindex: 1,
+    overlay: {
       position: 'fixed',
-      right: 'auto',
-      marginLeft: '10%',
-      bottom: 'auto',
+      top: 0,
+      left: 0, 
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, .7)',
+      zIndex: 1000
+    },
+    content: {
+      position: 'fixed',
+      top: '50%', 
+      left: '50%', 
+      transform: 'translate(-50%, -50%)',
+      backgroundColor: '#fff',
+      zIndex: 1000
     },
   };
 
