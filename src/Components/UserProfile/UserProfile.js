@@ -7,6 +7,7 @@ import EventModal from '../EventModal/EventModal'
 import Events from "../Events/Events"
 import UserContext from '../../Context/UserContext';
 import LoadingPage from "../LoadingPage/LoadingPage";
+import Error from "../Error";
 
 const UserProfile = ({refetch, range}) => {
   const [modalVisible, setModalVisible] = useState(false)
@@ -22,7 +23,7 @@ const UserProfile = ({refetch, range}) => {
   const [deleteEvent, deleteResponse] = useMutation(DELETE_EVENT)
 
   if(hostResponse.loading) return <LoadingPage />
-  if(hostResponse.error) return `Error! ${hostResponse.error.message}`
+  if(hostResponse.error) return <Error message={hostResponse.error.message} />
 
   if(state && !hostResponse?.data){
     queryHost({variables: {id: state?.hostId, range: parseInt(range.value)}})

@@ -25,7 +25,7 @@ const App = () =>  {
   })
 
   if(loading) return <LoadingPage />
-  if(error) return <Error message={"Error"} />
+  if(error) return <Error message={error.message} />
 
   return (
     <UserContext.Provider value={data.user}>
