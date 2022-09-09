@@ -17,7 +17,7 @@ export default function Map({center, markers, handleClick, view }){
   if (markers) {
     markers.forEach((location) => {
       let marker = window.L.marker([location.lat, location.lng], {
-        iconURL: window.L.mapquest.icons.flag({
+        icon: window.L.mapquest.icons.flag({
           primaryColor: '#000000',
           secondaryColor: '#000000',
           size: 'sm',
