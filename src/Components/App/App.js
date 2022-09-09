@@ -11,6 +11,7 @@ import UserContext from "../../Context/UserContext"
 import { useQuery } from "@apollo/client";
 import Footer from "../Footer/Footer"
 import LoadingPage from "../LoadingPage/LoadingPage";
+import Error from "../Error"
 
 
 const App = () =>  {
@@ -24,7 +25,7 @@ const App = () =>  {
   })
 
   if(loading) return <LoadingPage />
-  if(error) return `Error! ${error.message}`
+  if(error) return <Error message={"Error"} />
 
   return (
     <UserContext.Provider value={data.user}>
