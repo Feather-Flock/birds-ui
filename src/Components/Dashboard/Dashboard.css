@@ -6,6 +6,10 @@
   min-height: 85vh;
 }
 
+.dashboard-map-container {
+  margin: 0px 20px 0px 0px;
+}
+
 .welcome-message {
   margin-left: 20px;
 }
@@ -32,5 +36,5 @@
 
 .select-dropdown {
   width: 30vw;
-  margin: 10px;
+  margin: 0px 0px 0px 5px;
 }
