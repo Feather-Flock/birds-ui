@@ -11,10 +11,11 @@ import UserContext from "../../Context/UserContext"
 import { useQuery } from "@apollo/client";
 import Footer from "../Footer/Footer"
 import LoadingPage from "../LoadingPage/LoadingPage";
+import Error from "../Error"
 
 
 const App = () =>  {
-  const [range, setRange] = useState({label: "10 Miles", value: 10})
+  const [range, setRange] = useState({label: "3 Miles", value: 3})
   const handleSelect = (rangeObj) => {
     setRange(rangeObj)
     refetch({variables: {"id": process.env.REACT_APP_USER_ID, "range": parseInt(rangeObj.value)}})
@@ -24,7 +25,7 @@ const App = () =>  {
   })
 
   if(loading) return <LoadingPage />
-  if(error) return `Error! ${error.message}`
+  if(error) return <Error message={error.message} />
 
   return (
     <UserContext.Provider value={data.user}>
