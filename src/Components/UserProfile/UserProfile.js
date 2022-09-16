@@ -67,7 +67,6 @@ const UserProfile = ({refetch, range}) => {
             <h3 className="location">{user.zipCode}</h3>
           </div>
         </section>
-
         <section className="right-container"> 
           <div className="tag-container">
             <p className="tag-title">2 Kids</p>
@@ -77,7 +76,6 @@ const UserProfile = ({refetch, range}) => {
           </div>
           <p className="description-text-box">{user.description}</p>
         </section>
-
       </section>
       <section className="bottom-container">
         <section className="left-container card">
@@ -86,7 +84,6 @@ const UserProfile = ({refetch, range}) => {
         <section className="right-container card">
           {!state && <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />}
         </section>
-
       </section>
     </div>
   )

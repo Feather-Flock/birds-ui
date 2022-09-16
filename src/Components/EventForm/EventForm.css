@@ -54,7 +54,7 @@ form {
 }
 
 .submit-event:hover {
-    background-color: #72b594;
+  background-color: #72b594;
 }
 
 .submit-event {
@@ -84,8 +84,7 @@ form {
 }
 
 @media screen and (max-width: 992px) {
-
-.form-wrapper {
+  .form-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,27 +96,28 @@ form {
     align-items: center;
   }
 
-.submit-event {
-  margin-right: 9%;
-  width: 45%;
-  height: 13%;
-}
-.event-input {
-  width: 60%;
-  height: 15%;
-  margin: 1%;
-}
-.description {
-  width:60%;
-  height:35%;
+  .submit-event {
+    margin-right: 9%;
+    width: 45%;
+    height: 13%;
+  }
+
+  .event-input {
+    width: 60%;
+    height: 15%;
+    margin: 1%;
+  }
+
+  .description {
+    width:60%;
+    height:35%;
+  }
+
+  h1 {
+    text-align: center;
+  }
 }
 
-h1 {
-  text-align: center;
-}
+/* @media screen and (max-width: 650px) {
 
-}
-
-@media screen and (max-width: 650px) {
-
-}
+} */

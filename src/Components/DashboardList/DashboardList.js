@@ -5,12 +5,8 @@ import EventModal from '../EventModal/EventModal'
 import UserContext from '../../Context/UserContext';
 import SelectDropdown from '../SelectDropdown/SelectDropdown';
 
-
-
 const DashboardList = ({refetch, handleSelect, range}) => {
-  
   const user = useContext(UserContext)
-
   const [modalVisible, setModalVisible] = useState(false)
   const [eventId, setEventId] = useState()
   const handleClick = (e) => {
@@ -38,18 +34,14 @@ const DashboardList = ({refetch, handleSelect, range}) => {
         <div className="select-list-dropdown">
           <SelectDropdown handleSelect={handleSelect} range={range} />
         </div>
-        
       </div>
       <div className="main-container">
-
         <div className="event-list-rsvp">
           <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick}/>
         </div>
-
         <div className="event-list-user">
           <Events events={user.userDefined} eventTitle={"Event Near You"} type={"card"} handleClick={handleClick} />
         </div>
-
       </div>
         {modalVisible && <EventModal userId={user.id} eventId={eventId} visible={modalVisible} handleClose={closeModal} isRsvpd={rsvpd()} />}
     </div>

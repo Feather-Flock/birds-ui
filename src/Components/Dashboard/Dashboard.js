@@ -7,9 +7,7 @@ import Map from '../Map/Map'
 import SelectDropdown from '../SelectDropdown/SelectDropdown';
 
 const Dashboard = ({refetch, handleSelect, range, setRange}) => {
-
   const user = useContext(UserContext)
-
   const [modalVisible, setModalVisible] = useState(false)
   const [eventId, setEventId] = useState()
   const handleClick = (e) => {
@@ -35,7 +33,6 @@ const Dashboard = ({refetch, handleSelect, range, setRange}) => {
         <div>
           <h1 className="welcome-message">Welcome {user.userName}!</h1>
         </div>
-
       <div className="dashboard-main-container">
         <div className="rsvp-eventcards">
           <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />

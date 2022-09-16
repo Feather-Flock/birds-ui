@@ -4,7 +4,6 @@ import { useMutation } from "@apollo/client";
 import { MAKE_NEW_EVENT } from '../../queries'
 import Map from '../Map/Map'
 
-
 const EventForm = ({ refetch }) => {
   const [center, setCenter] = useState([39.7317, -104.9214])
   const [marker, setMarker] = useState([])
@@ -115,7 +114,6 @@ const EventForm = ({ refetch }) => {
       <form className="event-form">
         <h1 className="form-header">Create A New Event</h1>
         <input className='event-input' onChange={handleChange} type='text' placeholder='Add Title' name='title' value={eventDetails.title}/>
-
         <br/>
         <span className="material-symbols-outlined">schedule</span>
         <input className='event-input' onChange={handleChange} type='datetime-local' name='date' value={eventDetails.date}/>
@@ -144,4 +142,5 @@ const EventForm = ({ refetch }) => {
     </div>
   )
 }
+
 export default EventForm
