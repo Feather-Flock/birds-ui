@@ -9,13 +9,32 @@ const EventForm = ({ refetch }) => {
   const [center, setCenter] = useState([39.7317, -104.9214])
   const [marker, setMarker] = useState([])
   const [markerLabel, setMarkerLabel] = useState()
-  const [eventDetails, setEventDetails] = useState({title: '',
-  date:'',
-  time:'',
-  location:'',
-  description:''})
+  const [eventDetails, setEventDetails] = useState(
+    { title: '',
+      date:'',
+      time:'',
+      location:'',
+      description:''
+    })
   const [searchOptions, setSearchOptions] = useState([])
   const [searchInfo, setSearchInfo] = useState([])
+  const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT,
+    {
+      variables: {input:
+      {
+        title: eventDetails.title,
+        description: eventDetails.description,
+        time: eventDetails.time,
+        date: eventDetails.date,
+        address: searchInfo?.place?.properties?.street,
+        city: searchInfo?.place?.properties?.city,
+        state: searchInfo?.place?.properties?.stateCode,
+        zip: parseInt(searchInfo?.place?.properties?.postalCode),
+        slug: searchInfo?.slug,
+        host: parseInt(process.env.REACT_APP_USER_ID),
+      }
+    }
+  })
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -78,7 +97,7 @@ const EventForm = ({ refetch }) => {
         }
       }
     })
-      if(createdResponse) {
+    if(createdResponse) {
         refetch()
         alert('New Event Made!')
         setEventDetails({title: '',
@@ -90,24 +109,6 @@ const EventForm = ({ refetch }) => {
         setCenter([39.7317, -104.9214])
     }
   }
-
-  const [mutateCreateEvent, createdResponse] = useMutation(MAKE_NEW_EVENT,
-    {
-      variables: {input:
-      {
-        title: eventDetails.title,
-        description: eventDetails.description,
-        time: eventDetails.time,
-        date: eventDetails.date,
-        address: searchInfo?.place?.properties?.street,
-        city: searchInfo?.place?.properties?.city,
-        state: searchInfo?.place?.properties?.stateCode,
-        zip: parseInt(searchInfo?.place?.properties?.postalCode),
-        slug: searchInfo?.slug,
-        host: parseInt(process.env.REACT_APP_USER_ID),
-      }
-    }
-  })
 
   return (
     <div className='form-wrapper'>

@@ -30,7 +30,7 @@ const App = () =>  {
   return (
     <UserContext.Provider value={data.user}>
       <div className="App">
-        <Nav />
+        <Nav refetch={refetch} />
         <Route exact path="/">
           <Dashboard refetch={refetch} handleSelect={handleSelect} range={range} />
         </Route>
