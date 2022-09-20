@@ -119,5 +119,9 @@ h1 {
 }
 
 @media screen and (max-width: 650px) {
-
+  .submit-event {
+    margin-right: 9%;
+    width: 40%;
+    height: 10%;
+  }
 }
