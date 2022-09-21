@@ -5,7 +5,6 @@ import { IconContext } from "react-icons";
 import UserContext from '../../Context/UserContext';
 
 const EventCard = ({ id, title, host, date, time, eventTitle, type, handleClick, deleteClick, userEvent }) => {
- 
   const user = useContext(UserContext)
 
   const addDelete = () => {
@@ -19,6 +18,7 @@ const EventCard = ({ id, title, host, date, time, eventTitle, type, handleClick,
       )
     }
   }
+
   if(type === "card") {
     return (
       <div className="event-container">
@@ -44,11 +44,9 @@ const EventCard = ({ id, title, host, date, time, eventTitle, type, handleClick,
     return (
       <div className="event-container">
         <h2 className="upcoming-header">{eventTitle}</h2>
-
         <div className="event-picture-wrapper">
           <img className="event-picture" alt="event festivities"></img>
         </div>
-
         <div className="event-info-container" >
           <div className="event-details">
             <p className="title">What: {title}</p>

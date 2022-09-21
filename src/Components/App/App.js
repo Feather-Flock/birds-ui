@@ -13,7 +13,6 @@ import Footer from "../Footer/Footer"
 import LoadingPage from "../LoadingPage/LoadingPage";
 import Error from "../Error"
 
-
 const App = () =>  {
   const [range, setRange] = useState({label: "3 Miles", value: 3})
   const handleSelect = (rangeObj) => {
@@ -30,7 +29,7 @@ const App = () =>  {
   return (
     <UserContext.Provider value={data.user}>
       <div className="App">
-        <Nav />
+        <Nav refetch={refetch} />
         <Route exact path="/">
           <Dashboard refetch={refetch} handleSelect={handleSelect} range={range} />
         </Route>

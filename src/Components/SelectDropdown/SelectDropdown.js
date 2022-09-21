@@ -13,20 +13,20 @@ const SelectDropdown = ({ handleSelect, range }) => {
 
   return (
     <div className="select-dropdown">
-        <div className="row">
-          <div className="col-md-3"></div>
-          <div className="col-md-6">
-            <Select 
-              options={ranges}
-              value={range}
-              menuPortalTarget={document.body} 
-              styles={{ menuPortal: base => ({ ...base, zIndex: 9999, width: "80%" }) }}
-              onChange={(rangeObj) => handleSelect(rangeObj)}
-            />
-          </div>
-          <div className="col-md-4"></div>
+      <div className="row">
+        <div className="col-md-3"></div>
+        <div className="col-md-6">
+          <Select 
+            options={ranges}
+            value={range}
+            menuPortalTarget={document.body} 
+            styles={{ menuPortal: base => ({ ...base, zIndex: 9999, width: "80%" }) }}
+            onChange={(rangeObj) => handleSelect(rangeObj)}
+          />
         </div>
+        <div className="col-md-4"></div>
       </div>
+    </div>
   )
 }
 
