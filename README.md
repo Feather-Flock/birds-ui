@@ -1,8 +1,8 @@
-# Birds of a Feather
+# [Birds of a Feather](http://www.birds-of-a-feather.net/)
 ![Flamingo](src/Flamingo.png)
 
-
 *A [Turing School of Software and Design](https://turing.edu/) Module 4 Capstone Full-Stack Project*
+
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -17,14 +17,12 @@
 
 
 ## Project Overview
-<<<<<<< HEAD
-
-Welcome to Birds of a Feather! The goal of this app is connect LGBTQ+ families.
+Welcome to Birds of a Feather! The goal of this app is to connect LGBTQ+ families through events in their area.
 
 ### Features
  - Users can search their area for events with other LGBTQ+ families using a visual map
- - Users can click on event cards or location icons and see more details about the event
- - Users can rsvp from the modal or view the host families information
+ - Users can click on event cards or location icons to see more details about the event
+ - Users can RSVP from the modal or view the host family's information
  - Users can make their own events from the new event page
  - Users can ensure they have the right address with the visual of the interactive maps
  - Users can delete their own events from their user profile
@@ -86,13 +84,13 @@ You can access this project through the deployed page [here](http://www.birds-of
 -Having users be able to look at the host family profile of different events
 #### Challenges
 -The event modal proved challenging for certain rendering capabilities (map)
--Circle CI sometimes had confusing errors and there is definitely still fuzziness surrounding it.
+-CircleCI sometimes had confusing errors and there is definitely still fuzziness surrounding it.
 
 
 ## Roadmap
 Future features could include:
 * Allow users to message each other about events
-* Users get an email notification when they rsvp or when someone rsvps to their event
+* Users get an email notification when they RSVP or when someone rsvps to their event
 * Users can see who has rsvpd to their event and navigate to their profile
 
 
