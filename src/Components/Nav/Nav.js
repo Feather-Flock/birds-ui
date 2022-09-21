@@ -28,7 +28,7 @@ const Nav = () => {
 
   const profileButton = () => {
     return (
-      <Link to="/profile">
+      <Link to={{pathname: "/profile", state: {userId: user.id}}}>
         <button className="radiant-button">View Profile</button>
       </Link>
     )

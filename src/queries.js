@@ -124,3 +124,43 @@ export const DELETE_EVENT = gql`
     }
   }
 `
+
+export const GET_USER_PROFILE_INFO = gql`
+query user($id: ID!, $range: Int!) {
+  user(id: $id) {
+    id
+    userName
+    email
+    description
+    image
+    lat
+    lng
+    zipCode
+    rsvpdEvents(id: $id) {
+      id
+      title
+      description
+      zip
+      lat
+      lng
+      slug
+      date
+      time
+      host
+      rsvps
+    }
+    userEvents(id: $id) {
+      id
+      title
+      description
+      zip
+      lat
+      lng
+      slug
+      date
+      time
+      host
+      rsvps
+    }
+  }
+}`
