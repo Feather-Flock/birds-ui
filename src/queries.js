@@ -126,7 +126,7 @@ export const DELETE_EVENT = gql`
 `
 
 export const GET_USER_PROFILE_INFO = gql`
-query user($id: ID!, $range: Int!) {
+query user($id: ID!) {
   user(id: $id) {
     id
     userName

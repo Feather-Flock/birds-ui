@@ -22,7 +22,7 @@ const UserProfile = ({range}) => {
   })
 
   const [deleteEvent, deleteResponse] = useMutation(DELETE_EVENT)
-
+  
   if(loading) return <LoadingPage />
   if(error) return <Error message={error.message} />
 
@@ -44,7 +44,7 @@ const UserProfile = ({range}) => {
   }
 
   const rsvpd = () => {
-    const eventFound = data.rsvpdEvents.find(ev => ev.id === eventId)
+    const eventFound = data.user.rsvpdEvents.find(ev => ev.id === eventId)
     return eventFound ? true : false
   }
 
