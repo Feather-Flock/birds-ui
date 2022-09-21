@@ -8,7 +8,7 @@ import Events from "../Events/Events"
 import LoadingPage from "../LoadingPage/LoadingPage";
 import Error from "../Error";
 
-const UserProfile = ({range}) => {
+const UserProfile = () => {
   const [modalVisible, setModalVisible] = useState(false)
   const [eventId, setEventId] = useState()
   
