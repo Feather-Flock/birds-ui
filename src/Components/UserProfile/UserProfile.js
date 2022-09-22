@@ -1,35 +1,30 @@
-import React, {useState, useContext} from "react";
+import React, {useState} from "react";
 import { useLocation } from "react-router";
-import { useLazyQuery, useMutation } from "@apollo/client";
-import { GET_USER_BY_ID, DELETE_EVENT } from "../../queries";
+import { useQuery, useMutation } from "@apollo/client";
+import { GET_USER_PROFILE_INFO, DELETE_EVENT } from "../../queries";
 import "./UserProfile.css";
 import EventModal from '../EventModal/EventModal'
 import Events from "../Events/Events"
-import UserContext from '../../Context/UserContext';
 import LoadingPage from "../LoadingPage/LoadingPage";
 import Error from "../Error";
 
-const UserProfile = ({refetch, range}) => {
+const UserProfile = () => {
   const [modalVisible, setModalVisible] = useState(false)
   const [eventId, setEventId] = useState()
   
   const { state } = useLocation()
+  const id = state?.hostId ? state?.hostId : state?.userId
 
-  let user = useContext(UserContext)
-  let title = state ? "They" : "You've"
+  let title = state?.hostId ? "They" : "You've"
   
-  const [queryHost, hostResponse] = useLazyQuery(GET_USER_BY_ID)
+  const {loading, error, data, refetch} = useQuery(GET_USER_PROFILE_INFO, {
+    variables: {"id": id}
+  })
 
   const [deleteEvent, deleteResponse] = useMutation(DELETE_EVENT)
-
-  if(hostResponse.loading) return <LoadingPage />
-  if(hostResponse.error) return <Error message={hostResponse.error.message} />
-
-  if(state && !hostResponse?.data){
-    queryHost({variables: {id: state?.hostId, range: parseInt(range.value)}})
-  } else if (state && hostResponse?.data) {
-    user = hostResponse?.data.user
-  }
+  
+  if(loading) return <LoadingPage />
+  if(error) return <Error message={error.message} />
 
   const handleClick = (e) => {
     const {id} = e.target
@@ -45,26 +40,26 @@ const UserProfile = ({refetch, range}) => {
 
   const deleteClick = (id) => {
     deleteEvent({ variables: { input: {id: parseInt(id)}}})
-    refetch({variables: {"id": process.env.REACT_APP_USER_ID, "range": parseInt(range.value)}})
+    refetch({variables: {"id": process.env.REACT_APP_USER_ID}})
   }
 
   const rsvpd = () => {
-    const eventFound = user.rsvpdEvents.find(ev => ev.id === eventId)
+    const eventFound = data.user.rsvpdEvents.find(ev => ev.id === eventId)
     return eventFound ? true : false
   }
 
   return (
     <div className="user-profile-page">
-      {modalVisible && <EventModal userId={user.id} eventId={eventId} visible={modalVisible} handleClose={closeModal} isRsvpd={rsvpd()} />}
+      {modalVisible && <EventModal userId={data.user.id} eventId={eventId} visible={modalVisible} handleClose={closeModal} isRsvpd={rsvpd()} />}
       <section className="top-container">
         <section className="left-container">
           <div className="name-wrapper">
-            <h2 className="family-name">{user.userName}</h2>
+            <h2 className="family-name">{data.user.userName}</h2>
           </div>
-          <img className="profile-picture" src={user.image} alt="family profile"></img>
+          <img className="profile-picture" src={data.user.image} alt="family profile"></img>
           <div className="location-wrapper">
             <div className="material-symbols-outlined">pin_drop</div>
-            <h3 className="location">{user.zipCode}</h3>
+            <h3 className="location">{data.user.zipCode}</h3>
           </div>
         </section>
         <section className="right-container"> 
@@ -74,15 +69,15 @@ const UserProfile = ({refetch, range}) => {
             <p className="tag-title">Married</p>
             <p className="tag-title">Monogamous</p>
           </div>
-          <p className="description-text-box">{user.description}</p>
+          <p className="description-text-box">{data.user.description}</p>
         </section>
       </section>
       <section className="bottom-container">
         <section className="left-container card">
-          <Events events={user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} userEvent={true} handleClick={handleClick} deleteClick={deleteClick}/>
+          <Events events={data.user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} userEvent={true} handleClick={handleClick} deleteClick={deleteClick}/>
         </section>
         <section className="right-container card">
-          {!state && <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />}
+          { state?.userId && <Events events={data.user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />}
         </section>
       </section>
     </div>

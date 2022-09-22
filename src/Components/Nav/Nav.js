@@ -28,7 +28,7 @@ const Nav = ({ refetch }) => {
 
   const profileButton = () => {
     return (
-      <Link to="/profile">
+      <Link to={{pathname: "/profile", state: {userId: user.id}}}>
         <button className="radiant-button" onClick={() => refetch()}>View Profile</button>
       </Link>
     )
