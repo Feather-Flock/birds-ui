@@ -13,9 +13,9 @@ const UserProfile = () => {
   const [eventId, setEventId] = useState()
   
   const { state } = useLocation()
-  const id = state.hostId ? state.hostId : state.userId
+  const id = state?.hostId ? state?.hostId : state?.userId
 
-  let title = state.hostId ? "They" : "You've"
+  let title = state?.hostId ? "They" : "You've"
   
   const {loading, error, data, refetch} = useQuery(GET_USER_PROFILE_INFO, {
     variables: {"id": id}
@@ -77,7 +77,7 @@ const UserProfile = () => {
           <Events events={data.user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} userEvent={true} handleClick={handleClick} deleteClick={deleteClick}/>
         </section>
         <section className="right-container card">
-          { state.userId && <Events events={data.user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />}
+          { state?.userId && <Events events={data.user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />}
         </section>
       </section>
     </div>

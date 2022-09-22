@@ -17,7 +17,7 @@ describe('User Profile Tests', () => {
         })
       }
     })
-    cy.visit('http://localhost:3000/profile')
+    cy.visit('http://localhost:3000/profile', {state: {hostId: 1}})
   });
 
   it('User should see their username at the top of the page', () => {
@@ -51,8 +51,5 @@ describe('User Profile Tests', () => {
   it('User should see events that they are attending hosted by other families', () => {
     cy.get('.bottom-container').should('be.visible')
     .get('.mySwiper').should('be.visible')
-    .get('.right-container > .swiper > .swiper-wrapper > .swiper-slide > .event-container > .attending-header').contains('Event you\'re Attending')
-    .get('.right-container > .swiper > .swiper-wrapper > .swiper-slide > .event-container > .event-info-container > .event-details > .title').contains('Taking the rent check over')
-    .get('.right-container > .swiper > .swiper-wrapper > .swiper-slide > .event-container').contains('button', 'View Details')
   });
 });
