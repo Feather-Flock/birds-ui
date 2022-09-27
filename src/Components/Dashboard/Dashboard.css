@@ -40,17 +40,25 @@
   }
   .rsvp-eventcards{
     width: 100vw;
-    margin-top: -5vh;
+    margin-top: -8vh;
     display:flex;
   }
 
   .event-container {
     width: 80%;
     margin-left: 10%;
+    height: 20vh;
+  }
+
+  .event-buttons {
+    margin-top: -4vh;
   }
 
   .attending-header {
     text-align: center;
+  }
+  .welcome-message {
+    margin:0;
   }
 }
 
