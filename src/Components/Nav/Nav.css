@@ -92,14 +92,27 @@
 
 @media screen and (max-width: 500px ) {
   .nav-bar {
-    flex-direction: row;
+    flex-direction: column;
+  }
+  .site-nav {
+    width: 90%;
+    display:flex;
     justify-content: center;
+    align-content: center;
   }
   .radiant-button {
-    margin-left: 4px;
-    margin-right: 4px;
-    width: 90px;
-    height: 30px;
+    width: 20vw;
+    height: 5vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    font-size: .8em;
+    padding: 3%;
+  }
+
+  .boaf {
+    font-size: 1em;
+    margin: 0;
+    margin-left: 5px;
   }
 }
 
