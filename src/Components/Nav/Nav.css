@@ -99,7 +99,9 @@
     display:flex;
     justify-content: center;
     align-content: center;
+    margin-top: 1%;
   }
+
   .radiant-button {
     width: 20vw;
     height: 5vh;

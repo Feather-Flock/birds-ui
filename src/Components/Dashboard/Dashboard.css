@@ -35,13 +35,23 @@
 }
 
 @media screen and (max-width: 400px ) {
-  .dashboard-main-container {
-  margin-right:0px;
+  .dashboard-map-container {
+    margin:0;
   }
   .rsvp-eventcards{
-    width: 20em;
+    width: 100vw;
+    margin-top: -5vh;
+    display:flex;
   }
-  
+
+  .event-container {
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  .attending-header {
+    text-align: center;
+  }
 }
 
 .select-dropdown {
