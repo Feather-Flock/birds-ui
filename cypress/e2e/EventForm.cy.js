@@ -34,6 +34,7 @@ describe('empty spec', () => {
   })
 
   it('When the user types into the location bar suggestions should populate', () => {
+    cy.wait(500)
     cy.get('input').eq(2).click().type('The Zoo Crew')
     cy.get('[value="The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ"]').click()
     cy.get('input').eq(2).should('have.value', 'The Zoo Crew Store, 141 Chadwick Ave, Newark, NJ')

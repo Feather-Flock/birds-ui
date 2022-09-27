@@ -5,7 +5,7 @@ import logo from '../../FlamingoFam.jpg'
 import { useLocation } from "react-router";
 import UserContext from '../../Context/UserContext';
 
-const Nav = () => {
+const Nav = ({ refetch }) => {
   const user = useContext(UserContext)
   const location = useLocation()
   const currentUserProfile = () => {
@@ -28,8 +28,8 @@ const Nav = () => {
 
   const profileButton = () => {
     return (
-      <Link to="/profile">
-        <button className="radiant-button">View Profile</button>
+      <Link to={{pathname: "/profile", state: {userId: user.id}}}>
+        <button className="radiant-button" onClick={() => refetch()}>View Profile</button>
       </Link>
     )
   }
@@ -41,6 +41,7 @@ const Nav = () => {
       </Link>
     )
   }
+
   return (
     <nav className="nav-bar">
       <div className="logo-name">
@@ -56,7 +57,7 @@ const Nav = () => {
           </>
         }
         {currentUserProfile() === 3 && profileButton()}
-        {location.pathname != "/new-event" && createEventButton()}
+        {location.pathname !== "/new-event" && createEventButton()}
         <Route exact path="/Dashboard-List">
           <Link className="view-link" to="/">
             <button className="radiant-button">Map View</button>

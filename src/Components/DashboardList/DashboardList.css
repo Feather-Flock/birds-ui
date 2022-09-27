@@ -12,6 +12,7 @@
   margin-top: 3em;
 
 }
+
 .event-list-rsvp,
 .event-list-user {
   flex-direction: column;
@@ -34,6 +35,7 @@
 .select-dropdown{
   margin-top: 0;
 }
+
 .map-view-btn {
   display: flex;
   flex-direction: column;

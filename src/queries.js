@@ -1,6 +1,5 @@
 import { gql} from "@apollo/client";
 
-
 export const GET_USER_BY_ID = gql`
 query user($id: ID!, $range: Int!) {
   user(id: $id) {
@@ -78,6 +77,7 @@ export const GET_EVENT_BY_ID = gql`
     }
 }
 `
+
 export const MAKE_NEW_EVENT = gql`
 mutation createEvent($input: CreateEventInput!) {
   createEvent(input: $input) {
@@ -96,7 +96,6 @@ mutation createEvent($input: CreateEventInput!) {
     }
   }
 `
-
 
 export const USER_RSVP_TO_EVENT = gql`
   mutation createUserEvent($input: CreateUserEventInput!) {
@@ -117,6 +116,7 @@ export const USER_DELETE_RSVP = gql`
     }
   }
 `
+
 export const DELETE_EVENT = gql`
   mutation destroyEvent($input: DestroyEventInput!) {
     destroyEvent(input:$input) {
@@ -124,3 +124,43 @@ export const DELETE_EVENT = gql`
     }
   }
 `
+
+export const GET_USER_PROFILE_INFO = gql`
+query user($id: ID!) {
+  user(id: $id) {
+    id
+    userName
+    email
+    description
+    image
+    lat
+    lng
+    zipCode
+    rsvpdEvents(id: $id) {
+      id
+      title
+      description
+      zip
+      lat
+      lng
+      slug
+      date
+      time
+      host
+      rsvps
+    }
+    userEvents(id: $id) {
+      id
+      title
+      description
+      zip
+      lat
+      lng
+      slug
+      date
+      time
+      host
+      rsvps
+    }
+  }
+}`
