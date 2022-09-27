@@ -115,11 +115,9 @@ const EventForm = ({ refetch }) => {
         <h1 className="form-header">Create A New Event</h1>
         <input className='event-input' onChange={handleChange} type='text' placeholder='Add Title' name='title' value={eventDetails.title}/>
         <br/>
-        <span className="material-symbols-outlined">schedule</span>
         <input className='event-input' onChange={handleChange} type='datetime-local' name='date' value={eventDetails.date}/>
         <br/>
           <Map center={center} markers={marker} markerLabel={markerLabel} view='event-form'/>
-          <span className="material-symbols-outlined">pin_drop</span>
         <input className='event-input'
         onChange={handleSearch}
         type='text'

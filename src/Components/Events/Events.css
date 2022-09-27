@@ -11,3 +11,11 @@
 .swiper-slide {
   width: 80%;
 }
+
+
+@media screen and (max-width: 650px) {
+  .swiper-slides {
+    margin-left: 0px;
+  }
+
+}

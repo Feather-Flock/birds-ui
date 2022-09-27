@@ -92,14 +92,29 @@
 
 @media screen and (max-width: 500px ) {
   .nav-bar {
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
   }
+  .site-nav {
+    width: 90%;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 1%;
+  }
+
   .radiant-button {
-    margin-left: 4px;
-    margin-right: 4px;
-    width: 100px;
-    height: 40px;
+    width: 20vw;
+    height: 5vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    font-size: .8em;
+    padding: 3%;
+  }
+
+  .boaf {
+    font-size: 1em;
+    margin: 0;
+    margin-left: 5px;
   }
 }
 
@@ -115,7 +130,7 @@
 }
 
 .boaf {
-  font-size: 3em;
+  font-size: 2.2em;
   margin: 0;
   margin-left: 5px;
 }

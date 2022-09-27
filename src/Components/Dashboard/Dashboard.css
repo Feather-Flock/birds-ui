@@ -35,6 +35,34 @@
   }
 }
 
+@media screen and (max-width: 400px ) {
+  .dashboard-map-container {
+    margin:0;
+  }
+  .rsvp-eventcards{
+    width: 100vw;
+    margin-top: -8vh;
+    display:flex;
+  }
+
+  .event-container {
+    width: 80%;
+    margin-left: 10%;
+    height: 20vh;
+  }
+
+  .event-buttons {
+    margin-top: -4vh;
+  }
+
+  .attending-header {
+    text-align: center;
+  }
+  .welcome-message {
+    margin:0;
+  }
+}
+
 .select-dropdown {
   width: 30vw;
   margin: 0px 0px 0px 5px;
