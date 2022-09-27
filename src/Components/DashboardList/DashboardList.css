@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: space-around;
   margin-top: 3em;
-  
+
 }
 .event-list-rsvp,
 .event-list-user {
@@ -144,4 +144,25 @@
 .events-dropdown{
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 500px ) {
+.event-list-rsvp {
+  margin: 0;
+  height: 20vh;
+  min-height: 0;
+}
+.welcome-user {
+  margin: 0;
+}
+
+.event-list-user {
+  width: 100vw;
+}
+
+.main-container {
+  min-height: 65vh;
+}
+
+
 }
