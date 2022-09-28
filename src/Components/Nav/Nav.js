@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link, Route } from "react-router-dom";
+import { NavLink, Link, Route } from "react-router-dom";
 import "./Nav.css"
 import logo from '../../FlamingoFam.jpg'
 import { useLocation } from "react-router";
@@ -8,6 +8,9 @@ import UserContext from '../../Context/UserContext';
 const Nav = ({ refetch }) => {
   const user = useContext(UserContext)
   const location = useLocation()
+  const activeStyle = {
+    padding: '70%',
+  }
   const currentUserProfile = () => {
     if(location.state === undefined && location.pathname === "/profile") {
       return 1
@@ -20,25 +23,28 @@ const Nav = ({ refetch }) => {
 
   const dashboardButton = () => {
     return (
-      <Link to="/">
+      <NavLink to="/" style={({isActive}) =>
+    isActive ? activeStyle : undefined }>
         <button className="radiant-button">Dashboard</button>
-      </Link>
+      </NavLink>
     )
   }
 
   const profileButton = () => {
     return (
-      <Link to={{pathname: "/profile", state: {userId: user.id}}}>
+      <NavLink to={{pathname: "/profile", state: {userId: user.id}}} style={({isActive}) =>
+    isActive ? activeStyle : undefined }>
         <button className="radiant-button" onClick={() => refetch()}>View Profile</button>
-      </Link>
+      </NavLink>
     )
   }
 
   const createEventButton = () => {
     return (
-      <Link to="/new-event">
+      <NavLink to="/new-event" style={({isActive}) =>
+    isActive ? activeStyle : undefined }>
         <button className="radiant-button">Create Event</button>
-      </Link>
+      </NavLink>
     )
   }
 
