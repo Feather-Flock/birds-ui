@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./UpdateUserProfile.css";
 import zipcodes from "../../zipcodes";
+import { v4 as uuidv4 } from 'uuid'
 
 const UpdateUserProfile = ({ userData }) => {
 
@@ -12,11 +13,9 @@ const UpdateUserProfile = ({ userData }) => {
   
   const zipcodeOptions = zipcodes.map(zip => {
     return (
-      <option value={zip}>{zip}</option>
+      <option key={uuidv4()} value={zip}>{zip}</option>
     )
   });
-
-
 
   // need to map over the tags
   // onChange should take in the new input and save the new value
