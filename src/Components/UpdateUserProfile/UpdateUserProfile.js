@@ -1,25 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./UpdateUserProfile.css";
 import zipcodes from "../../zipcodes";
 
 const UpdateUserProfile = ({ userData }) => {
 
+  const [username, setUsername] = useState(userData.userName);
+  const [image, setImage] = useState(userData.image);
+  const [zipcode, setZipcode] = useState(userData.zipCode);
+  const [description, setDescription] = useState(userData.description);
+  // const [tags, setTags] = useState("");
+  
   const zipcodeOptions = zipcodes.map(zip => {
     return (
       <option value={zip}>{zip}</option>
     )
-  })
+  });
 
-  // username state
-  // image state
-  // zip code state
-  // description state
-  // tags state
+
 
   // need to map over the tags
-
   // onChange should take in the new input and save the new value
-
 
   return (
     <form className="update-profile-form">
@@ -31,17 +31,16 @@ const UpdateUserProfile = ({ userData }) => {
           <input className="name-wrapper" 
             name="username" 
             type="text" 
-            // placeholder="i'm a placehold for the name" 
-            value={userData.userName}
-            onChange="do something"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
 
-          <img className="profile-picture"  src={userData.image} alt="family profile"></img>
+          <img className="profile-picture"  src={image} alt="family profile"></img>
           {/* need to figure out how to edit a photo */}
 
           <label className="form-label" htmlFor="zipcode-select">Edit ZIP Code:</label>
           <select name="zipcode" id="zipcode-select" className="location-wrapper">
-            <option value="">{userData.zipCode}</option>
+            <option value="">{zipcode}</option>
             {zipcodeOptions}
           </select>
     
@@ -49,13 +48,14 @@ const UpdateUserProfile = ({ userData }) => {
 
         <section className="right-container">
           <label className="form-label">Edit Description:</label>
-          <input className="description-text-box"
+          <textarea className="description-text-box"
             name="description" 
-            type="text-area" 
-            // placeholder="i'm a placehold for the description" 
-            value={userData.description}
-            onChange="do something"
-          />
+            rows="10"
+            cols="50"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}>
+          </textarea>
+
           {/* need to figure out to create a drop down menu that adds the tags after select */}
           <div className="tag-container">
             <p className="tag-title">2 Kids</p>
