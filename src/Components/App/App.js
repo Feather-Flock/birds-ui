@@ -25,7 +25,6 @@ const App = () =>  {
     variables: {"id": process.env.REACT_APP_USER_ID, "range": parseInt(range.value)}
   })
 
-  console.log(data);
   if(loading) return <LoadingPage />
   if(error) return <Error message={error.message} />
 
@@ -46,7 +45,7 @@ const App = () =>  {
           <UserProfile range={range} />
         </Route>
         <Route exact path="/update-profile">
-          <UpdateUserProfile />
+          <UpdateUserProfile userData={data.user} />
         </Route>
         <Footer />
       </div>

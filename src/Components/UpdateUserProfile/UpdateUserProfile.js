@@ -1,28 +1,43 @@
 import React from "react";
 import "./UpdateUserProfile.css";
 
-const UpdateUserProfile = () => {
+const UpdateUserProfile = ({ userData }) => {
+  console.log(userData)
+
+  // username state
+  // image state
+  // zip code state
+  // description state
+  // tags state
+
+  // need to map over the tags
+  // need to map over the zips
+
+  // onChange should take in the new input and save the new value
+
+
   return (
     <form className="update-profile-form">
 
       <section className="top-container">
 
         <section className="left-container">
-          <label className="form-label">Edit UserName:</label>
+          <label className="form-label">Edit Username:</label>
           <input className="name-wrapper" 
             name="username" 
             type="text" 
-            placeholder="i'm a placehold for the name" 
-            value=""
-            onChange="something"
+            // placeholder="i'm a placehold for the name" 
+            value={userData.userName}
+            onChange="do something"
           />
 
-          <img className="profile-picture"  alt="family profile"></img>
+          <img className="profile-picture"  src={userData.image} alt="family profile"></img>
           {/* need to figure out how to edit a photo */}
 
           <label className="form-label" htmlFor="zipcode-select">Edit ZIP Code:</label>
           <select name="zipcode" id="zipcode-select" className="location-wrapper">
-            <option value="">select a zip code</option>
+            <option value="">{userData.zipCode}</option>
+            {/* need to map over the zip code array */}
             <option value="80010">80010</option>
             <option value="80011">80011</option>
           </select>
@@ -34,9 +49,9 @@ const UpdateUserProfile = () => {
           <input className="description-text-box"
             name="description" 
             type="text-area" 
-            placeholder="i'm a placehold for the description" 
-            value=""
-            onChange="something"
+            // placeholder="i'm a placehold for the description" 
+            value={userData.description}
+            onChange="do something"
           />
           {/* need to figure out to create a drop down menu that adds the tags after select */}
           <div className="tag-container">
