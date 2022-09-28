@@ -51,6 +51,10 @@ const UserProfile = () => {
   return (
     <div className="user-profile-page">
       {modalVisible && <EventModal userId={data.user.id} eventId={eventId} visible={modalVisible} handleClose={closeModal} isRsvpd={rsvpd()} />}
+      <div className="update-profile-link">
+        <span className="material-symbols-outlined">edit</span>
+        <p className="edit-profile">Edit Profile</p>
+      </div>
       <section className="top-container">
         <section className="left-container">
           <div className="name-wrapper">
