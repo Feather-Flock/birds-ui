@@ -47,8 +47,8 @@ const UpdateUserProfile = () => {
           </div>
 
           <div className="update-profile-button-container">
-            <button className="save-profile-changes-button">Save</button>
-            <p className="cancel">Cancel</p>
+            <button className="cancel-profile-changes-button">Cancel</button>
+            <button className="save-profile-changes-button">Save Changes</button>
           </div>
         </section>
 
