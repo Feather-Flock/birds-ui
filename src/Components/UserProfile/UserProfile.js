@@ -11,18 +11,18 @@ import Error from "../Error";
 const UserProfile = () => {
   const [modalVisible, setModalVisible] = useState(false)
   const [eventId, setEventId] = useState()
-  
+
   const { state } = useLocation()
   const id = state?.hostId ? state?.hostId : state?.userId
 
   let title = state?.hostId ? "They" : "You've"
-  
+
   const {loading, error, data, refetch} = useQuery(GET_USER_PROFILE_INFO, {
     variables: {"id": id}
   })
 
   const [deleteEvent, deleteResponse] = useMutation(DELETE_EVENT)
-  
+
   if(loading) return <LoadingPage />
   if(error) return <Error message={error.message} />
 
@@ -62,14 +62,14 @@ const UserProfile = () => {
             <h3 className="location">{data.user.zipCode}</h3>
           </div>
         </section>
-        <section className="right-container"> 
-          <div className="tag-container">
-            <p className="tag-title">2 Kids</p>
-            <p className="tag-title">MLM</p>
-            <p className="tag-title">Married</p>
-            <p className="tag-title">Monogamous</p>
-          </div>
+        <section className="right-container">
           <p className="description-text-box">{data.user.description}</p>
+          <div className="tag-container">
+          <p className="tag-title">2 Kids</p>
+          <p className="tag-title">MLM</p>
+          <p className="tag-title">Married</p>
+          <p className="tag-title">Monogamous</p>
+          </div>
         </section>
       </section>
       <section className="bottom-container">
