@@ -34,7 +34,7 @@ const Nav = ({ refetch }) => {
     return (
       <NavLink to={{pathname: "/profile", state: {userId: user.id}}} style={({isActive}) =>
     isActive ? activeStyle : undefined }>
-        <button className="radiant-button" onClick={() => refetch()}>View Profile</button>
+        <button className="radiant-button" onClick={() => refetch()}>View My Profile</button>
       </NavLink>
     )
   }
@@ -61,7 +61,7 @@ const Nav = ({ refetch }) => {
         {currentUserProfile() === 2 &&
           <>
             {dashboardButton()}
-            {profileButton()}
+            {/* {profileButton()} */}
           </>
         }
         {currentUserProfile() === 3 && profileButton()}
