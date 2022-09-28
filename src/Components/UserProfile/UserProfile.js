@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_USER_PROFILE_INFO, DELETE_EVENT } from "../../queries";
 import "./UserProfile.css";
@@ -51,10 +52,13 @@ const UserProfile = () => {
   return (
     <div className="user-profile-page">
       {modalVisible && <EventModal userId={data.user.id} eventId={eventId} visible={modalVisible} handleClose={closeModal} isRsvpd={rsvpd()} />}
-      <div className="update-profile-link">
-        <span className="material-symbols-outlined">edit</span>
-        <p className="edit-profile">Edit Profile</p>
-      </div>
+      <Link to="/update-profile">
+        <div className="update-profile-link">
+          <span className="material-symbols-outlined">edit</span>
+          <p className="edit-profile">Edit Profile</p>
+        </div>
+      </Link>
+
       <section className="top-container">
         <section className="left-container">
           <div className="name-wrapper">

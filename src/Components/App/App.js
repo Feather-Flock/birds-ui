@@ -12,6 +12,8 @@ import { useQuery } from "@apollo/client";
 import Footer from "../Footer/Footer"
 import LoadingPage from "../LoadingPage/LoadingPage";
 import Error from "../Error"
+import UpdateUserProfile from "../UpdateUserProfile/UpdateUserProfile";
+
 
 const App = () =>  {
   const [range, setRange] = useState({label: "3 Miles", value: 3})
@@ -41,6 +43,9 @@ const App = () =>  {
         </Route>
         <Route exact path="/profile">
           <UserProfile range={range} />
+        </Route>
+        <Route exact path="/update-profile">
+          <UpdateUserProfile />
         </Route>
         <Footer />
       </div>
