@@ -1,4 +1,5 @@
 import React from "react";
+import "./UpdateUserProfile.css";
 
 const UpdateUserProfile = () => {
   return (
@@ -43,6 +44,11 @@ const UpdateUserProfile = () => {
             <p className="tag-title">MLM</p>
             <p className="tag-title">Married</p>
             <p className="tag-title">Monogamous</p>
+          </div>
+
+          <div className="update-profile-button-container">
+            <button className="save-profile-changes-button">Save</button>
+            <p className="cancel">Cancel</p>
           </div>
         </section>
 

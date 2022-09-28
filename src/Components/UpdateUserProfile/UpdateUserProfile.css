@@ -1,0 +1,21 @@
+.update-profile-button-container {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  width: inherit;
+  margin-top: 5%;
+}
+
+.save-profile-changes-button:hover {
+  background-color: #72b594;
+}
+
+.save-profile-changes-button {
+  color: #EFF1FB;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10%;
+  box-shadow: 6px 6px 13px rgb(0 0 0 / 50%);
+  background-color: rgb(38, 38, 38);
+}
