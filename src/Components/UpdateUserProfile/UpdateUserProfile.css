@@ -3,10 +3,10 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 3em;
+  height: 2em;
   color: white;
   font-weight: bolder;
-  background-color: #72b594;
+  background-color: rgb(44,44,132);
 }
 
 .update-profile-button-container {

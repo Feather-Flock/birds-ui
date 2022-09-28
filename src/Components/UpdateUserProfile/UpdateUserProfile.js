@@ -17,38 +17,37 @@ const UpdateUserProfile = ({ userData }) => {
     )
   });
 
-  // need to map over the tags
-  // onChange should take in the new input and save the new value
+  // Will need to map over the userTagneed to map over the tags
 
   return (
     <form className="update-profile-form">
-      <p className="editting-banner">Edit User Profile</p>
+      <p className="editting-banner">Edit your profile</p>
 
       <section className="top-container">
-
         <section className="left-container">
-          <label className="form-label">Edit Username:</label>
+          <label className="form-label" htmlFor="username">Edit Username:</label>
           <input className="name-wrapper" 
-            name="username" 
+            id="username" 
+            name="username"
             type="text" 
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-
-          <img className="profile-picture"  src={image} alt="family profile"></img>
-          {/* need to figure out how to edit a photo */}
+          <label className="form-label" htmlFor="profile-picture">Edit Image:</label>
+          <img className="profile-picture" id="profile-picture" src={image} alt="family profile"></img>
+          {/* need to figure out how to update/add a photo */}
 
           <label className="form-label" htmlFor="zipcode-select">Edit ZIP Code:</label>
-          <select name="zipcode" id="zipcode-select" className="location-wrapper">
+          <select name="zipcode" id="zipcode-select" className="location-wrapper" onChange={(e) => setZipcode(e.target.value)}>
             <option value="">{zipcode}</option>
             {zipcodeOptions}
           </select>
-    
         </section>
 
         <section className="right-container">
-          <label className="form-label">Edit Description:</label>
+          <label className="form-label" htmlFor="description">Edit Description:</label>
           <textarea className="description-text-box"
+            id="description"
             name="description" 
             rows="10"
             cols="50"
