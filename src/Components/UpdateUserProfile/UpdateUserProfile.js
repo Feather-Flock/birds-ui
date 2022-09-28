@@ -1,8 +1,14 @@
 import React from "react";
 import "./UpdateUserProfile.css";
+import zipcodes from "../../zipcodes";
 
 const UpdateUserProfile = ({ userData }) => {
-  console.log(userData)
+
+  const zipcodeOptions = zipcodes.map(zip => {
+    return (
+      <option value={zip}>{zip}</option>
+    )
+  })
 
   // username state
   // image state
@@ -11,7 +17,6 @@ const UpdateUserProfile = ({ userData }) => {
   // tags state
 
   // need to map over the tags
-  // need to map over the zips
 
   // onChange should take in the new input and save the new value
 
@@ -37,9 +42,7 @@ const UpdateUserProfile = ({ userData }) => {
           <label className="form-label" htmlFor="zipcode-select">Edit ZIP Code:</label>
           <select name="zipcode" id="zipcode-select" className="location-wrapper">
             <option value="">{userData.zipCode}</option>
-            {/* need to map over the zip code array */}
-            <option value="80010">80010</option>
-            <option value="80011">80011</option>
+            {zipcodeOptions}
           </select>
     
         </section>
