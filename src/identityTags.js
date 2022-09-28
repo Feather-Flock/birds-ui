@@ -1,0 +1,3 @@
+const tags = ['WLW', 'MLM', 'Single Parent', 'Poly Parent', 'Homosexual', 'Gay', 'Lesbian', 'Pansexual', 'Bisexual', 'Demisexual', 'Grey-Ace', 'Ace', 'Asexual', 'Poly', 'Pan', 'Bi', 'Trans', 'Transgender', 'Agender', 'Non-Binary', 'Gender Fluid', 'Intersex', 'Aromantic', 'Lesbian', 'Heterosexual', '1 kid', '2 kids', '3 kids', '4 kids', 'adoption', 'EnbyLW', 'EnbyLM', 'MTF', 'FTM', 'GenderQueer', 'M2F', 'F2M', 'Queer', 'Trans Man', 'Trans Woman', 'Two-Spirit', 'Ze/Hir', 'They/Them', 'She/Her', 'He/Him', 'AFAB', 'AMAB', 'SGL', 'QPOC', 'QTPOC', 'Butch', 'Femme', 'Transmasculine', 'Transfeminine', 'Drag', 'Drag Queen', 'Drag King', 'Gender Non-Conforming']
+
+export default tags
