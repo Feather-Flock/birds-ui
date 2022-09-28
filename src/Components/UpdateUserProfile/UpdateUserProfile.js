@@ -23,6 +23,7 @@ const UpdateUserProfile = ({ userData }) => {
 
   return (
     <form className="update-profile-form">
+      <p className="editting-banner">Edit User Profile</p>
 
       <section className="top-container">
 
