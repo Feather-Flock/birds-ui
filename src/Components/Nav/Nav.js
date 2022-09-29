@@ -50,12 +50,12 @@ const Nav = ({ refetch }) => {
 
   return (
     <nav className="nav-bar">
-      <div className="logo-name">
       <Link to='/'>
-        <img className="logo" src={logo} alt='rainbow flamingo family'/>
-        <h2 className="boaf">Birds of a Feather</h2>
+        <div className="logo-name">
+          <img className="logo" src={logo} alt='rainbow flamingo family'/>
+          <h1 className="boaf">Birds of a Feather</h1>
+        </div>
       </Link>
-      </div>
       <div className="site-nav">
         {currentUserProfile() === 1 && dashboardButton() }
         {currentUserProfile() === 2 &&
