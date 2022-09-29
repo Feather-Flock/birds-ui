@@ -77,7 +77,7 @@ const UpdateUserProfile = ({ userData }) => {
             }}>
               <p className="cancel-profile-changes">Cancel</p>
             </Link>
-            <button className="save-profile-changes-button" onClick={(e) => handleSaveChanges(e.target.value)}>Save Changes</button>
+            <button className="save-profile-changes-button" onClick={(e) => handleSaveChanges(e)}>Save Changes</button>
           </div>
         </section>
       </section>
