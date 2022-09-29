@@ -52,3 +52,11 @@
   cursor: pointer;
   background-color: rgb(197, 197, 197);
 }
+
+.form-label {
+  font-weight: bolder;
+  width: inherit;
+  margin: 0;
+}
+
+
