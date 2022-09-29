@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_USER_PROFILE_INFO, DELETE_EVENT } from "../../queries";
 import "./UserProfile.css";
-import EventModal from '../EventModal/EventModal'
-import Events from "../Events/Events"
+import EventModal from "../EventModal/EventModal";
+import Events from "../Events/Events";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import Error from "../Error";
 
@@ -48,9 +49,21 @@ const UserProfile = () => {
     return eventFound ? true : false
   }
 
+  const editProfile = () => {
+    return (
+      <Link to="/update-profile">
+        <div className="update-profile-link">
+          <span className="material-symbols-outlined">edit</span>
+          <p className="edit-profile">Edit Profile</p>
+        </div>
+      </Link>
+    );
+  };
+
   return (
     <div className="user-profile-page">
       {modalVisible && <EventModal userId={data.user.id} eventId={eventId} visible={modalVisible} handleClose={closeModal} isRsvpd={rsvpd()} />}
+      {data.user.id === "1" && editProfile()}      
       <section className="top-container">
         <section className="left-container">
           <div className="name-wrapper">
@@ -77,7 +90,7 @@ const UserProfile = () => {
           <Events events={data.user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} userEvent={true} handleClick={handleClick} deleteClick={deleteClick}/>
         </section>
         <section className="right-container card">
-          { state?.userId && <Events events={data.user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />}
+          {state?.userId && <Events events={data.user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />}
         </section>
       </section>
     </div>

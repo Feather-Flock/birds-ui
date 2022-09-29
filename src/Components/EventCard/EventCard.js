@@ -26,8 +26,8 @@ const EventCard = ({ id, title, host, date, time, eventTitle, type, handleClick,
         <div className="event-info-container" >
           <div className="event-details">
             <p className="title">What: {title}</p>
-            <p className="date">When: {date}</p>
-            <p className="time">Time: {time}</p>
+            <p className="date">{date}</p>
+            <p className="time">{time}</p>
           </div>
         </div>
         <div id={id} className="event-buttons">
@@ -50,8 +50,8 @@ const EventCard = ({ id, title, host, date, time, eventTitle, type, handleClick,
         <div className="event-info-container" >
           <div className="event-details">
             <p className="title">What: {title}</p>
-            <p className="date">When: {date}</p>
-            <p className="time">Time: {time}</p>
+            <p className="date">{date}</p>
+            <p className="time">{time}</p>
           </div>
         </div>
         <button className="view-details-button" id={id} onClick={handleClick}>

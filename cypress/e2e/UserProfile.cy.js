@@ -18,7 +18,7 @@ describe('User Profile Tests', () => {
       }
     })
     cy.visit('http://localhost:3000')
-    cy.get('button').contains("View Profile").click()
+    cy.get('button').contains("View My Profile").click()
   });
 
   it('User should see their username at the top of the page', () => {

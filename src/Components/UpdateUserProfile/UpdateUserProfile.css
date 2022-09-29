@@ -1,0 +1,75 @@
+.editting-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2em;
+  color: white;
+  font-weight: bolder;
+  background-color: rgb(44,44,132);
+}
+
+.update-profile-button-container {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  width: inherit;
+  margin-top: 10%;
+}
+
+#profile-picture {
+  margin-bottom: 20px;
+}
+
+.save-profile-changes-button {
+  color: #EFF1FB;
+  height: 2em;
+  width: 10em;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  margin-left: 4%;
+  box-shadow: 6px 6px 13px rgb(0 0 0 / 50%);
+  background-color: rgb(38, 38, 38);
+}
+
+.save-profile-changes-button:hover {
+  background-color: #72b594;
+}
+
+.cancel-profile-changes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6em;
+  height: 2em;
+  color: black;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  margin: 0;
+  box-shadow: 6px 6px 13px rgb(0 0 0 / 50%);
+  background-color: rgb(226, 222, 222);
+}
+
+.cancel-profile-changes:hover {
+  cursor: pointer;
+  background-color: rgb(197, 197, 197);
+}
+
+.form-label {
+  font-weight: bolder;
+  width: inherit;
+  margin: 0;
+}
+
+#zipcode-select {
+  margin: 0;
+}
+
+@media screen and (max-width: 830px) {
+  .save-profile-changes-button,
+  .cancel-profile-changes {
+    font-size: 1rem;
+  }
+}
