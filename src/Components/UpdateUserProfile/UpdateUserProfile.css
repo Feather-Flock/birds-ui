@@ -14,7 +14,11 @@
   flex-direction:row;
   justify-content: space-evenly;
   width: inherit;
-  margin-top: 5%;
+  margin-top: 10%;
+}
+
+#profile-picture {
+  margin-bottom: 20px;
 }
 
 .save-profile-changes-button {
@@ -59,4 +63,13 @@
   margin: 0;
 }
 
+#zipcode-select {
+  margin: 0;
+}
 
+@media screen and (max-width: 830px) {
+  .save-profile-changes-button,
+  .cancel-profile-changes {
+    font-size: 1rem;
+  }
+}

@@ -11,6 +11,7 @@ const UpdateUserProfile = ({ userData }) => {
   const [zipcode, setZipcode] = useState(userData.zipCode);
   const [description, setDescription] = useState(userData.description);
   // const [tags, setTags] = useState("");
+  // Will need to map over the users tags when they have been added to a user
   
   const zipcodeOptions = zipcodes.map(zip => {
     return (
@@ -20,10 +21,9 @@ const UpdateUserProfile = ({ userData }) => {
 
   const handleSaveChanges = (e) => {
     e.preventDefault();
+    // Need to add the userquery mutate here
     console.log("Mutate User Query!!");
   };
-
-  // Will need to map over the users tags when they have been added to a user
 
   return (
     <form className="update-profile-form">
@@ -62,7 +62,7 @@ const UpdateUserProfile = ({ userData }) => {
             onChange={(e) => setDescription(e.target.value)}>
           </textarea>
 
-          {/* need to figure out to create a drop down menu that adds the tags after select */}
+          {/* need to figure out to create a drop down menu that adds/removes tags like Terminal */}
           <div className="tag-container">
             <p className="tag-title">2 Kids</p>
             <p className="tag-title">MLM</p>
@@ -81,7 +81,6 @@ const UpdateUserProfile = ({ userData }) => {
           </div>
         </section>
       </section>
-
     </form>
   )
 };
