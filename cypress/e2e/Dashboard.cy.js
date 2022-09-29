@@ -28,8 +28,8 @@ describe('Dashboard Tests', () => {
     cy.get('.rsvp-eventcards').should('be.visible')
     .get('.event-container').contains('h2', 'Event you\'re Attending')
     .get('.title').contains('p', 'What: Taking the rent check over')
-    .get('.date').contains('p', 'When: 2022-10-20')
-    .get('.time').contains('p', 'Time: 18:00:00')
+    .get('.date').contains('p', '2022-10-20')
+    .get('.time').contains('p', '18:00:00')
   });
 
   it('User sees a map with nearby events on page load', () => {
@@ -58,7 +58,7 @@ describe('Dashboard Tests', () => {
   });
 
   it('User can navigate to their profile page', () => {
-    cy.get('.site-nav').contains('button', 'View Profile').click()
+    cy.get('.site-nav').contains('button', 'View My Profile').click()
     .url().should('contain', '/profile')
     .get('.name-wrapper').contains('h2', 'BLUESKIIII')
   });
