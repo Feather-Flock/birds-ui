@@ -164,3 +164,18 @@ query user($id: ID!) {
     }
   }
 }`
+
+export const UPDATE_USER_PROFILE = gql`
+mutation UpdateUser($input: UpdateUserInput!){
+  updateUser(input: $input) {
+      user {
+          id
+          userName
+          email
+          description
+          image
+          zipCode
+      }
+  }
+}
+`
