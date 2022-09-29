@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./UpdateUserProfile.css";
 import zipcodes from "../../zipcodes";
 import { v4 as uuidv4 } from 'uuid'
+import { Link } from "react-router-dom";
 
 const UpdateUserProfile = ({ userData }) => {
 
@@ -17,7 +18,12 @@ const UpdateUserProfile = ({ userData }) => {
     )
   });
 
-  // Will need to map over the userTagneed to map over the tags
+  const handleSaveChanges = (e) => {
+    e.preventDefault();
+    console.log("Mutate User Query!!");
+  };
+
+  // Will need to map over the users tags when they have been added to a user
 
   return (
     <form className="update-profile-form">
@@ -33,9 +39,10 @@ const UpdateUserProfile = ({ userData }) => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+
           <label className="form-label" htmlFor="profile-picture">Edit Image:</label>
+          {/* need an input for update/add a photo  */}
           <img className="profile-picture" id="profile-picture" src={image} alt="family profile"></img>
-          {/* need to figure out how to update/add a photo */}
 
           <label className="form-label" htmlFor="zipcode-select">Edit ZIP Code:</label>
           <select name="zipcode" id="zipcode-select" className="location-wrapper" onChange={(e) => setZipcode(e.target.value)}>
@@ -64,11 +71,15 @@ const UpdateUserProfile = ({ userData }) => {
           </div>
 
           <div className="update-profile-button-container">
-            <button className="cancel-profile-changes-button">Cancel</button>
-            <button className="save-profile-changes-button">Save Changes</button>
+            <Link to={{
+              pathname: "/profile",
+              state: {userId: "1"}
+            }}>
+              <p className="cancel-profile-changes">Cancel</p>
+            </Link>
+            <button className="save-profile-changes-button" onClick={(e) => handleSaveChanges(e.target.value)}>Save Changes</button>
           </div>
         </section>
-
       </section>
 
     </form>

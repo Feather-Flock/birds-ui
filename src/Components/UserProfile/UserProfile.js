@@ -58,7 +58,6 @@ const UserProfile = () => {
           <p className="edit-profile">Edit Profile</p>
         </div>
       </Link>
-
       <section className="top-container">
         <section className="left-container">
           <div className="name-wrapper">

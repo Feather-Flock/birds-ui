@@ -24,7 +24,7 @@
   font-size: 1.5rem;
   border: none;
   border-radius: 5px;
-  margin-left: 10%;
+  margin-left: 4%;
   box-shadow: 6px 6px 13px rgb(0 0 0 / 50%);
   background-color: rgb(38, 38, 38);
 }
@@ -33,16 +33,22 @@
   background-color: #72b594;
 }
 
-.cancel-profile-changes-button {
+.cancel-profile-changes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6em;
+  height: 2em;
   color: black;
   font-size: 1.5rem;
   border: none;
   border-radius: 5px;
-  margin-left: 10%;
+  margin: 0;
   box-shadow: 6px 6px 13px rgb(0 0 0 / 50%);
   background-color: rgb(226, 222, 222);
 }
 
-.cancel-profile-changes-button:hover {
+.cancel-profile-changes:hover {
+  cursor: pointer;
   background-color: rgb(197, 197, 197);
 }
