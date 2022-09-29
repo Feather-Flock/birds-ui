@@ -190,3 +190,15 @@ mutation createTag($input: CreateTagInput!) {
   }
 }
 `
+
+export const CREATE_USER_TAG = gql`
+mutation createUserTag($input: CreateUserTagInput!) {
+  createUserTag(input: $input) {
+      userTag{
+          userId
+          tagId
+          id
+      }
+  }
+}
+`
