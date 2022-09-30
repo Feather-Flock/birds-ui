@@ -61,7 +61,7 @@ const Nav = ({ refetch }) => {
         {currentUserProfile() === 2 &&
           <>
             {dashboardButton()}
-            {/* {profileButton()} */}
+            {profileButton()}
           </>
         }
         {currentUserProfile() === 3 && profileButton()}

@@ -3,6 +3,8 @@ import "./UpdateUserProfile.css";
 import zipcodes from "../../zipcodes";
 import { v4 as uuidv4 } from 'uuid'
 import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { UPDATE_USER_PROFILE } from '../../queries'
 
 const UpdateUserProfile = ({ userData }) => {
 
@@ -10,6 +12,9 @@ const UpdateUserProfile = ({ userData }) => {
   const [image, setImage] = useState(userData.image);
   const [zipcode, setZipcode] = useState(userData.zipCode);
   const [description, setDescription] = useState(userData.description);
+
+  const [mutateUpdateProfile, updatedResponse] = useMutation(UPDATE_USER_PROFILE)
+
   // const [tags, setTags] = useState("");
   // Will need to map over the users tags when they have been added to a user
   
@@ -19,10 +24,10 @@ const UpdateUserProfile = ({ userData }) => {
     )
   });
 
-  const handleSaveChanges = (e) => {
-    e.preventDefault();
-    // Need to add the userquery mutate here
-    console.log("Mutate User Query!!");
+  const handleSaveChanges = () => {
+    mutateUpdateProfile({
+      variables: { input: {id: parseInt(userData.id), userName: username, zipCode: zipcode, description: description}}
+    })
   };
 
   return (
@@ -77,7 +82,7 @@ const UpdateUserProfile = ({ userData }) => {
             }}>
               <p className="cancel-profile-changes">Cancel</p>
             </Link>
-            <button className="save-profile-changes-button" onClick={(e) => handleSaveChanges(e)}>Save Changes</button>
+            <button className="save-profile-changes-button" onClick={handleSaveChanges}>Save Changes</button>
           </div>
         </section>
       </section>

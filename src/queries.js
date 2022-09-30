@@ -164,3 +164,41 @@ query user($id: ID!) {
     }
   }
 }`
+
+export const UPDATE_USER_PROFILE = gql`
+mutation UpdateUser($input: UpdateUserInput!){
+  updateUser(input: $input) {
+      user {
+          id
+          userName
+          email
+          description
+          image
+          zipCode
+      }
+  }
+}
+`
+
+export const CREATE_TAG = gql`
+mutation createTag($input: CreateTagInput!) {
+  createTag(input: $input) {
+      tag {
+          id
+          title
+      }
+  }
+}
+`
+
+export const CREATE_USER_TAG = gql`
+mutation createUserTag($input: CreateUserTagInput!) {
+  createUserTag(input: $input) {
+      userTag{
+          userId
+          tagId
+          id
+      }
+  }
+}
+`
