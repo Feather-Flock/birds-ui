@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./UpdateUserProfile.css";
 import zipcodes from "../../zipcodes";
 import { v4 as uuidv4 } from 'uuid'
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { UPDATE_USER_PROFILE } from '../../queries'
+import tags from "../../identityTags";
 
 const UpdateUserProfile = ({ userData }) => {
 
@@ -14,10 +15,18 @@ const UpdateUserProfile = ({ userData }) => {
   const [description, setDescription] = useState(userData.description);
 
   const [mutateUpdateProfile, updatedResponse] = useMutation(UPDATE_USER_PROFILE)
+  const [allTags, setAllTags] = useState([]);
+
+  useEffect(() => {
+    let allOptions = tags.map((string) => {
+      return <option key={uuidv4()} value={string}>{string}</option>
+    })
+    setAllTags(allOptions)
+  },[])
 
   // const [tags, setTags] = useState("");
   // Will need to map over the users tags when they have been added to a user
-  
+
   const zipcodeOptions = zipcodes.map(zip => {
     return (
       <option key={uuidv4()} value={zip}>{zip}</option>
@@ -30,6 +39,8 @@ const UpdateUserProfile = ({ userData }) => {
     })
   };
 
+
+
   return (
     <form className="update-profile-form">
       <p className="editting-banner">Edit your profile</p>
@@ -37,10 +48,10 @@ const UpdateUserProfile = ({ userData }) => {
       <section className="top-container">
         <section className="left-container">
           <label className="form-label" htmlFor="username">Edit Username:</label>
-          <input className="name-wrapper" 
-            id="username" 
+          <input className="name-wrapper"
+            id="username"
             name="username"
-            type="text" 
+            type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -60,7 +71,7 @@ const UpdateUserProfile = ({ userData }) => {
           <label className="form-label" htmlFor="description">Edit Description:</label>
           <textarea className="description-text-box"
             id="description"
-            name="description" 
+            name="description"
             rows="10"
             cols="50"
             value={description}
@@ -73,6 +84,10 @@ const UpdateUserProfile = ({ userData }) => {
             <p className="tag-title">MLM</p>
             <p className="tag-title">Married</p>
             <p className="tag-title">Monogamous</p>
+            <select>
+              <option>--Add Tag--</option>
+              {allTags}
+            </select>
           </div>
 
           <div className="update-profile-button-container">
