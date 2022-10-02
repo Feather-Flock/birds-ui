@@ -38,7 +38,7 @@ const UpdateUserProfile = ({ userData }) => {
   };
 
   const stuff = (e) => {
-    console.log(e, e.value)
+  setImage(URL.createObjectURL(e.target.files[0]))
   }
 
 
