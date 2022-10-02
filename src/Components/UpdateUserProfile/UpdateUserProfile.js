@@ -18,14 +18,12 @@ const UpdateUserProfile = ({ userData }) => {
   const [allTags, setAllTags] = useState([]);
 
   useEffect(() => {
+    console.log(userData)
     let allOptions = tags.map((string) => {
       return <option key={uuidv4()} value={string}>{string}</option>
     })
     setAllTags(allOptions)
   },[])
-
-  // const [tags, setTags] = useState("");
-  // Will need to map over the users tags when they have been added to a user
 
   const zipcodeOptions = zipcodes.map(zip => {
     return (
@@ -38,6 +36,10 @@ const UpdateUserProfile = ({ userData }) => {
       variables: { input: {id: parseInt(userData.id), userName: username, zipCode: zipcode, description: description}}
     })
   };
+
+  const stuff = (e) => {
+    console.log(e, e.value)
+  }
 
 
 
@@ -57,8 +59,9 @@ const UpdateUserProfile = ({ userData }) => {
           />
 
           <label className="form-label" htmlFor="profile-picture">Edit Image:</label>
-          {/* need an input for update/add a photo  */}
+          <input type='file' accept='image/*' onChange={stuff}/>
           <img className="profile-picture" id="profile-picture" src={image} alt="family profile"></img>
+
 
           <label className="form-label" htmlFor="zipcode-select">Edit ZIP Code:</label>
           <select name="zipcode" id="zipcode-select" className="location-wrapper" onChange={(e) => setZipcode(e.target.value)}>
