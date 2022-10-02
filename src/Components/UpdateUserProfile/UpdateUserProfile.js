@@ -37,7 +37,7 @@ const UpdateUserProfile = ({ userData }) => {
     })
   };
 
-  const stuff = (e) => {
+  const handleImageChange = (e) => {
   setImage(URL.createObjectURL(e.target.files[0]))
   }
 
@@ -59,10 +59,10 @@ const UpdateUserProfile = ({ userData }) => {
           />
 
           <label className="form-label" htmlFor="profile-picture">Edit Image:</label>
-          <input type='file' accept='image/*' onChange={stuff}/>
           <img className="profile-picture" id="profile-picture" src={image} alt="family profile"></img>
+          <input className='image-input' type='file' accept='image/*' onChange={handleImageChange}/>
 
-
+          <br/>
           <label className="form-label" htmlFor="zipcode-select">Edit ZIP Code:</label>
           <select name="zipcode" id="zipcode-select" className="location-wrapper" onChange={(e) => setZipcode(e.target.value)}>
             <option value="">{zipcode}</option>

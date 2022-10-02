@@ -78,6 +78,10 @@
 .description-text-box {
   text-indent: 10%;
 }
+.image-input {
+  margin: 1%;
+  padding:1%;
+}
 
 .tag-button {
   color: #EFF1FB;
