@@ -75,6 +75,10 @@
   display:flex;
 }
 
+.description-text-box {
+  text-indent: 10%;
+}
+
 .tag-button {
   color: #EFF1FB;
   height: 1.3em;
