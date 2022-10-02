@@ -75,6 +75,18 @@
   display:flex;
 }
 
+.tag-button {
+  color: #EFF1FB;
+  height: 1.3em;
+  width: 6em;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  margin: 1%;
+  box-shadow: 6px 6px 13px rgb(0 0 0 / 50%);
+  background-color: rgb(38, 38, 38);
+}
+
 @media screen and (max-width: 830px) {
   .save-profile-changes-button,
   .cancel-profile-changes {

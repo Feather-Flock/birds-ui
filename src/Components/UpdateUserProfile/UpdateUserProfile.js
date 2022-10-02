@@ -90,7 +90,7 @@ const UpdateUserProfile = ({ userData }) => {
               <option>--Add Tag--</option>
               {allTags}
             </select>
-            <button>Add Tag</button>
+            <button className='tag-button'>Add Tag</button>
           </div>
 
           <div className="update-profile-button-container">
