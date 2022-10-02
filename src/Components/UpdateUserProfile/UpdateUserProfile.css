@@ -67,6 +67,14 @@
   margin: 0;
 }
 
+.tag-container {
+  display: flex;
+  flex-direction: column;
+}
+.tags {
+  display:flex;
+}
+
 @media screen and (max-width: 830px) {
   .save-profile-changes-button,
   .cancel-profile-changes {

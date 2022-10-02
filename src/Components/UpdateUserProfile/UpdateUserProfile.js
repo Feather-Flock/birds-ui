@@ -80,14 +80,17 @@ const UpdateUserProfile = ({ userData }) => {
 
           {/* need to figure out to create a drop down menu that adds/removes tags like Terminal */}
           <div className="tag-container">
-            <p className="tag-title">2 Kids</p>
-            <p className="tag-title">MLM</p>
-            <p className="tag-title">Married</p>
-            <p className="tag-title">Monogamous</p>
+            <div className='tags'>
+              <p className="tag-title">2 Kids</p>
+              <p className="tag-title">MLM</p>
+              <p className="tag-title">Married</p>
+              <p className="tag-title">Monogamous</p>
+            </div>
             <select>
               <option>--Add Tag--</option>
               {allTags}
             </select>
+            <button>Add Tag</button>
           </div>
 
           <div className="update-profile-button-container">
