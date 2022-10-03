@@ -21,7 +21,9 @@ const UpdateUserProfile = ({ userData }) => {
     return <option key={tag.id} id={tag.id} value={tag.title}>{tag.title}</option>
   })
 
-  const userTags = [];
+  const userTags = userData.userTags.map((tag) => {
+    return <p className='tag-container'>{tag.title}</p>
+  });
 
   const zipcodeOptions = zipcodes.map(zip => {
     return (
