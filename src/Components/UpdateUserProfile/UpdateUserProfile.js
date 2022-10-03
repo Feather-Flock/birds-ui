@@ -3,8 +3,8 @@ import "./UpdateUserProfile.css";
 import zipcodes from "../../zipcodes";
 import { v4 as uuidv4 } from 'uuid'
 import { Link } from "react-router-dom";
-import { useMutation } from "@apollo/client";
-import { UPDATE_USER_PROFILE } from '../../queries'
+import { useMutation, useQuery } from "@apollo/client";
+import { UPDATE_USER_PROFILE, GET_ALL_TAGS} from '../../queries'
 import tags from "../../identityTags";
 
 const UpdateUserProfile = ({ userData }) => {
@@ -15,21 +15,20 @@ const UpdateUserProfile = ({ userData }) => {
   const [description, setDescription] = useState(userData.description);
 
   const [mutateUpdateProfile, updatedResponse] = useMutation(UPDATE_USER_PROFILE)
-  const [allTags, setAllTags] = useState([]);
+  const {loading, error, data, refetch} = useQuery(GET_ALL_TAGS)
 
-  useEffect(() => {
-    console.log(userData)
-    let allOptions = tags.map((string) => {
-      return <option key={uuidv4()} value={string}>{string}</option>
-    })
-    setAllTags(allOptions)
-  },[])
+  const allTags = data?.tags.map((tag) => {
+    return <option key={tag.id} id={tag.id} value={tag.title}>{tag.title}</option>
+  })
+
+  const userTags = [];
 
   const zipcodeOptions = zipcodes.map(zip => {
     return (
       <option key={uuidv4()} value={zip}>{zip}</option>
     )
   });
+
 
   const handleSaveChanges = () => {
     mutateUpdateProfile({
@@ -84,10 +83,7 @@ const UpdateUserProfile = ({ userData }) => {
           {/* need to figure out to create a drop down menu that adds/removes tags like Terminal */}
           <div className="tag-container">
             <div className='tags'>
-              <p className="tag-title">2 Kids</p>
-              <p className="tag-title">MLM</p>
-              <p className="tag-title">Married</p>
-              <p className="tag-title">Monogamous</p>
+              {userTags}
             </div>
             <select>
               <option>--Add Tag--</option>
