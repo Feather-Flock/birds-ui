@@ -48,6 +48,10 @@ query user($id: ID!, $range: Int!) {
       time
       rsvps
     }
+    userTags(id: $id) {
+      title
+      id
+    }
   }
 }`
 
@@ -179,6 +183,13 @@ mutation UpdateUser($input: UpdateUserInput!){
   }
 }
 `
+export const GET_ALL_TAGS = gql `
+query tags {
+    tags {
+        id
+        title
+    }
+}`
 
 export const CREATE_TAG = gql`
 mutation createTag($input: CreateTagInput!) {
