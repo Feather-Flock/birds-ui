@@ -36,9 +36,6 @@ describe('User Profile Tests', () => {
 
   it('User should see their identifying tags', () => {
     cy.get('.tag-container').contains('p', '2 Kids')
-    .get('.tag-container').contains('p', 'MLM')
-    .get('.tag-container').contains('p', 'Married')
-    .get('.tag-container').contains('p', 'Monogamous')
   });
 
   it('User should see events that they created', () => {
