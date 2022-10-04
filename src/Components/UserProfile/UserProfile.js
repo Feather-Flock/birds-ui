@@ -60,10 +60,14 @@ const UserProfile = () => {
     );
   };
 
+  const userTags = userData.userTags.map((string) => {
+    return <p className='tag-title'>{string.title}</p>
+  });
+
   return (
     <div className="user-profile-page">
       {modalVisible && <EventModal userId={data.user.id} eventId={eventId} visible={modalVisible} handleClose={closeModal} isRsvpd={rsvpd()} />}
-      {data.user.id === "1" && editProfile()}      
+      {data.user.id === "1" && editProfile()}
       <section className="top-container">
         <section className="left-container">
           <div className="name-wrapper">
@@ -78,10 +82,7 @@ const UserProfile = () => {
         <section className="right-container">
           <p className="description-text-box">{data.user.description}</p>
           <div className="tag-container">
-          <p className="tag-title">2 Kids</p>
-          <p className="tag-title">MLM</p>
-          <p className="tag-title">Married</p>
-          <p className="tag-title">Monogamous</p>
+            {userTags}
           </div>
         </section>
       </section>
