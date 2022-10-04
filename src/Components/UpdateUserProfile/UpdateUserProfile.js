@@ -21,7 +21,7 @@ const UpdateUserProfile = ({ userData }) => {
 
 
   const userTags = userData.userTags.map((string) => {
-    return <p className='tag-container'>{string.title}</p>
+    return <p className='tag-title'>{string.title}</p>
   });
 
   const zipcodeOptions = zipcodes.map(zip => {
@@ -47,7 +47,6 @@ const UpdateUserProfile = ({ userData }) => {
 
   const handleAddTag = (e) => {
     e.preventDefault()
-    console.log(tag)
     mutateAddUserTag({
       variables: {input: {userId: parseInt(userData.id), tagId: parseInt(tag.tagId)}}
     })
