@@ -45,7 +45,7 @@ const App = () =>  {
           <UserProfile range={range} />
         </Route>
         <Route exact path="/update-profile">
-          <UpdateUserProfile userData={data.user} />
+          <UpdateUserProfile refetchUser={refetch} userData={data.user} />
         </Route>
         <Footer />
       </div>

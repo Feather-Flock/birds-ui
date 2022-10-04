@@ -4,10 +4,10 @@ import zipcodes from "../../zipcodes";
 import { v4 as uuidv4 } from 'uuid'
 import { Link } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
-import { UPDATE_USER_PROFILE, GET_ALL_TAGS, CREATE_USER_TAG} from '../../queries'
+import { UPDATE_USER_PROFILE, GET_ALL_TAGS, CREATE_USER_TAG, CREATE_TAG} from '../../queries'
 import tags from "../../identityTags";
 
-const UpdateUserProfile = ({ userData }) => {
+const UpdateUserProfile = ({ refetchUser, userData }) => {
 
   const [username, setUsername] = useState(userData.userName);
   const [image, setImage] = useState(userData.image);
@@ -17,6 +17,7 @@ const UpdateUserProfile = ({ userData }) => {
 
   const [mutateUpdateProfile, updatedResponse] = useMutation(UPDATE_USER_PROFILE)
   const [mutateAddUserTag, updatedTags] = useMutation(CREATE_USER_TAG)
+  const [mutateAddNewTag, updatedTagsList] = useMutation(CREATE_TAG)
   const {loading, error, data, refetch} = useQuery(GET_ALL_TAGS)
 
 
@@ -35,6 +36,7 @@ const UpdateUserProfile = ({ userData }) => {
     mutateUpdateProfile({
       variables: { input: {id: parseInt(userData.id), userName: username, zipCode: zipcode, description: description}}
     })
+    refetchUser()
   };
 
   const handleImageChange = (e) => {
@@ -47,9 +49,12 @@ const UpdateUserProfile = ({ userData }) => {
 
   const handleAddTag = (e) => {
     e.preventDefault()
+
     mutateAddUserTag({
       variables: {input: {userId: parseInt(userData.id), tagId: parseInt(tag.tagId)}}
     })
+
+    refetchUser()
 
   }
 
@@ -93,7 +98,6 @@ const UpdateUserProfile = ({ userData }) => {
             onChange={(e) => setDescription(e.target.value)}>
           </textarea>
 
-          {/* need to figure out to create a drop down menu that adds/removes tags like Terminal */}
           <div className="tag-container">
             <div className='tags'>
               {userTags}

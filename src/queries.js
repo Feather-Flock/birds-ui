@@ -166,6 +166,10 @@ query user($id: ID!) {
       host
       rsvps
     }
+    userTags(id: $id) {
+      title
+      id
+    }
   }
 }`
 
