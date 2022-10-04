@@ -67,6 +67,45 @@
   margin: 0;
 }
 
+.tag-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.tags {
+  display:flex;
+}
+
+.tag-title {
+  padding: 10px;
+  color: white;
+  background-color: rgb(54, 53, 53);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  border: 2px solid black;
+  margin: 1%;
+}
+
+.description-text-box {
+  text-indent: 10%;
+}
+.image-input {
+  margin: 1%;
+  padding:1%;
+}
+
+.tag-button {
+  color: #EFF1FB;
+  height: 1.3em;
+  width: 6em;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  margin: 1%;
+  box-shadow: 6px 6px 13px rgb(0 0 0 / 50%);
+  background-color: rgb(38, 38, 38);
+}
+
 @media screen and (max-width: 830px) {
   .save-profile-changes-button,
   .cancel-profile-changes {
