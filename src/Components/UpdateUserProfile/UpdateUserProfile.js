@@ -4,7 +4,7 @@ import zipcodes from "../../zipcodes";
 import { v4 as uuidv4 } from 'uuid'
 import { Link } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
-import { UPDATE_USER_PROFILE, GET_ALL_TAGS} from '../../queries'
+import { UPDATE_USER_PROFILE, GET_ALL_TAGS, CREATE_USER_TAG} from '../../queries'
 import tags from "../../identityTags";
 
 const UpdateUserProfile = ({ userData }) => {
@@ -13,16 +13,15 @@ const UpdateUserProfile = ({ userData }) => {
   const [image, setImage] = useState(userData.image);
   const [zipcode, setZipcode] = useState(userData.zipCode);
   const [description, setDescription] = useState(userData.description);
+  const [tag, setTag] = useState({})
 
   const [mutateUpdateProfile, updatedResponse] = useMutation(UPDATE_USER_PROFILE)
+  const [mutateAddUserTag, updatedTags] = useMutation(CREATE_USER_TAG)
   const {loading, error, data, refetch} = useQuery(GET_ALL_TAGS)
 
-  const allTags = data?.tags.map((tag) => {
-    return <option key={tag.id} id={tag.id} value={tag.title}>{tag.title}</option>
-  })
 
-  const userTags = userData.userTags.map((tag) => {
-    return <p className='tag-container'>{tag.title}</p>
+  const userTags = userData.userTags.map((string) => {
+    return <p className='tag-container'>{string.title}</p>
   });
 
   const zipcodeOptions = zipcodes.map(zip => {
@@ -40,6 +39,19 @@ const UpdateUserProfile = ({ userData }) => {
 
   const handleImageChange = (e) => {
   setImage(URL.createObjectURL(e.target.files[0]))
+  }
+
+  const allTags = data?.tags.map((string) => {
+    return <option key={string.id} id={string.id} value={string.id}>{string.title}</option>
+  })
+
+  const handleAddTag = (e) => {
+    e.preventDefault()
+    console.log(tag)
+    mutateAddUserTag({
+      variables: {input: {userId: parseInt(userData.id), tagId: parseInt(tag.tagId)}}
+    })
+
   }
 
 
@@ -87,11 +99,11 @@ const UpdateUserProfile = ({ userData }) => {
             <div className='tags'>
               {userTags}
             </div>
-            <select>
-              <option>--Add Tag--</option>
-              {allTags}
-            </select>
-            <button className='tag-button'>Add Tag</button>
+              <select onChange={(e) => {setTag({tagId: e.target.value})}}>
+                <option>--Add Tag--</option>
+                {allTags}
+              </select>
+              <button className='tag-button' onClick={handleAddTag}>Add Tag</button>
           </div>
 
           <div className="update-profile-button-container">
