@@ -111,7 +111,7 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
           <div className="update-profile-button-container">
             <Link to={{
               pathname: "/profile",
-              state: {userId: "1"}
+              state: {userId: userData.id}
             }}>
               <p className="cancel-profile-changes">Cancel</p>
             </Link>
