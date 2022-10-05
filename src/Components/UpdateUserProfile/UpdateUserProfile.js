@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./UpdateUserProfile.css";
 import zipcodes from "../../zipcodes";
 import { v4 as uuidv4 } from 'uuid'
 import { Link } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
-import { UPDATE_USER_PROFILE, GET_ALL_TAGS, CREATE_USER_TAG, CREATE_TAG} from '../../queries'
-import tags from "../../identityTags";
+import { UPDATE_USER_PROFILE, GET_ALL_TAGS, CREATE_USER_TAG } from '../../queries'
 
 const UpdateUserProfile = ({ refetchUser, userData }) => {
 
@@ -17,12 +16,15 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
 
   const [mutateUpdateProfile, updatedResponse] = useMutation(UPDATE_USER_PROFILE)
   const [mutateAddUserTag, updatedTags] = useMutation(CREATE_USER_TAG)
-  const [mutateAddNewTag, updatedTagsList] = useMutation(CREATE_TAG)
   const {loading, error, data, refetch} = useQuery(GET_ALL_TAGS)
 
 
   const userTags = userData.userTags.map((string) => {
-    return <p className='tag-title'>{string.title}</p>
+    return (
+      <div className='update-tag-title'>
+        <p>{string.title}</p>
+      </div>
+    )
   });
 
   const zipcodeOptions = zipcodes.map(zip => {
@@ -38,10 +40,6 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
     })
     refetchUser()
   };
-
-  const handleImageChange = (e) => {
-  setImage(URL.createObjectURL(e.target.files[0]))
-  }
 
   const allTags = data?.tags.map((string) => {
     return <option key={string.id} id={string.id} value={string.id}>{string.title}</option>
@@ -75,9 +73,8 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
             onChange={(e) => setUsername(e.target.value)}
           />
 
-          <label className="form-label" htmlFor="profile-picture">Edit Image:</label>
+          <label className="form-label" htmlFor="profile-picture"></label>
           <img className="profile-picture" id="profile-picture" src={image} alt="family profile"></img>
-          <input className='image-input' type='file' accept='image/*' onChange={handleImageChange}/>
 
           <br/>
           <label className="form-label" htmlFor="zipcode-select">Edit ZIP Code:</label>
@@ -98,7 +95,7 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
             onChange={(e) => setDescription(e.target.value)}>
           </textarea>
 
-          <div className="tag-container">
+          <div className="update-tag-container">
             <div className='tags'>
               {userTags}
             </div>
@@ -112,7 +109,7 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
           <div className="update-profile-button-container">
             <Link to={{
               pathname: "/profile",
-              state: {userId: "1"}
+              state: {userId: userData.id}
             }}>
               <p className="cancel-profile-changes">Cancel</p>
             </Link>

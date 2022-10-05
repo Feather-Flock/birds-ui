@@ -29,17 +29,10 @@
   color: #EFF1FB;
 }
 
-.event-modal-map {
-  height: 40%;
-  width: 40%;
-  margin-left: 30%;
-  z-index:9999;
-}
-
 .event-modal {
   border-radius: 12px;
   outline: none;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   width: 60vw;
   height: 60vh;
   display: flex;
@@ -76,6 +69,7 @@
   font-size: 1.2rem;
   font-weight: 500;
   margin-top: 2em;
+  margin-right: 5em;
 }
 
 .link {
