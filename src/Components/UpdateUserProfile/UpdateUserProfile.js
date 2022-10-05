@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./UpdateUserProfile.css";
 import zipcodes from "../../zipcodes";
 import { v4 as uuidv4 } from 'uuid'
 import { Link } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
-import { UPDATE_USER_PROFILE, GET_ALL_TAGS, CREATE_USER_TAG, CREATE_TAG} from '../../queries'
-import tags from "../../identityTags";
+import { UPDATE_USER_PROFILE, GET_ALL_TAGS, CREATE_USER_TAG } from '../../queries'
 
 const UpdateUserProfile = ({ refetchUser, userData }) => {
 
@@ -17,7 +16,6 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
 
   const [mutateUpdateProfile, updatedResponse] = useMutation(UPDATE_USER_PROFILE)
   const [mutateAddUserTag, updatedTags] = useMutation(CREATE_USER_TAG)
-  const [mutateAddNewTag, updatedTagsList] = useMutation(CREATE_TAG)
   const {loading, error, data, refetch} = useQuery(GET_ALL_TAGS)
 
 
