@@ -22,7 +22,11 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
 
 
   const userTags = userData.userTags.map((string) => {
-    return <p className='tag-title'>{string.title}</p>
+    return (
+      <div className='update-tag-title'>
+        <p>{string.title}</p>
+      </div>
+    )
   });
 
   const zipcodeOptions = zipcodes.map(zip => {
@@ -93,7 +97,7 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
             onChange={(e) => setDescription(e.target.value)}>
           </textarea>
 
-          <div className="tag-container">
+          <div className="update-tag-container">
             <div className='tags'>
               {userTags}
             </div>

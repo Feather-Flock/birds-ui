@@ -61,7 +61,11 @@ const UserProfile = () => {
   };
 
   const userTags = data?.user?.userTags.map((string) => {
-    return <p className='tag-title'>{string.title}</p>
+    return ( 
+      <div className='tag-title'>
+        <p>{string.title}</p>
+      </div>
+     )
   });
 
   return (
