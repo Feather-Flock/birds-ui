@@ -67,7 +67,7 @@ const UserProfile = () => {
   return (
     <div className="user-profile-page">
       {modalVisible && <EventModal userId={data.user.id} eventId={eventId} visible={modalVisible} handleClose={closeModal} isRsvpd={rsvpd()} />}
-      {data.user.id === "1" && editProfile()}
+      {state?.userId && editProfile()}
       <section className="top-container">
         <section className="left-container">
           <div className="name-wrapper">
