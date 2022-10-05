@@ -75,7 +75,7 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
             onChange={(e) => setUsername(e.target.value)}
           />
 
-          <label className="form-label" htmlFor="profile-picture">Edit Image:</label>
+          <label className="form-label" htmlFor="profile-picture"></label>
           <img className="profile-picture" id="profile-picture" src={image} alt="family profile"></img>
 
           <br/>
