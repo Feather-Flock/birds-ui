@@ -39,10 +39,6 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
     refetchUser()
   };
 
-  const handleImageChange = (e) => {
-  setImage(URL.createObjectURL(e.target.files[0]))
-  }
-
   const allTags = data?.tags.map((string) => {
     return <option key={string.id} id={string.id} value={string.id}>{string.title}</option>
   })
@@ -77,7 +73,6 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
 
           <label className="form-label" htmlFor="profile-picture">Edit Image:</label>
           <img className="profile-picture" id="profile-picture" src={image} alt="family profile"></img>
-          <input className='image-input' type='file' accept='image/*' onChange={handleImageChange}/>
 
           <br/>
           <label className="form-label" htmlFor="zipcode-select">Edit ZIP Code:</label>
