@@ -6,6 +6,20 @@
   padding: 10px;
 }
 
+.boaf {
+  font-size: 2.2em;
+  margin: 0;
+  margin-left: 5px;
+  text-decoration: none;
+  background: #262626;
+  border-radius: 12px;
+  color: white;
+  width: 25vw;
+  padding: 2%;
+  text-align: center;
+  font-weight: 200;
+}
+
 .radiant-button {
   padding: 0.6em 2em;
   border: none;
@@ -90,7 +104,7 @@
   margin-right: 10px;
 }
 
-@media screen and (max-width: 500px ) {
+@media screen and (max-width: 600px ) {
   .nav-bar {
     flex-direction: column;
   }
@@ -116,6 +130,12 @@
     margin: 0;
     margin-left: 5px;
     color: black;
+    background: #262626;
+    border-radius: 12px;
+    color: white;
+    width: 75vw;
+    text-align: center;
+    font-weight: 200;
   }
 }
 
@@ -132,18 +152,4 @@ a {
 .logo-name {
   display: flex;
   align-items: center;
-}
-
-.boaf {
-  font-size: 2.2em;
-  margin: 0;
-  margin-left: 5px;
-  text-decoration: none;
-  background: #262626;
-  border-radius: 12px;
-  color: white;
-  width: 25vw;
-  padding: 2%;
-  text-align: center;
-  font-weight: 200;
 }
