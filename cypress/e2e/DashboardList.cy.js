@@ -22,7 +22,7 @@ describe('Dashboard List Tests', () => {
 
   it('User sees upcoming events they are attending', () => {
     cy.get('.event-list-rsvp').should('be.visible')
-    .get('.event-container').first().contains('h2', 'Event you\'re Attending')
+    .get('.event-container').first().contains('h2', 'Event You\'re Attending')
     .get('.title').first().contains('p', 'What: Taking the rent check over')
     .get('.date').first().contains('p', '2022-10-20')
     .get('.time').first().contains('p', '18:00:00')
