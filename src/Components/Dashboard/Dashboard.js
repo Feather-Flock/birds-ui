@@ -35,7 +35,7 @@ const Dashboard = ({refetch, handleSelect, range, setRange}) => {
         </div>
       <div className="dashboard-main-container">
         <div className="rsvp-eventcards">
-          <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />
+          <Events events={user.rsvpdEvents} eventTitle={"Event You're Attending"} type={"card"} handleClick={handleClick} />
         </div>
         <div className="dashboard-map-container">
           <div className="select-dropdown">

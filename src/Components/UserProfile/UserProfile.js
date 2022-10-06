@@ -95,7 +95,7 @@ const UserProfile = () => {
           <Events events={data.user.userEvents} eventTitle={`Event ${title} Created`} type={"card"} userEvent={true} handleClick={handleClick} deleteClick={deleteClick}/>
         </section>
         <section className="right-container card">
-          {state?.userId && <Events events={data.user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick} />}
+          {state?.userId && <Events events={data.user.rsvpdEvents} eventTitle={"Event You're Attending"} type={"card"} handleClick={handleClick} />}
         </section>
       </section>
     </div>

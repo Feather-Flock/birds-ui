@@ -37,7 +37,7 @@ const DashboardList = ({refetch, handleSelect, range}) => {
       </div>
       <div className="main-container">
         <div className="event-list-rsvp">
-          <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick}/>
+          <Events events={user.rsvpdEvents} eventTitle={"Event You're Attending"} type={"card"} handleClick={handleClick}/>
         </div>
         <div className="event-list-user">
           <Events events={user.userDefined} eventTitle={"Event Near You"} type={"card"} handleClick={handleClick} />
