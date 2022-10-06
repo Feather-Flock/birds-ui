@@ -26,7 +26,7 @@ describe('Dashboard Tests', () => {
 
   it('User sees upcoming events they are attending', () => {
     cy.get('.rsvp-eventcards').should('be.visible')
-    .get('.event-container').contains('h2', 'Event you\'re Attending')
+    .get('.event-container').contains('h2', 'Event You\'re Attending')
     .get('.title').contains('p', 'What: Taking the rent check over')
     .get('.date').contains('p', '2022-10-20')
     .get('.time').contains('p', '18:00:00')

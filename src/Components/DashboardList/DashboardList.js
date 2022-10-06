@@ -28,22 +28,19 @@ const DashboardList = ({refetch, handleSelect, range}) => {
 
   return (
     <div className="dashboardList-container">
-      <h1 className="welcome-user">Welcome {user.userName}!</h1>
-      <div className="top-list-container">
-        <div className="select-list-dropdown"></div>
-        <div className="select-list-dropdown">
-          <SelectDropdown handleSelect={handleSelect} range={range} />
-        </div>
-      </div>
       <div className="main-container">
         <div className="event-list-rsvp">
-          <Events events={user.rsvpdEvents} eventTitle={"Event you're Attending"} type={"card"} handleClick={handleClick}/>
+          <h1 className="welcome-user">Welcome back, {user.userName}!</h1>
+          <Events events={user.rsvpdEvents} eventTitle={"Event You're Attending"} type={"card"} handleClick={handleClick}/>
         </div>
         <div className="event-list-user">
+          <div className="select-list-dropdown">
+            <SelectDropdown handleSelect={handleSelect} range={range} />
+          </div>
           <Events events={user.userDefined} eventTitle={"Event Near You"} type={"card"} handleClick={handleClick} />
         </div>
       </div>
-        {modalVisible && <EventModal userId={user.id} eventId={eventId} visible={modalVisible} handleClose={closeModal} isRsvpd={rsvpd()} />}
+      {modalVisible && <EventModal userId={user.id} eventId={eventId} visible={modalVisible} handleClose={closeModal} isRsvpd={rsvpd()} />}
     </div>
   )
 }
