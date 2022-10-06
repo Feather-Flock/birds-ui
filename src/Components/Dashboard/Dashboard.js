@@ -30,12 +30,12 @@ const Dashboard = ({refetch, handleSelect, range, setRange}) => {
   return (
     <div className="dashboard-container">
       {modalVisible && <EventModal userId={user.id} eventId={eventId} isRsvpd={rsvpd()} visible={modalVisible} handleClose={closeModal}/>}
-        <div>
-          <h1 className="welcome-message">Welcome {user.userName}!</h1>
-        </div>
       <div className="dashboard-main-container">
-        <div className="rsvp-eventcards">
-          <Events events={user.rsvpdEvents} eventTitle={"Event You're Attending"} type={"card"} handleClick={handleClick} />
+        <div className="welcome-container">
+          <h1 className="welcome-message">Welcome back, {user.userName}!</h1>
+          <div className="rsvp-eventcards">
+            <Events events={user.rsvpdEvents} eventTitle={"Event You're Attending"} type={"card"} handleClick={handleClick} />
+          </div>
         </div>
         <div className="dashboard-map-container">
           <div className="select-dropdown">
