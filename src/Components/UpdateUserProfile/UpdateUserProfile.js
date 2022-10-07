@@ -91,6 +91,7 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
             onChange={(e) => setDescription(e.target.value)}>
           </textarea>
 
+          <p className="form-label edit-tags">Edit Tags:</p>
           <div className="update-tag-container">
             <div className='tags'>
               {userTags}
