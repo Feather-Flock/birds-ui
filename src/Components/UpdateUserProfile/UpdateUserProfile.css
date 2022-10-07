@@ -1,3 +1,7 @@
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
 .editting-banner {
   display: flex;
   align-items: center;
@@ -102,9 +106,9 @@
   text-align: center;
 }
 
-.description-text-box {
+/* .description-text-box {
   text-indent: 10%;
-}
+} */
 
 .tag-button {
   color: #EFF1FB;
