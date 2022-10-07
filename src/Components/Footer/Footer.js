@@ -8,7 +8,7 @@ const Footer = () => {
         <thead>
           <tr>
             <th>
-              <h4 className="footer-header">FrontEnd Team:</h4>
+              <p className="footer-header">FrontEnd Team:</p>
             </th>
           </tr>
         </thead>
@@ -34,7 +34,7 @@ const Footer = () => {
         <thead>
           <tr>
             <th>
-              <h4 className="footer-header">BackEnd Team:</h4>
+              <p className="footer-header">BackEnd Team:</p>
             </th>
           </tr>
         </thead>
