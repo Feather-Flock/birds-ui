@@ -32,19 +32,31 @@ Welcome to Birds of a Feather! The goal of this app is to connect LGBTQ+ familie
 
 Change Range of Events
 
-![Change Range](src/BofAF-Change-Range-Click-event.gif)
+![Change Range](src/ExpandZipRadius.gif)
 
 Navigate to user Profile from event
 
-![Nav](src/BofAF-Nav-from-event-modal.gif)
+![Nav](src/ViewFamilyFromEvent.gif)
 
 Fill out and submit a new event
 
-![Event Form](src/Event-Form-Fill.gif)
+![Event Form](src/CreateEvent.gif)
 
-Go to user profile and delete new added event
+Edit User profile
 
-![Delete event](src/Delete-new-event.gif)
+![Edit](src/EditProfile.gif)
+
+Rsvp to event from event modal
+
+![RSVP](src/EventModalRSVP.gif)
+
+List View
+
+![List](src/ListViewRadius.gif)
+
+Get directions to event
+
+![Mapquest](src/Mapquest.gif)
 
 The [Turing School of Software and Design](https://turing.edu/) provided a project overview for students to follow, which can be found [here](https://mod4.turing.edu/projects/capstone/).
 
@@ -64,9 +76,11 @@ The [Turing School of Software and Design](https://turing.edu/) provided a proje
 * JavaScript
 * React
 * React Router
-* GraphQL
+<img src='https://img.shields.io/badge/Apollo%20GraphQL-311C87?&style=for-the-badge&logo=Apollo%20GraphQL&logoColor=white' />
+<img src='https://img.shields.io/badge/GraphQl-E10098?style=for-the-badge&logo=graphql&logoColor=white'/>
 * CircleCI
 * Cypress Testing
+<img src='https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white'/>
 * HTML
 * CSS
 * npm
