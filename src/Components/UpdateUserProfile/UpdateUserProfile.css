@@ -70,9 +70,8 @@
 .update-tag-container {
   display: flex;
   flex-direction: column;
-  width: 40vw;
-  min-height: 15vh;
-  flex-wrap: wrap;
+  width: 42vw;
+  min-height: 25vh;
   justify-content: space-evenly;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.75);
@@ -84,7 +83,10 @@
 
 .tags {
   display:flex;
-  margin: 20px;
+  flex-wrap: wrap;
+  margin: 5px;
+  justify-content: center;
+  overflow-x: scroll;
 }
 
 .update-tag-title {
