@@ -18,7 +18,6 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
   const [mutateAddUserTag, updatedTags] = useMutation(CREATE_USER_TAG)
   const {loading, error, data, refetch} = useQuery(GET_ALL_TAGS)
 
-
   const userTags = userData.userTags.map((string) => {
     return (
       <div className='update-tag-title'>
@@ -32,7 +31,6 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
       <option key={uuidv4()} value={zip}>{zip}</option>
     )
   });
-
 
   const handleSaveChanges = () => {
     mutateUpdateProfile({
@@ -55,8 +53,6 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
     refetchUser()
 
   }
-
-
 
   return (
     <form className="update-profile-form">
@@ -95,6 +91,7 @@ const UpdateUserProfile = ({ refetchUser, userData }) => {
             onChange={(e) => setDescription(e.target.value)}>
           </textarea>
 
+          <p className="form-label edit-tags">Edit Tags:</p>
           <div className="update-tag-container">
             <div className='tags'>
               {userTags}
