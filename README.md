@@ -26,22 +26,37 @@ Welcome to Birds of a Feather! The goal of this app is to connect LGBTQ+ familie
  - Users can make their own events from the new event page
  - Users can ensure they have the right address with the visual of the interactive maps
  - Users can delete their own events from their user profile
+ - Users can edit their profile description
+ - Users can add new tags to their profile detailing communities of the LGBTQ + they belong to
+ - User can update their Denver zipcode and username
 
 Change Range of Events
 
-![Change Range](src/BofAF-Change-Range-Click-event.gif)
+![Change Range](src/ExpandZipRadius.gif)
 
 Navigate to user Profile from event
 
-![Nav](src/BofAF-Nav-from-event-modal.gif)
+![Nav](src/ViewFamilyFromEvent.gif)
 
 Fill out and submit a new event
 
-![Event Form](src/Event-Form-Fill.gif)
+![Event Form](src/CreateEvent.gif)
 
-Go to user profile and delete new added event
+Edit User profile
 
-![Delete event](src/Delete-new-event.gif)
+![Edit](src/EditProfile.gif)
+
+Rsvp to event from event modal
+
+![RSVP](src/EventModalRSVP.gif)
+
+List View
+
+![List](src/ListViewRadius.gif)
+
+Get directions to event
+
+![Mapquest](src/Mapquest.gif)
 
 The [Turing School of Software and Design](https://turing.edu/) provided a project overview for students to follow, which can be found [here](https://mod4.turing.edu/projects/capstone/).
 
@@ -58,20 +73,39 @@ The [Turing School of Software and Design](https://turing.edu/) provided a proje
 
 
 ## Technologies and Tools
-* JavaScript
-* React
-* React Router
-* GraphQL
-* CircleCI
-* Cypress Testing
-* HTML
-* CSS
-* npm
-* Miro
-* Postman
-* Agile workflow
-* GitHub Issues
-* GitHub Projects
+<img src='https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E'/>
+</br>
+<img src='https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB'/>
+</br>
+<img src='https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white'/>
+</br>
+<img src='https://img.shields.io/badge/Apollo%20GraphQL-311C87?&style=for-the-badge&logo=Apollo%20GraphQL&logoColor=white' />
+</br>
+<img src='https://img.shields.io/badge/GraphQl-E10098?style=for-the-badge&logo=graphql&logoColor=white'/>
+</br>
+<img src='https://img.shields.io/badge/circleci-343434?style=for-the-badge&logo=circleci&logoColor=white'/>
+</br>
+<img src='https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white'/>
+</br>
+<img src='https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white'/>
+</br>
+<img src='https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white'/>
+</br>
+<img src='https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white'/>
+</br>
+<img src='https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white'/>
+</br>
+<img src='https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white'/>
+</br>
+<img src='https://img.shields.io/badge/Miro-F7C922?style=for-the-badge&logo=Miro&logoColor=050036'/>
+</br>
+<img src='https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white'/>
+</br>
+<img src='https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white'/>
+</br>
+<img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white'/>
+</br>
+  Context API
 
 
 ## Deployed Page
