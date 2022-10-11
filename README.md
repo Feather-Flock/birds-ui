@@ -26,6 +26,9 @@ Welcome to Birds of a Feather! The goal of this app is to connect LGBTQ+ familie
  - Users can make their own events from the new event page
  - Users can ensure they have the right address with the visual of the interactive maps
  - Users can delete their own events from their user profile
+ - Users can edit their profile description
+ - Users can add new tags to their profile detailing communities of the LGBTQ + they belong to
+ - User can update their Denver zipcode and username
 
 Change Range of Events
 
