@@ -1,14 +1,14 @@
-# [Birds of a Feather](http://www.birds-of-a-feather.net/)
+# Birds of a Feather
+View the deployed site [here](https://birds-ui.vercel.app/).
+<br/>
+<br/>
 ![Flamingo](src/Flamingo.png)
-
-*A [Turing School of Software and Design](https://turing.edu/) Module 4 Capstone Full-Stack Project*
 
 
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Learning Goals](#learning-goals)
 - [Technologies and Tools](#technologies-and-tools)
-- [Deployed Page](#deployed-page)
 - [Project Reflections](#project-reflections)
 - [Roadmap](#roadmap)
 - [Setup](#setup)
@@ -30,35 +30,33 @@ Welcome to Birds of a Feather! The goal of this app is to connect LGBTQ+ familie
  - Users can add new tags to their profile detailing communities of the LGBTQ + they belong to
  - User can update their Denver zipcode and username
 
-Change Range of Events
+*Change Range of Events*
 
 ![Change Range](src/ExpandZipRadius.gif)
 
-Navigate to user Profile from event
+*Navigate to user Profile from event*
 
 ![Nav](src/ViewFamilyFromEvent.gif)
 
-Fill out and submit a new event
+*Fill out and submit a new event*
 
 ![Event Form](src/CreateEvent.gif)
 
-Edit User profile
+*Edit User profile*
 
 ![Edit](src/EditProfile.gif)
 
-Rsvp to event from event modal
+*Rsvp to event from event modal*
 
 ![RSVP](src/EventModalRSVP.gif)
 
-List View
+*List View*
 
 ![List](src/ListViewRadius.gif)
 
-Get directions to event
+*Get directions to event*
 
 ![Mapquest](src/Mapquest.gif)
-
-The [Turing School of Software and Design](https://turing.edu/) provided a project overview for students to follow, which can be found [here](https://mod4.turing.edu/projects/capstone/).
 
 
 ## Learning Goals
@@ -74,51 +72,32 @@ The [Turing School of Software and Design](https://turing.edu/) provided a proje
 
 ## Technologies and Tools
 <img src='https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E'/>
-</br>
 <img src='https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB'/>
-</br>
 <img src='https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white'/>
-</br>
 <img src='https://img.shields.io/badge/Apollo%20GraphQL-311C87?&style=for-the-badge&logo=Apollo%20GraphQL&logoColor=white' />
-</br>
 <img src='https://img.shields.io/badge/GraphQl-E10098?style=for-the-badge&logo=graphql&logoColor=white'/>
-</br>
 <img src='https://img.shields.io/badge/circleci-343434?style=for-the-badge&logo=circleci&logoColor=white'/>
-</br>
 <img src='https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white'/>
-</br>
 <img src='https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white'/>
-</br>
 <img src='https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white'/>
-</br>
 <img src='https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white'/>
-</br>
 <img src='https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white'/>
-</br>
 <img src='https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white'/>
-</br>
 <img src='https://img.shields.io/badge/Miro-F7C922?style=for-the-badge&logo=Miro&logoColor=050036'/>
-</br>
 <img src='https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white'/>
-</br>
 <img src='https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white'/>
-</br>
 <img src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white'/>
-</br>
-  Context API
-
-
-## Deployed Page
-You can access this project through the deployed page [here](http://www.birds-of-a-feather.net/).
+Context API
 
 
 ## Project Reflections
 #### Wins
--Getting interactive maps on both the dashboard and the event form
--Having users be able to look at the host family profile of different events
+* Getting interactive maps on both the dashboard and the event form
+* Having users be able to look at the host family profile of different events
+
 #### Challenges
--The event modal proved challenging for certain rendering capabilities (map)
--CircleCI sometimes had confusing errors and there is definitely still fuzziness surrounding it.
+* The event modal proved challenging for certain rendering capabilities (map)
+* CircleCI sometimes had confusing errors and there is definitely still fuzziness surrounding it.
 
 
 ## Roadmap
@@ -158,3 +137,6 @@ For Cypress Testing:
 * [Cypress](https://docs.cypress.io/guides/overview/why-cypress)
 * [Scrimba](https://scrimba.com/dashboard#overview)
 * [GraphQL Cypress Tutorial](https://www.jayfreestone.com/writing/stubbing-graphql-cypress/)
+
+
+*A [Turing School of Software and Design](https://turing.edu/) Module 4 Capstone Full-Stack Project. The project overview can be found [here](https://mod4.turing.edu/projects/capstone/).*
